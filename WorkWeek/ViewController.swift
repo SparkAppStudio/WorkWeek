@@ -8,4 +8,3 @@ import RealmSwift
 class ViewController: UIViewController {
 
 }
-
