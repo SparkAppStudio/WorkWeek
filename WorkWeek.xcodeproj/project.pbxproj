@@ -92,6 +92,7 @@
 				5287CA301EDCF91E00E71CE8 /* Resources */,
 				5287CA471EDCFA2D00E71CE8 /* Copy Carthage Frameworks */,
 				523511671EDDB7F00093B125 /* Swiftlint Files */,
+				5208F3B01EDE6A9F008F82CC /* Warn for FIXME and TODO */,
 			);
 			buildRules = (
 			);
@@ -151,6 +152,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5208F3B01EDE6A9F008F82CC /* Warn for FIXME and TODO */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Warn for FIXME and TODO";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO|FIXME|TEMP|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
 		523511671EDDB7F00093B125 /* Swiftlint Files */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
