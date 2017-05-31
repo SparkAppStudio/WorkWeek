@@ -332,6 +332,7 @@
 				DEVELOPMENT_TEAM = VY4FR2X9W5;
 				INFOPLIST_FILE = WorkWeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SparkAppStudio.WorkWeek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -345,6 +346,7 @@
 				DEVELOPMENT_TEAM = VY4FR2X9W5;
 				INFOPLIST_FILE = WorkWeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SparkAppStudio.WorkWeek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
