@@ -4,6 +4,7 @@
 
 import UIKit
 import RealmSwift
+import Crashlytics
 
 class ViewController: UIViewController {
 

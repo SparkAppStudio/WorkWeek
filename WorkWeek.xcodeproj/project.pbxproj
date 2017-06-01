@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5208F3AC1EDE4C22008F82CC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5208F3AA1EDE4C22008F82CC /* Fabric.framework */; };
+		5208F3AD1EDE4C22008F82CC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */; };
 		5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */; };
 		5287CA381EDCF91E00E71CE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA371EDCF91E00E71CE8 /* ViewController.swift */; };
 		5287CA3B1EDCF91E00E71CE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA391EDCF91E00E71CE8 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5208F3AA1EDE4C22008F82CC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		5287CA321EDCF91E00E71CE8 /* WorkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5287CA371EDCF91E00E71CE8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +39,8 @@
 			files = (
 				5287CA4D1EDCFB8400E71CE8 /* Realm.framework in Frameworks */,
 				5287CA4E1EDCFB8400E71CE8 /* RealmSwift.framework in Frameworks */,
+				5208F3AD1EDE4C22008F82CC /* Crashlytics.framework in Frameworks */,
+				5208F3AC1EDE4C22008F82CC /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +80,8 @@
 		5287CA481EDCFA9100E71CE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5208F3AA1EDE4C22008F82CC /* Fabric.framework */,
+				5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */,
 				5287CA491EDCFA9200E71CE8 /* Realm.framework */,
 				5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */,
 			);
@@ -92,6 +100,7 @@
 				5287CA301EDCF91E00E71CE8 /* Resources */,
 				5287CA471EDCFA2D00E71CE8 /* Copy Carthage Frameworks */,
 				523511671EDDB7F00093B125 /* Swiftlint Files */,
+				5208F3A91EDE4BC9008F82CC /* Do Fabric Things */,
 				5208F3B01EDE6A9F008F82CC /* Warn for FIXME and TODO */,
 				5208F3B11EDE6BB8008F82CC /* Bump Version Number for Release builds */,
 			);
@@ -117,7 +126,7 @@
 					5287CA311EDCF91E00E71CE8 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = VY4FR2X9W5;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -153,6 +162,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5208F3A91EDE4BC9008F82CC /* Do Fabric Things */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Do Fabric Things";
+
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 993252beacbf2387f597b3284548e20828ae2643 9e9bac7398eecbf08f8597321214eda953841c7b981b9e48b750f7a4cc3ac84e";
+		};
 		5208F3B01EDE6A9F008F82CC /* Warn for FIXME and TODO */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -161,6 +185,7 @@
 			inputPaths = (
 			);
 			name = "Warn for FIXME and TODO";
+
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,11 +370,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VY4FR2X9W5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WorkWeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SparkAppStudio.WorkWeek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0e87e880-a3be-45b2-abc2-516cce1d8db9";
+				PROVISIONING_PROFILE_SPECIFIER = "Spark App Studio WildCard";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -358,12 +389,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VY4FR2X9W5;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WorkWeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SparkAppStudio.WorkWeek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
