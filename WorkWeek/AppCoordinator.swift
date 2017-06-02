@@ -13,7 +13,9 @@ class AppCoordinator {
     }
 
     func start() {
-
+        let initial = ViewController.instantiate()
+        navigationController.setViewControllers([initial], animated: false)
+        navigationController.isNavigationBarHidden = true
     }
 
 }
