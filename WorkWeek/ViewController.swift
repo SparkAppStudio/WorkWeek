@@ -5,7 +5,9 @@
 import UIKit
 import RealmSwift
 import Crashlytics
+import Reusable
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController, StoryboardSceneBased {
+        static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
 }
