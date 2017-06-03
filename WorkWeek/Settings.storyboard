@@ -6,26 +6,152 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="jAD-yu-VHs">
             <objects>
-                <viewController id="ttp-Yw-Jgs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ttp-Yw-Jgs" customClass="SettingsViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S1r-ub-ep5"/>
                         <viewControllerLayoutGuide type="bottom" id="PiK-PI-kuc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="b4d-XH-gUT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AO2-iM-pHW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4je-7f-bQF">
+                                        <rect key="frame" x="8" y="8" width="320" height="651"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiZ-vj-xkd">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="eua-1l-UvB"/>
+                                                </constraints>
+                                                <state key="normal" title="Work"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-CC-dK1">
+                                                <rect key="frame" x="0.0" y="128" width="320" height="120"/>
+                                                <state key="normal" title="Home"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEe-DW-1D6">
+                                                <rect key="frame" x="0.0" y="256" width="320" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ErR-dH-GWg">
+                                                <rect key="frame" x="0.0" y="284.5" width="320" height="39"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ST-IS-pTT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="7ST-IS-pTT" secondAttribute="height" multiplier="1:1" id="xEs-g3-HJz"/>
+                                                        </constraints>
+                                                        <state key="normal" title="S"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoT-bP-FdR">
+                                                        <rect key="frame" x="47" y="0.0" width="38.5" height="39"/>
+                                                        <state key="normal" title="M"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nix-B9-5C7">
+                                                        <rect key="frame" x="93.5" y="0.0" width="39" height="39"/>
+                                                        <state key="normal" title="T"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paC-XE-ryM">
+                                                        <rect key="frame" x="140.5" y="0.0" width="39" height="39"/>
+                                                        <state key="normal" title="W"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFf-F8-CQE">
+                                                        <rect key="frame" x="187.5" y="0.0" width="39" height="39"/>
+                                                        <state key="normal" title="T"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVJ-vh-kxk">
+                                                        <rect key="frame" x="234.5" y="0.0" width="38.5" height="39"/>
+                                                        <state key="normal" title="F"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLW-Bv-rs8">
+                                                        <rect key="frame" x="281" y="0.0" width="39" height="39"/>
+                                                        <state key="normal" title="S"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Hours Per Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfV-pO-Cyu">
+                                                <rect key="frame" x="0.0" y="331.5" width="320" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32a-So-1JK">
+                                                <rect key="frame" x="0.0" y="360" width="320" height="216"/>
+                                            </pickerView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfa-cD-Kbz">
+                                                <rect key="frame" x="0.0" y="584" width="320" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIc-qb-EUD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="271" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tct-wC-KLw">
+                                                        <rect key="frame" x="271" y="0.0" width="51" height="31"/>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Xwa-Sq-4o4">
+                                                <rect key="frame" x="0.0" y="623" width="320" height="29"/>
+                                                <segments>
+                                                    <segment title="Daily"/>
+                                                    <segment title="Weekly"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="jGm-7F-uyG"/>
+                                            <constraint firstItem="yiZ-vj-xkd" firstAttribute="height" secondItem="Ocd-CC-dK1" secondAttribute="height" id="tRY-xy-mRB"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4je-7f-bQF" firstAttribute="leading" secondItem="AO2-iM-pHW" secondAttribute="leading" constant="8" id="3qK-yS-9Px"/>
+                                    <constraint firstAttribute="bottom" secondItem="4je-7f-bQF" secondAttribute="bottom" constant="8" id="lcB-aV-nnD"/>
+                                    <constraint firstItem="4je-7f-bQF" firstAttribute="top" secondItem="AO2-iM-pHW" secondAttribute="top" constant="8" id="qHa-UN-nhW"/>
+                                    <constraint firstAttribute="trailing" secondItem="4je-7f-bQF" secondAttribute="trailing" constant="8" id="y81-rF-yef"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AO2-iM-pHW" secondAttribute="trailing" id="R1f-Z4-udh"/>
+                            <constraint firstItem="AO2-iM-pHW" firstAttribute="leading" secondItem="b4d-XH-gUT" secondAttribute="leading" id="cWr-56-pIK"/>
+                            <constraint firstItem="PiK-PI-kuc" firstAttribute="top" secondItem="AO2-iM-pHW" secondAttribute="bottom" id="e6Z-xZ-vfF"/>
+                            <constraint firstItem="AO2-iM-pHW" firstAttribute="top" secondItem="b4d-XH-gUT" secondAttribute="top" id="frv-j2-8OC"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="friday" destination="DVJ-vh-kxk" id="Wmv-Q9-nJO"/>
+                        <outlet property="home" destination="Ocd-CC-dK1" id="ucf-Mq-P00"/>
+                        <outlet property="mainStackViewContentWidth" destination="jGm-7F-uyG" id="AlW-68-5bY"/>
+                        <outlet property="monday" destination="DoT-bP-FdR" id="ebc-eB-xas"/>
+                        <outlet property="saturday" destination="fLW-Bv-rs8" id="K0u-Yk-hTN"/>
+                        <outlet property="sunday" destination="7ST-IS-pTT" id="4be-2S-tyi"/>
+                        <outlet property="thursday" destination="UFf-F8-CQE" id="pSt-Mm-hVx"/>
+                        <outlet property="tuesday" destination="nix-B9-5C7" id="ewS-4w-AgW"/>
+                        <outlet property="wednesday" destination="paC-XE-ryM" id="3AJ-2Y-H92"/>
+                        <outlet property="work" destination="yiZ-vj-xkd" id="KTh-wK-R8d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTs-Xi-bXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="298" y="233"/>
+            <point key="canvasLocation" x="298.39999999999998" y="233.43328335832086"/>
         </scene>
     </scenes>
 </document>
