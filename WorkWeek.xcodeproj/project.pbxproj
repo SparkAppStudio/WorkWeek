@@ -13,7 +13,7 @@
 		52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52223FAA1EE1299B0014F4A9 /* Reusable.framework */; };
 		5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */; };
 		5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */; };
-		5287CA3B1EDCF91E00E71CE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA391EDCF91E00E71CE8 /* Main.storyboard */; };
+		5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA391EDCF91E00E71CE8 /* Activity.storyboard */; };
 		5287CA3D1EDCF91E00E71CE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */; };
 		5287CA401EDCF91E00E71CE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */; };
 		5287CA4D1EDCFB8400E71CE8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5287CA491EDCFA9200E71CE8 /* Realm.framework */; };
@@ -31,7 +31,7 @@
 		5287CA321EDCF91E00E71CE8 /* WorkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
-		5287CA3A1EDCF91E00E71CE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5287CA3A1EDCF91E00E71CE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Activity.storyboard; sourceTree = "<group>"; };
 		5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5287CA3F1EDCF91E00E71CE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5287CA411EDCF91E00E71CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		D1CA47011EE34D9F003628FF /* Activity */ = {
 			isa = PBXGroup;
 			children = (
-				5287CA391EDCF91E00E71CE8 /* Main.storyboard */,
+				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
 				D1CA47061EE35528003628FF /* ActivityPageViewController.swift */,
 				5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */,
 				D1CA47021EE354B9003628FF /* DailyTableViewController.swift */,
@@ -179,7 +179,7 @@
 			files = (
 				5287CA401EDCF91E00E71CE8 /* LaunchScreen.storyboard in Resources */,
 				5287CA3D1EDCF91E00E71CE8 /* Assets.xcassets in Resources */,
-				5287CA3B1EDCF91E00E71CE8 /* Main.storyboard in Resources */,
+				5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,12 +278,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5287CA391EDCF91E00E71CE8 /* Main.storyboard */ = {
+		5287CA391EDCF91E00E71CE8 /* Activity.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5287CA3A1EDCF91E00E71CE8 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Activity.storyboard;
 			sourceTree = "<group>";
 		};
 		5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */ = {

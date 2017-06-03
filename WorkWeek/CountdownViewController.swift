@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Reusable
 
 final class CountdownViewController: UIViewController {
     @IBOutlet weak var countdownDisplay: UILabel!
@@ -34,4 +35,8 @@ final class CountdownViewController: UIViewController {
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
+}
+
+extension CountdownViewController: StoryboardSceneBased {
+    static let sceneStoryboard = UIStoryboard(name: "Activity", bundle: nil)
 }

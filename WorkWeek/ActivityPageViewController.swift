@@ -12,7 +12,7 @@ class ActivityPageViewController: UIPageViewController {
                 self.newViewController("WeeklyTableViewController")]
     }()
     fileprivate func newViewController(_ vcName: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil) .
+        return UIStoryboard(name: "Activity", bundle: nil) .
             instantiateViewController(withIdentifier: vcName)
     }
     override func viewDidLoad() {
@@ -70,5 +70,5 @@ extension ActivityPageViewController: UIPageViewControllerDataSource {
     }
 }
 extension ActivityPageViewController: StoryboardSceneBased {
-    static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    static let sceneStoryboard = UIStoryboard(name: "Activity", bundle: nil)
 }
