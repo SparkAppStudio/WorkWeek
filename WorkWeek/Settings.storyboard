@@ -141,6 +141,7 @@
                         <outlet property="home" destination="Ocd-CC-dK1" id="ucf-Mq-P00"/>
                         <outlet property="mainStackViewContentWidth" destination="jGm-7F-uyG" id="AlW-68-5bY"/>
                         <outlet property="monday" destination="DoT-bP-FdR" id="ebc-eB-xas"/>
+                        <outlet property="picker" destination="32a-So-1JK" id="hEq-jG-3Pb"/>
                         <outlet property="saturday" destination="fLW-Bv-rs8" id="K0u-Yk-hTN"/>
                         <outlet property="sunday" destination="7ST-IS-pTT" id="4be-2S-tyi"/>
                         <outlet property="thursday" destination="UFf-F8-CQE" id="pSt-Mm-hVx"/>
