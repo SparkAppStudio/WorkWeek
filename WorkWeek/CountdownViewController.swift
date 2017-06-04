@@ -17,10 +17,10 @@ final class CountdownViewController: UIViewController {
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
-                                     selector: (#selector(CountdownViewController.updateTimer)),
+                                     selector: (#selector(CountdownViewController.updateTimer(_:))),
                                      userInfo: nil, repeats: true)
     }
-    func updateTimer() {
+    func updateTimer(_ timer: Timer) {
         if timeRemaining < 1 {
             timer.invalidate()
             //Time is up, do some stuff
