@@ -12,7 +12,7 @@ import Reusable
 
 // MARK: Onboarding
 
-protocol OnboardingStoryboard {
+protocol OnboardingStoryboard: StoryboardSceneBased {
     static var sceneStoryboard: UIStoryboard { get }
 }
 
@@ -37,7 +37,7 @@ extension OnboardingStoryboard {
 
 // MARK: Activity
 
-protocol ActivityStoryboard {
+protocol ActivityStoryboard: StoryboardSceneBased {
     static var sceneStoryboard: UIStoryboard { get }
 }
 
@@ -54,7 +54,7 @@ extension ActivityStoryboard {
 
 // MARK: Settings
 
-protocol SettingsStoryboard {
+protocol SettingsStoryboard: StoryboardSceneBased {
     static var sceneStoryboard: UIStoryboard { get }
 }
 
