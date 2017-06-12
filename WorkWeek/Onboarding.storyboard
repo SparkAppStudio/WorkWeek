@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="roa-CS-hLv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="roa-CS-hLv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,10 +17,10 @@
             </objects>
             <point key="canvasLocation" x="386" y="-342"/>
         </scene>
-        <!--Onboard Green View Controller-->
+        <!--Onboard Welcome View Controller-->
         <scene sceneID="N1y-7N-yKR">
             <objects>
-                <viewController storyboardIdentifier="OnboardGreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NlO-XX-Muh" customClass="OnboardGreenViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardWelcomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NlO-XX-Muh" customClass="OnboardWelcomeViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q2b-fd-LrA"/>
                         <viewControllerLayoutGuide type="bottom" id="F6Y-b1-FbL"/>
@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="-378" y="385"/>
         </scene>
-        <!--Onboard Blue View Controller-->
+        <!--Onboard Explain View Controller-->
         <scene sceneID="lxT-hG-PN8">
             <objects>
-                <viewController storyboardIdentifier="OnboardBlueViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sPt-f5-ack" customClass="OnboardBlueViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardExplainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sPt-f5-ack" customClass="OnboardExplainViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Caf-e5-VYP"/>
                         <viewControllerLayoutGuide type="bottom" id="HRx-hk-Wcc"/>
@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="385" y="385"/>
         </scene>
-        <!--Onboard Orange View Controller-->
+        <!--Onboard Location View Controller-->
         <scene sceneID="xjC-OL-pK6">
             <objects>
-                <viewController storyboardIdentifier="OnboardOrangeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HRI-QM-ONB" customClass="OnboardOrangeViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardLocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HRI-QM-ONB" customClass="OnboardLocationViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ufM-Hb-kfC"/>
                         <viewControllerLayoutGuide type="bottom" id="U8i-SN-3wu"/>
@@ -70,6 +70,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVw-JS-Iup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1173" y="385"/>
+        </scene>
+        <!--Onboard Notify View Controller-->
+        <scene sceneID="7GF-Gi-358">
+            <objects>
+                <viewController storyboardIdentifier="OnboardNotifyViewController" id="cMX-Dv-x1n" customClass="OnboardNotifyViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6bu-9x-aMX"/>
+                        <viewControllerLayoutGuide type="bottom" id="p7p-31-mdk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LfG-7d-uwf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ad2-lu-95e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2049" y="385"/>
         </scene>
     </scenes>
 </document>
