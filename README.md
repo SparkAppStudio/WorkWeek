@@ -7,8 +7,8 @@ Track work hours automatically.
 
 # For Developers
 Before building the project with Xcode you'll need to build the dependencies
-using [Carthage](https://github.com/Carthage/Carthage).
+using [Carthage](https://github.com/Carthage/Carthage). It's probably best to use the same script that CI uses to keep everything consistent. 
 
 ```
-carthage bootstrap --platform iOS
+./buddybuild_carthage_command.sh
 ```
