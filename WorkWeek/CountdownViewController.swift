@@ -37,6 +37,5 @@ final class CountdownViewController: UIViewController {
     }
 }
 
-extension CountdownViewController: StoryboardSceneBased {
-    static let sceneStoryboard = UIStoryboard(name: "Activity", bundle: nil)
+extension CountdownViewController: ActivityStoryboard {
 }
