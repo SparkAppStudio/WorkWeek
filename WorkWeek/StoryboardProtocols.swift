@@ -21,14 +21,6 @@ extension OnboardingStoryboard {
         return "Onboarding"
     }
 
-//    private static var storyboardName: String {
-//        switch Self.self {
-//        case OnboardViewController.self:
-//            return "Onboarding"
-//        default:
-//            assertionFailure("wrong storyboard bro")
-//        }
-//    }
 }
 
 // MARK: Activity
