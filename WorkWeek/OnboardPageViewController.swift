@@ -6,9 +6,11 @@ import UIKit
 
 final class OnboardPageViewController: UIPageViewController, OnboardingStoryboard {
 
-    var orderedViewControllers = [OnboardGreenViewController.instantiate(),
-                        OnboardBlueViewController.instantiate(),
-                        OnboardOrangeViewController.instantiate()]
+    var orderedViewControllers = [
+        OnboardGreenViewController.instantiate(),
+        OnboardBlueViewController.instantiate(),
+        OnboardOrangeViewController.instantiate()
+    ]
 
     lazy var manager: PageManager = {
         return PageManager(types: self.orderedViewControllers)
