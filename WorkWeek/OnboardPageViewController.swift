@@ -1,8 +1,4 @@
 //
-//  OnboardPageViewController.swift
-//  WorkWeek
-//
-//  Created by Douglas Hewitt on 6/3/17.
 //  Copyright © 2017 Spark App Studio. All rights reserved.
 //
 
@@ -10,9 +6,11 @@ import UIKit
 
 final class OnboardPageViewController: UIPageViewController, OnboardingStoryboard {
 
-    var orderedViewControllers = [OnboardGreenViewController.instantiate(),
-                        OnboardBlueViewController.instantiate(),
-                        OnboardOrangeViewController.instantiate()]
+    var orderedViewControllers = [
+        OnboardGreenViewController.instantiate(),
+        OnboardBlueViewController.instantiate(),
+        OnboardOrangeViewController.instantiate()
+    ]
 
     lazy var manager: PageManager = {
         return PageManager(types: self.orderedViewControllers)
@@ -23,6 +21,7 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
 
         delegate = manager
         dataSource = manager
+
         guard let firstVC = orderedViewControllers.first else {
             assertionFailure("No pages in array")
             return
