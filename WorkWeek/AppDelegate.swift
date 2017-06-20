@@ -3,8 +3,6 @@
 //
 
 import UIKit
-import Fabric
-import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        Fabric.with([Crashlytics.self])
+        CrashReporting.configure()
+
+        Analytics.track(.appEvent(#function), "App Was launched")
+
+        Log.log(.error, "Test out error logging")
 
         configureWindowAndCoordinator()
         return true
