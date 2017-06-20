@@ -28,6 +28,11 @@ class PageManager: NSObject, UIPageViewControllerDelegate, UIPageViewControllerD
         let previousIndex = viewControllerIndex - 1
 
         guard previousIndex >= 0, orderedViewControllers.count > previousIndex else {
+            for subview in pageViewController.view.subviews where subview is UIScrollView {
+                guard let view = subview as? UIScrollView else {break}
+                view.bounces = false
+            }
+
             return nil
         }
 
@@ -44,6 +49,10 @@ class PageManager: NSObject, UIPageViewControllerDelegate, UIPageViewControllerD
         let orderedViewControllersCount = orderedViewControllers.count
 
         guard orderedViewControllersCount != nextIndex, orderedViewControllersCount > nextIndex else {
+            for subview in pageViewController.view.subviews where subview is UIScrollView {
+                guard let view = subview as? UIScrollView else {break}
+                view.bounces = false
+            }
             return nil
         }
 

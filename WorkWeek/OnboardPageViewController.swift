@@ -30,4 +30,11 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         }
         setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
     }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        for subview in view.subviews where subview is UIScrollView {
+            subview.frame = view.frame
+        }
+    }
 }
