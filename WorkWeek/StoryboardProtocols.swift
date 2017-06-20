@@ -1,8 +1,4 @@
 //
-//  StoryboardProtocols.swift
-//  WorkWeek
-//
-//  Created by Douglas Hewitt on 6/3/17.
 //  Copyright © 2017 Spark App Studio. All rights reserved.
 //
 
@@ -25,15 +21,8 @@ extension OnboardingStoryboard {
         return "Onboarding"
     }
 
-//    private static var storyboardName: String {
-//        switch Self.self {
-//        case OnboardViewController.self:
-//            return "Onboarding"
-//        default:
-//            assertionFailure("wrong storyboard bro")
-//        }
-//    }
 }
+
 
 // MARK: Activity
 

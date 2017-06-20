@@ -6,20 +6,25 @@ import UIKit
 import Reusable
 
 final class CountdownViewController: UIViewController {
+
     @IBOutlet weak var countdownDisplay: UILabel!
+
     var timer = Timer()
     var timeRemaining = 28800
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //By default, start count down from 8 hours
         runTimer()
     }
+
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
                                      selector: (#selector(CountdownViewController.updateTimer(_:))),
                                      userInfo: nil, repeats: true)
     }
+
     func updateTimer(_ timer: Timer) {
         if timeRemaining < 1 {
             timer.invalidate()
@@ -29,6 +34,7 @@ final class CountdownViewController: UIViewController {
             countdownDisplay.text = timeString(time: TimeInterval(timeRemaining))
         }
     }
+
     func timeString(time: TimeInterval) -> String {
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
@@ -37,6 +43,5 @@ final class CountdownViewController: UIViewController {
     }
 }
 
-extension CountdownViewController: StoryboardSceneBased {
-    static let sceneStoryboard = UIStoryboard(name: "Activity", bundle: nil)
+extension CountdownViewController: ActivityStoryboard {
 }
