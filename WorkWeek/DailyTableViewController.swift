@@ -1,4 +1,4 @@
-//  Created by YupinHuPro on 6/3/17.
+//
 //  Copyright © 2017 Spark App Studio. All rights reserved.
 //
 
@@ -34,6 +34,5 @@ class DailyTableViewController: UITableViewController {
     }
 }
 
-extension DailyTableViewController: StoryboardSceneBased {
-    static let sceneStoryboard = UIStoryboard(name: "Activity", bundle: nil)
+extension DailyTableViewController: ActivityStoryboard {
 }

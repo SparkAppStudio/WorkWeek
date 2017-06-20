@@ -157,7 +157,6 @@
 				5287CA471EDCFA2D00E71CE8 /* Copy Carthage Frameworks */,
 				523511671EDDB7F00093B125 /* Swiftlint Files */,
 				5208F3A91EDE4BC9008F82CC /* Do Fabric Things */,
-				5208F3B01EDE6A9F008F82CC /* Warn for FIXME and TODO */,
 				5208F3B11EDE6BB8008F82CC /* Bump Version Number for Release builds */,
 			);
 			buildRules = (
@@ -233,20 +232,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 993252beacbf2387f597b3284548e20828ae2643 9e9bac7398eecbf08f8597321214eda953841c7b981b9e48b750f7a4cc3ac84e";
-		};
-		5208F3B01EDE6A9F008F82CC /* Warn for FIXME and TODO */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Warn for FIXME and TODO";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "KEYWORDS=\"TODO|FIXME|TEMP|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
 		};
 		5208F3B11EDE6BB8008F82CC /* Bump Version Number for Release builds */ = {
 			isa = PBXShellScriptBuildPhase;
