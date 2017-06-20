@@ -10,10 +10,10 @@ import Crashlytics
 ///
 /// USAGE
 /// =====
-///    Analytics.track(.pageView(.onboarding("GreenVC)), "Green VC dismissed")
+///     Analytics.track(.pageView(.onboarding("GreenVC)), "Green VC dismissed")
 ///
-///    let moreData = ["user": userID, "customerNumber": customerNumber]
-///    Analytics.track(.appEvent("Checkout"), "Purchase", moreData)
+///     let moreData = ["user": userID, "customerNumber": customerNumber]
+///     Analytics.track(.appEvent("Checkout"), "Purchase", moreData)
 ///
 /// I think that this API is not totally set in stone... When we have a few more
 /// events to track we may have a better sense of what is important here.
