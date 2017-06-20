@@ -63,7 +63,7 @@ final class Log {
 
         output += message
 
-        #if DEBUG // The docs say use the other one in production.
+        #if DEBUG // The Crashlytics docs say don't use `CSSNSLogv` in production.
             CLSNSLogv("%@", getVaList([output]))
         #else
             CLSLogv("%@", getVaList([output]))
