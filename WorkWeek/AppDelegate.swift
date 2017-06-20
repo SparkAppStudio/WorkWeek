@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Analytics.track(.appEvent(#function), "App Was launched")
 
         Log.log(.error, "Test out error logging")
+        Log.log("Some Debug Error Message")
 
         configureWindowAndCoordinator()
         return true
