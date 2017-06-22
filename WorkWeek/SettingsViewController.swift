@@ -11,6 +11,8 @@ private let padding: CGFloat = 8
 
 final class SettingsViewController: UIViewController, SettingsStoryboard {
 
+    weak var delegate: SettingsMainProtocol?
+
     @IBOutlet var mainStackViewContentWidth: NSLayoutConstraint!
 
     @IBOutlet weak var work: UIButton!
@@ -46,6 +48,22 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+
+
+    // MARK: Actions
+
+    @IBAction func homeMapPressed(_ sender: UIButton) {
+        delegate?.didTapHomeMap()
+    }
+
+    @IBAction func workMapPressed(_ sender: UIButton) {
+        delegate?.didTapWorkMap()
+    }
+
+    @IBAction func notificationsToggled(_ sender: UISwitch) {
+        delegate?.notificationsSwitched(sender.isOn)
+    }
+
 
     // MARK: Members (RE-asses this name?...
 
