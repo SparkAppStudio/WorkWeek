@@ -31,6 +31,7 @@ class WorkDayHoursPickerDataSource: NSObject, UIPickerViewDataSource, UIPickerVi
 
     /// NOTE: There will only ever be one component
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        assert(component == 0, "This should just be one scrolling list of numbers...")
         return pickerData.count
     }
 

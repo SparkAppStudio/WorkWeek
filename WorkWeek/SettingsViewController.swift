@@ -39,6 +39,8 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         picker.delegate = pickerDataSource
         picker.dataSource = pickerDataSource
         pickerDataSource.delegate = self
+
+        setPickerDefaultRow()
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -55,6 +57,11 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         for button in buttons {
             button.configureForDefaultStyle()
         }
+    }
+
+    func setPickerDefaultRow() {
+        let eightHours = 15
+        picker.selectRow(eightHours, inComponent: 0, animated: false)
     }
 }
 
