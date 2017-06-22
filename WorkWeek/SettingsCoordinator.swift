@@ -2,9 +2,23 @@
 //  Copyright © 2017 Spark App Studio. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class SettingsCoordinator: SettingsMainProtocol {
+
+    let navigationController: UINavigationController
+
+    init(with navController: UINavigationController) {
+        self.navigationController = navController
+    }
+
+    func start() {
+        let initial = SettingsViewController.instantiate()
+        initial.delegate = self
+
+        navigationController.setViewControllers([initial], animated: false)
+        navigationController.isNavigationBarHidden = true
+    }
 
     enum MapConfig {
         case home
@@ -14,21 +28,22 @@ class SettingsCoordinator: SettingsMainProtocol {
     // MARK: Settings Main Protocol
 
     func didTapHomeMap() {
-        <#code#>
+        print("Tapped Home Map")
     }
 
     func didTapWorkMap() {
-        <#code#>
+        print("Tapped Work Map")
     }
 
     func notificationsSwitched(_ isOn: Bool) {
-        <#code#>
+        let state = isOn ? "ON" : "OFF"
+        print("switched notifications to \(state)")
     }
 
 }
 
-protocol SettingsMainProtocol {
+protocol SettingsMainProtocol: class {
     func didTapWorkMap()
     func didTapHomeMap()
-    func notificationsSwitched()
+    func notificationsSwitched(_ isOn: Bool)
 }

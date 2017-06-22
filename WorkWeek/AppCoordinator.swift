@@ -7,15 +7,26 @@ import UIKit
 class AppCoordinator {
 
     let navigationController: UINavigationController
+    var childCoordinators = [Any]()
 
     init(with navController: UINavigationController) {
         self.navigationController = navController
     }
 
     func start() {
-        let initial = ActivityPageViewController.instantiate()
-        navigationController.setViewControllers([initial], animated: false)
-        navigationController.isNavigationBarHidden = true
+        let needsSettings = true
+        if needsSettings {
+            let settingsCoordinator = SettingsCoordinator(with: navigationController)
+            childCoordinators.append(settingsCoordinator)
+            settingsCoordinator.start()
+            return
+        } else {
+            let initial = ActivityPageViewController.instantiate()
+            navigationController.setViewControllers([initial], animated: false)
+            navigationController.isNavigationBarHidden = true
+        }
     }
+
+
 
 }

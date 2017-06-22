@@ -34,10 +34,16 @@
                                                     <constraint firstAttribute="height" constant="120" id="eua-1l-UvB"/>
                                                 </constraints>
                                                 <state key="normal" title="Work"/>
+                                                <connections>
+                                                    <action selector="workMapPressed:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="Rpi-nU-GgQ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-CC-dK1">
                                                 <rect key="frame" x="0.0" y="128" width="320" height="120"/>
                                                 <state key="normal" title="Home"/>
+                                                <connections>
+                                                    <action selector="homeMapPressed:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="V0r-H9-Ph7"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEe-DW-1D6">
                                                 <rect key="frame" x="0.0" y="256" width="320" height="20.5"/>
@@ -106,6 +112,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tct-wC-KLw">
                                                         <rect key="frame" x="271" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="notificationsToggled:" destination="ttp-Yw-Jgs" eventType="valueChanged" id="jgN-it-hnp"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
