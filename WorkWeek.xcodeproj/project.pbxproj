@@ -107,10 +107,7 @@
 				5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */,
 				5287CA411EDCF91E00E71CE8 /* Info.plist */,
 				52223FA81EE123F20014F4A9 /* AppCoordinator.swift */,
-				526799111EE349A500F41E01 /* Settings.storyboard */,
-				526799131EE3555600F41E01 /* SettingsViewController.swift */,
-				52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */,
-				52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */,
+				52E1A7291EFB91CA00FBF278 /* Settings */,
 			);
 			path = WorkWeek;
 			sourceTree = "<group>";
@@ -125,6 +122,17 @@
 				5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52E1A7291EFB91CA00FBF278 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				526799111EE349A500F41E01 /* Settings.storyboard */,
+				526799131EE3555600F41E01 /* SettingsViewController.swift */,
+				52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */,
+				52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		D1CA47011EE34D9F003628FF /* Activity */ = {
