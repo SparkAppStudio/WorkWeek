@@ -9,7 +9,7 @@ import Reusable
 // ex: |-padding-|StackView|-padding-| , where | the outer pipe is the scroll View
 private let padding: CGFloat = 8
 
-final class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     @IBOutlet var mainStackViewContentWidth: NSLayoutConstraint!
 
@@ -104,12 +104,6 @@ class WorkDayHoursPickerDataSource: NSObject, UIPickerViewDataSource, UIPickerVi
     /// Calls up to the PickerResponseForwarder to deliver the event
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         delegate?.didSelectWork(hours: pickerData[row])
-    }
-}
-
-extension SettingsViewController: StoryboardSceneBased {
-    static var sceneStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Settings", bundle: nil)
     }
 }
 
