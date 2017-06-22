@@ -3,13 +3,14 @@
 //
 
 import UIKit
+import Reusable
 
-final class OnboardPageViewController: UIPageViewController, OnboardingStoryboard {
+class ActivityPageViewController: UIPageViewController, ActivityStoryboard {
 
     var orderedViewControllers = [
-        OnboardGreenViewController.instantiate(),
-        OnboardBlueViewController.instantiate(),
-        OnboardOrangeViewController.instantiate()
+        CountdownViewController.instantiate(),
+        DailyTableViewController.instantiate(),
+        WeeklyTableViewController.instantiate()
     ]
 
     lazy var manager: PageManager = {
@@ -26,6 +27,8 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
             assertionFailure("No pages in array")
             return
         }
+
         setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
     }
+
 }
