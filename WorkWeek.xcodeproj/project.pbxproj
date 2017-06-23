@@ -101,18 +101,18 @@
 		5287CA341EDCF91E00E71CE8 /* WorkWeek */ = {
 			isa = PBXGroup;
 			children = (
-				C3B0C4531EE3CC930000D097 /* PageManager.swift */,
 				5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */,
+				52223FA81EE123F20014F4A9 /* AppCoordinator.swift */,
+				C3B0C4531EE3CC930000D097 /* PageManager.swift */,
 				D1CA47011EE34D9F003628FF /* Activity */,
+				52E1A7291EFB91CA00FBF278 /* Settings */,
 				C362A4061EE34EA200AB9830 /* Onboarding.storyboard */,
 				C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */,
 				C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */,
 				C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */,
-				5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */,
 				5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */,
 				5287CA411EDCF91E00E71CE8 /* Info.plist */,
-				52223FA81EE123F20014F4A9 /* AppCoordinator.swift */,
-				52E1A7291EFB91CA00FBF278 /* Settings */,
+				5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */,
 			);
 			path = WorkWeek;
 			sourceTree = "<group>";
