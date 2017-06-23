@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -198,8 +199,8 @@
                                     <constraint firstAttribute="width" secondItem="K4j-Pr-RUl" secondAttribute="height" multiplier="1:1" id="u8A-Vr-oMM"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show The Address In this Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIP-Oe-f44">
-                                <rect key="frame" x="67.5" y="545" width="240" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show The Address In this Label, probably with a drop shadow or something" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIP-Oe-f44">
+                                <rect key="frame" x="16" y="481.5" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -210,13 +211,15 @@
                             <constraint firstItem="ckW-Wv-jHI" firstAttribute="leading" secondItem="P1D-qb-71k" secondAttribute="leading" id="7Cd-EX-xNg"/>
                             <constraint firstItem="K4j-Pr-RUl" firstAttribute="centerX" secondItem="d9X-x2-OCi" secondAttribute="centerX" id="9Pl-FB-DTJ"/>
                             <constraint firstItem="LIP-Oe-f44" firstAttribute="centerX" secondItem="d9X-x2-OCi" secondAttribute="centerX" id="Amc-0p-Cn6"/>
+                            <constraint firstItem="LIP-Oe-f44" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="P1D-qb-71k" secondAttribute="trailingMargin" id="QeH-UI-RpT"/>
                             <constraint firstItem="ckW-Wv-jHI" firstAttribute="top" secondItem="pUf-1N-MyP" secondAttribute="bottom" id="TxH-sq-nP9"/>
                             <constraint firstItem="d9X-x2-OCi" firstAttribute="top" secondItem="ckW-Wv-jHI" secondAttribute="bottom" id="b61-jf-R3j"/>
                             <constraint firstItem="gR6-pX-AkG" firstAttribute="top" secondItem="d9X-x2-OCi" secondAttribute="bottom" id="dx8-pz-EV4"/>
                             <constraint firstAttribute="trailing" secondItem="ckW-Wv-jHI" secondAttribute="trailing" id="fvD-Sz-TWA"/>
                             <constraint firstItem="K4j-Pr-RUl" firstAttribute="centerY" secondItem="d9X-x2-OCi" secondAttribute="centerY" id="h5J-km-zzT"/>
-                            <constraint firstItem="LIP-Oe-f44" firstAttribute="top" secondItem="K4j-Pr-RUl" secondAttribute="bottom" constant="123.5" id="ogj-rD-mLF"/>
-                            <constraint firstItem="LIP-Oe-f44" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="d9X-x2-OCi" secondAttribute="bottom" constant="-122" id="t5u-jE-N6z"/>
+                            <constraint firstItem="LIP-Oe-f44" firstAttribute="top" secondItem="K4j-Pr-RUl" secondAttribute="bottom" constant="60" id="ogj-rD-mLF"/>
+                            <constraint firstAttribute="leadingMargin" relation="lessThanOrEqual" secondItem="LIP-Oe-f44" secondAttribute="leading" id="pU7-0d-9Np"/>
+                            <constraint firstItem="LIP-Oe-f44" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="d9X-x2-OCi" secondAttribute="bottom" priority="999" id="t5u-jE-N6z"/>
                             <constraint firstItem="d9X-x2-OCi" firstAttribute="leading" secondItem="P1D-qb-71k" secondAttribute="leading" id="wOk-kQ-9V1"/>
                             <constraint firstAttribute="trailing" secondItem="d9X-x2-OCi" secondAttribute="trailing" id="wfQ-hk-EAe"/>
                             <constraint firstItem="K4j-Pr-RUl" firstAttribute="width" secondItem="d9X-x2-OCi" secondAttribute="width" multiplier="0.3" id="ylh-bW-fhs"/>

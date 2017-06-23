@@ -3,11 +3,14 @@
 //
 
 import UIKit
+import CoreLocation
 
 class AppCoordinator {
 
     let navigationController: UINavigationController
     var childCoordinators = NSMutableArray()
+
+    let locationManager = CLLocationManager()
 
     init(with navController: UINavigationController) {
         self.navigationController = navController
@@ -20,7 +23,7 @@ class AppCoordinator {
     func start() {
         let needsSettings = true
         if needsSettings {
-            let settingsCoordinator = SettingsCoordinator(with: navigationController)
+            let settingsCoordinator = SettingsCoordinator(with: navigationController, manger: locationManager)
             childCoordinators.add(settingsCoordinator)
             settingsCoordinator.start()
             return
