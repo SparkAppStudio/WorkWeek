@@ -47,11 +47,11 @@ final class Analytics {
     ///   - moreData: Any more data you'd like to record, user email, sale total, etc
     static func track(_ event: Event,
                       _ content: String,
-                      moreData: [String: Any]? = nil) {
+                      extraData: [String: Any]? = nil) {
 
-        var theData: [String: Any] = ["Content": content]
-        if let moreData = moreData {
-            theData.merge(moreData)
+        var data: [String: Any] = ["Content": content]
+        if let extraData = extraData {
+            data.merge(extraData)
         }
 
         let eventName: String
@@ -68,6 +68,6 @@ final class Analytics {
                 eventName = "Activity: \(info)"
             }
         }
-        Answers.logCustomEvent(withName: eventName, customAttributes: theData)
+        Answers.logCustomEvent(withName: eventName, customAttributes: data)
     }
 }
