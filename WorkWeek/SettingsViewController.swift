@@ -29,6 +29,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var picker: UIPickerView!
     var pickerDataSource = WorkDayHoursPickerDataSource()
 
+
     // MARK: View Lifecycle
 
     override func viewDidLoad() {
@@ -43,10 +44,6 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         pickerDataSource.delegate = self
 
         setPickerDefaultRow()
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 
 

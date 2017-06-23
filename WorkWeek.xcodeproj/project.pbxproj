@@ -11,6 +11,8 @@
 		5208F3AD1EDE4C22008F82CC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */; };
 		52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52223FA81EE123F20014F4A9 /* AppCoordinator.swift */; };
 		52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52223FAA1EE1299B0014F4A9 /* Reusable.framework */; };
+		52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */; };
+		52510E941EFCD03E006F5C97 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52510E931EFCD03E006F5C97 /* MapKit.framework */; };
 		526799121EE349A500F41E01 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526799111EE349A500F41E01 /* Settings.storyboard */; };
 		526799141EE3555600F41E01 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526799131EE3555600F41E01 /* SettingsViewController.swift */; };
 		5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */; };
@@ -37,6 +39,8 @@
 		5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		52223FA81EE123F20014F4A9 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		52223FAA1EE1299B0014F4A9 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
+		52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMapViewController.swift; sourceTree = "<group>"; };
+		52510E931EFCD03E006F5C97 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		526799111EE349A500F41E01 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		526799131EE3555600F41E01 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5287CA321EDCF91E00E71CE8 /* WorkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +73,7 @@
 				5287CA4E1EDCFB8400E71CE8 /* RealmSwift.framework in Frameworks */,
 				5208F3AD1EDE4C22008F82CC /* Crashlytics.framework in Frameworks */,
 				5208F3AC1EDE4C22008F82CC /* Fabric.framework in Frameworks */,
+				52510E941EFCD03E006F5C97 /* MapKit.framework in Frameworks */,
 				52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +120,7 @@
 		5287CA481EDCFA9100E71CE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52510E931EFCD03E006F5C97 /* MapKit.framework */,
 				52223FAA1EE1299B0014F4A9 /* Reusable.framework */,
 				5208F3AA1EDE4C22008F82CC /* Fabric.framework */,
 				5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */,
@@ -131,6 +137,7 @@
 				526799131EE3555600F41E01 /* SettingsViewController.swift */,
 				52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */,
 				52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */,
+				52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -185,6 +192,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = VY4FR2X9W5;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -290,6 +302,7 @@
 			files = (
 				C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */,
 				C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */,
+				52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */,
 				52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */,
 				52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */,
 				52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */,

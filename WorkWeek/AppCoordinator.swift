@@ -7,17 +7,21 @@ import UIKit
 class AppCoordinator {
 
     let navigationController: UINavigationController
-    var childCoordinators = [Any]()
+    var childCoordinators = NSMutableArray()
 
     init(with navController: UINavigationController) {
         self.navigationController = navController
+
+        if self.navigationController === navController {
+            print("same object")
+        }
     }
 
     func start() {
         let needsSettings = true
         if needsSettings {
             let settingsCoordinator = SettingsCoordinator(with: navigationController)
-            childCoordinators.append(settingsCoordinator)
+            childCoordinators.add(settingsCoordinator)
             settingsCoordinator.start()
             return
         } else {
@@ -27,6 +31,7 @@ class AppCoordinator {
         }
     }
 
-
-
+    func settingsFinished(with coordinator: SettingsCoordinator) {
+        childCoordinators.remove(coordinator)
+    }
 }

@@ -16,23 +16,25 @@ class SettingsCoordinator: SettingsMainProtocol {
         let initial = SettingsViewController.instantiate()
         initial.delegate = self
 
-        navigationController.setViewControllers([initial], animated: false)
-        navigationController.isNavigationBarHidden = true
+        navigationController.pushViewController(initial, animated: false)
+        initial.title = NSLocalizedString("Settings", comment: "Setings page title")
     }
 
-    enum MapConfig {
-        case home
-        case work
-    }
 
     // MARK: Settings Main Protocol
 
     func didTapHomeMap() {
-        print("Tapped Home Map")
+        let mapViewController = SettingsMapViewController.instantiate()
+        navigationController.isNavigationBarHidden = false
+        mapViewController.title = NSLocalizedString("Home", comment: "Settings Map Set Home Location")
+        navigationController.pushViewController(mapViewController, animated: true)
     }
 
     func didTapWorkMap() {
-        print("Tapped Work Map")
+        let mapViewController = SettingsMapViewController.instantiate()
+        navigationController.isNavigationBarHidden = false
+        mapViewController.title = NSLocalizedString("Work", comment: "Settings Map Set Work Location")
+        navigationController.pushViewController(mapViewController, animated: true)
     }
 
     func notificationsSwitched(_ isOn: Bool) {
