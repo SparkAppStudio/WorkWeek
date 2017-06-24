@@ -4,6 +4,10 @@
 
 import UIKit
 
+protocol OnboardingPageViewControllerDelegate: class {
+    func notificationsPageIsFinished()
+}
+
 final class OnboardPageViewController: UIPageViewController, OnboardingStoryboard {
 
     var orderedViewControllers = [OnboardWelcomeViewController.instantiate(),
@@ -14,6 +18,9 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
     lazy var manager: PageManager = {
         return PageManager(viewControllers: self.orderedViewControllers)
     }()
+
+    // TODO: Need to wire up the calling of these methods.
+    weak var pvcDelegate: OnboardingPageViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
