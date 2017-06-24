@@ -4,8 +4,11 @@
 
 import UIKit
 import Reusable
+import Foundation
 
 class DailyTableViewController: UITableViewController {
+
+    let notificationCenter = NotificationCenter.default
 
 
     override func viewDidLoad() {
@@ -30,8 +33,45 @@ class DailyTableViewController: UITableViewController {
         RealmManager.shared.updateDailyActivities(dailyActivity)
         RealmManager.shared.displayAllDailyActivies()
 
+        notificationCenter.addObserver(self,
+                                       selector: #selector(leftHomeNotified),
+                                       name: NSNotification.Name(rawValue: NotificationCenter.Notes.leftHome.rawValue),
+                                       object: nil)
+
+        notificationCenter.addObserver(self,
+                                       selector: #selector(arriveWorkNotified),
+                                       name: NSNotification.Name(rawValue:NotificationCenter.Notes.arriveWork.rawValue),
+                                       object: nil)
+
+        notificationCenter.addObserver(self,
+                                       selector: #selector(leftWorkNotified),
+                                       name: NSNotification.Name(rawValue:NotificationCenter.Notes.arriveWork.rawValue),
+                                       object: nil)
+
+        notificationCenter.addObserver(self,
+                                       selector: #selector(arriveHomeNotified),
+                                       name: NSNotification.Name(rawValue:NotificationCenter.Notes.arriveWork.rawValue),
+                                       object: nil)
+
 
     }
+
+    func leftHomeNotified() {
+        print("Left Home Notification Received")
+    }
+
+    func arriveWorkNotified() {
+        print("Arrive Work Notification received")
+    }
+
+    func leftWorkNotified() {
+        print("Left Home Notification Received")
+    }
+
+    func arriveHomeNotified() {
+        print("Arrive Home Notification Received")
+    }
+
 }
 
 extension DailyTableViewController: ActivityStoryboard {

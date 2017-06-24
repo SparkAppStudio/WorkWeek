@@ -26,7 +26,7 @@ class NotificationCenterManager {
 
     static let shared = NotificationCenterManager()
 
-    let notificationCenter = NotificationCenter()
+    let notificationCenter = NotificationCenter.default
 
 
     func postLeftHomeNotification() {
