@@ -5,14 +5,23 @@
 import UIKit
 import CoreLocation
 
+protocol SettingsCoordinatorDelegate: class {
+    func settingsFinished(with coordinator: SettingsCoordinator)
+}
+
 class SettingsCoordinator: SettingsMainProtocol {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
+    weak var delegate: SettingsCoordinatorDelegate?
 
-    init(with navController: UINavigationController, manger: CLLocationManager) {
+    init(with navController: UINavigationController,
+         manger: CLLocationManager,
+         delegate: SettingsCoordinatorDelegate) {
+
         self.navigationController = navController
         self.locationManager = manger
+        self.delegate = delegate
     }
 
     func start() {
