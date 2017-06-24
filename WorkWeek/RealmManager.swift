@@ -29,13 +29,10 @@ class RealmManager {
     func saveDailyActivities(_ dailyActivities: DailyActivities) {
         do {
             let realm = try Realm()
-            do {
-                try realm.write {
-                    realm.add(dailyActivities)
-                }
-            } catch let error as NSError {
-                print(error.localizedDescription)
+            try realm.write {
+                realm.add(dailyActivities)
             }
+
         } catch let error as NSError {
             //handle error
             print(error.localizedDescription)
@@ -58,12 +55,8 @@ class RealmManager {
     func removeAllObjects() {
         do {
             let realm = try Realm()
-            do {
-                try realm.write {
-                    realm.deleteAll()
-                }
-            } catch let error as NSError {
-                print(error.localizedDescription)
+            try realm.write {
+                realm.deleteAll()
             }
         } catch let error as NSError {
             //handle error
@@ -74,12 +67,9 @@ class RealmManager {
     func updateDailyActivities(_ dailyActivities: DailyActivities) {
         do {
             let realm = try Realm()
-            do {
-                try realm.write {
-                    realm.add(dailyActivities, update: true)
-                }
+            try realm.write {
+                realm.add(dailyActivities, update: true)
             }
-
         } catch let error as NSError {
             print(error.localizedDescription)
         }
