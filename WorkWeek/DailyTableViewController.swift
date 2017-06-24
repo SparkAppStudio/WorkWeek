@@ -4,7 +4,6 @@
 
 import UIKit
 import Reusable
-import Foundation
 
 class DailyTableViewController: UITableViewController {
 
