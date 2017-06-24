@@ -33,6 +33,8 @@
 		C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */; };
 		C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */; };
 		C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0C4531EE3CC930000D097 /* PageManager.swift */; };
+		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
+		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
 		D1CA47031EE354B9003628FF /* DailyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47021EE354B9003628FF /* DailyTableViewController.swift */; };
 		D1CA47051EE354FC003628FF /* WeeklyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47041EE354FC003628FF /* WeeklyTableViewController.swift */; };
 		D1CA47071EE35528003628FF /* ActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47061EE35528003628FF /* ActivityPageViewController.swift */; };
@@ -67,6 +69,8 @@
 		C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardProtocols.swift; sourceTree = "<group>"; };
 		C3B0C4531EE3CC930000D097 /* PageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageManager.swift; sourceTree = "<group>"; };
+		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		D1CA47021EE354B9003628FF /* DailyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableViewController.swift; sourceTree = "<group>"; };
 		D1CA47041EE354FC003628FF /* WeeklyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyTableViewController.swift; sourceTree = "<group>"; };
 		D1CA47061EE35528003628FF /* ActivityPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityPageViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */,
 				52223FA81EE123F20014F4A9 /* AppCoordinator.swift */,
 				C3B0C4531EE3CC930000D097 /* PageManager.swift */,
+				D1B21F921EF521720023D427 /* Managers */,
 				D1CA47011EE34D9F003628FF /* Activity */,
 				52E1A7291EFB91CA00FBF278 /* Settings */,
 				C3FE380B1EFDD4CD00E1D60E /* Onboarding */,
@@ -150,18 +155,27 @@
 				52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */,
 			);
 			name = Settings;
-      sourceTree = "<group>";
+            sourceTree = "<group>";
 		};
-		C3FE380B1EFDD4CD00E1D60E /* Onboarding */ = {
+		D1B21F921EF521720023D427 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				C362A4061EE34EA200AB9830 /* Onboarding.storyboard */,
-				C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */,
-				C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */,
+				D1B21F931EF521870023D427 /* RealmManager.swift */,
+				D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */,
 			);
-			name = Onboarding;
+			name = Managers;
 			sourceTree = "<group>";
 		};
+        C3FE380B1EFDD4CD00E1D60E /* Onboarding */ = {
+            isa = PBXGroup;
+            children = (
+                C362A4061EE34EA200AB9830 /* Onboarding.storyboard */,
+                C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */,
+                C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */,
+            );
+            name = Onboarding;
+            sourceTree = "<group>";
+        };
 		D1CA47011EE34D9F003628FF /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,10 +338,12 @@
 				C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */,
 				52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */,
 				52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */,
+				D1B21F941EF521870023D427 /* RealmManager.swift in Sources */,
 				52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */,
 				52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */,
 				526E50721EF62DD50066F043 /* Analytics.swift in Sources */,
 				D1CA47071EE35528003628FF /* ActivityPageViewController.swift in Sources */,
+				D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */,
 				D1CA47051EE354FC003628FF /* WeeklyTableViewController.swift in Sources */,
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,

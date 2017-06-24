@@ -31,4 +31,16 @@ class ActivityPageViewController: UIPageViewController, ActivityStoryboard {
         setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.removePageViewControllerBlackEmptyBackground()
+    }
+}
+
+extension UIPageViewController {
+    func removePageViewControllerBlackEmptyBackground() {
+        for subview in self.view.subviews where subview is UIScrollView {
+            subview.frame = view.frame
+        }
+    }
 }
