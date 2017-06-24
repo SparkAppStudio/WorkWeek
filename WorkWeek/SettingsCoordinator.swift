@@ -53,6 +53,8 @@ class SettingsCoordinator: SettingsMainProtocol {
             locationManager.requestAlwaysAuthorization()
         }
 
+        locationManager.startUpdatingLocation()
+
         let mapViewController = SettingsMapViewController.instantiate()
         navigationController.isNavigationBarHidden = false
         mapViewController.title = NSLocalizedString("Home", comment: "Settings Map Set Home Location")
@@ -69,6 +71,8 @@ class SettingsCoordinator: SettingsMainProtocol {
         case .notDetermined:
             locationManager.requestAlwaysAuthorization()
         }
+
+        locationManager.startUpdatingLocation()
 
         let mapViewController = SettingsMapViewController.instantiate()
         navigationController.isNavigationBarHidden = false
