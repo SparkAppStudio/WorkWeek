@@ -23,6 +23,7 @@ class SettingsCoordinator: SettingsMainProtocol {
         initial.title = NSLocalizedString("Settings", comment: "Setings page title")
     }
 
+    // TODO: Move this UP (probably location auth should be handled by the app coordinator)
     func presentOurAppWontWorkWithoutAuthorizationModalSheet() {
         let sorryMessage = "Due to technical limitations our app can't work without Always Location"
         let alertController = UIAlertController(title: "Sorry...",
@@ -44,6 +45,7 @@ class SettingsCoordinator: SettingsMainProtocol {
 
     func didTapHomeMap() {
 
+        // TODO: We'll probably want to write a little wrapper, that hangs off the app coordinator
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways:
             break
