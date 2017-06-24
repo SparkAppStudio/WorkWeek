@@ -4,11 +4,18 @@
 
 import UIKit
 
-class OnboardBlueViewController: UIViewController, OnboardingStoryboard {
+class OnboardWelcomeViewController: UIViewController, OnboardingStoryboard {
+
 }
 
-class OnboardGreenViewController: UIViewController, OnboardingStoryboard {
+class OnboardExplainViewController: UIViewController, OnboardingStoryboard {
+
 }
 
-class OnboardOrangeViewController: UIViewController, OnboardingStoryboard {
+class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
+
+}
+
+class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
+
 }

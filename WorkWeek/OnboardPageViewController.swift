@@ -6,14 +6,13 @@ import UIKit
 
 final class OnboardPageViewController: UIPageViewController, OnboardingStoryboard {
 
-    var orderedViewControllers = [
-        OnboardGreenViewController.instantiate(),
-        OnboardBlueViewController.instantiate(),
-        OnboardOrangeViewController.instantiate()
-    ]
+    var orderedViewControllers = [OnboardWelcomeViewController.instantiate(),
+                        OnboardExplainViewController.instantiate(),
+                        OnboardLocationViewController.instantiate(),
+                        OnboardNotifyViewController.instantiate()]
 
     lazy var manager: PageManager = {
-        return PageManager(types: self.orderedViewControllers)
+        return PageManager(viewControllers: self.orderedViewControllers)
     }()
 
     override func viewDidLoad() {
@@ -26,6 +25,20 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
             assertionFailure("No pages in array")
             return
         }
+
         setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        extendPageViewContent(view: view)
+    }
+
+    func extendPageViewContent(view: UIView) {
+        // Iterate through subviews and make their frame as big as this controller frame.
+        // This stretches the content below the pageVC controls (the dots) and covers the black empty background
+        for subview in view.subviews where subview is UIScrollView {
+            subview.frame = view.frame
+        }
     }
 }

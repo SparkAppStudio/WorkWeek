@@ -14,10 +14,6 @@ class AppCoordinator {
 
     init(with navController: UINavigationController) {
         self.navigationController = navController
-
-        if self.navigationController === navController {
-            print("same object")
-        }
     }
 
     func start() {
