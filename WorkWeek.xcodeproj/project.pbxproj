@@ -105,7 +105,6 @@
 				5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */,
 				52223FA81EE123F20014F4A9 /* AppCoordinator.swift */,
 				C3B0C4531EE3CC930000D097 /* PageManager.swift */,
-				5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */,
 				D1B21F921EF521720023D427 /* Managers */,
 				D1CA47011EE34D9F003628FF /* Activity */,
 				C3FE380B1EFDD4CD00E1D60E /* Onboarding */,
