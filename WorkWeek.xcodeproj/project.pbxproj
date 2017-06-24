@@ -102,9 +102,7 @@
 				52223FA81EE123F20014F4A9 /* AppCoordinator.swift */,
 				C3B0C4531EE3CC930000D097 /* PageManager.swift */,
 				D1CA47011EE34D9F003628FF /* Activity */,
-				C362A4061EE34EA200AB9830 /* Onboarding.storyboard */,
-				C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */,
-				C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */,
+				C3FE380B1EFDD4CD00E1D60E /* Onboarding */,
 				C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */,
 				526799111EE349A500F41E01 /* Settings.storyboard */,
 				5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */,
@@ -128,6 +126,16 @@
 				5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3FE380B1EFDD4CD00E1D60E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C362A4061EE34EA200AB9830 /* Onboarding.storyboard */,
+				C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */,
+				C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */,
+			);
+			name = Onboarding;
 			sourceTree = "<group>";
 		};
 		D1CA47011EE34D9F003628FF /* Activity */ = {

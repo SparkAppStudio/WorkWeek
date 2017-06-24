@@ -14,7 +14,7 @@ class ActivityPageViewController: UIPageViewController, ActivityStoryboard {
     ]
 
     lazy var manager: PageManager = {
-        return PageManager(types: self.orderedViewControllers)
+        return PageManager(viewControllers: self.orderedViewControllers)
     }()
 
     override func viewDidLoad() {
