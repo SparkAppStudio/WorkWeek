@@ -1,6 +1,10 @@
 excluded:
     - Carthage
 
+disabled_rules:
+    - todo
+    - trailing_newline
+
 vertical_whitespace:
     max_empty_lines: 2
 
