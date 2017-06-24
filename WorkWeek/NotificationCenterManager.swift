@@ -8,11 +8,18 @@
 
 import Foundation
 
-enum NotificationNames: String {
-    case leftHome
-    case arriveWork
-    case leftWork
-    case arriveHome
+extension NotificationCenter {
+    enum Notes: String {
+        case leftHome
+        case arriveWork
+        case leftWork
+        case arriveHome
+    }
+
+    func post(name: Notes, object: Any?) {
+        let name = NSNotification.Name(name.rawValue)
+        post(name: name, object: object)
+    }
 }
 
 class NotificationCenterManager {
@@ -21,25 +28,20 @@ class NotificationCenterManager {
 
     let notificationCenter = NotificationCenter()
 
-    let leftHomeNotificationName    = NSNotification.Name(rawValue: NotificationNames.leftHome.rawValue)
-    let arriveWorkNotificationName  = NSNotification.Name(rawValue: NotificationNames.arriveWork.rawValue)
-    let leftWorkNotificationName    = NSNotification.Name(rawValue: NotificationNames.leftWork.rawValue)
-    let arriveHomeNotificationName  = NSNotification.Name(rawValue: NotificationNames.arriveHome.rawValue)
-
 
     func postLeftHomeNotification() {
-        notificationCenter.post(name: leftHomeNotificationName, object: nil)
+        notificationCenter.post(name: .leftHome, object: nil)
     }
 
     func postArriveWorkNotification() {
-        notificationCenter.post(name: arriveWorkNotificationName, object: nil)
+        notificationCenter.post(name: .arriveWork, object: nil)
     }
 
     func postLeftWorkNotification() {
-        notificationCenter.post(name: leftWorkNotificationName, object: nil)
+        notificationCenter.post(name: .leftWork, object: nil)
     }
 
     func postArriveHomeNotification() {
-        notificationCenter.post(name: arriveHomeNotificationName, object: nil)
+        notificationCenter.post(name: .arriveHome, object: nil)
     }
 }
