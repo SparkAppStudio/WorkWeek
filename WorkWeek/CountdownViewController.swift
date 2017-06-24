@@ -9,6 +9,26 @@ final class CountdownViewController: UIViewController {
 
     @IBOutlet weak var countdownDisplay: UILabel!
 
+    @IBAction func leftHomeNotificationPressed(_ sender: UIButton) {
+        print("Left Home Notification Pressed")
+        NotificationCenterManager.shared.postLeftHomeNotification()
+    }
+
+    @IBAction func arriveWorkNotificationPressed(_ sender: UIButton) {
+        print("Arrive Work Notification Pressed")
+        NotificationCenterManager.shared.postArriveWorkNotification()
+    }
+
+    @IBAction func leftWorkNotificationPressed(_ sender: UIButton) {
+        print("Left Work Notification Pressed")
+        NotificationCenterManager.shared.postLeftWorkNotification()
+    }
+
+    @IBAction func arriveHomeNotification(_ sender: UIButton) {
+        print("Arrive Home Notification Pressed")
+        NotificationCenterManager.shared.postArriveHomeNotification()
+    }
+
     var timer = Timer()
     var timeRemaining = 28800
 
@@ -45,3 +65,4 @@ final class CountdownViewController: UIViewController {
 
 extension CountdownViewController: ActivityStoryboard {
 }
+
