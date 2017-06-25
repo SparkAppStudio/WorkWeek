@@ -5,6 +5,20 @@
 import UIKit
 import Reusable
 
+extension NotificationCenter {
+    func addObserver(_ observer: Any,
+                     selector aSelector: Selector,
+                     name aName: NotificationCenter.Notes,
+                     object anObject: Any? = nil) {
+
+        self.addObserver(observer,
+                    selector: aSelector,
+                    name: NSNotification.Name(rawValue: aName.rawValue),
+                    object: anObject)
+    }
+
+}
+
 class DailyTableViewController: UITableViewController {
 
     let notificationCenter = NotificationCenter.default
