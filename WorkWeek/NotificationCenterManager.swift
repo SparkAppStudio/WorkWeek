@@ -30,23 +30,23 @@ class NotificationCenterManager {
 
 
     func postLeftHomeNotification() {
-        notificationCenter.post(name: .leftHome, object: nil)
         saveDataToRealm(notes: .leftHome)
+        notificationCenter.post(name: .leftHome, object: nil)
     }
 
     func postArriveWorkNotification() {
-        notificationCenter.post(name: .arriveWork, object: nil)
         saveDataToRealm(notes: .arriveWork)
+        notificationCenter.post(name: .arriveWork, object: nil)
     }
 
     func postLeftWorkNotification() {
-        notificationCenter.post(name: .leftWork, object: nil)
         saveDataToRealm(notes: .leftWork)
+        notificationCenter.post(name: .leftWork, object: nil)
     }
 
     func postArriveHomeNotification() {
-        notificationCenter.post(name: .arriveHome, object: nil)
         saveDataToRealm(notes: .arriveHome)
+        notificationCenter.post(name: .arriveHome, object: nil)
     }
 
     func saveDataToRealm(notes: NotificationCenter.Notes) {
@@ -62,7 +62,7 @@ class NotificationCenterManager {
         switch notes {
         case .leftHome:
             dailyActivity.timeLeftHome = NSDate()
-            RealmManager.shared.saveDailyActivities(dailyActivity)
+            RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .leftHome)
         case .arriveWork:
             dailyActivity.timeArriveWork = NSDate()
             RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .arriveWork)
@@ -73,7 +73,5 @@ class NotificationCenterManager {
             dailyActivity.timeArriveHome = NSDate()
             RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .arriveHome)
         }
-
-
     }
 }

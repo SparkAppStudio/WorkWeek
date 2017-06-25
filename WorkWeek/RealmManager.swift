@@ -50,11 +50,11 @@ class RealmManager {
         do {
             let realm = try Realm()
             let currentDailyActivity = realm.objects(DailyActivities.self)
-            .filter("dateString = '6/25/17'")
+                .filter("dateString = '6/25/17'")
 
             if let timeLeftHome = currentDailyActivity.first?.timeLeftHome {
                 let activity = Activity(activityName: NotificationCenter.Notes.leftHome.rawValue,
-                                    activityTime: timeLeftHome)
+                                        activityTime: timeLeftHome)
                 todayActivity.append(activity)
             }
 
@@ -112,21 +112,25 @@ class RealmManager {
         do {
             let realm = try Realm()
 
-            let currentDailyActivity = realm.objects(DailyActivities.self)
-                                            .filter("dateString = '6/25/17'")
+            let dailyActivityQueryResult = realm.objects(DailyActivities.self)
+                .filter("dateString = '6/25/17'")
 
             try realm.write {
-                switch forNote {
-                case .leftHome:
-                    currentDailyActivity.first?.timeLeftHome = dailyActivities.timeLeftHome
-                case .arriveWork:
-                    currentDailyActivity.first?.timeArriveWork = dailyActivities.timeArriveWork
-                case .leftWork:
-                    currentDailyActivity.first?.timeLeftWork = dailyActivities.timeLeftWork
-                case .arriveHome:
-                    currentDailyActivity.first?.timeArriveHome = dailyActivities.timeArriveHome
+                if let currentDailyActivity = dailyActivityQueryResult.first {
+                    switch forNote {
+                    case .leftHome:
+                        currentDailyActivity.timeLeftHome = dailyActivities.timeLeftHome
+                    case .arriveWork:
+                        currentDailyActivity.timeArriveWork = dailyActivities.timeArriveWork
+                    case .leftWork:
+                        currentDailyActivity.timeLeftWork = dailyActivities.timeLeftWork
+                    case .arriveHome:
+                        currentDailyActivity.timeArriveHome = dailyActivities.timeArriveHome
+                    }
+                } else {
+                    //Create a new daily activity and update it
+                    realm.add(dailyActivities)
                 }
-
             }
         } catch let error as NSError {
             print(error.localizedDescription)
