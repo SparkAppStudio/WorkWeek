@@ -46,18 +46,26 @@ class DailyTableViewController: UITableViewController {
 
     func leftHomeNotified() {
         print("Left Home Notification Received")
+        reloadViewController()
     }
 
     func arriveWorkNotified() {
         print("Arrive Work Notification received")
+        reloadViewController()
     }
 
     func leftWorkNotified() {
         print("Left Work Notification Received")
+        reloadViewController()
     }
 
     func arriveHomeNotified() {
         print("Arrive Home Notification Received")
+        reloadViewController()
+    }
+
+    func reloadViewController() {
+        self.tableView.reloadData()
     }
 
     func configureNotificationObservers() {

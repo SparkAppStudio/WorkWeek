@@ -58,13 +58,13 @@ class RealmManager {
                 todayActivity.append(activity)
             }
 
-            if let timeArriveWork = currentDailyActivity.first?.timeLeftHome {
+            if let timeArriveWork = currentDailyActivity.first?.timeArriveWork {
                 let activity = Activity(activityName: NotificationCenter.Notes.arriveWork.rawValue,
                                         activityTime: timeArriveWork)
                 todayActivity.append(activity)
             }
 
-            if let timeLeftWork = currentDailyActivity.first?.timeArriveWork {
+            if let timeLeftWork = currentDailyActivity.first?.timeLeftWork {
                 let activity = Activity(activityName: NotificationCenter.Notes.leftWork.rawValue,
                                         activityTime: timeLeftWork)
                 todayActivity.append(activity)

@@ -62,7 +62,6 @@ class NotificationCenterManager {
         switch notes {
         case .leftHome:
             dailyActivity.timeLeftHome = NSDate()
-//            RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .leftHome)
             RealmManager.shared.saveDailyActivities(dailyActivity)
         case .arriveWork:
             dailyActivity.timeArriveWork = NSDate()
