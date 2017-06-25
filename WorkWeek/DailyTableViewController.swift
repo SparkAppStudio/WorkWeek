@@ -5,6 +5,20 @@
 import UIKit
 import Reusable
 
+extension NotificationCenter {
+    func addObserver(_ observer: Any,
+                     selector aSelector: Selector,
+                     name aName: NotificationCenter.Notes,
+                     object anObject: Any? = nil) {
+
+        self.addObserver(observer,
+                    selector: aSelector,
+                    name: NSNotification.Name(rawValue: aName.rawValue),
+                    object: anObject)
+    }
+
+}
+
 class DailyTableViewController: UITableViewController {
 
     let notificationCenter = NotificationCenter.default
@@ -32,10 +46,8 @@ class DailyTableViewController: UITableViewController {
         RealmManager.shared.updateDailyActivities(dailyActivity)
         RealmManager.shared.displayAllDailyActivies()
 
-        notificationCenter.addObserver(self,
-                                       selector: #selector(leftHomeNotified),
-                                       name: NSNotification.Name(rawValue: NotificationCenter.Notes.leftHome.rawValue),
-                                       object: nil)
+        notificationCenter.addObserver(self, selector: #selector(leftHomeNotified), name: .leftHome)
+
 
         notificationCenter.addObserver(self,
                                        selector: #selector(arriveWorkNotified),
