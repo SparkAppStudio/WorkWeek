@@ -233,6 +233,9 @@ Work week is automatic, private, and insightful</string>
                                 <state key="normal" title="Grant Access">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapGrantLocation:" destination="HRI-QM-ONB" eventType="touchUpInside" id="A91-C4-7wQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyO-nE-pbc">
                                 <rect key="frame" x="156.5" y="567.5" width="61.5" height="21.5"/>
@@ -267,6 +270,9 @@ Work week is automatic, private, and insightful</string>
                             <constraint firstItem="qFJ-Ch-iUy" firstAttribute="top" secondItem="HWf-hx-4wz" secondAttribute="bottom" constant="24" id="zfu-bo-U7e"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="grantLocationButton" destination="noj-gz-43s" id="vSO-NA-ma6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVw-JS-Iup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -306,6 +312,9 @@ Work week is automatic, private, and insightful</string>
                                 <state key="normal" title="Grant Access">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapGrantNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="N5Q-57-7qL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWx-8v-a5k">
                                 <rect key="frame" x="24" y="471" width="327" height="76"/>
@@ -313,9 +322,12 @@ Work week is automatic, private, and insightful</string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="gS9-yo-xaQ"/>
                                 </constraints>
-                                <state key="normal" title="Grant Access">
+                                <state key="normal" title="No Thanks">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapDenyNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="wmK-GD-C8q"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85098039219999999" green="0.25882352939999997" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -335,6 +347,10 @@ Work week is automatic, private, and insightful</string>
                             <constraint firstItem="m4a-So-6n4" firstAttribute="trailing" secondItem="jVB-dB-F0e" secondAttribute="trailing" id="xzq-9M-ne9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="denyNotifyButton" destination="xWx-8v-a5k" id="48Q-TO-lAn"/>
+                        <outlet property="grantNotifyButton" destination="m4a-So-6n4" id="5km-KB-xga"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ad2-lu-95e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
