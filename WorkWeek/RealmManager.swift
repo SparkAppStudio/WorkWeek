@@ -115,26 +115,19 @@ class RealmManager {
             let currentDailyActivity = realm.objects(DailyActivities.self)
                                             .filter("dateString = '6/25/17'")
 
-            switch forNote {
-            case .leftHome:
-                try realm.write {
+            try realm.write {
+                switch forNote {
+                case .leftHome:
                     currentDailyActivity.first?.timeLeftHome = dailyActivities.timeLeftHome
-                }
-
-            case .arriveWork:
-                try realm.write {
+                case .arriveWork:
                     currentDailyActivity.first?.timeArriveWork = dailyActivities.timeArriveWork
-                }
-            case .leftWork:
-                try realm.write {
+                case .leftWork:
                     currentDailyActivity.first?.timeLeftWork = dailyActivities.timeLeftWork
-                }
-            case .arriveHome:
-                try realm.write {
+                case .arriveHome:
                     currentDailyActivity.first?.timeArriveHome = dailyActivities.timeArriveHome
                 }
-            }
 
+            }
         } catch let error as NSError {
             print(error.localizedDescription)
         }
