@@ -26,12 +26,33 @@ class DailyTableViewController: UITableViewController {
         dailyActivity.timeLeftWork = NSDate()
         dailyActivity.timeArriveHome = NSDate()
 
-//        RealmManager.shared.removeAllObjects()
-//        RealmManager.shared.saveDailyActivities(dailyActivity)
-        RealmManager.shared.displayAllDailyActivies()
-        RealmManager.shared.updateDailyActivities(dailyActivity)
+        configureNotificationObservers()
+
+
         RealmManager.shared.displayAllDailyActivies()
 
+
+
+
+    }
+
+    func leftHomeNotified() {
+        print("Left Home Notification Received")
+    }
+
+    func arriveWorkNotified() {
+        print("Arrive Work Notification received")
+    }
+
+    func leftWorkNotified() {
+        print("Left Work Notification Received")
+    }
+
+    func arriveHomeNotified() {
+        print("Arrive Home Notification Received")
+    }
+
+    func configureNotificationObservers() {
         notificationCenter.addObserver(self,
                                        selector: #selector(leftHomeNotified),
                                        name: NSNotification.Name(rawValue: NotificationCenter.Notes.leftHome.rawValue),
@@ -51,24 +72,6 @@ class DailyTableViewController: UITableViewController {
                                        selector: #selector(arriveHomeNotified),
                                        name: NSNotification.Name(rawValue:NotificationCenter.Notes.arriveHome.rawValue),
                                        object: nil)
-
-
-    }
-
-    func leftHomeNotified() {
-        print("Left Home Notification Received")
-    }
-
-    func arriveWorkNotified() {
-        print("Arrive Work Notification received")
-    }
-
-    func leftWorkNotified() {
-        print("Left Work Notification Received")
-    }
-
-    func arriveHomeNotified() {
-        print("Arrive Home Notification Received")
     }
 
 }

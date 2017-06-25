@@ -31,17 +31,45 @@ class NotificationCenterManager {
 
     func postLeftHomeNotification() {
         notificationCenter.post(name: .leftHome, object: nil)
+        saveDataToRealm(notes: .leftHome)
     }
 
     func postArriveWorkNotification() {
         notificationCenter.post(name: .arriveWork, object: nil)
+        saveDataToRealm(notes: .arriveWork)
     }
 
     func postLeftWorkNotification() {
         notificationCenter.post(name: .leftWork, object: nil)
+        saveDataToRealm(notes: .leftWork)
     }
 
     func postArriveHomeNotification() {
         notificationCenter.post(name: .arriveHome, object: nil)
+        saveDataToRealm(notes: .arriveHome)
+    }
+
+    func saveDataToRealm(notes: NotificationCenter.Notes) {
+        let today = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        let todayString = dateFormatter.string(from: today as Date)
+        print(todayString)
+
+        let dailyActivity = DailyActivities()
+        dailyActivity.dateString = todayString
+
+        switch notes{
+        case .leftHome:
+            dailyActivity.timeLeftHome = NSDate()
+        case .arriveWork:
+            dailyActivity.timeArriveWork = NSDate()
+        case .leftWork:
+            dailyActivity.timeLeftWork = NSDate()
+        case .arriveHome:
+            dailyActivity.timeArriveHome = NSDate()
+        }
+
+        RealmManager.shared.updateDailyActivities(dailyActivity)
     }
 }

@@ -67,6 +67,22 @@
                                     <action selector="arriveHomeNotification:" destination="Kgw-xI-26n" eventType="touchUpInside" id="anH-pP-ZCz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiQ-CD-UF0">
+                                <rect key="frame" x="114" y="494" width="146" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Display all realm data"/>
+                                <connections>
+                                    <action selector="displayAllRealmData:" destination="Kgw-xI-26n" eventType="touchUpInside" id="8zk-sM-b51"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4G1-eA-LKP">
+                                <rect key="frame" x="121" y="538" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear all realm data"/>
+                                <connections>
+                                    <action selector="clearAllRealmData:" destination="Kgw-xI-26n" eventType="touchUpInside" id="t1C-Yw-pb5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

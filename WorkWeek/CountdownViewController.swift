@@ -29,6 +29,14 @@ final class CountdownViewController: UIViewController {
         NotificationCenterManager.shared.postArriveHomeNotification()
     }
 
+    @IBAction func displayAllRealmData(_ sender: UIButton) {
+        RealmManager.shared.displayAllDailyActivies()
+    }
+
+    @IBAction func clearAllRealmData(_ sender: UIButton) {
+        RealmManager.shared.removeAllObjects()
+    }
+
     var timer = Timer()
     var timeRemaining = 28800
 
