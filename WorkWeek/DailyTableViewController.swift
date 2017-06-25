@@ -28,12 +28,6 @@ class DailyTableViewController: UITableViewController {
 
         configureNotificationObservers()
 
-
-        RealmManager.shared.displayAllDailyActivies()
-
-
-
-
     }
 
     func leftHomeNotified() {
@@ -74,6 +68,20 @@ class DailyTableViewController: UITableViewController {
                                        object: nil)
     }
 
+}
+
+// MARK: - DataSource
+extension DailyTableViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DailyTableViewCell")
+            else {return UITableViewCell()}
+        cell.textLabel?.text = RealmManager.shared.getTodayObject().timeLeftHome?.description
+        return cell
+    }
 }
 
 extension DailyTableViewController: ActivityStoryboard {

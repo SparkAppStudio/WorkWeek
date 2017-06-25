@@ -40,6 +40,18 @@ class RealmManager {
 
     }
 
+    func getTodayObject() -> DailyActivities {
+        do {
+            let realm = try Realm()
+            let currentDailyActivity = realm.objects(DailyActivities.self)
+            .filter("dateString = '6/25/17'")
+            return currentDailyActivity.first!
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            return DailyActivities()
+        }
+    }
+
     func displayAllDailyActivies() {
         do {
             let realm = try Realm()
