@@ -18,12 +18,19 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
 
     let locationManager = CLLocationManager()
 
+    @IBOutlet weak var grantLocationButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,
             selector: #selector(OnboardLocationViewController.appDidBecomeActive(notification:)),
             name: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureDisplay()
     }
 
     func configureDisplay() {
@@ -48,13 +55,6 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
         configureDisplay()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configureDisplay()
-    }
-
-    @IBOutlet weak var grantLocationButton: UIButton!
-
     @IBAction func didTapGrantLocation(_ sender: UIButton) {
         if CLLocationManager.authorizationStatus() == .notDetermined {
             locationManager.requestAlwaysAuthorization()
@@ -71,22 +71,24 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
     let center = UNUserNotificationCenter.current()
     let options: UNAuthorizationOptions = [.alert, .sound, .badge, .carPlay]
 
+    @IBOutlet weak var grantNotifyButton: UIButton!
+    @IBOutlet weak var denyNotifyButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,
             selector: #selector(OnboardLocationViewController.appDidBecomeActive(notification:)),
             name: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil)
-
-    }
-
-    func appDidBecomeActive(notification: NSNotification) {
-        configureDisplay(button: grantNotifyButton)
-        configureDisplay(button: denyNotifyButton)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configureDisplay(button: grantNotifyButton)
+        configureDisplay(button: denyNotifyButton)
+    }
+
+    func appDidBecomeActive(notification: NSNotification) {
         configureDisplay(button: grantNotifyButton)
         configureDisplay(button: denyNotifyButton)
     }
@@ -128,9 +130,7 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
         }
     }
 
-    @IBOutlet weak var grantNotifyButton: UIButton!
-
-    @IBOutlet weak var denyNotifyButton: UIButton!
+    // MARK: Actions
 
     @IBAction func didTapGrantNotify(_ sender: UIButton) {
 
