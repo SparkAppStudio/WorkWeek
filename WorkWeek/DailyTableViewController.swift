@@ -61,25 +61,10 @@ class DailyTableViewController: UITableViewController {
     }
 
     func configureNotificationObservers() {
-        notificationCenter.addObserver(self,
-                                       selector: #selector(leftHomeNotified),
-                                       name: NSNotification.Name(rawValue: NotificationCenter.Notes.leftHome.rawValue),
-                                       object: nil)
-
-        notificationCenter.addObserver(self,
-                                       selector: #selector(arriveWorkNotified),
-                                       name: NSNotification.Name(rawValue:NotificationCenter.Notes.arriveWork.rawValue),
-                                       object: nil)
-
-        notificationCenter.addObserver(self,
-                                       selector: #selector(leftWorkNotified),
-                                       name: NSNotification.Name(rawValue:NotificationCenter.Notes.leftWork.rawValue),
-                                       object: nil)
-
-        notificationCenter.addObserver(self,
-                                       selector: #selector(arriveHomeNotified),
-                                       name: NSNotification.Name(rawValue:NotificationCenter.Notes.arriveHome.rawValue),
-                                       object: nil)
+        notificationCenter.addObserver(self, selector: #selector(leftHomeNotified), name: .leftHome)
+        notificationCenter.addObserver(self, selector: #selector(arriveWorkNotified), name: .arriveWork)
+        notificationCenter.addObserver(self, selector: #selector(leftWorkNotified), name: .leftWork)
+        notificationCenter.addObserver(self, selector: #selector(arriveHomeNotified), name: .arriveHome)
     }
 
 }
