@@ -64,12 +64,33 @@ class RealmManager {
         }
     }
 
-    func updateDailyActivities(_ dailyActivities: DailyActivities) {
+    func updateDailyActivities(_ dailyActivities: DailyActivities, forNote: NotificationCenter.Notes) {
         do {
             let realm = try Realm()
-            try realm.write {
-                realm.add(dailyActivities, update: true)
+
+            let currentDailyActivity = realm.objects(DailyActivities.self)
+                                            .filter("dateString = '6/25/17'")
+
+            switch forNote {
+            case .leftHome:
+                try realm.write {
+                    currentDailyActivity.first?.timeLeftHome = dailyActivities.timeLeftHome
+                }
+
+            case .arriveWork:
+                try realm.write {
+                    currentDailyActivity.first?.timeArriveWork = dailyActivities.timeArriveWork
+                }
+            case .leftWork:
+                try realm.write {
+                    currentDailyActivity.first?.timeLeftWork = dailyActivities.timeLeftWork
+                }
+            case .arriveHome:
+                try realm.write {
+                    currentDailyActivity.first?.timeArriveHome = dailyActivities.timeArriveHome
+                }
             }
+
         } catch let error as NSError {
             print(error.localizedDescription)
         }
