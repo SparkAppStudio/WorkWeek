@@ -73,13 +73,13 @@ class DailyTableViewController: UITableViewController {
 // MARK: - DataSource
 extension DailyTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return RealmManager.shared.getTodayObject().count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DailyTableViewCell")
             else {return UITableViewCell()}
-        cell.textLabel?.text = RealmManager.shared.getTodayObject().timeLeftHome?.description
+        cell.textLabel?.text = RealmManager.shared.getTodayObject()[indexPath.row].activityTime?.description
         return cell
     }
 }
