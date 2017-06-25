@@ -44,12 +44,12 @@ class DailyTableViewController: UITableViewController {
 
         notificationCenter.addObserver(self,
                                        selector: #selector(leftWorkNotified),
-                                       name: NSNotification.Name(rawValue:NotificationCenter.Notes.arriveWork.rawValue),
+                                       name: NSNotification.Name(rawValue:NotificationCenter.Notes.leftWork.rawValue),
                                        object: nil)
 
         notificationCenter.addObserver(self,
                                        selector: #selector(arriveHomeNotified),
-                                       name: NSNotification.Name(rawValue:NotificationCenter.Notes.arriveWork.rawValue),
+                                       name: NSNotification.Name(rawValue:NotificationCenter.Notes.arriveHome.rawValue),
                                        object: nil)
 
 
@@ -64,7 +64,7 @@ class DailyTableViewController: UITableViewController {
     }
 
     func leftWorkNotified() {
-        print("Left Home Notification Received")
+        print("Left Work Notification Received")
     }
 
     func arriveHomeNotified() {
