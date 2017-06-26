@@ -26,7 +26,7 @@ class DailyCollectionViewCell: UICollectionViewCell {
         case cases.leftWork.rawValue:
             activityName.text = "Time Left Work"
         case cases.arriveHome.rawValue:
-            activityName.text = "Time Left Work"
+            activityName.text = "Time Arrived Home"
         default:
             activityName.text = ""
         }
