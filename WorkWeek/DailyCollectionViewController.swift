@@ -12,9 +12,9 @@ extension NotificationCenter {
                      object anObject: Any? = nil) {
 
         self.addObserver(observer,
-                    selector: aSelector,
-                    name: NSNotification.Name(rawValue: aName.rawValue),
-                    object: anObject)
+                         selector: aSelector,
+                         name: NSNotification.Name(rawValue: aName.rawValue),
+                         object: anObject)
     }
 
 }
@@ -88,14 +88,15 @@ extension DailyCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
         -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DailyCollectionViewCell",
-                                                            for: indexPath)
-                                                            as? DailyCollectionViewCell
+            guard let cell = collectionView
+                .dequeueReusableCell(withReuseIdentifier: Identifiers.DailyCollectionViewCell,
+                                for: indexPath)
+                as? DailyCollectionViewCell
             else {
-            return UICollectionViewCell()
-        }
-        cell.configureCell(dailyActivityData[indexPath.row])
-        return cell
+                return UICollectionViewCell()
+            }
+            cell.configureCell(dailyActivityData[indexPath.row])
+            return cell
     }
 
     override func collectionView(_ collectionView: UICollectionView,
@@ -104,13 +105,13 @@ extension DailyCollectionViewController {
         switch kind {
         case UICollectionElementKindSectionHeader:
             guard let headerView = collectionView
-                            .dequeueReusableSupplementaryView(ofKind: kind,
-                                                              withReuseIdentifier: "DailyCollectionHeaderView",
-                                                              for: indexPath) as? DailyCollectionHeaderView
+                .dequeueReusableSupplementaryView(ofKind: kind,
+                                                  withReuseIdentifier: Identifiers.DailyCollectionHeaderView,
+                                                  for: indexPath) as? DailyCollectionHeaderView
                 else {
                     return UICollectionReusableView()
             }
-            headerView.configureCell(date: NSDate())
+            headerView.configureView(date: NSDate())
             return headerView
         default:
             assert(false, "unexpected element kind")

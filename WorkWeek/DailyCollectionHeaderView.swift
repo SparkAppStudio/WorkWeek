@@ -10,7 +10,7 @@ import UIKit
 
 class DailyCollectionHeaderView: UICollectionReusableView {
     @IBOutlet weak var currentDateLabel: UILabel!
-    func configureCell(date: NSDate) {
+    func configureView(date: NSDate) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeZone = TimeZone.current
