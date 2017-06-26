@@ -19,10 +19,11 @@ extension NotificationCenter {
 
 }
 
-class DailyTableViewController: UITableViewController {
+class DailyCollectionViewController: UICollectionViewController {
 
     let notificationCenter = NotificationCenter.default
 
+    var dailyActivityData = [Activity]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +66,7 @@ class DailyTableViewController: UITableViewController {
     }
 
     func reloadViewController() {
-        self.tableView.reloadData()
+        self.collectionView?.reloadData()
     }
 
     func configureNotificationObservers() {
@@ -78,18 +79,45 @@ class DailyTableViewController: UITableViewController {
 }
 
 // MARK: - DataSource
-extension DailyTableViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RealmManager.shared.getTodayObject().count
+extension DailyCollectionViewController {
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        dailyActivityData = RealmManager.shared.getTodayObject()
+        return dailyActivityData.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DailyTableViewCell")
-            else {return UITableViewCell()}
-        cell.textLabel?.text = RealmManager.shared.getTodayObject()[indexPath.row].activityTime?.description
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
+        -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DailyCollectionViewCell",
+                                                            for: indexPath)
+                                                            as? DailyCollectionViewCell
+            else {
+            return UICollectionViewCell()
+        }
+        cell.configureCell(dailyActivityData[indexPath.row])
         return cell
+    }
+
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            guard let headerView = collectionView
+                            .dequeueReusableSupplementaryView(ofKind: kind,
+                                                              withReuseIdentifier: "DailyCollectionHeaderView",
+                                                              for: indexPath) as? DailyCollectionHeaderView
+                else {
+                    return UICollectionReusableView()
+            }
+            headerView.configureCell(date: NSDate())
+            return headerView
+        default:
+            assert(false, "unexpected element kind")
+            return UICollectionReusableView()
+        }
     }
 }
 
-extension DailyTableViewController: ActivityStoryboard {
+extension DailyCollectionViewController: ActivityStoryboard {
 }

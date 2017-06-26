@@ -28,10 +28,12 @@
 		C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */; };
 		C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */; };
 		C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0C4531EE3CC930000D097 /* PageManager.swift */; };
+		D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */; };
+		D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */; };
 		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
-		D1CA47031EE354B9003628FF /* DailyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47021EE354B9003628FF /* DailyTableViewController.swift */; };
-		D1CA47051EE354FC003628FF /* WeeklyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47041EE354FC003628FF /* WeeklyTableViewController.swift */; };
+		D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */; };
+		D1CA47051EE354FC003628FF /* WeeklyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47041EE354FC003628FF /* WeeklyCollectionViewController.swift */; };
 		D1CA47071EE35528003628FF /* ActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47061EE35528003628FF /* ActivityPageViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,10 +61,12 @@
 		C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardProtocols.swift; sourceTree = "<group>"; };
 		C3B0C4531EE3CC930000D097 /* PageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageManager.swift; sourceTree = "<group>"; };
+		D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
+		D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionHeaderView.swift; sourceTree = "<group>"; };
 		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
-		D1CA47021EE354B9003628FF /* DailyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableViewController.swift; sourceTree = "<group>"; };
-		D1CA47041EE354FC003628FF /* WeeklyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyTableViewController.swift; sourceTree = "<group>"; };
+		D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewController.swift; sourceTree = "<group>"; };
+		D1CA47041EE354FC003628FF /* WeeklyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionViewController.swift; sourceTree = "<group>"; };
 		D1CA47061EE35528003628FF /* ActivityPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +137,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C3FE380B1EFDD4CD00E1D60E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C362A4061EE34EA200AB9830 /* Onboarding.storyboard */,
+				C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */,
+				C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		D1102CE61F00BA4E006A0E2F /* DailyCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */,
+				D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */,
+				D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */,
+			);
+			name = DailyCollectionView;
+			sourceTree = "<group>";
+		};
 		D1B21F921EF521720023D427 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,24 +166,14 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
-        C3FE380B1EFDD4CD00E1D60E /* Onboarding */ = {
-            isa = PBXGroup;
-            children = (
-                C362A4061EE34EA200AB9830 /* Onboarding.storyboard */,
-                C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */,
-                C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */,
-            );
-            name = Onboarding;
-            sourceTree = "<group>";
-        };
 		D1CA47011EE34D9F003628FF /* Activity */ = {
 			isa = PBXGroup;
 			children = (
 				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
 				D1CA47061EE35528003628FF /* ActivityPageViewController.swift */,
 				5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */,
-				D1CA47021EE354B9003628FF /* DailyTableViewController.swift */,
-				D1CA47041EE354FC003628FF /* WeeklyTableViewController.swift */,
+				D1102CE61F00BA4E006A0E2F /* DailyCollectionView */,
+				D1CA47041EE354FC003628FF /* WeeklyCollectionViewController.swift */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -308,19 +322,21 @@
 				C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */,
 				C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */,
 				D1B21F941EF521870023D427 /* RealmManager.swift in Sources */,
+				D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */,
 				52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */,
 				526E50721EF62DD50066F043 /* Analytics.swift in Sources */,
 				D1CA47071EE35528003628FF /* ActivityPageViewController.swift in Sources */,
 				D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */,
-				D1CA47051EE354FC003628FF /* WeeklyTableViewController.swift in Sources */,
+				D1CA47051EE354FC003628FF /* WeeklyCollectionViewController.swift in Sources */,
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,
-				D1CA47031EE354B9003628FF /* DailyTableViewController.swift in Sources */,
+				D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */,
 				C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */,
 				5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */,
 				C362A4091EE3517800AB9830 /* OnboardPageViewController.swift in Sources */,
 				526E50741EF6CDBC0066F043 /* Dictionary+Extensions.swift in Sources */,
+				D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
