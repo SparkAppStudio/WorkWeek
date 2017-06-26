@@ -13,6 +13,7 @@ class DailyCollectionHeaderView: UICollectionReusableView {
     func configureCell(date: NSDate) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
+        dateFormatter.timeZone = TimeZone.current
         currentDateLabel.text = dateFormatter.string(from: date as Date)
     }
 }

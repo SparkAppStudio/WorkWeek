@@ -31,6 +31,13 @@ class DailyCollectionViewCell: UICollectionViewCell {
             activityName.text = ""
         }
 
-        activityTime.text = dailyActivity.activityTime?.description
+        guard let activityTimeDate = dailyActivity.activityTime else {
+            return
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        dateFormatter.timeZone = TimeZone.current
+        activityTime.text = dateFormatter.string(from: activityTimeDate as Date)
     }
 }
