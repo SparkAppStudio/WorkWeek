@@ -99,7 +99,7 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                 switch settings.authorizationStatus {
 
                 case .authorized:
-                    if button == self.denyNotifyButton {
+                    if button === self.denyNotifyButton {
                         button.isHidden = true
                         break
                     }
