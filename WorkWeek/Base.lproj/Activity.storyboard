@@ -40,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Left Home Notification"/>
                                 <connections>
-                                    <action selector="leftHomeNotificationPressed:" destination="Kgw-xI-26n" eventType="touchUpInside" id="tJC-i0-ij7"/>
+                                    <action selector="didPressleftHomeNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="OrO-7Y-ofd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hup-Ea-ngc">
@@ -48,7 +48,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Arrive Work Notification"/>
                                 <connections>
-                                    <action selector="arriveWorkNotificationPressed:" destination="Kgw-xI-26n" eventType="touchUpInside" id="m0l-yX-iHV"/>
+                                    <action selector="didPressArriveWorkNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="nYi-iT-pWq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wt0-v9-mtW">
@@ -56,7 +56,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Left Work Notification"/>
                                 <connections>
-                                    <action selector="leftWorkNotificationPressed:" destination="Kgw-xI-26n" eventType="touchUpInside" id="xHf-gs-xoN"/>
+                                    <action selector="didPressLeftWorkNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="hkv-GN-yjD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keN-h6-f2l">
@@ -64,7 +64,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Arrive Home Notification"/>
                                 <connections>
-                                    <action selector="arriveHomeNotification:" destination="Kgw-xI-26n" eventType="touchUpInside" id="anH-pP-ZCz"/>
+                                    <action selector="didPressArriveHomeNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="KEV-MD-EJ7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiQ-CD-UF0">
@@ -72,7 +72,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Display all realm data"/>
                                 <connections>
-                                    <action selector="displayAllRealmData:" destination="Kgw-xI-26n" eventType="touchUpInside" id="8zk-sM-b51"/>
+                                    <action selector="didPressDisplayAllRealmDataButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="pTv-m2-iow"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4G1-eA-LKP">
@@ -80,7 +80,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear all realm data"/>
                                 <connections>
-                                    <action selector="clearAllRealmData:" destination="Kgw-xI-26n" eventType="touchUpInside" id="t1C-Yw-pb5"/>
+                                    <action selector="didPressClearAllRealmDataButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="IiZ-Fb-jUf"/>
                                 </connections>
                             </button>
                         </subviews>
