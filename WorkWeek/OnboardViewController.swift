@@ -142,7 +142,7 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                         self.configureDisplay(button: self.denyNotifyButton)
                         //dismiss
                     } else {
-                        print(error ?? "failed to grant, error")
+                        Log.log(error?.localizedDescription ?? "failed to grant, error")
                         //dismiss
                     }
                 }

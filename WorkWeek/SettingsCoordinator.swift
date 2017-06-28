@@ -93,7 +93,7 @@ class SettingsCoordinator: SettingsMainProtocol {
 
     func notificationsSwitched(_ isOn: Bool) {
         let state = isOn ? "ON" : "OFF"
-        print("switched notifications to \(state)")
+        Log.log("switched notifications to \(state)")
     }
 
 }
