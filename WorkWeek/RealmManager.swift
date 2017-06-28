@@ -52,9 +52,7 @@ class RealmManager {
     }
 
     func getDailyObject(for date: Date) -> DailyObject? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.short
-        let key = dateFormatter.string(from: date as Date)
+        let key = date.primaryKeyBasedOnDate()
         do {
             let realm = try Realm()
             let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)

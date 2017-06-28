@@ -8,3 +8,5 @@ struct Identifiers {
     static let DailyCollectionViewCell = "DailyCollectionViewCell"
     static let DailyCollectionHeaderView = "DailyCollectionHeaderView"
 }
+
+

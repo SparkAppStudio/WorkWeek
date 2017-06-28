@@ -29,7 +29,8 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
         if userHasSeenOnboarding {
             showActivity()
         } else {
-            showOnboarding()
+//            showOnboarding()
+            showActivity()
         }
     }
 

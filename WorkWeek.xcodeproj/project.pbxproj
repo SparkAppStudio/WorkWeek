@@ -37,6 +37,7 @@
 		D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */; };
 		D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */; };
 		D1102CEA1F00C085006A0E2F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE91F00C085006A0E2F /* AppConstants.swift */; };
+		D1102CEC1F038950006A0E2F /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CEB1F038950006A0E2F /* DateExtensions.swift */; };
 		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
 		D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */; };
@@ -77,6 +78,7 @@
 		D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionHeaderView.swift; sourceTree = "<group>"; };
 		D1102CE91F00C085006A0E2F /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		D1102CEB1F038950006A0E2F /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				52223FA81EE123F20014F4A9 /* AppCoordinator.swift */,
 				C3B0C4531EE3CC930000D097 /* PageManager.swift */,
 				D1102CE91F00C085006A0E2F /* AppConstants.swift */,
+				D1102CED1F038AEE006A0E2F /* Extensions */,
 				D1B21F921EF521720023D427 /* Managers */,
 				D1CA47011EE34D9F003628FF /* Activity */,
 				52E1A7291EFB91CA00FBF278 /* Settings */,
@@ -185,6 +188,14 @@
 				D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */,
 			);
 			name = DailyCollectionView;
+			sourceTree = "<group>";
+		};
+		D1102CED1F038AEE006A0E2F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D1102CEB1F038950006A0E2F /* DateExtensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		D1B21F921EF521720023D427 /* Managers */ = {
@@ -365,9 +376,10 @@
 				52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */,
 				526E50721EF62DD50066F043 /* Analytics.swift in Sources */,
 				D1CA47071EE35528003628FF /* ActivityPageViewController.swift in Sources */,
+				D1102CEC1F038950006A0E2F /* DateExtensions.swift in Sources */,
 				D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */,
 				D1CA47051EE354FC003628FF /* WeeklyCollectionViewController.swift in Sources */,
-                52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */,
+				52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */,
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,

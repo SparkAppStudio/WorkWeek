@@ -50,14 +50,12 @@ class NotificationCenterManager {
     }
 
     func saveDataToRealm(forCheckInEvents: NotificationCenter.CheckInEvents) {
-        let today = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.short
-        let todayString = dateFormatter.string(from: today as Date)
-        print(todayString)
+
+        let key = Date().primaryKeyBasedOnDate()
+        print(key)
 
         let dailyObject = DailyObject()
-        dailyObject.dateString = todayString
+        dailyObject.dateString = key
 
         let event = Event(eventName: forCheckInEvents.rawValue, eventTime: Date())
 

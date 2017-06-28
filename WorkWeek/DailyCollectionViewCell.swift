@@ -35,10 +35,7 @@ class DailyCollectionViewCell: UICollectionViewCell {
         guard let activityTimeDate = dailyActivity.value(forKey: "eventTime") as? Date else {
             return
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .medium
-        dateFormatter.timeZone = TimeZone.current
-        activityTime.text = dateFormatter.string(from: activityTimeDate as Date)
+
+        activityTime.text = activityTimeDate.dailyActivityEventDateFormat()
     }
 }
