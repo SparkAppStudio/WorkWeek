@@ -4,6 +4,13 @@
 
 import Foundation
 
+extension DateFormatter {
+    fileprivate static let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        return formatter
+    }()
+}
+
 extension Date {
 
     func dailyActivityTitleDate() -> String {
