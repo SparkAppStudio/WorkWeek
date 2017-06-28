@@ -24,6 +24,7 @@ extension Date {
     func primaryKeyBasedOnDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeZone = TimeZone.current
         return dateFormatter.string(from: self)
     }
 
