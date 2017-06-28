@@ -17,11 +17,13 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
     }
 
     func start() {
+        Log.log("\(#file): \(#function)")
 
         #if DEBUG  // In Debug modes allow going straight to the settings page if, the userdefault key is set
             let showSettingsDEBUG = UserDefaults.standard.bool(for: .overrideShowSettingsFirst)
             if showSettingsDEBUG {
                 showSettings()
+                return
             }
         #endif
 
