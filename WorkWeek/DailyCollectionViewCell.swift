@@ -10,32 +10,32 @@ import UIKit
 
 
 class DailyCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var activityName: UILabel!
-    @IBOutlet weak var activityTime: UILabel!
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var eventTimeLabel: UILabel!
 
-    func configureCell(_ dailyActivity: Event) {
+    func configureCell(_ event: Event) {
 
-        guard let activityNameString = dailyActivity.value(forKey: "eventName") as? String else {
+        guard let activityNameString = event.value(forKey: "eventName") as? String else {
             return
         }
         let cases = NotificationCenter.CheckInEvents.self
         switch activityNameString {
         case cases.leftHome.rawValue:
-            activityName.text = "Time Left Home"
+            eventNameLabel.text = "Time Left Home"
         case cases.arriveWork.rawValue:
-            activityName.text = "Time Arrived Work"
+            eventNameLabel.text = "Time Arrived Work"
         case cases.leftWork.rawValue:
-            activityName.text = "Time Left Work"
+            eventNameLabel.text = "Time Left Work"
         case cases.arriveHome.rawValue:
-            activityName.text = "Time Arrived Home"
+            eventNameLabel.text = "Time Arrived Home"
         default:
-            activityName.text = ""
+            eventNameLabel.text = ""
         }
 
-        guard let activityTimeDate = dailyActivity.value(forKey: "eventTime") as? Date else {
+        guard let activityTimeDate = event.value(forKey: "eventTime") as? Date else {
             return
         }
 
-        activityTime.text = activityTimeDate.dailyActivityEventDateFormat()
+        eventTimeLabel.text = activityTimeDate.dailyActivityEventDateFormat()
     }
 }
