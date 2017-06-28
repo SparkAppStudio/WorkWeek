@@ -32,7 +32,7 @@ class DailyCollectionViewCell: UICollectionViewCell {
             activityName.text = ""
         }
 
-        guard let activityTimeDate = dailyActivity.value(forKey: "eventTime") as? NSDate else {
+        guard let activityTimeDate = dailyActivity.value(forKey: "eventTime") as? Date else {
             return
         }
         let dateFormatter = DateFormatter()

@@ -85,7 +85,7 @@ class DailyCollectionViewController: UICollectionViewController {
 extension DailyCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dailyObject = RealmManager.shared.getDailyObject(for: NSDate())
+        dailyObject = RealmManager.shared.getDailyObject(for: Date())
         return events.count
     }
 
@@ -114,7 +114,7 @@ extension DailyCollectionViewController {
                 else {
                     return UICollectionReusableView()
             }
-            headerView.configureView(date: NSDate())
+            headerView.configureView(date: Date())
             return headerView
         default:
             assert(false, "unexpected element kind")

@@ -50,7 +50,7 @@ class NotificationCenterManager {
     }
 
     func saveDataToRealm(forCheckInEvents: NotificationCenter.CheckInEvents) {
-        let today = NSDate()
+        let today = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.short
         let todayString = dateFormatter.string(from: today as Date)
@@ -59,7 +59,7 @@ class NotificationCenterManager {
         let dailyObject = DailyObject()
         dailyObject.dateString = todayString
 
-        let event = Event(eventName: forCheckInEvents.rawValue, eventTime: NSDate())
+        let event = Event(eventName: forCheckInEvents.rawValue, eventTime: Date())
 
         switch forCheckInEvents {
         case .leftHome:

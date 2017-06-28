@@ -24,9 +24,9 @@ class DailyObject: Object {
 
 class Event: Object {
     var eventName: String?
-    var eventTime: NSDate?
+    var eventTime: Date?
 
-    convenience init(eventName: String, eventTime: NSDate) {
+    convenience init(eventName: String, eventTime: Date) {
         self.init()
         self.eventName = eventName
         self.eventTime = eventTime
@@ -51,7 +51,7 @@ class RealmManager {
 
     }
 
-    func getDailyObject(for date: NSDate) -> DailyObject? {
+    func getDailyObject(for date: Date) -> DailyObject? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.short
         let key = dateFormatter.string(from: date as Date)
