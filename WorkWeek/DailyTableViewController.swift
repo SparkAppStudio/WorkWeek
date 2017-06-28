@@ -17,7 +17,7 @@ class DailyTableViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.short
         let todayString = dateFormatter.string(from: today as Date)
-        print(todayString)
+        Log.log(todayString)
 
         let dailyActivity = DailyActivities()
         dailyActivity.dateString = todayString
@@ -56,19 +56,19 @@ class DailyTableViewController: UITableViewController {
     }
 
     func leftHomeNotified() {
-        print("Left Home Notification Received")
+        Log.log("Left Home Notification Received")
     }
 
     func arriveWorkNotified() {
-        print("Arrive Work Notification received")
+        Log.log("Arrive Work Notification received")
     }
 
     func leftWorkNotified() {
-        print("Left Home Notification Received")
+        Log.log("Left Home Notification Received")
     }
 
     func arriveHomeNotified() {
-        print("Arrive Home Notification Received")
+        Log.log("Arrive Home Notification Received")
     }
 
 }

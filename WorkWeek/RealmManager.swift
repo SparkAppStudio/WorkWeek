@@ -35,7 +35,7 @@ class RealmManager {
 
         } catch let error as NSError {
             //handle error
-            print(error.localizedDescription)
+            Log.log(error.localizedDescription)
         }
 
     }
@@ -44,11 +44,11 @@ class RealmManager {
         do {
             let realm = try Realm()
             let allActivities = realm.objects(DailyActivities.self)
-            print(allActivities)
+            Log.log(allActivities.debugDescription)
 
         } catch let error as NSError {
             //handle error
-            print(error.localizedDescription)
+            Log.log(error.localizedDescription)
         }
     }
 
@@ -60,7 +60,7 @@ class RealmManager {
             }
         } catch let error as NSError {
             //handle error
-            print(error.localizedDescription)
+            Log.log(error.localizedDescription)
         }
     }
 
@@ -71,7 +71,7 @@ class RealmManager {
                 realm.add(dailyActivities, update: true)
             }
         } catch let error as NSError {
-            print(error.localizedDescription)
+            Log.log(error.localizedDescription)
         }
     }
 }
