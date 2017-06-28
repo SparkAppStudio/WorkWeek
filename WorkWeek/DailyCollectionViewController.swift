@@ -8,7 +8,7 @@ import Reusable
 extension NotificationCenter {
     func addObserver(_ observer: Any,
                      selector aSelector: Selector,
-                     name aName: NotificationCenter.Notes,
+                     name aName: NotificationCenter.CheckInEvents,
                      object anObject: Any? = nil) {
 
         self.addObserver(observer,

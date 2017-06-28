@@ -9,14 +9,14 @@
 import Foundation
 
 extension NotificationCenter {
-    enum Notes: String {
+    enum CheckInEvents: String {
         case leftHome
         case arriveWork
         case leftWork
         case arriveHome
     }
 
-    func post(name: Notes, object: Any?) {
+    func post(name: CheckInEvents, object: Any?) {
         let name = NSNotification.Name(name.rawValue)
         post(name: name, object: object)
     }
@@ -30,50 +30,50 @@ class NotificationCenterManager {
 
 
     func postLeftHomeNotification() {
-        saveDataToRealm(notes: .leftHome)
+        saveDataToRealm(forCheckInEvents: .leftHome)
         notificationCenter.post(name: .leftHome, object: nil)
     }
 
     func postArriveWorkNotification() {
-        saveDataToRealm(notes: .arriveWork)
+        saveDataToRealm(forCheckInEvents: .arriveWork)
         notificationCenter.post(name: .arriveWork, object: nil)
     }
 
     func postLeftWorkNotification() {
-        saveDataToRealm(notes: .leftWork)
+        saveDataToRealm(forCheckInEvents: .leftWork)
         notificationCenter.post(name: .leftWork, object: nil)
     }
 
     func postArriveHomeNotification() {
-        saveDataToRealm(notes: .arriveHome)
+        saveDataToRealm(forCheckInEvents: .arriveHome)
         notificationCenter.post(name: .arriveHome, object: nil)
     }
 
-    func saveDataToRealm(notes: NotificationCenter.Notes) {
+    func saveDataToRealm(forCheckInEvents: NotificationCenter.CheckInEvents) {
         let today = NSDate()
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.short
         let todayString = dateFormatter.string(from: today as Date)
         print(todayString)
 
-        let dailyActivity = DailyObject()
-        dailyActivity.dateString = todayString
+        let dailyObject = DailyObject()
+        dailyObject.dateString = todayString
 
-        let event = Event(eventName: notes.rawValue, eventTime: NSDate())
+        let event = Event(eventName: forCheckInEvents.rawValue, eventTime: NSDate())
 
-        switch notes {
+        switch forCheckInEvents {
         case .leftHome:
-            dailyActivity.timeLeftHome = event
-            RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .leftHome)
+            dailyObject.timeLeftHome = event
+            RealmManager.shared.updateDailyActivities(dailyObject, forCheckInEvents: .leftHome)
         case .arriveWork:
-            dailyActivity.timeArriveWork = event
-            RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .arriveWork)
+            dailyObject.timeArriveWork = event
+            RealmManager.shared.updateDailyActivities(dailyObject, forCheckInEvents: .arriveWork)
         case .leftWork:
-            dailyActivity.timeLeftWork = event
-            RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .leftWork)
+            dailyObject.timeLeftWork = event
+            RealmManager.shared.updateDailyActivities(dailyObject, forCheckInEvents: .leftWork)
         case .arriveHome:
-            dailyActivity.timeArriveHome = event
-            RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .arriveHome)
+            dailyObject.timeArriveHome = event
+            RealmManager.shared.updateDailyActivities(dailyObject, forCheckInEvents: .arriveHome)
         }
     }
 }

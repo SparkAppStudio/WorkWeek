@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class DailyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var activityName: UILabel!
     @IBOutlet weak var activityTime: UILabel!
@@ -17,7 +18,7 @@ class DailyCollectionViewCell: UICollectionViewCell {
         guard let activityNameString = dailyActivity.value(forKey: "eventName") as? String else {
             return
         }
-        let cases = NotificationCenter.Notes.self
+        let cases = NotificationCenter.CheckInEvents.self
         switch activityNameString {
         case cases.leftHome.rawValue:
             activityName.text = "Time Left Home"

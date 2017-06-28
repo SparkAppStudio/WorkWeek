@@ -90,26 +90,26 @@ class RealmManager {
         }
     }
 
-    func updateDailyActivities(_ dailyObject: DailyObject, forNote: NotificationCenter.Notes) {
+    func updateDailyActivities(_ dailyObject: DailyObject, forCheckInEvents: NotificationCenter.CheckInEvents) {
 
         do {
             let realm = try Realm()
 
             guard let key = dailyObject.dateString else {return}
 
-            let dailyActivityQueryResult = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+            let dailyObjectQuery = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
 
             try realm.write {
-                if let currentDailyActivity = dailyActivityQueryResult {
-                    switch forNote {
+                if let currentDailyObject = dailyObjectQuery {
+                    switch forCheckInEvents {
                     case .leftHome:
-                        currentDailyActivity.timeLeftHome = dailyObject.timeLeftHome
+                        currentDailyObject.timeLeftHome = dailyObject.timeLeftHome
                     case .arriveWork:
-                        currentDailyActivity.timeArriveWork = dailyObject.timeArriveWork
+                        currentDailyObject.timeArriveWork = dailyObject.timeArriveWork
                     case .leftWork:
-                        currentDailyActivity.timeLeftWork = dailyObject.timeLeftWork
+                        currentDailyObject.timeLeftWork = dailyObject.timeLeftWork
                     case .arriveHome:
-                        currentDailyActivity.timeArriveHome = dailyObject.timeArriveHome
+                        currentDailyObject.timeArriveHome = dailyObject.timeArriveHome
                     }
                 } else {
                     //Create a new daily activity and update it
