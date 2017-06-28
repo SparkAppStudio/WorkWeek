@@ -91,13 +91,7 @@ extension DailyCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
         -> UICollectionViewCell {
-            guard let cell = collectionView
-                .dequeueReusableCell(withReuseIdentifier: Identifiers.DailyCollectionViewCell,
-                                for: indexPath)
-                as? DailyCollectionViewCell
-            else {
-                return UICollectionViewCell()
-            }
+            let cell = collectionView.dequeueReusableCell(for: indexPath) as DailyCollectionViewCell
             cell.configureCell(events[indexPath.row])
             return cell
     }
@@ -109,7 +103,7 @@ extension DailyCollectionViewController {
         case UICollectionElementKindSectionHeader:
             guard let headerView = collectionView
                 .dequeueReusableSupplementaryView(ofKind: kind,
-                                                  withReuseIdentifier: Identifiers.DailyCollectionHeaderView,
+                                                  withReuseIdentifier: Identifiers.dailyCollectionHeaderView.rawValue,
                                                   for: indexPath) as? DailyCollectionHeaderView
                 else {
                     return UICollectionReusableView()

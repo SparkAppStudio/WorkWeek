@@ -132,6 +132,10 @@
                                         </label>
                                     </subviews>
                                 </view>
+                                <connections>
+                                    <outlet property="eventNameLabel" destination="p54-Eq-TJU" id="QXT-b9-0dy"/>
+                                    <outlet property="eventTimeLabel" destination="cft-Ne-bob" id="Kdy-Cy-ub8"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="DailyCollectionHeaderView" reuseIdentifier="DailyCollectionHeaderView" id="Icy-G9-Dbb" customClass="DailyCollectionHeaderView" customModule="WorkWeek" customModuleProvider="target">

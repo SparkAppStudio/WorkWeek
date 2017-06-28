@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import Reusable
 
-
-class DailyCollectionViewCell: UICollectionViewCell {
+class DailyCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
 

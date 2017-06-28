@@ -4,9 +4,9 @@
 
 import UIKit
 
-struct Identifiers {
-    static let DailyCollectionViewCell = "DailyCollectionViewCell"
-    static let DailyCollectionHeaderView = "DailyCollectionHeaderView"
+enum Identifiers: String {
+    case dailyCollectionViewCell = "DailyCollectionViewCell"
+    case dailyCollectionHeaderView = "DailyCollectionHeaderView"
 }
 
 
