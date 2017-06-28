@@ -56,21 +56,23 @@ class NotificationCenterManager {
         let todayString = dateFormatter.string(from: today as Date)
         print(todayString)
 
-        let dailyActivity = DailyActivities()
+        let dailyActivity = DailyObject()
         dailyActivity.dateString = todayString
+
+        let event = Event(eventName: notes.rawValue, eventTime: NSDate())
 
         switch notes {
         case .leftHome:
-            dailyActivity.timeLeftHome = NSDate()
+            dailyActivity.timeLeftHome = event
             RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .leftHome)
         case .arriveWork:
-            dailyActivity.timeArriveWork = NSDate()
+            dailyActivity.timeArriveWork = event
             RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .arriveWork)
         case .leftWork:
-            dailyActivity.timeLeftWork = NSDate()
+            dailyActivity.timeLeftWork = event
             RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .leftWork)
         case .arriveHome:
-            dailyActivity.timeArriveHome = NSDate()
+            dailyActivity.timeArriveHome = event
             RealmManager.shared.updateDailyActivities(dailyActivity, forNote: .arriveHome)
         }
     }

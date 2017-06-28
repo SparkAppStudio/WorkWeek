@@ -16,31 +16,34 @@ extension NotificationCenter {
                          name: NSNotification.Name(rawValue: aName.rawValue),
                          object: anObject)
     }
-
 }
 
 class DailyCollectionViewController: UICollectionViewController {
 
     let notificationCenter = NotificationCenter.default
 
-    var dailyActivityData = [Activity]()
+    var events = [Event]()
+
+    var dailyObject: DailyObject? {
+        didSet {
+            events.removeAll()
+            if let timeLeftHome = dailyObject?.timeLeftHome {
+                events.append(timeLeftHome)
+            }
+            if let timeArriveWork = dailyObject?.timeArriveWork {
+                events.append(timeArriveWork)
+            }
+            if let timeLeftWork = dailyObject?.timeLeftWork {
+                events.append(timeLeftWork)
+            }
+            if let timeArriveHome = dailyObject?.timeArriveHome {
+                events.append(timeArriveHome)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let today = NSDate()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.short
-        let todayString = dateFormatter.string(from: today as Date)
-        print(todayString)
-
-        let dailyActivity = DailyActivities()
-        dailyActivity.dateString = todayString
-        dailyActivity.timeLeftHome = NSDate()
-        dailyActivity.timeArriveWork = NSDate()
-        dailyActivity.timeLeftWork = NSDate()
-        dailyActivity.timeArriveHome = NSDate()
-
         configureNotificationObservers()
 
     }
@@ -82,8 +85,8 @@ class DailyCollectionViewController: UICollectionViewController {
 extension DailyCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dailyActivityData = RealmManager.shared.getTodayObject()
-        return dailyActivityData.count
+        dailyObject = RealmManager.shared.getDailyObject(for: NSDate())
+        return events.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
@@ -95,7 +98,7 @@ extension DailyCollectionViewController {
             else {
                 return UICollectionViewCell()
             }
-            cell.configureCell(dailyActivityData[indexPath.row])
+            cell.configureCell(events[indexPath.row])
             return cell
     }
 

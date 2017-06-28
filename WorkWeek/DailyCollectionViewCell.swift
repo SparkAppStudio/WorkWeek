@@ -12,9 +12,9 @@ class DailyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var activityName: UILabel!
     @IBOutlet weak var activityTime: UILabel!
 
-    func configureCell(_ dailyActivity: Activity) {
+    func configureCell(_ dailyActivity: Event) {
 
-        guard let activityNameString = dailyActivity.activityName else {
+        guard let activityNameString = dailyActivity.value(forKey: "eventName") as? String else {
             return
         }
         let cases = NotificationCenter.Notes.self
@@ -31,7 +31,7 @@ class DailyCollectionViewCell: UICollectionViewCell {
             activityName.text = ""
         }
 
-        guard let activityTimeDate = dailyActivity.activityTime else {
+        guard let activityTimeDate = dailyActivity.value(forKey: "eventTime") as? NSDate else {
             return
         }
         let dateFormatter = DateFormatter()

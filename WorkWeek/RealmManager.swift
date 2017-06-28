@@ -10,32 +10,38 @@ import Foundation
 import Realm
 import RealmSwift
 
-class DailyActivities: Object {
+class DailyObject: Object {
     dynamic var dateString: String?
-    dynamic var timeLeftHome: NSDate?
-    dynamic var timeArriveWork: NSDate?
-    dynamic var timeLeftWork: NSDate?
-    dynamic var timeArriveHome: NSDate?
+    dynamic var timeLeftHome: Event?
+    dynamic var timeArriveWork: Event?
+    dynamic var timeLeftWork: Event?
+    dynamic var timeArriveHome: Event?
 
     override static func primaryKey() -> String? {
         return "dateString"
     }
 }
 
-struct Activity {
-    var activityName: String?
-    var activityTime: NSDate?
+class Event: Object {
+    var eventName: String?
+    var eventTime: NSDate?
+
+    convenience init(eventName: String, eventTime: NSDate) {
+        self.init()
+        self.eventName = eventName
+        self.eventTime = eventTime
+    }
 }
 
 class RealmManager {
 
     static let shared = RealmManager()
 
-    func saveDailyActivities(_ dailyActivities: DailyActivities) {
+    func saveDailyActivities(_ dailyOject: DailyObject) {
         do {
             let realm = try Realm()
             try realm.write {
-                realm.add(dailyActivities)
+                realm.add(dailyOject)
             }
 
         } catch let error as NSError {
@@ -45,50 +51,26 @@ class RealmManager {
 
     }
 
-    func getTodayObject() -> [Activity] {
-        var todayActivity = [Activity]()
+    func getDailyObject(for date: NSDate) -> DailyObject? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        let key = dateFormatter.string(from: date as Date)
         do {
             let realm = try Realm()
-            let currentDailyActivity = realm.objects(DailyActivities.self)
-                .filter("dateString = '6/25/17'")
-
-            if let timeLeftHome = currentDailyActivity.first?.timeLeftHome {
-                let activity = Activity(activityName: NotificationCenter.Notes.leftHome.rawValue,
-                                        activityTime: timeLeftHome)
-                todayActivity.append(activity)
-            }
-
-            if let timeArriveWork = currentDailyActivity.first?.timeArriveWork {
-                let activity = Activity(activityName: NotificationCenter.Notes.arriveWork.rawValue,
-                                        activityTime: timeArriveWork)
-                todayActivity.append(activity)
-            }
-
-            if let timeLeftWork = currentDailyActivity.first?.timeLeftWork {
-                let activity = Activity(activityName: NotificationCenter.Notes.leftWork.rawValue,
-                                        activityTime: timeLeftWork)
-                todayActivity.append(activity)
-            }
-
-            if let timeArriveHome = currentDailyActivity.first?.timeArriveHome {
-                let activity = Activity(activityName: NotificationCenter.Notes.arriveHome.rawValue,
-                                        activityTime: timeArriveHome)
-                todayActivity.append(activity)
-            }
-
-            return todayActivity
-
+            let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+            return dailyObject
         } catch let error as NSError {
             print(error.localizedDescription)
-            return [Activity]()
+            return DailyObject()
         }
+
     }
 
-    func displayAllDailyActivies() {
+    func displayAllDailyObjects() {
         do {
             let realm = try Realm()
-            let allActivities = realm.objects(DailyActivities.self)
-            print(allActivities)
+            let allDailyObject = realm.objects(DailyObject.self)
+            print(allDailyObject)
 
         } catch let error as NSError {
             //handle error
@@ -108,28 +90,30 @@ class RealmManager {
         }
     }
 
-    func updateDailyActivities(_ dailyActivities: DailyActivities, forNote: NotificationCenter.Notes) {
+    func updateDailyActivities(_ dailyObject: DailyObject, forNote: NotificationCenter.Notes) {
+
         do {
             let realm = try Realm()
 
-            let dailyActivityQueryResult = realm.objects(DailyActivities.self)
-                .filter("dateString = '6/25/17'")
+            guard let key = dailyObject.dateString else {return}
+
+            let dailyActivityQueryResult = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
 
             try realm.write {
-                if let currentDailyActivity = dailyActivityQueryResult.first {
+                if let currentDailyActivity = dailyActivityQueryResult {
                     switch forNote {
                     case .leftHome:
-                        currentDailyActivity.timeLeftHome = dailyActivities.timeLeftHome
+                        currentDailyActivity.timeLeftHome = dailyObject.timeLeftHome
                     case .arriveWork:
-                        currentDailyActivity.timeArriveWork = dailyActivities.timeArriveWork
+                        currentDailyActivity.timeArriveWork = dailyObject.timeArriveWork
                     case .leftWork:
-                        currentDailyActivity.timeLeftWork = dailyActivities.timeLeftWork
+                        currentDailyActivity.timeLeftWork = dailyObject.timeLeftWork
                     case .arriveHome:
-                        currentDailyActivity.timeArriveHome = dailyActivities.timeArriveHome
+                        currentDailyActivity.timeArriveHome = dailyObject.timeArriveHome
                     }
                 } else {
                     //Create a new daily activity and update it
-                    realm.add(dailyActivities)
+                    realm.add(dailyObject)
                 }
             }
         } catch let error as NSError {
