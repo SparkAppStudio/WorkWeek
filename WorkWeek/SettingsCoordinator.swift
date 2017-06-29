@@ -25,6 +25,8 @@ class SettingsCoordinator: SettingsMainProtocol {
     }
 
     func start() {
+        Log.log("\(#file): \(#function)")
+
         let initial = SettingsViewController.instantiate()
         initial.delegate = self
 
