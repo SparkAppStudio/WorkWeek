@@ -71,6 +71,11 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         Log.log("switched notifications to \(state)")
     }
 
+    func didTapDone() {
+        Log.log("User tapped one on Main Settings")
+        delegate?.settingsFinished(with: self)
+    }
+
     private func pushMapVC(type: MapVCType, delegate: MapVCDelegate, onto: UINavigationController) {
         let mapViewController = SettingsMapViewController.instantiate()
         mapViewController.locationManager = locationManager
@@ -115,4 +120,5 @@ protocol SettingsMainProtocol: class {
     func didTapWorkMap()
     func didTapHomeMap()
     func notificationsSwitched(_ isOn: Bool)
+    func didTapDone()
 }

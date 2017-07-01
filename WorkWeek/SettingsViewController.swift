@@ -61,6 +61,9 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         delegate?.notificationsSwitched(sender.isOn)
     }
 
+    @IBAction func didTapDone(_ sender: UIButton) {
+        delegate?.didTapDone()
+    }
 
     // MARK: Members (RE-asses this name?...
 

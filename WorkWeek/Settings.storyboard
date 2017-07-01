@@ -164,6 +164,9 @@
                                         <rect key="frame" x="8" y="8" width="359" height="33"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="didTapDone:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="uzC-hW-OA5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
