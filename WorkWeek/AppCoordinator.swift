@@ -79,6 +79,7 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
 
     func settingsFinished(with coordinator: SettingsCoordinator) {
         childCoordinators.remove(coordinator)
+        showActivity()
     }
 }
 
