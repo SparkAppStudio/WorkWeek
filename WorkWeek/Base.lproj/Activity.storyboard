@@ -40,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Left Home Notification"/>
                                 <connections>
-                                    <action selector="leftHomeNotificationPressed:" destination="Kgw-xI-26n" eventType="touchUpInside" id="tJC-i0-ij7"/>
+                                    <action selector="didPressleftHomeNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="OrO-7Y-ofd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hup-Ea-ngc">
@@ -48,7 +48,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Arrive Work Notification"/>
                                 <connections>
-                                    <action selector="arriveWorkNotificationPressed:" destination="Kgw-xI-26n" eventType="touchUpInside" id="m0l-yX-iHV"/>
+                                    <action selector="didPressArriveWorkNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="nYi-iT-pWq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wt0-v9-mtW">
@@ -56,7 +56,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Left Work Notification"/>
                                 <connections>
-                                    <action selector="leftWorkNotificationPressed:" destination="Kgw-xI-26n" eventType="touchUpInside" id="xHf-gs-xoN"/>
+                                    <action selector="didPressLeftWorkNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="hkv-GN-yjD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keN-h6-f2l">
@@ -64,7 +64,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Arrive Home Notification"/>
                                 <connections>
-                                    <action selector="arriveHomeNotification:" destination="Kgw-xI-26n" eventType="touchUpInside" id="anH-pP-ZCz"/>
+                                    <action selector="didPressArriveHomeNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="KEV-MD-EJ7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiQ-CD-UF0">
+                                <rect key="frame" x="114" y="494" width="146" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Display all realm data"/>
+                                <connections>
+                                    <action selector="didPressDisplayAllRealmDataButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="pTv-m2-iow"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4G1-eA-LKP">
+                                <rect key="frame" x="121" y="538" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear all realm data"/>
+                                <connections>
+                                    <action selector="didPressClearAllRealmDataButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="IiZ-Fb-jUf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -78,61 +94,116 @@
             </objects>
             <point key="canvasLocation" x="-182" y="477"/>
         </scene>
-        <!--Daily Table View Controller-->
-        <scene sceneID="SZT-qY-FyY">
+        <!--Daily Collection View Controller-->
+        <scene sceneID="j4e-pC-ArS">
             <objects>
-                <tableViewController storyboardIdentifier="DailyTableViewController" id="ODb-4M-KXB" customClass="DailyTableViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Xx-vb-9nn">
+                <collectionViewController storyboardIdentifier="DailyCollectionViewController" id="LRH-SG-brW" customClass="DailyCollectionViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lGg-ct-y9u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dB1-7j-pOU">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dB1-7j-pOU" id="nZN-M3-NuQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xlF-K2-iEg">
+                            <size key="itemSize" width="375" height="220"/>
+                            <size key="headerReferenceSize" width="50" height="103"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DailyCollectionViewCell" id="FsY-Xy-AQf" customClass="DailyCollectionViewCell" customModule="WorkWeek" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="103" width="375" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p54-Eq-TJU">
+                                            <rect key="frame" x="20" y="74" width="335" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cft-Ne-bob">
+                                            <rect key="frame" x="20" y="125" width="335" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="eventNameLabel" destination="p54-Eq-TJU" id="QXT-b9-0dy"/>
+                                    <outlet property="eventTimeLabel" destination="cft-Ne-bob" id="Kdy-Cy-ub8"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="DailyCollectionHeaderView" reuseIdentifier="DailyCollectionHeaderView" id="Icy-G9-Dbb" customClass="DailyCollectionHeaderView" customModule="WorkWeek" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CurrentDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAb-Cw-dUh">
+                                    <rect key="frame" x="22" y="29" width="136" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Daily Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDN-Ki-W9R">
+                                    <rect key="frame" x="22" y="49" width="214" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <connections>
+                                <outlet property="currentDateLabel" destination="HAb-Cw-dUh" id="dWh-OV-YlT"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
-                            <outlet property="dataSource" destination="ODb-4M-KXB" id="hyM-AJ-PFf"/>
-                            <outlet property="delegate" destination="ODb-4M-KXB" id="usG-bg-0u7"/>
+                            <outlet property="dataSource" destination="LRH-SG-brW" id="Vqi-W5-bvu"/>
+                            <outlet property="delegate" destination="LRH-SG-brW" id="pz8-xW-AYQ"/>
                         </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L4X-Qj-N4u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="soA-F4-xrd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="514" y="478"/>
+            <point key="canvasLocation" x="501.60000000000002" y="475.41229385307349"/>
         </scene>
-        <!--Weekly Table View Controller-->
-        <scene sceneID="P4o-df-fJ1">
+        <!--Weekly Collection View Controller-->
+        <scene sceneID="xfW-Kb-RdU">
             <objects>
-                <tableViewController storyboardIdentifier="WeeklyTableViewController" id="dhs-tn-GYq" customClass="WeeklyTableViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YNK-R2-mPe">
+                <collectionViewController storyboardIdentifier="WeeklyCollectionViewController" id="WuD-7k-x9Q" customClass="WeeklyCollectionViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="MAL-k5-SGd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JHc-K7-hNx">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JHc-K7-hNx" id="2VG-JJ-9m6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uhT-0J-sGB">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3mh-5u-EdE">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
                         <connections>
-                            <outlet property="dataSource" destination="dhs-tn-GYq" id="f3H-TN-HJ9"/>
-                            <outlet property="delegate" destination="dhs-tn-GYq" id="nMZ-jE-0kB"/>
+                            <outlet property="dataSource" destination="WuD-7k-x9Q" id="ihx-xg-xAA"/>
+                            <outlet property="delegate" destination="WuD-7k-x9Q" id="i8X-ln-Zth"/>
                         </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HEs-w3-4eN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZEI-l2-dDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1194" y="473"/>
+            <point key="canvasLocation" x="1230" y="477"/>
         </scene>
         <!--Activity Page View Controller-->
         <scene sceneID="lVe-vi-Caw">
