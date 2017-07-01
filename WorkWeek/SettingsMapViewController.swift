@@ -28,6 +28,8 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var centerCircleView: CenterCircleView!
 
+    var locationManager: CLLocationManager!
+
     /// Used to ensure we only zoom the map once
     var didUpdateUserLocationOnce = false
 
@@ -49,8 +51,8 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard {
 
         drawOverlays(for: type)
 
-        // TODO : Remove this, we should already have authorization when we get here
-        CLLocationManager().requestAlwaysAuthorization()
+        // TODO: Remove this, we should already have authorization when we get here
+       locationManager.requestAlwaysAuthorization()
     }
 
     // MARK: Actions
@@ -59,8 +61,8 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard {
         print("Done Tapped")
         let center = mapView.region.center
         // TODO: Figure out how to do this radius math, pretty sure this is wrong
-        let radius = mapView.visibleMapRect.size.width
-        delegate?.save(type: .home,
+        let radius = mapView.visibleMapRect.size.width / 3 / 2
+        delegate?.save(type: type,
                        coordinate: center,
                        radius: radius)
     }
@@ -72,33 +74,9 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard {
     func drawOverlays(for type: MapVCType) {
         switch type {
         case .home:
-            let manager = CLLocationManager()
-            let allRegions = manager.monitoredRegions
-            let homeRegions = allRegions.filter { $0.identifier == RegionId.home.rawValue }
-            guard let firstHomeRegion = homeRegions.first else {
-                Log.log("No \(type) Region Currently Registed, only \(allRegions)")
-                return
-            }
-            guard let homeCircle = firstHomeRegion as? CLCircularRegion else {
-                Log.log("Found \(firstHomeRegion), but its not a CLCircularRegion")
-                return
-            }
-            let home = MKCircle(center: homeCircle.center, radius: homeCircle.radius)
-            mapView.add(home)
+            locationManager.circle(forRegion: RegionId.home.rawValue).forEach(mapView.add(_:))
         case .work:
-            let manager = CLLocationManager()
-            let allRegions = manager.monitoredRegions
-            let homeRegions = allRegions.filter { $0.identifier == RegionId.work.rawValue }
-            guard let firstWorkRegion = homeRegions.first else {
-                Log.log("No \(type) Region Currently Registed, only \(allRegions)")
-                return
-            }
-            guard let workCircle = firstWorkRegion as? CLCircularRegion else {
-                Log.log("Found \(firstWorkRegion), but its not a CLCircularRegion")
-                return
-            }
-            let work = MKCircle(center: workCircle.center, radius: workCircle.radius)
-            mapView.add(work)
+            locationManager.circle(forRegion: RegionId.work.rawValue).forEach(mapView.add(_:))
         }
     }
 }
@@ -123,7 +101,10 @@ extension SettingsMapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         print(overlay)
-        return MKCircleRenderer(overlay: overlay)
+        let renderer = MKCircleRenderer(overlay: overlay)
+        renderer.fillColor = .green
+        renderer.strokeColor = .purple
+        return renderer
     }
 
 }

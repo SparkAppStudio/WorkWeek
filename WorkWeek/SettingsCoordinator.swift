@@ -73,6 +73,7 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
 
     private func pushMapVC(type: MapVCType, delegate: MapVCDelegate, onto: UINavigationController) {
         let mapViewController = SettingsMapViewController.instantiate()
+        mapViewController.locationManager = locationManager
         mapViewController.type = type
         mapViewController.delegate = delegate
         onto.pushViewController(mapViewController, animated: true)
@@ -93,6 +94,14 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     // MARK: MapVCDelegate
 
     func save(type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+        let region: CLRegion
+        switch type {
+        case .home:
+            region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.home.rawValue)
+        case .work:
+            region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.work.rawValue)
+        }
+        locationManager.startMonitoring(for: region)
         navigationController.popViewController(animated: true)
     }
 
