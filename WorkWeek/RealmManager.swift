@@ -10,9 +10,11 @@ import Foundation
 import Realm
 import RealmSwift
 
+typealias TempWeeklyObject = [DailyObject]
+
 class WeeklyObject: Object {
     dynamic var weekOfTheYear: String?
-    dynamic var dailyObjects: [DailyObject]?
+    let dailyObjects = List<DailyObject>()
     override static func primaryKey() -> String? {
         return "weekOfTheYear"
     }
@@ -40,7 +42,18 @@ class Event: Object {
 }
 
 class RealmManager {
+
     static let shared = RealmManager()
+
+    static var realm: Realm {
+        do {
+            let realm = try Realm()
+            return realm
+        } catch {
+            Log.log("Cannot Access Database")
+        }
+        return self.realm
+    }
 
     // MARK: - Save Operations
     func saveDailyActivities(_ dailyOject: DailyObject) {
@@ -75,11 +88,19 @@ class RealmManager {
             let realm = try Realm()
             let allDailyObject = realm.objects(DailyObject.self)
             Log.log(allDailyObject.debugDescription)
-
         } catch let error as NSError {
             //handle error
             Log.log(error.localizedDescription)
         }
+    }
+
+    func getAllDailyObjects() -> TempWeeklyObject {
+        var dailyObjects = TempWeeklyObject()
+        let allDailyObjectsResults = RealmManager.realm.objects(DailyObject.self)
+        for dailyObject in allDailyObjectsResults {
+            dailyObjects.append(dailyObject)
+        }
+        return dailyObjects
     }
 
     // TODO: - Work on this soon
