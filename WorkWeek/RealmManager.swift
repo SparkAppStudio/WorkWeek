@@ -10,6 +10,14 @@ import Foundation
 import Realm
 import RealmSwift
 
+class WeeklyObject: Object {
+    dynamic var weekOfTheYear: String?
+    dynamic var dailyObjects: [DailyObject]?
+    override static func primaryKey() -> String? {
+        return "weekOfTheYear"
+    }
+}
+
 class DailyObject: Object {
     dynamic var dateString: String?
     dynamic var timeLeftHome: Event?
@@ -33,6 +41,8 @@ class Event: Object {
 
 class RealmManager {
     static let shared = RealmManager()
+
+    // MARK: - Save Operations
     func saveDailyActivities(_ dailyOject: DailyObject) {
         do {
             let realm = try Realm()
@@ -47,6 +57,7 @@ class RealmManager {
 
     }
 
+    // MARK: - Query Operations
     func getDailyObject(for date: Date) -> DailyObject? {
         let key = date.primaryKeyBasedOnDate()
         do {
@@ -71,6 +82,13 @@ class RealmManager {
         }
     }
 
+    // TODO: - Work on this soon
+    func getDailyObjectsByWeek() {
+
+    }
+
+    // MARK: - Delete Operations
+
     func removeAllObjects() {
         do {
             let realm = try Realm()
@@ -83,6 +101,7 @@ class RealmManager {
         }
     }
 
+    // MARK: - Update Opertions
     func updateDailyActivities(_ dailyObject: DailyObject, forCheckInEvents: NotificationCenter.CheckInEvents) {
         do {
             let realm = try Realm()
