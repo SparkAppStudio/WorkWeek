@@ -8,8 +8,9 @@ import MapKit
 extension CLLocationManager {
 
     /// Created MKCircles from the currently monitored regions
-    /// This is super useful for quickly showing the apps currently geofenced
-    /// regions on a map.
+    /// This is super useful for quickly showing the App's currently geofenced
+    /// regions on a map. Searches for a prefix string, and attempts to cast to
+    /// `CLCircularRegion`.
     ///
     /// Usage
     /// =====
@@ -20,7 +21,7 @@ extension CLLocationManager {
     /// - Parameter identifier: A prefix which filters the currently monitored regions
     ///                         usefull for only getting the work or home locations
     /// - Returns: An array of circles, could be empty if no regions were found
-    func circle(forRegion identifier: String) -> [MKCircle] {
+    func circles(matching identifier: String) -> [MKCircle] {
 
         let matchingRegions = monitoredRegions.filter { $0.identifier.hasPrefix(identifier) }
         guard matchingRegions.count > 0 else {

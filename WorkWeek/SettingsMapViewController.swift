@@ -5,6 +5,7 @@
 import UIKit
 import MapKit
 
+// TODO: Combine these 2 enums?
 enum MapVCType {
     case home
     case work
@@ -74,9 +75,9 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard {
     func drawOverlays(for type: MapVCType) {
         switch type {
         case .home:
-            locationManager.circle(forRegion: RegionId.home.rawValue).forEach(mapView.add(_:))
+            locationManager.circles(matching: RegionId.home.rawValue).forEach(mapView.add(_:))
         case .work:
-            locationManager.circle(forRegion: RegionId.work.rawValue).forEach(mapView.add(_:))
+            locationManager.circles(matching: RegionId.work.rawValue).forEach(mapView.add(_:))
         }
     }
 }
