@@ -10,22 +10,22 @@ final class CountdownViewController: UIViewController {
     @IBOutlet weak var countdownDisplay: UILabel!
 
     @IBAction func didPressleftHomeNotificationButton(_ sender: UIButton) {
-        print("Left Home Notification Pressed")
+        Log.log("Left Home Notification Pressed")
         NotificationCenterManager.shared.postLeftHomeNotification()
     }
 
     @IBAction func didPressArriveWorkNotificationButton(_ sender: UIButton) {
-        print("Arrive Work Notification Pressed")
+        Log.log("Arrive Work Notification Pressed")
         NotificationCenterManager.shared.postArriveWorkNotification()
     }
 
     @IBAction func didPressLeftWorkNotificationButton(_ sender: UIButton) {
-        print("Left Work Notification Pressed")
+        Log.log("Left Work Notification Pressed")
         NotificationCenterManager.shared.postLeftWorkNotification()
     }
 
     @IBAction func didPressArriveHomeNotificationButton(_ sender: UIButton) {
-        print("Arrive Home Notification Pressed")
+        Log.log("Arrive Home Notification Pressed")
         NotificationCenterManager.shared.postArriveHomeNotification()
     }
 

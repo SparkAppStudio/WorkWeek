@@ -82,7 +82,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
 extension SettingsViewController: PickerResponseForwarder {
     func didSelectWork(hours: Double) {
-        print("Selected \(hours)")
+        Log.log("Selected \(hours)")
     }
 }
 

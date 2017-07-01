@@ -9,4 +9,3 @@ enum Identifiers: String {
     case dailyCollectionHeaderView = "DailyCollectionHeaderView"
 }
 
-

@@ -25,6 +25,7 @@ class OnboardingCoordinator {
     }
 
     func start() {
+        Log.log("\(#file): \(#function)")
         let initial = OnboardPageViewController.instantiate()
         navigationController.setViewControllers([initial], animated: false)
         navigationController.isNavigationBarHidden = true
