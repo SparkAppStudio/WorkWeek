@@ -13,6 +13,7 @@
 		52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52223FAA1EE1299B0014F4A9 /* Reusable.framework */; };
 		52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */; };
 		52510E941EFCD03E006F5C97 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52510E931EFCD03E006F5C97 /* MapKit.framework */; };
+		525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */; };
 		526799121EE349A500F41E01 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526799111EE349A500F41E01 /* Settings.storyboard */; };
 		526799141EE3555600F41E01 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526799131EE3555600F41E01 /* SettingsViewController.swift */; };
 		526E50721EF62DD50066F043 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E50711EF62DD50066F043 /* Analytics.swift */; };
@@ -52,6 +53,7 @@
 		52223FAA1EE1299B0014F4A9 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
 		52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMapViewController.swift; sourceTree = "<group>"; };
 		52510E931EFCD03E006F5C97 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Extensions.swift"; sourceTree = "<group>"; };
 		526799111EE349A500F41E01 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		526799131EE3555600F41E01 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		526E50711EF62DD50066F043 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				526E50711EF62DD50066F043 /* Analytics.swift */,
 				527039341EF8D85B00A0B6BA /* Log.swift */,
 				526E50731EF6CDBC0066F043 /* Dictionary+Extensions.swift */,
+				525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */,
 				526E50751EF6CE3C0066F043 /* CrashReporting.swift */,
 				5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */,
 			);
@@ -383,6 +386,7 @@
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,
+				525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */,
 				D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */,
 				C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */,
 				5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */,
