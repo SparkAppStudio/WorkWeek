@@ -5,7 +5,7 @@
 import UIKit
 
 enum Identifiers: String {
-    case dailyCollectionViewCell = "DailyCollectionViewCell"
     case dailyCollectionHeaderView = "DailyCollectionHeaderView"
+    case weeklyCollectionHeaderView = "WeeklyCollectionHeaderView"
 }
 
