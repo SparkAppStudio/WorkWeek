@@ -10,27 +10,34 @@ import Foundation
 import Realm
 import RealmSwift
 
-class DailyActivities: Object {
+class DailyObject: Object {
     dynamic var dateString: String?
-    dynamic var timeLeftHome: NSDate?
-    dynamic var timeArriveWork: NSDate?
-    dynamic var timeLeftWork: NSDate?
-    dynamic var timeArriveHome: NSDate?
-
+    dynamic var timeLeftHome: Event?
+    dynamic var timeArriveWork: Event?
+    dynamic var timeLeftWork: Event?
+    dynamic var timeArriveHome: Event?
     override static func primaryKey() -> String? {
         return "dateString"
     }
 }
 
+class Event: Object {
+    var eventName: String?
+    var eventTime: Date?
+    convenience init(eventName: String, eventTime: Date) {
+        self.init()
+        self.eventName = eventName
+        self.eventTime = eventTime
+    }
+}
+
 class RealmManager {
-
     static let shared = RealmManager()
-
-    func saveDailyActivities(_ dailyActivities: DailyActivities) {
+    func saveDailyActivities(_ dailyOject: DailyObject) {
         do {
             let realm = try Realm()
             try realm.write {
-                realm.add(dailyActivities)
+                realm.add(dailyOject)
             }
 
         } catch let error as NSError {
@@ -40,11 +47,23 @@ class RealmManager {
 
     }
 
-    func displayAllDailyActivies() {
+    func getDailyObject(for date: Date) -> DailyObject? {
+        let key = date.primaryKeyBasedOnDate()
         do {
             let realm = try Realm()
-            let allActivities = realm.objects(DailyActivities.self)
-            Log.log(allActivities.debugDescription)
+            let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+            return dailyObject
+        } catch let error as NSError {
+            Log.log(error.localizedDescription)
+            return DailyObject()
+        }
+    }
+
+    func displayAllDailyObjects() {
+        do {
+            let realm = try Realm()
+            let allDailyObject = realm.objects(DailyObject.self)
+            Log.log(allDailyObject.debugDescription)
 
         } catch let error as NSError {
             //handle error
@@ -64,11 +83,27 @@ class RealmManager {
         }
     }
 
-    func updateDailyActivities(_ dailyActivities: DailyActivities) {
+    func updateDailyActivities(_ dailyObject: DailyObject, forCheckInEvents: NotificationCenter.CheckInEvents) {
         do {
             let realm = try Realm()
+            guard let key = dailyObject.dateString else {return}
+            let dailyObjectQuery = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
             try realm.write {
-                realm.add(dailyActivities, update: true)
+                if let currentDailyObject = dailyObjectQuery {
+                    switch forCheckInEvents {
+                    case .leftHome:
+                        currentDailyObject.timeLeftHome = dailyObject.timeLeftHome
+                    case .arriveWork:
+                        currentDailyObject.timeArriveWork = dailyObject.timeArriveWork
+                    case .leftWork:
+                        currentDailyObject.timeLeftWork = dailyObject.timeLeftWork
+                    case .arriveHome:
+                        currentDailyObject.timeArriveHome = dailyObject.timeArriveHome
+                    }
+                } else {
+                    //Create a new daily activity and update it
+                    realm.add(dailyObject)
+                }
             }
         } catch let error as NSError {
             Log.log(error.localizedDescription)

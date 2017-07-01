@@ -9,24 +9,32 @@ final class CountdownViewController: UIViewController {
 
     @IBOutlet weak var countdownDisplay: UILabel!
 
-    @IBAction func leftHomeNotificationPressed(_ sender: UIButton) {
+    @IBAction func didPressleftHomeNotificationButton(_ sender: UIButton) {
         Log.log("Left Home Notification Pressed")
         NotificationCenterManager.shared.postLeftHomeNotification()
     }
 
-    @IBAction func arriveWorkNotificationPressed(_ sender: UIButton) {
+    @IBAction func didPressArriveWorkNotificationButton(_ sender: UIButton) {
         Log.log("Arrive Work Notification Pressed")
         NotificationCenterManager.shared.postArriveWorkNotification()
     }
 
-    @IBAction func leftWorkNotificationPressed(_ sender: UIButton) {
+    @IBAction func didPressLeftWorkNotificationButton(_ sender: UIButton) {
         Log.log("Left Work Notification Pressed")
         NotificationCenterManager.shared.postLeftWorkNotification()
     }
 
-    @IBAction func arriveHomeNotification(_ sender: UIButton) {
+    @IBAction func didPressArriveHomeNotificationButton(_ sender: UIButton) {
         Log.log("Arrive Home Notification Pressed")
         NotificationCenterManager.shared.postArriveHomeNotification()
+    }
+
+    @IBAction func didPressDisplayAllRealmDataButton(_ sender: UIButton) {
+        RealmManager.shared.displayAllDailyObjects()
+    }
+
+    @IBAction func didPressClearAllRealmDataButton(_ sender: UIButton) {
+        RealmManager.shared.removeAllObjects()
     }
 
     var timer = Timer()

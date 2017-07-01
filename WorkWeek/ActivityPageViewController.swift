@@ -9,8 +9,8 @@ class ActivityPageViewController: UIPageViewController, ActivityStoryboard {
 
     var orderedViewControllers = [
         CountdownViewController.instantiate(),
-        DailyTableViewController.instantiate(),
-        WeeklyTableViewController.instantiate()
+        DailyCollectionViewController.instantiate(),
+        WeeklyCollectionViewController.instantiate()
     ]
 
     lazy var manager: PageManager = {
