@@ -9,7 +9,7 @@ protocol OnboardingCoordinatorDelegate : class {
     func onboardingFinished(with coordinator: OnboardingCoordinator)
 }
 
-class OnboardingCoordinator {
+class OnboardingCoordinator: OnboardPageViewDelegate {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
@@ -27,13 +27,13 @@ class OnboardingCoordinator {
     func start() {
         Log.log("\(#file): \(#function)")
         let initial = OnboardPageViewController.instantiate()
+        initial.onboardDelegate = self
+
         navigationController.setViewControllers([initial], animated: false)
         navigationController.isNavigationBarHidden = true
     }
 
-    func notificationsPageIsFinished() {
+    func pagesAreDone() {
         delegate?.onboardingFinished(with: self)
     }
 }
-
-

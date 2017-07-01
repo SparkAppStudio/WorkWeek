@@ -4,23 +4,17 @@
 
 import UIKit
 
-protocol OnboardingPageViewControllerDelegate: class {
-    func notificationsPageIsFinished()
+protocol OnboardPageViewDelegate: class {
+    func pagesAreDone()
 }
 
-final class OnboardPageViewController: UIPageViewController, OnboardingStoryboard {
-
-    var orderedViewControllers = [OnboardWelcomeViewController.instantiate(),
-                        OnboardExplainViewController.instantiate(),
-                        OnboardLocationViewController.instantiate(),
-                        OnboardNotifyViewController.instantiate()]
+final class OnboardPageViewController: UIPageViewController, OnboardingStoryboard, OnboardLocationViewDelegate, OnboardNotifyViewDelegate {
 
     lazy var manager: PageManager = {
-        return PageManager(viewControllers: self.orderedViewControllers)
+        return PageManager(viewControllers: self.configOrderedViewControllers())
     }()
 
-    // TODO: Need to wire up the calling of these methods.
-    weak var pvcDelegate: OnboardingPageViewControllerDelegate?
+    weak var onboardDelegate: OnboardPageViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +22,32 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         delegate = manager
         dataSource = manager
 
-        guard let firstVC = orderedViewControllers.first else {
+        guard let firstVC = manager.orderedViewControllers.first else {
             assertionFailure("No pages in array")
             return
         }
 
         setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
+    }
+
+    func configOrderedViewControllers() -> [UIViewController] {
+        let welcomeVC = OnboardWelcomeViewController.instantiate()
+        let explainVC = OnboardExplainViewController.instantiate()
+        let locationVC = OnboardLocationViewController.instantiate()
+        locationVC.delegate = self
+        let notifyVC = OnboardNotifyViewController.instantiate()
+        notifyVC.delegate = self
+
+        return [welcomeVC, explainVC, locationVC, notifyVC]
+
+    }
+
+    func locationPageIsDone() {
+        //inject notify page
+    }
+
+    func notifyPageIsDone() {
+        onboardDelegate?.pagesAreDone()
     }
 
     override func viewDidLayoutSubviews() {
