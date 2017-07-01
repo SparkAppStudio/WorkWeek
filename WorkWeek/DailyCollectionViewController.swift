@@ -96,6 +96,7 @@ extension DailyCollectionViewController {
             return cell
     }
 
+    // TODO: Log this error condition.
     override func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
@@ -111,6 +112,7 @@ extension DailyCollectionViewController {
             headerView.configureView(date: Date())
             return headerView
         default:
+            // TODO: log this error condition, and what the kind was.
             assert(false, "unexpected element kind")
             return UICollectionReusableView()
         }

@@ -14,7 +14,7 @@ class DailyCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var eventTimeLabel: UILabel!
 
     func configureCell(_ event: Event) {
-
+        //TODO: Do you know why this is not a "TypeSafe" property access?
         guard let activityNameString = event.value(forKey: "eventName") as? String else {
             return
         }
