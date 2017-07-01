@@ -59,10 +59,8 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard {
     // MARK: Actions
 
     @IBAction func didTapDone(_ sender: UIButton) {
-        print("Done Tapped")
         let center = mapView.region.center
-        // TODO: Figure out how to do this radius math, pretty sure this is wrong
-        let radius = mapView.visibleMapRect.size.width / 3 / 2
+        let radius = mapView.visibleMapRect.sizeInMeters().width / 3.0 / 2.0
         delegate?.save(type: type,
                        coordinate: center,
                        radius: radius)
@@ -95,16 +93,11 @@ extension SettingsMapViewController: MKMapViewDelegate {
         }
     }
 
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        print(annotation)
-        return nil
-    }
-
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        print(overlay)
+
         let renderer = MKCircleRenderer(overlay: overlay)
-        renderer.fillColor = .green
-        renderer.strokeColor = .purple
+        renderer.fillColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.5)
+        renderer.strokeColor = .clear
         return renderer
     }
 
@@ -128,5 +121,24 @@ class CenterCircleView: UIView {
 
         context?.setFillColor(fillColor)
         context?.fillEllipse(in: insetRect)
+    }
+}
+
+extension MKMapRect {
+    struct Size {
+        let width: CLLocationDistance
+        let height: CLLocationDistance
+    }
+    func sizeInMeters() -> Size {
+        let topLeft = self.origin
+        let topRight = MKMapPoint(x: topLeft.x + self.size.width,
+                                   y: topLeft.y)
+        let width = MKMetersBetweenMapPoints(topLeft, topRight)
+
+        let bottomLeft = MKMapPoint(x: topLeft.x, y: topLeft.y + self.size.height)
+
+        let height = MKMetersBetweenMapPoints(topLeft, bottomLeft)
+
+        return Size(width: width, height: height)
     }
 }
