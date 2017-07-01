@@ -46,10 +46,20 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
 
     func onboardingFinished(with coordinator: OnboardingCoordinator) {
         childCoordinators.remove(coordinator)
-        showActivity()
+//        showActivity()
+        transitionToActivity()
     }
 
     // MARK: Onboarding Delegate
+
+    func transitionToActivity() {
+        let initial = ActivityPageViewController.instantiate()
+        navigationController.isNavigationBarHidden = true
+
+        navigationController.viewControllers.insert(initial, at: 0)
+        navigationController.popWithModalAnimation()
+    }
+
 
     // MARK: Activity
     func showActivity() {
