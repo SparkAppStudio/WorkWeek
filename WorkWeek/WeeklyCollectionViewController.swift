@@ -7,11 +7,10 @@ import Reusable
 
 class WeeklyCollectionViewController: UICollectionViewController {
 
-    var weeklySummaries = TempWeeklyObject()
+    var weeklySummaries = ["First", "Second"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        weeklySummaries = RealmManager.shared.getAllDailyObjects()
     }
 
 }

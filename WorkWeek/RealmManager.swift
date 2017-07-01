@@ -10,8 +10,6 @@ import Foundation
 import Realm
 import RealmSwift
 
-typealias TempWeeklyObject = [DailyObject]
-
 class WeeklyObject: Object {
     dynamic var weekOfTheYear: String?
     let dailyObjects = List<DailyObject>()
@@ -94,17 +92,7 @@ class RealmManager {
         }
     }
 
-    func getAllDailyObjects() -> TempWeeklyObject {
-        var dailyObjects = TempWeeklyObject()
-        let allDailyObjectsResults = RealmManager.realm.objects(DailyObject.self)
-        for dailyObject in allDailyObjectsResults {
-            dailyObjects.append(dailyObject)
-        }
-        return dailyObjects
-    }
-
-    // TODO: - Work on this soon
-    func getDailyObjectsByWeek() {
+    func getAllWeeklyObjects() {
 
     }
 
@@ -126,8 +114,11 @@ class RealmManager {
     func updateDailyActivities(_ dailyObject: DailyObject, forCheckInEvents: NotificationCenter.CheckInEvents) {
         do {
             let realm = try Realm()
+
+            //DailyObjecy
             guard let key = dailyObject.dateString else {return}
             let dailyObjectQuery = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+
             try realm.write {
                 if let currentDailyObject = dailyObjectQuery {
                     switch forCheckInEvents {
