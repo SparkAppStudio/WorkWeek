@@ -9,6 +9,7 @@ import CoreLocation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var locationWindow: UIWindow?
     var appCoordinator: AppCoordinator!
     var locationManager: CLLocationManager!
 
@@ -23,6 +24,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         configureWindowAndCoordinator()
         return true
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+
+        if UserDefaults.standard.bool(for: .hasSeenOnboarding) {
+            checkLocation()
+        }
+
+    }
+
+    func checkLocation() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedAlways:
+            dismissLocationWindow()
+        return // this is the one we need.
+        case .denied, .restricted, .authorizedWhenInUse:
+            showLocationWindow()
+        case .notDetermined:
+            Log.log(.error, "Requesting Always Auth, (they should have been asked in onboarding")
+            locationManager.requestAlwaysAuthorization()
+        }
+    }
+
+    func showLocationWindow() {
+        guard locationWindow == nil else { return }
+        locationWindow = UIWindow(frame: UIScreen.main.bounds)
+        locationWindow?.rootViewController = OnboardLocationViewController.instantiate()
+        locationWindow?.isHidden = false
+        locationWindow?.windowLevel = UIWindowLevelStatusBar
+    }
+
+    func dismissLocationWindow() {
+        guard locationWindow != nil else { return }
+
+        UIView.animate(withDuration: 0.5, animations: {
+            self.locationWindow?.alpha = 0
+        }) { _ in
+            self.locationWindow = nil
+        }
     }
 
     func configureWindowAndCoordinator() {
