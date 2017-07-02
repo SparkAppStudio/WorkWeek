@@ -35,15 +35,27 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         let explainVC = OnboardExplainViewController.instantiate()
         let locationVC = OnboardLocationViewController.instantiate()
         locationVC.delegate = self
-        let notifyVC = OnboardNotifyViewController.instantiate()
-        notifyVC.delegate = self
 
-        return [welcomeVC, explainVC, locationVC, notifyVC]
+        return [welcomeVC, explainVC, locationVC]
 
     }
 
     func locationPageIsDone() {
-        //inject notify page
+        //inject notify page if it doesnt already exist
+        if manager.orderedViewControllers.count < 4 {
+            DispatchQueue.main.async {
+                let notifyVC = OnboardNotifyViewController.instantiate()
+                notifyVC.delegate = self
+
+
+                // update the datasource
+                self.manager.orderedViewControllers.append(notifyVC)
+
+                // start the view controllers after datasource has been updated, 
+                // and start the user at the 3rd page, which is current one they are looking at
+                self.setViewControllers([self.manager.orderedViewControllers[2]], direction: .forward, animated: false, completion: nil)
+            }
+        }
     }
 
     func notifyPageIsDone() {
@@ -52,14 +64,23 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        self.view.backgroundColor = UIColor.blue
         extendPageViewContent(view: view)
     }
 
     func extendPageViewContent(view: UIView) {
-        // Iterate through subviews and make their frame as big as this controller frame.
+        // Iterate through subviews and make their frame as tall as this controller frame.
         // This stretches the content below the pageVC controls (the dots) and covers the black empty background
+        // make the widths extra wide and create offset for origin so its still centered. This hides the black when scrolling with a bounce
+        // width is *2 the width because that is maximum they could swipe slowly 
+        // and so this way they will not see the page view background color
         for subview in view.subviews where subview is UIScrollView {
-            subview.frame = view.frame
+
+            let wideSize = CGSize(width: view.frame.width * 2, height: view.frame.height)
+            let offsetOrigin = CGPoint(x: -view.frame.width / 2, y: view.frame.origin.y)
+            let subviewFrame = CGRect(origin: offsetOrigin, size: wideSize)
+
+            subview.frame = subviewFrame
         }
     }
 }
