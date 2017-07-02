@@ -10,21 +10,22 @@ import Foundation
 import RealmSwift
 
 class WeeklyObject: Object {
-    dynamic var weekOfTheYear: String?
+    dynamic var weekAndTheYear: String?
     let dailyObjects = List<DailyObject>()
     override static func primaryKey() -> String? {
-        return "weekOfTheYear"
+        return #keyPath(WeeklyObject.weekAndTheYear)
     }
 }
 
 class DailyObject: Object {
     dynamic var dateString: String?
+    dynamic var date: Date?
     dynamic var timeLeftHome: Event?
     dynamic var timeArriveWork: Event?
     dynamic var timeLeftWork: Event?
     dynamic var timeArriveHome: Event?
     override static func primaryKey() -> String? {
-        return "dateString"
+        return #keyPath(DailyObject.dateString)
     }
 }
 
@@ -113,6 +114,7 @@ class RealmManager {
     func saveDataToRealm(for checkInEvents: NotificationCenter.CheckInEvents) {
         // Check if there alredy exists an daily object for today
         let key = Date().primaryKeyBasedOnDate()
+        let todayDate = Date()
         // Create a new Event
         let event = Event(eventName: checkInEvents.rawValue, eventTime: Date())
         // update DailyObject with new event
@@ -130,7 +132,11 @@ class RealmManager {
         do {
             try RealmManager.realm.write {
                 RealmManager.realm.add(event)
-                RealmManager.realm.create(DailyObject.self, value: ["dateString": key, updateKeypath: event], update: true)
+                RealmManager.realm.create(DailyObject.self,
+                                          value: ["dateString": key,
+                                                  updateKeypath: event,
+                                                  "date": todayDate],
+                                          update: true)
             }
         } catch {
             Log.log("error")
