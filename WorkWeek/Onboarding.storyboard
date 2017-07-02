@@ -87,21 +87,21 @@ Work week is automatic, private, and insightful</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF3-eL-7bu">
-                                <rect key="frame" x="231" y="488" width="288" height="67"/>
+                                <rect key="frame" x="231" y="467" width="288" height="67"/>
                                 <string key="text">Look through your work history and see how close you were to your weekly and daily goals. See trends and make adjustments to lead a healthier and happier life.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Metrics" translatesAutoresizingMaskIntoConstraints="NO" id="5Ut-Kv-RnY">
-                                <rect key="frame" x="231" y="579" width="288" height="73"/>
+                                <rect key="frame" x="231" y="558" width="288" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="73" id="DLl-pb-hrO"/>
                                     <constraint firstAttribute="width" constant="288" id="tNF-94-A4K"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insightful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-UK-gYF">
-                                <rect key="frame" x="231" y="437" width="288" height="43"/>
+                                <rect key="frame" x="231" y="416" width="288" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="zzn-a3-dFF"/>
                                 </constraints>
@@ -110,40 +110,40 @@ Work week is automatic, private, and insightful</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g8-U8-VnQ">
-                                <rect key="frame" x="410" y="244" width="120" height="43"/>
+                                <rect key="frame" x="410" y="220" width="120" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-YT-EpJ">
-                                <rect key="frame" x="220" y="145" width="164" height="100.5"/>
+                                <rect key="frame" x="200" y="121" width="196" height="84"/>
                                 <string key="text">Using location on your iPhone, work week knows when you arrive at the office and when you leave. No need to manually track hours.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onl-hf-pnA">
-                                <rect key="frame" x="220" y="94" width="164" height="43"/>
+                                <rect key="frame" x="200" y="70" width="196" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone" translatesAutoresizingMaskIntoConstraints="NO" id="FQO-fQ-T8t">
-                                <rect key="frame" x="231" y="265.5" width="68" height="120"/>
+                                <rect key="frame" x="231" y="225" width="68" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="AYs-vs-8HE"/>
                                     <constraint firstAttribute="height" constant="120" id="S6f-85-4hQ"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="xLU-Jl-SHW">
-                                <rect key="frame" x="392" y="64" width="150" height="160"/>
+                                <rect key="frame" x="404" y="40" width="150" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="aDx-NA-ceP"/>
                                     <constraint firstAttribute="height" constant="160" id="b4m-Vx-LAR"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-TF-1oT">
-                                <rect key="frame" x="319" y="295" width="211" height="134"/>
+                                <rect key="frame" x="319" y="271" width="211" height="134"/>
                                 <string key="text">We never track you  exactly, we only check when you enter or leave designated addresses. Furthermore, your data never leaves your phone so you can rest assured  no one but yourself knows when you get to work.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -161,19 +161,19 @@ Work week is automatic, private, and insightful</string>
                             <constraint firstItem="eQn-YT-EpJ" firstAttribute="top" secondItem="onl-hf-pnA" secondAttribute="bottom" constant="8" id="Gry-dD-Qc5"/>
                             <constraint firstItem="eQn-YT-EpJ" firstAttribute="leading" secondItem="onl-hf-pnA" secondAttribute="leading" id="IGl-4U-MYa"/>
                             <constraint firstItem="FQO-fQ-T8t" firstAttribute="leading" secondItem="i2P-UK-gYF" secondAttribute="leading" id="J9u-tl-2ao"/>
-                            <constraint firstAttribute="trailing" secondItem="xLU-Jl-SHW" secondAttribute="trailing" constant="208" id="Len-vf-2da"/>
+                            <constraint firstAttribute="trailing" secondItem="xLU-Jl-SHW" secondAttribute="trailing" constant="196" id="Len-vf-2da"/>
                             <constraint firstItem="eF3-eL-7bu" firstAttribute="top" secondItem="i2P-UK-gYF" secondAttribute="bottom" constant="8" id="Qik-np-wrk"/>
+                            <constraint firstItem="HRx-hk-Wcc" firstAttribute="top" secondItem="5Ut-Kv-RnY" secondAttribute="bottom" constant="36" id="S2o-e1-STZ"/>
                             <constraint firstItem="qDF-TF-1oT" firstAttribute="top" secondItem="9g8-U8-VnQ" secondAttribute="bottom" constant="8" id="V8M-MN-fRf"/>
                             <constraint firstItem="eF3-eL-7bu" firstAttribute="centerX" secondItem="u2e-oD-ndb" secondAttribute="centerX" id="Va7-Sm-Oxm"/>
-                            <constraint firstItem="onl-hf-pnA" firstAttribute="top" secondItem="Caf-e5-VYP" secondAttribute="bottom" constant="74" id="WgI-Bc-h5h"/>
+                            <constraint firstItem="onl-hf-pnA" firstAttribute="top" secondItem="Caf-e5-VYP" secondAttribute="bottom" constant="50" id="WgI-Bc-h5h"/>
                             <constraint firstItem="i2P-UK-gYF" firstAttribute="centerX" secondItem="u2e-oD-ndb" secondAttribute="centerX" id="Yrs-YG-M2Q"/>
-                            <constraint firstItem="xLU-Jl-SHW" firstAttribute="top" secondItem="Caf-e5-VYP" secondAttribute="bottom" constant="44" id="m1W-Q3-dgM"/>
+                            <constraint firstItem="xLU-Jl-SHW" firstAttribute="top" secondItem="Caf-e5-VYP" secondAttribute="bottom" constant="20" id="m1W-Q3-dgM"/>
                             <constraint firstItem="qDF-TF-1oT" firstAttribute="trailing" secondItem="9g8-U8-VnQ" secondAttribute="trailing" id="nAq-e4-ra8"/>
                             <constraint firstItem="eQn-YT-EpJ" firstAttribute="width" secondItem="onl-hf-pnA" secondAttribute="width" id="oe6-bE-4Eq"/>
                             <constraint firstItem="9g8-U8-VnQ" firstAttribute="top" secondItem="xLU-Jl-SHW" secondAttribute="bottom" constant="20" id="vgM-cA-H4j"/>
-                            <constraint firstItem="onl-hf-pnA" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leading" constant="220" id="wBk-t3-A4Z"/>
+                            <constraint firstItem="onl-hf-pnA" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leading" constant="200" id="wBk-t3-A4Z"/>
                             <constraint firstItem="qDF-TF-1oT" firstAttribute="leading" secondItem="FQO-fQ-T8t" secondAttribute="trailing" constant="20" id="yJn-5A-CYU"/>
-                            <constraint firstItem="i2P-UK-gYF" firstAttribute="top" secondItem="qDF-TF-1oT" secondAttribute="bottom" constant="8" id="zkH-G0-M1x"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
