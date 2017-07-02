@@ -30,48 +30,22 @@ class NotificationCenterManager {
 
 
     func postLeftHomeNotification() {
-        saveDataToRealm(forCheckInEvents: .leftHome)
+        RealmManager.shared.saveDataToRealm(for: .leftHome)
         notificationCenter.post(name: .leftHome, object: nil)
     }
 
     func postArriveWorkNotification() {
-        saveDataToRealm(forCheckInEvents: .arriveWork)
+        RealmManager.shared.saveDataToRealm(for: .arriveWork)
         notificationCenter.post(name: .arriveWork, object: nil)
     }
 
     func postLeftWorkNotification() {
-        saveDataToRealm(forCheckInEvents: .leftWork)
+        RealmManager.shared.saveDataToRealm(for: .leftWork)
         notificationCenter.post(name: .leftWork, object: nil)
     }
 
     func postArriveHomeNotification() {
-        saveDataToRealm(forCheckInEvents: .arriveHome)
+        RealmManager.shared.saveDataToRealm(for: .arriveHome)
         notificationCenter.post(name: .arriveHome, object: nil)
-    }
-
-    func saveDataToRealm(forCheckInEvents: NotificationCenter.CheckInEvents) {
-
-        let key = Date().primaryKeyBasedOnDate()
-        print(key)
-
-        let dailyObject = DailyObject()
-        dailyObject.dateString = key
-
-        let event = Event(eventName: forCheckInEvents.rawValue, eventTime: Date())
-
-        switch forCheckInEvents {
-        case .leftHome:
-            dailyObject.timeLeftHome = event
-            RealmManager.shared.updateDailyActivities(dailyObject, forCheckInEvents: .leftHome)
-        case .arriveWork:
-            dailyObject.timeArriveWork = event
-            RealmManager.shared.updateDailyActivities(dailyObject, forCheckInEvents: .arriveWork)
-        case .leftWork:
-            dailyObject.timeLeftWork = event
-            RealmManager.shared.updateDailyActivities(dailyObject, forCheckInEvents: .leftWork)
-        case .arriveHome:
-            dailyObject.timeArriveHome = event
-            RealmManager.shared.updateDailyActivities(dailyObject, forCheckInEvents: .arriveHome)
-        }
     }
 }

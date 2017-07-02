@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Realm
 import RealmSwift
 
 class WeeklyObject: Object {
@@ -111,33 +110,30 @@ class RealmManager {
     }
 
     // MARK: - Update Opertions
-    func updateDailyActivities(_ dailyObject: DailyObject, forCheckInEvents: NotificationCenter.CheckInEvents) {
+    func saveDataToRealm(for checkInEvents: NotificationCenter.CheckInEvents) {
+        // Check if there alredy exists an daily object for today
+        let key = Date().primaryKeyBasedOnDate()
+        // Create a new Event
+        let event = Event(eventName: checkInEvents.rawValue, eventTime: Date())
+        // update DailyObject with new event
+        let updateKeypath: String
+        switch checkInEvents {
+        case .leftHome:
+            updateKeypath = "timeLeftHome"
+        case .arriveWork:
+            updateKeypath = "timeArriveWork"
+        case .leftWork:
+            updateKeypath = "timeLeftWork"
+        case .arriveHome:
+            updateKeypath = "timeArriveHome"
+        }
         do {
-            let realm = try Realm()
-
-            //DailyObjecy
-            guard let key = dailyObject.dateString else {return}
-            let dailyObjectQuery = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
-
-            try realm.write {
-                if let currentDailyObject = dailyObjectQuery {
-                    switch forCheckInEvents {
-                    case .leftHome:
-                        currentDailyObject.timeLeftHome = dailyObject.timeLeftHome
-                    case .arriveWork:
-                        currentDailyObject.timeArriveWork = dailyObject.timeArriveWork
-                    case .leftWork:
-                        currentDailyObject.timeLeftWork = dailyObject.timeLeftWork
-                    case .arriveHome:
-                        currentDailyObject.timeArriveHome = dailyObject.timeArriveHome
-                    }
-                } else {
-                    //Create a new daily activity and update it
-                    realm.add(dailyObject)
-                }
+            try RealmManager.realm.write {
+                RealmManager.realm.add(event)
+                RealmManager.realm.create(DailyObject.self, value: ["dateString": key, updateKeypath: event], update: true)
             }
-        } catch let error as NSError {
-            Log.log(error.localizedDescription)
+        } catch {
+            Log.log("error")
         }
     }
 }
