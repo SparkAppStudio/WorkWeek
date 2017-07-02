@@ -44,6 +44,24 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
         onboardingCoordinator.start()
     }
 
+    func onboardingShowHomeMap(with coordinator: OnboardingCoordinator) {
+        let settingsCoordinator = SettingsCoordinator(with: navigationController,
+                                                      manger: locationManager,
+                                                      delegate: self)
+        childCoordinators.add(settingsCoordinator)
+        settingsCoordinator.didTapHomeMap()
+
+    }
+
+    func onboardingShowWorkMap(with coordinator: OnboardingCoordinator) {
+        let settingsCoordinator = SettingsCoordinator(with: navigationController,
+                                                      manger: locationManager,
+                                                      delegate: self)
+        childCoordinators.add(settingsCoordinator)
+        settingsCoordinator.didTapWorkMap()
+
+    }
+
     func onboardingFinished(with coordinator: OnboardingCoordinator) {
         childCoordinators.remove(coordinator)
         let defaults = UserDefaults.standard

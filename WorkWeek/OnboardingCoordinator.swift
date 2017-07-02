@@ -7,6 +7,8 @@ import CoreLocation
 
 protocol OnboardingCoordinatorDelegate : class {
     func onboardingFinished(with coordinator: OnboardingCoordinator)
+    func onboardingShowHomeMap(with coordinator: OnboardingCoordinator)
+    func onboardingShowWorkMap(with coordinator: OnboardingCoordinator)
 }
 
 class OnboardingCoordinator: OnboardPageViewDelegate {
@@ -35,5 +37,13 @@ class OnboardingCoordinator: OnboardPageViewDelegate {
 
     func pagesAreDone() {
         delegate?.onboardingFinished(with: self)
+    }
+
+    func pageDidTapHome() {
+        delegate?.onboardingShowHomeMap(with: self)
+    }
+
+    func pageDidTapWork() {
+        delegate?.onboardingShowWorkMap(with: self)
     }
 }

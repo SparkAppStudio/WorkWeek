@@ -5,10 +5,13 @@
 import UIKit
 
 protocol OnboardPageViewDelegate: class {
+    func pageDidTapHome()
+    func pageDidTapWork()
     func pagesAreDone()
 }
 
-final class OnboardPageViewController: UIPageViewController, OnboardingStoryboard, OnboardLocationViewDelegate, OnboardNotifyViewDelegate {
+final class OnboardPageViewController: UIPageViewController, OnboardingStoryboard,
+    OnboardLocationViewDelegate, OnboardNotifyViewDelegate, OnboardSettingsViewDelegate {
 
     lazy var manager: PageManager = {
         return PageManager(viewControllers: self.configOrderedViewControllers())
@@ -44,11 +47,15 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         //inject notify page if it doesnt already exist
         if manager.orderedViewControllers.count < 4 {
             DispatchQueue.main.async {
+
+                let settingsVC = OnboardSettingsViewController.instantiate()
+                settingsVC.delegate = self
+
                 let notifyVC = OnboardNotifyViewController.instantiate()
                 notifyVC.delegate = self
 
-
                 // update the datasource
+                self.manager.orderedViewControllers.append(settingsVC)
                 self.manager.orderedViewControllers.append(notifyVC)
 
                 // start the view controllers after datasource has been updated, 
@@ -58,13 +65,26 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         }
     }
 
+    func settingsPageIsDone() {
+        //do nothing
+    }
+
+    func settingsPageDidTapHome() {
+        onboardDelegate?.pageDidTapHome()
+    }
+
+    func settingsPageDidTapWork() {
+        onboardDelegate?.pageDidTapWork()
+    }
+
     func notifyPageIsDone() {
         onboardDelegate?.pagesAreDone()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.view.backgroundColor = UIColor.blue
+        let sparkBlue = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
+        self.view.backgroundColor = sparkBlue
         extendPageViewContent(view: view)
     }
 
