@@ -21,7 +21,7 @@ protocol MapVCDelegate: class {
     func cancel()
 }
 
-class SettingsMapViewController: UIViewController, SettingsStoryboard {
+class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchBarDelegate {
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
@@ -42,6 +42,8 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        searchBar.delegate = self
 
         switch type {
         case .home:
@@ -77,6 +79,20 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard {
         case .work:
             locationManager.circles(matching: RegionId.work.rawValue).forEach(mapView.add(_:))
         }
+    }
+
+    // MARK: Search Bar Delegate
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
     }
 }
 
