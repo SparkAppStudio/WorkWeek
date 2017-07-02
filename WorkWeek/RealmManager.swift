@@ -7,17 +7,25 @@
 //
 
 import Foundation
-import Realm
 import RealmSwift
+
+class WeeklyObject: Object {
+    dynamic var weekAndTheYear: String?
+    let dailyObjects = List<DailyObject>()
+    override static func primaryKey() -> String? {
+        return #keyPath(WeeklyObject.weekAndTheYear)
+    }
+}
 
 class DailyObject: Object {
     dynamic var dateString: String?
+    dynamic var date: Date?
     dynamic var timeLeftHome: Event?
     dynamic var timeArriveWork: Event?
     dynamic var timeLeftWork: Event?
     dynamic var timeArriveHome: Event?
     override static func primaryKey() -> String? {
-        return "dateString"
+        return #keyPath(DailyObject.dateString)
     }
 }
 
@@ -32,7 +40,20 @@ class Event: Object {
 }
 
 class RealmManager {
+
     static let shared = RealmManager()
+
+    static var realm: Realm {
+        do {
+            let realm = try Realm()
+            return realm
+        } catch {
+            Log.log("Cannot Access Database")
+        }
+        return self.realm
+    }
+
+    // MARK: - Save Operations
     func saveDailyActivities(_ dailyOject: DailyObject) {
         do {
             let realm = try Realm()
@@ -47,6 +68,7 @@ class RealmManager {
 
     }
 
+    // MARK: - Query Operations
     func getDailyObject(for date: Date) -> DailyObject? {
         let key = date.primaryKeyBasedOnDate()
         do {
@@ -64,12 +86,17 @@ class RealmManager {
             let realm = try Realm()
             let allDailyObject = realm.objects(DailyObject.self)
             Log.log(allDailyObject.debugDescription)
-
         } catch let error as NSError {
             //handle error
             Log.log(error.localizedDescription)
         }
     }
+
+    func getAllWeeklyObjects() {
+
+    }
+
+    // MARK: - Delete Operations
 
     func removeAllObjects() {
         do {
@@ -83,30 +110,36 @@ class RealmManager {
         }
     }
 
-    func updateDailyActivities(_ dailyObject: DailyObject, forCheckInEvents: NotificationCenter.CheckInEvents) {
+    // MARK: - Update Opertions
+    func saveDataToRealm(for checkInEvents: NotificationCenter.CheckInEvents) {
+        // Check if there alredy exists an daily object for today
+        let key = Date().primaryKeyBasedOnDate()
+        let todayDate = Date()
+        // Create a new Event
+        let event = Event(eventName: checkInEvents.rawValue, eventTime: Date())
+        // update DailyObject with new event
+        let updateKeypath: String
+        switch checkInEvents {
+        case .leftHome:
+            updateKeypath = "timeLeftHome"
+        case .arriveWork:
+            updateKeypath = "timeArriveWork"
+        case .leftWork:
+            updateKeypath = "timeLeftWork"
+        case .arriveHome:
+            updateKeypath = "timeArriveHome"
+        }
         do {
-            let realm = try Realm()
-            guard let key = dailyObject.dateString else {return}
-            let dailyObjectQuery = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
-            try realm.write {
-                if let currentDailyObject = dailyObjectQuery {
-                    switch forCheckInEvents {
-                    case .leftHome:
-                        currentDailyObject.timeLeftHome = dailyObject.timeLeftHome
-                    case .arriveWork:
-                        currentDailyObject.timeArriveWork = dailyObject.timeArriveWork
-                    case .leftWork:
-                        currentDailyObject.timeLeftWork = dailyObject.timeLeftWork
-                    case .arriveHome:
-                        currentDailyObject.timeArriveHome = dailyObject.timeArriveHome
-                    }
-                } else {
-                    //Create a new daily activity and update it
-                    realm.add(dailyObject)
-                }
+            try RealmManager.realm.write {
+                RealmManager.realm.add(event)
+                RealmManager.realm.create(DailyObject.self,
+                                          value: ["dateString": key,
+                                                  updateKeypath: event,
+                                                  "date": todayDate],
+                                          update: true)
             }
-        } catch let error as NSError {
-            Log.log(error.localizedDescription)
+        } catch {
+            Log.log("error")
         }
     }
 }

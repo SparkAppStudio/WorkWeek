@@ -34,34 +34,14 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         navigationController.pushViewController(initial, animated: false)
     }
 
-    // TODO: Move this UP (probably location auth should be handled by the app coordinator)
-    func presentOurAppWontWorkWithoutAuthorizationModalSheet() {
-        let sorryMessage = "Due to technical limitations our app can't work without Always Location"
-        let alertController = UIAlertController(title: "Sorry...",
-                                                message: sorryMessage,
-                                                preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let settings = UIAlertAction(title: "Fix It", style: .default) { _ in
-            if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
-                UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
-            }
-        }
-        alertController.addAction(cancelButton)
-        alertController.addAction(settings)
-        navigationController.present(alertController, animated: true, completion: nil)
-    }
-
-
     // MARK: Settings Main Protocol
 
     func didTapHomeMap() {
-        checkLocation()
         locationManager.startUpdatingLocation()
         pushMapVC(type: .home, delegate: self, onto: navigationController)
     }
 
     func didTapWorkMap() {
-        checkLocation()
         locationManager.startUpdatingLocation()
         pushMapVC(type: .work, delegate: self, onto: navigationController)
     }
@@ -82,18 +62,6 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         mapViewController.type = type
         mapViewController.delegate = delegate
         onto.pushViewController(mapViewController, animated: true)
-    }
-
-    // TODO: We'll probably want to write a little wrapper, that hangs off the app coordinator
-    private func checkLocation() {
-        switch CLLocationManager.authorizationStatus() {
-        case .authorizedAlways:
-            break
-        case .denied, .restricted, .authorizedWhenInUse:
-            presentOurAppWontWorkWithoutAuthorizationModalSheet()
-        case .notDetermined:
-            locationManager.requestAlwaysAuthorization()
-        }
     }
 
     // MARK: MapVCDelegate

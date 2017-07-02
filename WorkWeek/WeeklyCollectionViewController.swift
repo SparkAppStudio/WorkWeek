@@ -7,7 +7,7 @@ import Reusable
 
 class WeeklyCollectionViewController: UICollectionViewController {
 
-    var weeklySummaries = ["First", "Second", "Third", "Fourth"]
+    var weeklySummaries = ["First", "Second"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

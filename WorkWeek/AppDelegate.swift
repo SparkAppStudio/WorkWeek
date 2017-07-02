@@ -3,16 +3,20 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var locationWindow: UIWindow?
     var appCoordinator: AppCoordinator!
+    var locationManager: CLLocationManager!
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        createLocationManager()
 
         CrashReporting.configure()
 
@@ -20,6 +24,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         configureWindowAndCoordinator()
         return true
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+
+        if UserDefaults.standard.bool(for: .hasSeenOnboarding) {
+            checkLocation()
+        }
+
+    }
+
+    func checkLocation() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedAlways:
+            dismissLocationWindow()
+        return // this is the one we need.
+        case .denied, .restricted, .authorizedWhenInUse:
+            showLocationWindow()
+        case .notDetermined:
+            Log.log(.error, "Requesting Always Auth, (they should have been asked in onboarding")
+            locationManager.requestAlwaysAuthorization()
+        }
+    }
+
+    func showLocationWindow() {
+        guard locationWindow == nil else { return }
+        locationWindow = UIWindow(frame: UIScreen.main.bounds)
+        locationWindow?.rootViewController = OnboardLocationViewController.instantiate()
+        locationWindow?.isHidden = false
+        locationWindow?.windowLevel = UIWindowLevelStatusBar
+    }
+
+    func dismissLocationWindow() {
+        guard locationWindow != nil else { return }
+
+        UIView.animate(withDuration: 0.5, animations: {
+            self.locationWindow?.alpha = 0
+        }) { _ in
+            self.locationWindow = nil
+        }
     }
 
     func configureWindowAndCoordinator() {
@@ -31,6 +74,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appCoordinator.start()
 
         window?.makeKeyAndVisible()
+    }
+
+    func createLocationManager() {
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        self.locationManager = locationManager
+    }
+}
+
+
+extension AppDelegate: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        if (error as? CLError)?.code == .denied {
+            manager.stopUpdatingLocation()
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        guard let typedRegion = RegionId(rawValue: region.identifier) else {
+            Log.log(.error, "Could not create a typed region from \(region.identifier)")
+            return
+        }
+        switch typedRegion {
+        case .home:
+            Log.log("Arrived Home")
+        case .work:
+            Log.log("Arrived Work")
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        guard let typedRegion = RegionId(rawValue:region.identifier) else {
+            Log.log(.error, "Could not create a typed region from \(region.identifier)")
+            return
+        }
+        switch typedRegion {
+        case .home:
+            Log.log("Leaving Home")
+        case .work:
+            Log.log("Leaving Work")
+        }
     }
 
 }
