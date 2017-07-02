@@ -46,7 +46,8 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
 
     func onboardingFinished(with coordinator: OnboardingCoordinator) {
         childCoordinators.remove(coordinator)
-//        showActivity()
+        let defaults = UserDefaults.standard
+        defaults.set(true, for: .hasSeenOnboarding)
         transitionToActivity()
     }
 
@@ -92,4 +93,14 @@ extension UserDefaults {
     func bool(for key: Key) -> Bool {
         return bool(forKey: key.rawValue)
     }
+
+    func set(_ value: Bool, for key: Key) {
+        set(value, forKey: key.rawValue)
+    }
+
+    //someday John
+//    @available(*, deprecated)
+//    open func set(_ value: Bool, forKey defaultName: String) {
+//        self.set(value, forKey: defaultName)
+//    }
 }
