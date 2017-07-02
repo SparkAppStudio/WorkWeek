@@ -27,11 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-
         if UserDefaults.standard.bool(for: .hasSeenOnboarding) {
             checkLocation()
         }
-
     }
 
     func checkLocation() {
@@ -70,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigation = UINavigationController()
         window?.rootViewController = navigation
 
-        appCoordinator = AppCoordinator(with: navigation)
+        appCoordinator = AppCoordinator(with: navigation, locationManager: locationManager)
         appCoordinator.start()
 
         window?.makeKeyAndVisible()
@@ -82,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.locationManager = locationManager
     }
 }
-
 
 extension AppDelegate: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
