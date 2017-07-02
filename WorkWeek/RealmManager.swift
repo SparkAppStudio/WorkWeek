@@ -120,11 +120,11 @@ class RealmManager {
         // update DailyObject with new event
         let updateKeypath: String
         switch checkInEvents {
-        case .leftHome:
+        case .leaveHome:
             updateKeypath = "timeLeftHome"
         case .arriveWork:
             updateKeypath = "timeArriveWork"
-        case .leftWork:
+        case .leaveWork:
             updateKeypath = "timeLeftWork"
         case .arriveHome:
             updateKeypath = "timeArriveHome"

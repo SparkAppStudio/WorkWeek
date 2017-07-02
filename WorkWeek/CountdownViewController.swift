@@ -9,34 +9,6 @@ final class CountdownViewController: UIViewController {
 
     @IBOutlet weak var countdownDisplay: UILabel!
 
-    @IBAction func didPressleftHomeNotificationButton(_ sender: UIButton) {
-        Log.log("Left Home Notification Pressed")
-        NotificationCenterManager.shared.postLeftHomeNotification()
-    }
-
-    @IBAction func didPressArriveWorkNotificationButton(_ sender: UIButton) {
-        Log.log("Arrive Work Notification Pressed")
-        NotificationCenterManager.shared.postArriveWorkNotification()
-    }
-
-    @IBAction func didPressLeftWorkNotificationButton(_ sender: UIButton) {
-        Log.log("Left Work Notification Pressed")
-        NotificationCenterManager.shared.postLeftWorkNotification()
-    }
-
-    @IBAction func didPressArriveHomeNotificationButton(_ sender: UIButton) {
-        Log.log("Arrive Home Notification Pressed")
-        NotificationCenterManager.shared.postArriveHomeNotification()
-    }
-
-    @IBAction func didPressDisplayAllRealmDataButton(_ sender: UIButton) {
-        RealmManager.shared.displayAllDailyObjects()
-    }
-
-    @IBAction func didPressClearAllRealmDataButton(_ sender: UIButton) {
-        RealmManager.shared.removeAllObjects()
-    }
-
     var timer = Timer()
     var timeRemaining = 28800
 
@@ -44,6 +16,22 @@ final class CountdownViewController: UIViewController {
         super.viewDidLoad()
         //By default, start count down from 8 hours
         runTimer()
+        // To get shake gesture
+        self.becomeFirstResponder()
+    }
+
+    // We are willing to become first responder to get shake motion
+    override var canBecomeFirstResponder: Bool {
+        get {
+            return true
+        }
+    }
+
+    // Enable detection of shake motion
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            self.navigationController?.presentDevSettingsAlertController()
+        }
     }
 
     func runTimer() {

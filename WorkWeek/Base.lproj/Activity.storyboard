@@ -35,54 +35,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPL-ZL-n6U">
-                                <rect key="frame" x="110" y="318" width="155" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Left Home Notification"/>
-                                <connections>
-                                    <action selector="didPressleftHomeNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="OrO-7Y-ofd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hup-Ea-ngc">
-                                <rect key="frame" x="106" y="366" width="163" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Arrive Work Notification"/>
-                                <connections>
-                                    <action selector="didPressArriveWorkNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="nYi-iT-pWq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wt0-v9-mtW">
-                                <rect key="frame" x="112" y="404" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Left Work Notification"/>
-                                <connections>
-                                    <action selector="didPressLeftWorkNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="hkv-GN-yjD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keN-h6-f2l">
-                                <rect key="frame" x="103" y="442" width="169" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Arrive Home Notification"/>
-                                <connections>
-                                    <action selector="didPressArriveHomeNotificationButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="KEV-MD-EJ7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiQ-CD-UF0">
-                                <rect key="frame" x="114" y="494" width="146" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Display all realm data"/>
-                                <connections>
-                                    <action selector="didPressDisplayAllRealmDataButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="pTv-m2-iow"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4G1-eA-LKP">
-                                <rect key="frame" x="121" y="538" width="132" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Clear all realm data"/>
-                                <connections>
-                                    <action selector="didPressClearAllRealmDataButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="IiZ-Fb-jUf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
