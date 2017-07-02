@@ -14,7 +14,16 @@ class OnboardExplainViewController: UIViewController, OnboardingStoryboard {
 
 }
 
+
+// MARK: LocationVC
+
+protocol OnboardLocationViewDelegate: class {
+    func locationPageIsDone()
+}
+
 class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
+
+    weak var delegate: OnboardLocationViewDelegate?
 
     let locationManager = CLLocationManager()
 
@@ -39,6 +48,10 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
             grantLocationButton.isEnabled = false
             grantLocationButton.setTitle("Hooray! Location is Enabled", for: .normal)
             grantLocationButton.backgroundColor = UIColor.clear
+
+            //allow user to proceed only when location access is granted
+            delegate?.locationPageIsDone()
+
         case .denied, .restricted, .authorizedWhenInUse:
             grantLocationButton.isEnabled = true
             grantLocationButton.setTitle("Grant Access", for: .normal)
@@ -66,7 +79,16 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
     }
 }
 
+
+// MARK: NotifyVC
+
+protocol OnboardNotifyViewDelegate: class {
+    func notifyPageIsDone()
+}
+
 class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
+
+    weak var delegate: OnboardNotifyViewDelegate?
 
     let center = UNUserNotificationCenter.current()
     let options: UNAuthorizationOptions = [.alert, .sound, .badge, .carPlay]
@@ -107,6 +129,9 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                     button.setTitle("Hooray! Notify is Enabled", for: .normal)
                     button.backgroundColor = UIColor.clear
 
+                    //dismiss
+                    self.delegate?.notifyPageIsDone()
+
                 case .denied:
                     if button == self.denyNotifyButton {
                         button.isHidden = false
@@ -140,10 +165,19 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                     if granted {
                         self.configureDisplay(button: self.grantNotifyButton)
                         self.configureDisplay(button: self.denyNotifyButton)
-                        //dismiss
                     } else {
                         Log.log(error?.localizedDescription ?? "failed to grant, error")
-                        //dismiss
+
+                        //show error to user, ask to try again
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Oh Noes!",
+                                    message: "Error granting access, please try again",
+                                    preferredStyle: .alert)
+
+                            self.present(alert, animated: true, completion: nil)
+                        }
+
+
                     }
                 }
             } else {
@@ -156,6 +190,7 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
 
     @IBAction func didTapDenyNotify(_ sender: UIButton) {
         //dismiss
+        delegate?.notifyPageIsDone()
     }
 
 }
