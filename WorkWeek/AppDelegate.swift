@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func checkLocation() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways:
-            animateLocationWindowAwayIfNeeded()
+            dismissLocationWindow()
         return // this is the one we need.
         case .denied, .restricted, .authorizedWhenInUse:
             showLocationWindow()
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationWindow?.windowLevel = UIWindowLevelStatusBar
     }
 
-    func animateLocationWindowAwayIfNeeded() {
+    func dismissLocationWindow() {
         guard locationWindow != nil else { return }
 
         UIView.animate(withDuration: 0.5, animations: {
