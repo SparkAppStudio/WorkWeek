@@ -20,6 +20,8 @@ extension UINavigationController {
 
     // MARK: Dev Settings
 
+    #if DEBUG
+
     func presentDevSettingsAlertController() {
         let alert = UIAlertController(title: "DEV SETTINGS", message: nil, preferredStyle: .actionSheet)
 
@@ -58,4 +60,5 @@ extension UINavigationController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
+    #endif
 }
