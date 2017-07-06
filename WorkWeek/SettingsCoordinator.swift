@@ -83,10 +83,3 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     }
 
 }
-
-protocol SettingsMainProtocol: class {
-    func didTapWorkMap()
-    func didTapHomeMap()
-    func notificationsSwitched(_ isOn: Bool)
-    func didTapDone()
-}
