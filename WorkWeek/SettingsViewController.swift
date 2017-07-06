@@ -9,6 +9,13 @@ import Reusable
 // ex: |-padding-|StackView|-padding-| , where | the outer pipe is the scroll View
 private let padding: CGFloat = 8
 
+protocol SettingsMainProtocol: class {
+    func didTapWorkMap()
+    func didTapHomeMap()
+    func notificationsSwitched(_ isOn: Bool)
+    func didTapDone()
+}
+
 final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     weak var delegate: SettingsMainProtocol?
