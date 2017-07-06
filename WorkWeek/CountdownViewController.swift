@@ -25,9 +25,7 @@ final class CountdownViewController: UIViewController {
     #if DEBUG
     // We are willing to become first responder to get shake motion
     override var canBecomeFirstResponder: Bool {
-        get {
             return true
-        }
     }
 
     // Enable detection of shake motion
