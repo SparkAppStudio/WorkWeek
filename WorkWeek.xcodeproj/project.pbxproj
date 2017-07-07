@@ -545,10 +545,10 @@
 				INFOPLIST_FILE = WorkWeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SparkAppStudio.WorkWeek;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sparkappstudio.workweek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0e87e880-a3be-45b2-abc2-516cce1d8db9";
-				PROVISIONING_PROFILE_SPECIFIER = "Spark App Studio WildCard";
+				PROVISIONING_PROFILE = "e9adbb80-285b-4b16-a3c1-dd695eef119c";
+				PROVISIONING_PROFILE_SPECIFIER = "buddybuild Development - com.SparkAppStudio.WorkWeek";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -557,7 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VY4FR2X9W5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -566,9 +566,10 @@
 				INFOPLIST_FILE = WorkWeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SparkAppStudio.WorkWeek;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sparkappstudio.workweek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e9adbb80-285b-4b16-a3c1-dd695eef119c";
+				PROVISIONING_PROFILE_SPECIFIER = "buddybuild Development - com.SparkAppStudio.WorkWeek";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
