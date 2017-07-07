@@ -36,7 +36,7 @@ final class Log {
     ///
     /// - Parameters:
     ///   - message: The Message string to be logged
-    static func log(_ message: String,
+    static func log(_ message: String = "-",
                     _ file: String = #file,
                     _ function: String = #function,
                     _ line: Int = #line) {
@@ -50,7 +50,7 @@ final class Log {
     ///   - level: The importance of your message
     ///   - message: What you want to say
     static func log(_ level: Level,
-                    _ message: String,
+                    _ message: String = "-",
                     _ file: String = #file,
                     _ function: String = #function,
                     _ line: Int = #line) {

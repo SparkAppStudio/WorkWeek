@@ -25,7 +25,7 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     }
 
     func start() {
-        Log.log("\(#file): \(#function)")
+        Log.log()
 
         navigationController.isNavigationBarHidden = true
 
