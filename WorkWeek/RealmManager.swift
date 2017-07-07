@@ -56,11 +56,9 @@ class RealmManager {
     // MARK: - Save Operations
     func saveDailyActivities(_ dailyOject: DailyObject) {
         do {
-            let realm = try Realm()
-            try realm.write {
-                realm.add(dailyOject)
+            try RealmManager.realm.write {
+                RealmManager.realm.add(dailyOject)
             }
-
         } catch let error as NSError {
             //handle error
             Log.log(error.localizedDescription)
@@ -71,38 +69,25 @@ class RealmManager {
     // MARK: - Query Operations
     func getDailyObject(for date: Date) -> DailyObject? {
         let key = date.primaryKeyBasedOnDate()
-        do {
-            let realm = try Realm()
-            let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
-            return dailyObject
-        } catch let error as NSError {
-            Log.log(error.localizedDescription)
-            return DailyObject()
-        }
+        let dailyObject = RealmManager.realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+        return dailyObject
     }
 
     func displayAllDailyObjects() {
-        do {
-            let realm = try Realm()
-            let allDailyObject = realm.objects(DailyObject.self)
-            Log.log(allDailyObject.debugDescription)
-        } catch let error as NSError {
-            //handle error
-            Log.log(error.localizedDescription)
-        }
+        let allDailyObject = RealmManager.realm.objects(DailyObject.self)
+        Log.log(allDailyObject.debugDescription)
     }
 
+    // TODO: - Need to implement the method to fetch all weekly objects
     func getAllWeeklyObjects() {
 
     }
 
     // MARK: - Delete Operations
-
     func removeAllObjects() {
         do {
-            let realm = try Realm()
-            try realm.write {
-                realm.deleteAll()
+            try RealmManager.realm.write {
+                RealmManager.realm.deleteAll()
             }
         } catch let error as NSError {
             //handle error
