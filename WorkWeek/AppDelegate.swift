@@ -98,9 +98,9 @@ extension AppDelegate: CLLocationManagerDelegate {
         }
         switch typedRegion {
         case .home:
-            Log.log("Arrived Home")
+            NotificationCenterManager.shared.postArriveHomeNotification()
         case .work:
-            Log.log("Arrived Work")
+            NotificationCenterManager.shared.postArriveWorkNotification()
         }
     }
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
@@ -110,9 +110,9 @@ extension AppDelegate: CLLocationManagerDelegate {
         }
         switch typedRegion {
         case .home:
-            Log.log("Leaving Home")
+            NotificationCenterManager.shared.postLeftHomeNotification()
         case .work:
-            Log.log("Leaving Work")
+            NotificationCenterManager.shared.postLeftWorkNotification()
         }
     }
 
