@@ -48,7 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func showLocationWindow() {
         guard locationWindow == nil else { return }
         locationWindow = UIWindow(frame: UIScreen.main.bounds)
-        locationWindow?.rootViewController = OnboardLocationViewController.instantiate()
+        let onboardLocationVC = OnboardLocationViewController.instantiate()
+        onboardLocationVC.locationManager = locationManager
+        locationWindow?.rootViewController = onboardLocationVC
         locationWindow?.isHidden = false
         locationWindow?.windowLevel = UIWindowLevelStatusBar
     }
@@ -83,6 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        Log.log(.error, String(describing: error))
         if (error as? CLError)?.code == .denied {
             manager.stopUpdatingLocation()
         }

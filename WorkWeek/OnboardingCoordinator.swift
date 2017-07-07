@@ -28,6 +28,7 @@ class OnboardingCoordinator: OnboardPageViewDelegate {
         Log.log("\(#file): \(#function)")
         let initial = OnboardPageViewController.instantiate()
         initial.onboardDelegate = self
+        initial.locationManager = locationManager
 
         navigationController.setViewControllers([initial], animated: false)
         navigationController.isNavigationBarHidden = true
