@@ -43,7 +43,7 @@ class RealmManager {
 
     static let shared = RealmManager()
 
-    static var realm: Realm {
+    private var realm: Realm {
         do {
             let realm = try Realm()
             return realm
@@ -56,8 +56,8 @@ class RealmManager {
     // MARK: - Save Operations
     func saveDailyActivities(_ dailyOject: DailyObject) {
         do {
-            try RealmManager.realm.write {
-                RealmManager.realm.add(dailyOject)
+            try realm.write {
+                realm.add(dailyOject)
             }
         } catch let error as NSError {
             //handle error
@@ -69,12 +69,12 @@ class RealmManager {
     // MARK: - Query Operations
     func getDailyObject(for date: Date) -> DailyObject? {
         let key = date.primaryKeyBasedOnDate()
-        let dailyObject = RealmManager.realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+        let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
         return dailyObject
     }
 
     func displayAllDailyObjects() {
-        let allDailyObject = RealmManager.realm.objects(DailyObject.self)
+        let allDailyObject = realm.objects(DailyObject.self)
         Log.log(allDailyObject.debugDescription)
     }
 
@@ -86,8 +86,8 @@ class RealmManager {
     // MARK: - Delete Operations
     func removeAllObjects() {
         do {
-            try RealmManager.realm.write {
-                RealmManager.realm.deleteAll()
+            try realm.write {
+                realm.deleteAll()
             }
         } catch let error as NSError {
             //handle error
@@ -115,13 +115,12 @@ class RealmManager {
             updateKeypath = "timeArriveHome"
         }
         do {
-            try RealmManager.realm.write {
-                RealmManager.realm.add(event)
-                RealmManager.realm.create(DailyObject.self,
-                                          value: ["dateString": key,
-                                                  updateKeypath: event,
-                                                  "date": todayDate],
-                                          update: true)
+            try realm.write {
+                realm.add(event)
+                realm.create(DailyObject.self, value: ["dateString": key,
+                                                       updateKeypath: event,
+                                                       "date": todayDate],
+                                                        update: true)
             }
         } catch {
             Log.log("error")
