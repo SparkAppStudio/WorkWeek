@@ -30,7 +30,7 @@ final class CountdownViewController: UIViewController {
     }
 
     @IBAction func didPressDisplayAllRealmDataButton(_ sender: UIButton) {
-        RealmManager.shared.displayAllDailyObjects()
+        RealmManager.shared.queryAllDailyObjects()
     }
 
     @IBAction func didPressClearAllRealmDataButton(_ sender: UIButton) {

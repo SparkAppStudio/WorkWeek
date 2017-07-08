@@ -53,33 +53,20 @@ class RealmManager {
         return self.realm
     }
 
-    // MARK: - Save Operations
-    func saveDailyActivities(_ dailyOject: DailyObject) {
-        do {
-            try realm.write {
-                realm.add(dailyOject)
-            }
-        } catch let error as NSError {
-            //handle error
-            Log.log(error.localizedDescription)
-        }
-
-    }
-
     // MARK: - Query Operations
-    func getDailyObject(for date: Date) -> DailyObject? {
+    func queryDailyObject(for date: Date) -> DailyObject? {
         let key = date.primaryKeyBasedOnDate()
         let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
         return dailyObject
     }
 
-    func displayAllDailyObjects() {
+    func queryAllDailyObjects() {
         let allDailyObject = realm.objects(DailyObject.self)
         Log.log(allDailyObject.debugDescription)
     }
 
     // TODO: - Need to implement the method to fetch all weekly objects
-    func getAllWeeklyObjects() {
+    func queryAllWeeklyObjects() {
 
     }
 
