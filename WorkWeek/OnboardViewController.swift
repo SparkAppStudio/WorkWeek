@@ -24,8 +24,7 @@ protocol OnboardLocationViewDelegate: class {
 class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
 
     weak var delegate: OnboardLocationViewDelegate?
-
-    let locationManager = CLLocationManager()
+    var locationManager: CLLocationManager!
 
     @IBOutlet weak var grantLocationButton: UIButton!
 

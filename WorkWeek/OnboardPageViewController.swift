@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol OnboardPageViewDelegate: class {
     func pagesAreDone()
@@ -15,6 +16,7 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
     }()
 
     weak var onboardDelegate: OnboardPageViewDelegate?
+    var locationManager: CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,7 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         let welcomeVC = OnboardWelcomeViewController.instantiate()
         let explainVC = OnboardExplainViewController.instantiate()
         let locationVC = OnboardLocationViewController.instantiate()
+        locationVC.locationManager = locationManager
         locationVC.delegate = self
 
         return [welcomeVC, explainVC, locationVC]

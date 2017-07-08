@@ -7,13 +7,13 @@ import CoreLocation
 
 class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate {
 
+    let locationManager: CLLocationManager
     let navigationController: UINavigationController
     var childCoordinators = NSMutableArray()
 
-    let locationManager = CLLocationManager()
-
-    init(with navController: UINavigationController) {
+    init(with navController: UINavigationController, locationManager: CLLocationManager) {
         self.navigationController = navController
+        self.locationManager = locationManager
     }
 
     func start() {

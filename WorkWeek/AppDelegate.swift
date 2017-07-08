@@ -27,11 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-
         if UserDefaults.standard.bool(for: .hasSeenOnboarding) {
             checkLocation()
         }
-
     }
 
     func checkLocation() {
@@ -50,7 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func showLocationWindow() {
         guard locationWindow == nil else { return }
         locationWindow = UIWindow(frame: UIScreen.main.bounds)
-        locationWindow?.rootViewController = OnboardLocationViewController.instantiate()
+        let onboardLocationVC = OnboardLocationViewController.instantiate()
+        onboardLocationVC.locationManager = locationManager
+        locationWindow?.rootViewController = onboardLocationVC
         locationWindow?.isHidden = false
         locationWindow?.windowLevel = UIWindowLevelStatusBar
     }
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigation = UINavigationController()
         window?.rootViewController = navigation
 
-        appCoordinator = AppCoordinator(with: navigation)
+        appCoordinator = AppCoordinator(with: navigation, locationManager: locationManager)
         appCoordinator.start()
 
         window?.makeKeyAndVisible()
@@ -83,9 +83,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-
 extension AppDelegate: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        Log.log(.error, String(describing: error))
         if (error as? CLError)?.code == .denied {
             manager.stopUpdatingLocation()
         }
@@ -98,9 +98,9 @@ extension AppDelegate: CLLocationManagerDelegate {
         }
         switch typedRegion {
         case .home:
-            Log.log("Arrived Home")
+            NotificationCenterManager.shared.postArriveHomeNotification()
         case .work:
-            Log.log("Arrived Work")
+            NotificationCenterManager.shared.postArriveWorkNotification()
         }
     }
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
@@ -110,9 +110,9 @@ extension AppDelegate: CLLocationManagerDelegate {
         }
         switch typedRegion {
         case .home:
-            Log.log("Leaving Home")
+            NotificationCenterManager.shared.postLeftHomeNotification()
         case .work:
-            Log.log("Leaving Work")
+            NotificationCenterManager.shared.postLeftWorkNotification()
         }
     }
 
