@@ -25,7 +25,7 @@ class OnboardingCoordinator: OnboardPageViewDelegate {
     }
 
     func start() {
-        Log.log("\(#file): \(#function)")
+        Log.log()
         let initial = OnboardPageViewController.instantiate()
         initial.onboardDelegate = self
 
