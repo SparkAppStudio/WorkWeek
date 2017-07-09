@@ -53,34 +53,22 @@ class RealmManager {
         return self.realm
     }
 
-    // MARK: - Save Operations
-    func saveDailyActivities(_ dailyOject: DailyObject) {
-        do {
-            try realm.write {
-                realm.add(dailyOject)
-            }
-        } catch let error as NSError {
-            //handle error
-            Log.log(error.localizedDescription)
-        }
-
-    }
-
     // MARK: - Query Operations
-    func getDailyObject(for date: Date) -> DailyObject? {
+    func queryDailyObject(for date: Date) -> DailyObject? {
         let key = date.primaryKeyBasedOnDate()
         let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
         return dailyObject
     }
 
-    func displayAllDailyObjects() {
+    func queryAllDailyObjects() {
         let allDailyObject = realm.objects(DailyObject.self)
         Log.log(allDailyObject.debugDescription)
     }
 
     // TODO: - Need to implement the method to fetch all weekly objects
-    func getAllWeeklyObjects() {
-
+    func queryAllWeeklyObjects() {
+        let allWeeklyObjects = realm.objects(WeeklyObject.self)
+        Log.log(allWeeklyObjects.debugDescription)
     }
 
     // MARK: - Delete Operations
@@ -98,8 +86,9 @@ class RealmManager {
     // MARK: - Update Opertions
     func saveDataToRealm(for checkInEvents: NotificationCenter.CheckInEvents) {
         // Check if there alredy exists an daily object for today
-        let key = Date().primaryKeyBasedOnDate()
         let todayDate = Date()
+        let key = todayDate.primaryKeyBasedOnDate()
+        let weeklyKey = todayDate.weeklyPrimaryKeyBasedOnDate()
         // Create a new Event
         let event = Event(eventName: checkInEvents.rawValue, eventTime: Date())
         // update DailyObject with new event
@@ -117,10 +106,19 @@ class RealmManager {
         do {
             try realm.write {
                 realm.add(event)
-                realm.create(DailyObject.self, value: ["dateString": key,
-                                                       updateKeypath: event,
-                                                       "date": todayDate],
-                                                        update: true)
+                let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+                let createdDailyObject = realm.create(DailyObject.self,
+                                                     value: ["dateString": key,
+                                                             updateKeypath: event,
+                                                             "date": todayDate],
+                                                     update: true)
+                let weeklyObject = realm.create(WeeklyObject.self,
+                                                value: ["weekAndTheYear": weeklyKey],
+                                                update: true)
+                // After DailyObject is created for the first time, need to Save it into weekly
+                if dailyObjectResult == nil {
+                    weeklyObject.dailyObjects.append(createdDailyObject)
+                }
             }
         } catch {
             Log.log("error")
