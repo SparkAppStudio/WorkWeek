@@ -20,7 +20,7 @@ extension WeeklyCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
-        weeklyReports = RealmManager.shared.queryAllWeeklyObjects()
+        weeklyReports = RealmManager.shared.queryAllObjects(ofType: WeeklyObject.self)
         return weeklyReports.count
     }
 

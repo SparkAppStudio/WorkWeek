@@ -38,7 +38,7 @@ final class CountdownViewController: UIViewController {
     }
 
     @IBAction func didPressQueryAllWeekly(_ sender: UIButton) {
-        let _ = RealmManager.shared.queryAllWeeklyObjects()
+        _ = RealmManager.shared.queryAllObjects(ofType: WeeklyObject.self)
     }
 
     var timer = Timer()

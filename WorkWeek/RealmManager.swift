@@ -65,11 +65,10 @@ class RealmManager {
         Log.log(allDailyObject.debugDescription)
     }
 
-    // TODO: - Need to implement the method to fetch all weekly objects
-    func queryAllWeeklyObjects() -> [WeeklyObject] {
-        let allWeeklyObjects = realm.objects(WeeklyObject.self)
-        Log.log(allWeeklyObjects.debugDescription)
-        return Array(allWeeklyObjects)
+    func queryAllObjects<T: Object>(ofType type: T.Type) -> [T] {
+        let allObjects = realm.objects(type)
+        Log.log(allObjects.debugDescription)
+        return Array(allObjects)
     }
 
     // MARK: - Delete Operations
