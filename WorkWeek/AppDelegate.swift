@@ -84,6 +84,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        // When user becomes authorized, update their location, so the map will 
+        // be up to date when they get to it
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            manager.startUpdatingLocation()
+        case .denied, .notDetermined, .restricted:
+            break
+        }
+    }
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         Log.log(.error, String(describing: error))
         if (error as? CLError)?.code == .denied {

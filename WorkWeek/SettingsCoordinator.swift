@@ -37,7 +37,6 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     // MARK: Settings Main Protocol
 
     func didTapHomeMap() {
-        locationManager.startUpdatingLocation()
         SettingsMapViewController.push(onto: navigationController,
                                        as: .home,
                                        location: locationManager,
@@ -45,7 +44,6 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     }
 
     func didTapWorkMap() {
-        locationManager.startUpdatingLocation()
         SettingsMapViewController.push(onto: navigationController,
                                        as: .work,
                                        location: locationManager,
