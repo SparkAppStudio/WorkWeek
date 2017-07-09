@@ -10,8 +10,8 @@ class WeeklyCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet weak var weeklyHourLabel: UILabel!
 
-    func configureCell() {
-        Log.log("I will configure cell")
+    func configureCell(for weeklyObject: WeeklyObject) {
+        Log.log(weeklyObject.debugDescription)
     }
 
 }

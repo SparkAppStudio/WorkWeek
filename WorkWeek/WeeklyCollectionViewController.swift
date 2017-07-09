@@ -7,7 +7,7 @@ import Reusable
 
 class WeeklyCollectionViewController: UICollectionViewController {
 
-    var weeklySummaries = ["First", "Second"]
+    var weeklyReports = [WeeklyObject]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +20,15 @@ extension WeeklyCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
-        return weeklySummaries.count
+        weeklyReports = RealmManager.shared.queryAllWeeklyObjects()
+        return weeklyReports.count
     }
 
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(for: indexPath) as WeeklyCollectionViewCell
-        cell.configureCell()
+        cell.configureCell(for: weeklyReports[indexPath.row])
         return cell
     }
 
