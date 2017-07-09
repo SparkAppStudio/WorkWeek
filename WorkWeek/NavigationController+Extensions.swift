@@ -42,7 +42,7 @@ extension UINavigationController {
         }
 
         let showAllRealmAction = UIAlertAction(title: "Show Realm Data", style: .default) { (_) in
-            RealmManager.shared.displayAllDailyObjects()
+            RealmManager.shared.queryAllDailyObjects()
         }
 
         let removeAllRealmAction = UIAlertAction(title: "Remove Realm Data", style: .default) { (_) in

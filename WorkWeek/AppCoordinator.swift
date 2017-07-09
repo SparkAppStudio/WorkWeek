@@ -7,17 +7,17 @@ import CoreLocation
 
 class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate {
 
+    let locationManager: CLLocationManager
     let navigationController: UINavigationController
     var childCoordinators = NSMutableArray()
 
-    let locationManager = CLLocationManager()
-
-    init(with navController: UINavigationController) {
+    init(with navController: UINavigationController, locationManager: CLLocationManager) {
         self.navigationController = navController
+        self.locationManager = locationManager
     }
 
     func start() {
-        Log.log("\(#file): \(#function)")
+        Log.log()
 
         #if DEBUG  // In Debug modes allow going straight to the settings page if, the userdefault key is set
             let showSettingsDEBUG = UserDefaults.standard.bool(for: .overrideShowSettingsFirst)

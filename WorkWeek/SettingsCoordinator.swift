@@ -25,7 +25,7 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     }
 
     func start() {
-        Log.log("\(#file): \(#function)")
+        Log.log()
 
         navigationController.isNavigationBarHidden = true
 
@@ -62,11 +62,4 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         delegate?.settingsFinished(with: self)
     }
 
-}
-
-protocol SettingsMainProtocol: class {
-    func didTapWorkMap()
-    func didTapHomeMap()
-    func notificationsSwitched(_ isOn: Bool)
-    func didTapDone()
 }
