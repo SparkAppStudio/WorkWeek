@@ -83,6 +83,14 @@
                                     <action selector="didPressClearAllRealmDataButton:" destination="Kgw-xI-26n" eventType="touchUpInside" id="IiZ-Fb-jUf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fd5-j9-Fn2">
+                                <rect key="frame" x="131" y="576" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Query all weekly"/>
+                                <connections>
+                                    <action selector="didPressQueryAllWeekly:" destination="Kgw-xI-26n" eventType="touchUpInside" id="pdd-eE-HrA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

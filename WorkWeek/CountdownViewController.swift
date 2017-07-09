@@ -37,6 +37,10 @@ final class CountdownViewController: UIViewController {
         RealmManager.shared.removeAllObjects()
     }
 
+    @IBAction func didPressQueryAllWeekly(_ sender: UIButton) {
+        let _ = RealmManager.shared.queryAllWeeklyObjects()
+    }
+
     var timer = Timer()
     var timeRemaining = 28800
 
