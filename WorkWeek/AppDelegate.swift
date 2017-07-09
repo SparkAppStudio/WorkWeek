@@ -110,9 +110,9 @@ extension AppDelegate: CLLocationManagerDelegate {
         }
         switch typedRegion {
         case .home:
-            NotificationCenterManager.shared.postLeftHomeNotification()
+            NotificationCenterManager.shared.postLeaveHomeNotification()
         case .work:
-            NotificationCenterManager.shared.postLeftWorkNotification()
+            NotificationCenterManager.shared.postLeaveWorkNotification()
         }
     }
 

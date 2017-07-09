@@ -9,7 +9,7 @@ protocol OnboardingCoordinatorDelegate : class {
     func onboardingFinished(with coordinator: OnboardingCoordinator)
 }
 
-class OnboardingCoordinator: OnboardPageViewDelegate {
+class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
@@ -36,5 +36,21 @@ class OnboardingCoordinator: OnboardPageViewDelegate {
 
     func pagesAreDone() {
         delegate?.onboardingFinished(with: self)
+    }
+
+    func pageDidTapHome() {
+        locationManager.startUpdatingLocation()
+        SettingsMapViewController.push(onto: navigationController,
+                                       as: .home,
+                                       location: locationManager,
+                                       delegate: self)
+    }
+
+    func pageDidTapWork() {
+        locationManager.startUpdatingLocation()
+        SettingsMapViewController.push(onto: navigationController,
+                                       as: .work,
+                                       location: locationManager,
+                                       delegate: self)
     }
 }

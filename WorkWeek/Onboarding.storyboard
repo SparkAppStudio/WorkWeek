@@ -58,7 +58,7 @@ Work week is automatic, private, and insightful</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="zkh-Qu-5ZS" firstAttribute="width" secondItem="RAC-eE-SNq" secondAttribute="width" id="0F3-vv-iuh"/>
                             <constraint firstItem="sCC-7G-UAk" firstAttribute="top" secondItem="q2b-fd-LrA" secondAttribute="bottom" constant="84" id="40q-6i-d3a"/>
@@ -231,7 +231,7 @@ Work week is automatic, private, and insightful</string>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noj-gz-43s">
                                 <rect key="frame" x="43.5" y="384.5" width="288" height="76"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="JjN-Qr-CUk"/>
                                 </constraints>
@@ -249,7 +249,7 @@ Work week is automatic, private, and insightful</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.47450980390000003" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8FN-MG-FBr" firstAttribute="trailing" secondItem="uiu-ps-GGy" secondAttribute="trailing" id="0QV-mY-94C"/>
                             <constraint firstItem="uiu-ps-GGy" firstAttribute="leading" secondItem="qFJ-Ch-iUy" secondAttribute="leading" id="5pA-b7-lXc"/>
@@ -284,7 +284,7 @@ Work week is automatic, private, and insightful</string>
         <!--Onboard Notify View Controller-->
         <scene sceneID="7GF-Gi-358">
             <objects>
-                <viewController storyboardIdentifier="OnboardNotifyViewController" id="cMX-Dv-x1n" customClass="OnboardNotifyViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardNotifyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cMX-Dv-x1n" customClass="OnboardNotifyViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6bu-9x-aMX"/>
                         <viewControllerLayoutGuide type="bottom" id="p7p-31-mdk"/>
@@ -311,7 +311,7 @@ Work week is automatic, private, and insightful</string>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4a-So-6n4">
                                 <rect key="frame" x="43.5" y="371" width="288" height="76"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="oxI-D5-PQl"/>
                                 </constraints>
@@ -324,11 +324,11 @@ Work week is automatic, private, and insightful</string>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWx-8v-a5k">
                                 <rect key="frame" x="43.5" y="471" width="288" height="76"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.25882352939999997" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="gS9-yo-xaQ"/>
                                 </constraints>
-                                <state key="normal" title="No Thanks">
+                                <state key="normal" title="Open the App">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -336,7 +336,7 @@ Work week is automatic, private, and insightful</string>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.85098039219999999" green="0.25882352939999997" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xWx-8v-a5k" firstAttribute="leading" secondItem="m4a-So-6n4" secondAttribute="leading" id="38W-wH-HrA"/>
                             <constraint firstItem="m4a-So-6n4" firstAttribute="centerX" secondItem="LfG-7d-uwf" secondAttribute="centerX" id="49k-vV-HEb"/>
@@ -358,7 +358,87 @@ Work week is automatic, private, and insightful</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ad2-lu-95e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="385"/>
+            <point key="canvasLocation" x="2770" y="385"/>
+        </scene>
+        <!--Onboard Settings View Controller-->
+        <scene sceneID="tOy-z0-N3s">
+            <objects>
+                <viewController storyboardIdentifier="OnboardSettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fh2-1T-3ta" customClass="OnboardSettingsViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gJA-Ad-x1G"/>
+                        <viewControllerLayoutGuide type="bottom" id="bsd-OX-ee0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cRz-JL-ZW7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiV-qC-Uhi">
+                                <rect key="frame" x="43" y="377" width="288" height="76"/>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="RBq-7t-R47"/>
+                                </constraints>
+                                <state key="normal" title="Set Home">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapGrantNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="v2c-2z-bIp"/>
+                                    <action selector="didTapHome:" destination="fh2-1T-3ta" eventType="touchUpInside" id="T6H-cL-hz6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-vE-gPf">
+                                <rect key="frame" x="43" y="477" width="288" height="76"/>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="8yl-lH-IrZ"/>
+                                </constraints>
+                                <state key="normal" title="Set Work">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapDenyNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="M7M-lC-q4V"/>
+                                    <action selector="didTapWork:" destination="fh2-1T-3ta" eventType="touchUpInside" id="9UQ-sY-NWH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuq-xO-4UH">
+                                <rect key="frame" x="43.5" y="84" width="288" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="QcO-XZ-o3u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your work and home location" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zae-wS-h2Z">
+                                <rect key="frame" x="43" y="166" width="288" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qFi-vE-gPf" firstAttribute="centerX" secondItem="cRz-JL-ZW7" secondAttribute="centerX" id="3od-yh-yHg"/>
+                            <constraint firstItem="zae-wS-h2Z" firstAttribute="top" secondItem="iuq-xO-4UH" secondAttribute="bottom" constant="24" id="9TR-uh-Cmn"/>
+                            <constraint firstItem="zae-wS-h2Z" firstAttribute="width" secondItem="iuq-xO-4UH" secondAttribute="width" id="BRn-zD-RpG"/>
+                            <constraint firstItem="iuq-xO-4UH" firstAttribute="top" secondItem="gJA-Ad-x1G" secondAttribute="bottom" constant="64" id="EIM-od-qfi"/>
+                            <constraint firstItem="iuq-xO-4UH" firstAttribute="centerX" secondItem="cRz-JL-ZW7" secondAttribute="centerX" id="TQ4-PH-xxa"/>
+                            <constraint firstItem="zae-wS-h2Z" firstAttribute="centerX" secondItem="cRz-JL-ZW7" secondAttribute="centerX" id="eaa-ma-wFA"/>
+                            <constraint firstItem="qFi-vE-gPf" firstAttribute="leading" secondItem="yiV-qC-Uhi" secondAttribute="leading" id="epH-Lb-Qhh"/>
+                            <constraint firstItem="qFi-vE-gPf" firstAttribute="trailing" secondItem="yiV-qC-Uhi" secondAttribute="trailing" id="gEf-bC-28P"/>
+                            <constraint firstItem="qFi-vE-gPf" firstAttribute="width" secondItem="iuq-xO-4UH" secondAttribute="width" id="nGO-Sw-DAZ"/>
+                            <constraint firstItem="qFi-vE-gPf" firstAttribute="top" secondItem="yiV-qC-Uhi" secondAttribute="bottom" constant="24" id="tF0-ah-yXX"/>
+                            <constraint firstItem="bsd-OX-ee0" firstAttribute="top" secondItem="qFi-vE-gPf" secondAttribute="bottom" constant="114" id="yxq-5g-ztR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="setHomeButton" destination="yiV-qC-Uhi" id="Inp-1i-F4b"/>
+                        <outlet property="setWorkButton" destination="qFi-vE-gPf" id="Zl9-63-aZ9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RMv-2x-UHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1958" y="385"/>
         </scene>
     </scenes>
     <resources>

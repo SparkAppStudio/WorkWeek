@@ -54,12 +54,12 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
         case .denied, .restricted, .authorizedWhenInUse:
             grantLocationButton.isEnabled = true
             grantLocationButton.setTitle("Grant Access", for: .normal)
-            grantLocationButton.backgroundColor = UIColor.green
+            grantLocationButton.backgroundColor = #colorLiteral(red: 0.2414106429, green: 0.7961877584, blue: 0.8413593173, alpha: 1)
 
         case .notDetermined:
             grantLocationButton.isEnabled = true
             grantLocationButton.setTitle("Grant Access", for: .normal)
-            grantLocationButton.backgroundColor = UIColor.green
+            grantLocationButton.backgroundColor = #colorLiteral(red: 0.2414106429, green: 0.7961877584, blue: 0.8413593173, alpha: 1)
         }
     }
 
@@ -138,7 +138,7 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                     }
                     button.isEnabled = true
                     button.setTitle("Grant Access", for: .normal)
-                    button.backgroundColor = UIColor.green
+                    button.backgroundColor = #colorLiteral(red: 0.2414106429, green: 0.7961877584, blue: 0.8413593173, alpha: 1)
 
                 case .notDetermined:
                     if button == self.denyNotifyButton {
@@ -147,7 +147,7 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                     }
                     button.isEnabled = true
                     button.setTitle("Grant Access", for: .normal)
-                    button.backgroundColor = UIColor.green
+                    button.backgroundColor = #colorLiteral(red: 0.2414106429, green: 0.7961877584, blue: 0.8413593173, alpha: 1)
                 }
             }
 
@@ -190,6 +190,31 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
     @IBAction func didTapDenyNotify(_ sender: UIButton) {
         //dismiss
         delegate?.notifyPageIsDone()
+    }
+}
+
+
+// MARK: NotifyVC
+
+protocol OnboardSettingsViewDelegate: class {
+    func settingsPageDidTapHome()
+    func settingsPageDidTapWork()
+    func settingsPageIsDone()
+}
+
+class OnboardSettingsViewController: UIViewController, OnboardingStoryboard {
+
+    weak var delegate: OnboardSettingsViewDelegate?
+
+    @IBOutlet weak var setHomeButton: UIButton!
+    @IBOutlet weak var setWorkButton: UIButton!
+
+    @IBAction func didTapHome(_ sender: UIButton) {
+        delegate?.settingsPageDidTapHome()
+    }
+
+    @IBAction func didTapWork(_ sender: UIButton) {
+        delegate?.settingsPageDidTapWork()
     }
 
 }
