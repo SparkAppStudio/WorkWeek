@@ -73,9 +73,9 @@ class DailyCollectionViewController: UICollectionViewController {
     }
 
     func configureNotificationObservers() {
-        notificationCenter.addObserver(self, selector: #selector(leftHomeNotified), name: .leftHome)
+        notificationCenter.addObserver(self, selector: #selector(leftHomeNotified), name: .leaveHome)
         notificationCenter.addObserver(self, selector: #selector(arriveWorkNotified), name: .arriveWork)
-        notificationCenter.addObserver(self, selector: #selector(leftWorkNotified), name: .leftWork)
+        notificationCenter.addObserver(self, selector: #selector(leftWorkNotified), name: .leaveWork)
         notificationCenter.addObserver(self, selector: #selector(arriveHomeNotified), name: .arriveHome)
     }
 

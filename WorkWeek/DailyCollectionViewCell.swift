@@ -20,11 +20,11 @@ class DailyCollectionViewCell: UICollectionViewCell, Reusable {
         }
         let cases = NotificationCenter.CheckInEvents.self
         switch activityNameString {
-        case cases.leftHome.rawValue:
+        case cases.leaveHome.rawValue:
             eventNameLabel.text = "Time Left Home"
         case cases.arriveWork.rawValue:
             eventNameLabel.text = "Time Arrived Work"
-        case cases.leftWork.rawValue:
+        case cases.leaveWork.rawValue:
             eventNameLabel.text = "Time Left Work"
         case cases.arriveHome.rawValue:
             eventNameLabel.text = "Time Arrived Home"

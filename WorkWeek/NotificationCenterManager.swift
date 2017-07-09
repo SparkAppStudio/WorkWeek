@@ -10,9 +10,9 @@ import Foundation
 
 extension NotificationCenter {
     enum CheckInEvents: String {
-        case leftHome
+        case leaveHome
         case arriveWork
-        case leftWork
+        case leaveWork
         case arriveHome
     }
 
@@ -29,9 +29,9 @@ class NotificationCenterManager {
     let notificationCenter = NotificationCenter.default
 
 
-    func postLeftHomeNotification() {
-        RealmManager.shared.saveDataToRealm(for: .leftHome)
-        notificationCenter.post(name: .leftHome)
+    func postLeaveHomeNotification() {
+        RealmManager.shared.saveDataToRealm(for: .leaveHome)
+        notificationCenter.post(name: .leaveHome)
     }
 
     func postArriveWorkNotification() {
@@ -39,9 +39,9 @@ class NotificationCenterManager {
         notificationCenter.post(name: .arriveWork)
     }
 
-    func postLeftWorkNotification() {
-        RealmManager.shared.saveDataToRealm(for: .leftWork)
-        notificationCenter.post(name: .leftWork)
+    func postLeaveWorkNotification() {
+        RealmManager.shared.saveDataToRealm(for: .leaveWork)
+        notificationCenter.post(name: .leaveWork)
     }
 
     func postArriveHomeNotification() {

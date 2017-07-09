@@ -17,11 +17,40 @@ enum RegionId: String {
 }
 
 protocol MapVCDelegate: class {
+    var navigationController: UINavigationController { get }
+    var locationManager: CLLocationManager { get }
     func save(type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)
     func cancel()
 }
 
-class SettingsMapViewController: UIViewController, SettingsStoryboard {
+extension MapVCDelegate {
+    func save(type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+        let region: CLRegion
+        switch type {
+        case .home:
+            region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.home.rawValue)
+        case .work:
+            region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.work.rawValue)
+        }
+        locationManager.startMonitoring(for: region)
+        navigationController.popViewController(animated: true)
+    }
+
+    func cancel() {
+        navigationController.popViewController(animated: true)
+    }
+}
+
+
+class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchBarDelegate {
+
+    static func push(onto: UINavigationController, as type: MapVCType, location: CLLocationManager, delegate: MapVCDelegate) {
+        let mapViewController = SettingsMapViewController.instantiate()
+        mapViewController.locationManager = location
+        mapViewController.type = type
+        mapViewController.delegate = delegate
+        onto.pushViewController(mapViewController, animated: true)
+    }
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
@@ -42,6 +71,8 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        searchBar.delegate = self
 
         switch type {
         case .home:
@@ -77,6 +108,20 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard {
         case .work:
             locationManager.circles(matching: RegionId.work.rawValue).forEach(mapView.add(_:))
         }
+    }
+
+    // MARK: Search Bar Delegate
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
     }
 }
 

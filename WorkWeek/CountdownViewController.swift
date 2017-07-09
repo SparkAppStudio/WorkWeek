@@ -48,7 +48,25 @@ final class CountdownViewController: UIViewController {
         super.viewDidLoad()
         //By default, start count down from 8 hours
         runTimer()
+        #if DEBUG
+        // To get shake gesture
+        self.becomeFirstResponder()
+        #endif
     }
+
+    #if DEBUG
+    // We are willing to become first responder to get shake motion
+    override var canBecomeFirstResponder: Bool {
+            return true
+    }
+
+    // Enable detection of shake motion
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            self.navigationController?.presentDevSettingsAlertController()
+        }
+    }
+    #endif
 
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1,
