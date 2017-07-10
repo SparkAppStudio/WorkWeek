@@ -16,32 +16,6 @@ enum RegionId: String {
     case work
 }
 
-protocol MapVCDelegate: class {
-    var navigationController: UINavigationController { get }
-    var locationManager: CLLocationManager { get }
-    func save(type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)
-    func cancel()
-}
-
-extension MapVCDelegate {
-    func save(type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
-        let region: CLRegion
-        switch type {
-        case .home:
-            region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.home.rawValue)
-        case .work:
-            region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.work.rawValue)
-        }
-        locationManager.startMonitoring(for: region)
-        navigationController.popViewController(animated: true)
-    }
-
-    func cancel() {
-        navigationController.popViewController(animated: true)
-    }
-}
-
-
 class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchBarDelegate {
 
     static func push(onto: UINavigationController, as type: MapVCType, location: CLLocationManager, delegate: MapVCDelegate) {
