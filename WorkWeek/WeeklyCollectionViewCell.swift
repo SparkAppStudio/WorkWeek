@@ -21,12 +21,7 @@ class WeeklyCollectionViewCell: UICollectionViewCell, Reusable {
             }
         }
         //Use date components formatter
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.zeroFormattingBehavior = [.pad]
-        let formattedDuration = formatter.string(from: totoalWorkInterval)
-        weeklyHourLabel.text = formattedDuration
+        weeklyHourLabel.text = totoalWorkInterval.convertToString(with: [.hour, .minute, .second])
     }
 
 }
