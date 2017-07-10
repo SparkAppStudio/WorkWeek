@@ -33,6 +33,7 @@ class ActivityPageViewController: UIPageViewController, ActivityStoryboard {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        self.view.backgroundColor = .white
         self.removePageViewControllerBlackEmptyBackground()
     }
 }
