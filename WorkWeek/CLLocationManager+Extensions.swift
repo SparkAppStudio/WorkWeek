@@ -37,3 +37,29 @@ extension CLLocationManager {
         return circles.map { MKCircle(center: $0.center, radius: $0.radius) }
     }
 }
+
+extension MKLocalSearch {
+    typealias SearchResult = Result<MKLocalSearchResponse, SearchErrors>
+    enum Result<T, Error> {
+        case success(T)
+        case failure(Error)
+    }
+    enum SearchErrors {
+        case bothResponseAndErrorNil
+        case error(Error)
+    }
+    func startResult(completionHandler: @escaping (SearchResult) -> Void) {
+        start(completionHandler: { (response, error) in
+            if let error = error {
+                completionHandler(.failure(.error(error)))
+                return
+            }
+            guard let response = response else {
+                let err = SearchErrors.bothResponseAndErrorNil
+                completionHandler(.failure(err))
+                return
+            }
+            completionHandler(.success(response))
+        })
+    }
+}
