@@ -30,8 +30,8 @@ class DailyObject: Object {
 }
 
 class Event: Object {
-    var eventName: String?
-    var eventTime: Date?
+    dynamic var eventName: String?
+    dynamic var eventTime: Date?
     convenience init(eventName: String, eventTime: Date) {
         self.init()
         self.eventName = eventName

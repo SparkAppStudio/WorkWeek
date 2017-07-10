@@ -6,10 +6,14 @@
 import UIKit
 
 extension TimeInterval {
-    func convertToString(with format: [NSCalendar.Unit]) -> String? {
+    /// Takes an TimeInterval and convert it to date components format
+    ///
+    /// - Parameter units: Such as [.hour, ,minute, .second]
+    /// - Returns: String
+    func convert(preserving units: NSCalendar.Unit) -> String? {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.allowedUnits = units
         formatter.zeroFormattingBehavior = [.pad]
         let formattedDuration = formatter.string(from: self)
         return formattedDuration
