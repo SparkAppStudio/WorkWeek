@@ -123,6 +123,38 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
     }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        guard let searchText = searchBar.text, searchText != "" else {
+            Log.log("Exiting search early. `searchBar.text` is nil or empty")
+            return
+        }
+
+        Log.log("Searching map \(type), for: \(String(describing: searchBar.text))")
+
+        let searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = searchText
+        searchRequest.region = mapView.region
+                let localSearch = MKLocalSearch(request: searchRequest)
+        localSearch.startResult {[weak self] result  in
+            self?.handleSearchResult(result)
+        }
+    }
+
+    func handleSearchResult(_ result: MKLocalSearch.SearchResult) {
+        switch result {
+        case .success(let response):
+            let placemarks = response.mapItems.map { $0.placemark }
+            mapView.showAnnotations(placemarks, animated: true)
+        case .failure(let typedError):
+            switch typedError {
+            case .bothResponseAndErrorNil:
+                Log.log(.error, "Attemted search, got no error and no response")
+            case .error(let err):
+                Log.log(.error, "System Error when searching: \(err.localizedDescription)")
+            }
+        }
+    }
 }
 
 extension SettingsMapViewController: MKMapViewDelegate {
