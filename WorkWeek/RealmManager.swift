@@ -48,7 +48,7 @@ class RealmManager {
             let realm = try Realm()
             return realm
         } catch {
-            Log.log(.error,"Cannot Access Realm Database. error \(error.localizedDescription)")
+            Log.log(.error, "Cannot Access Realm Database. error \(error.localizedDescription)")
         }
         return self.realm
     }
@@ -83,25 +83,14 @@ class RealmManager {
     }
 
     // MARK: - Update Opertions
-    func saveDataToRealm(for checkInEvents: NotificationCenter.CheckInEvents) {
-        // Check if there alredy exists an daily object for today
+    func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvents) {
         let todayDate = Date()
         let key = todayDate.primaryKeyBasedOnDate()
         let weeklyKey = todayDate.weeklyPrimaryKeyBasedOnDate()
-        // Create a new Event
-        let event = Event(eventName: checkInEvents.rawValue, eventTime: Date())
+        let event = Event(eventName: checkInEvent.rawValue, eventTime: Date())
+        let updateKeypath = dailyObjectKeyPath(for: checkInEvent)
+
         // update DailyObject with new event
-        let updateKeypath: String
-        switch checkInEvents {
-        case .leaveHome:
-            updateKeypath = "timeLeftHome"
-        case .arriveWork:
-            updateKeypath = "timeArriveWork"
-        case .leaveWork:
-            updateKeypath = "timeLeftWork"
-        case .arriveHome:
-            updateKeypath = "timeArriveHome"
-        }
         do {
             try realm.write {
                 realm.add(event)
@@ -123,4 +112,20 @@ class RealmManager {
             Log.log("error")
         }
     }
+
+    func dailyObjectKeyPath(for checkInEvent: NotificationCenter.CheckInEvents) -> String {
+        let updateKeypath: String
+        switch checkInEvent {
+        case .leaveHome:
+            updateKeypath = #keyPath(DailyObject.timeLeftHome)
+        case .arriveWork:
+            updateKeypath = #keyPath(DailyObject.timeArriveWork)
+        case .leaveWork:
+            updateKeypath = #keyPath(DailyObject.timeLeftWork)
+        case .arriveHome:
+            updateKeypath = #keyPath(DailyObject.timeArriveHome)
+        }
+        return updateKeypath
+    }
+
 }
