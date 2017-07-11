@@ -106,12 +106,12 @@ class RealmManager {
                 realm.add(event)
                 let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: todayKey)
                 let createdDailyObject = realm.create(DailyObject.self,
-                                                     value: ["dateString": todayKey,
+                                                     value: [#keyPath(DailyObject.dateString): todayKey,
                                                              eventKeypath: event,
-                                                             "date": todayDate],
+                                                             #keyPath(DailyObject.date): todayDate],
                                                      update: true)
                 let weeklyObject = realm.create(WeeklyObject.self,
-                                                value: ["weekAndTheYear": weeklyKey],
+                                                value: [#keyPath(WeeklyObject.weekAndTheYear): weeklyKey],
                                                 update: true)
                 // After DailyObject is created for the first time, need to Save it into weekly
                 if dailyObjectResult == nil {
