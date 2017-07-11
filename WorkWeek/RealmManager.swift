@@ -12,6 +12,15 @@ import RealmSwift
 class WeeklyObject: Object {
     dynamic var weekAndTheYear: String?
     let dailyObjects = List<DailyObject>()
+    var totalWorkTime: TimeInterval {
+        return dailyObjects.reduce(0.0) { (sum, daily) in
+            guard let timeArriveWork = daily.timeArriveWork?.eventTime,
+                let timeLeaveWork = daily.timeLeftWork?.eventTime else {
+                    return sum
+            }
+            return sum + timeLeaveWork.timeIntervalSince(timeArriveWork)
+        }
+    }
     override static func primaryKey() -> String? {
         return #keyPath(WeeklyObject.weekAndTheYear)
     }
@@ -108,10 +117,10 @@ class RealmManager {
                 realm.add(event)
                 let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
                 let createdDailyObject = realm.create(DailyObject.self,
-                                                     value: ["dateString": key,
-                                                             updateKeypath: event,
-                                                             "date": todayDate],
-                                                     update: true)
+                                                      value: ["dateString": key,
+                                                              updateKeypath: event,
+                                                              "date": todayDate],
+                                                      update: true)
                 let weeklyObject = realm.create(WeeklyObject.self,
                                                 value: ["weekAndTheYear": weeklyKey],
                                                 update: true)

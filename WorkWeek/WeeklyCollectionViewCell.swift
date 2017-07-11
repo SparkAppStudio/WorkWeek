@@ -10,16 +10,7 @@ class WeeklyCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var weeklyHourLabel: UILabel!
 
     func configureCell(for weeklyObject: WeeklyObject) {
-        Log.log(weeklyObject.debugDescription)
-        let totoalWorkInterval = weeklyObject.dailyObjects.reduce(0.0) { (sum, daily) in
-            guard let timeArriveWork = daily.timeArriveWork?.eventTime,
-                let timeLeaveWork = daily.timeLeftWork?.eventTime else {
-                    return sum
-            }
-            return sum + timeLeaveWork.timeIntervalSince(timeArriveWork)
-        }
-        //Use date components formatter
-        weeklyHourLabel.text = totoalWorkInterval.convert(preserving: [.hour, .minute, .second])
+        let totalWorkTime = weeklyObject.totalWorkTime
+        weeklyHourLabel.text = totalWorkTime.convert(preserving: [.hour, .minute, .second])
     }
-
 }
