@@ -85,19 +85,21 @@ class RealmManager {
     // MARK: - Update Opertions
     func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvent) {
         let todayDate = Date()
-        let key = todayDate.primaryKeyBasedOnDate()
+
+        let todayKey = todayDate.primaryKeyBasedOnDate()
         let weeklyKey = todayDate.weeklyPrimaryKeyBasedOnDate()
+
         let event = Event(eventName: checkInEvent.rawValue, eventTime: Date())
-        let updateKeypath = dailyObjectKeyPath(for: checkInEvent)
+        let eventKeypath = dailyObjectKeyPath(for: checkInEvent)
 
         // update DailyObject with new event
         do {
             try realm.write {
                 realm.add(event)
-                let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+                let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: todayKey)
                 let createdDailyObject = realm.create(DailyObject.self,
-                                                     value: ["dateString": key,
-                                                             updateKeypath: event,
+                                                     value: ["dateString": todayKey,
+                                                             eventKeypath: event,
                                                              "date": todayDate],
                                                      update: true)
                 let weeklyObject = realm.create(WeeklyObject.self,
