@@ -14,30 +14,24 @@ class DailyCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var eventTimeLabel: UILabel!
 
     func configureCell(_ event: Event) {
-        // TODO: Do you know why this is not a "TypeSafe" property access?
-        // TODO: Update this code to not be so "Stringy"
-        // i.e. We're getting a string from the event, then switching over it, to match 
-        // an enums raw value then returning a string.
-        // Perhaps Event should know what type of Notification Created it...
-        // then we could switch over that EventType, to find the correct display String. 
-        guard let activityNameString = event.value(forKey: #keyPath(Event.eventName)) as? String else {
+        guard let kind = event.kind else {
+            Log.log(.error, "event \(event) has missing or invalid `typedKind`")
             return
         }
-        let cases = NotificationCenter.CheckInEvent.self
-        switch activityNameString {
-        case cases.leaveHome.rawValue:
+
+        switch kind {
+        case .leaveHome:
             eventNameLabel.text = "Time Left Home"
-        case cases.arriveWork.rawValue:
+        case .arriveWork:
             eventNameLabel.text = "Time Arrived Work"
-        case cases.leaveWork.rawValue:
+        case .leaveWork:
             eventNameLabel.text = "Time Left Work"
-        case cases.arriveHome.rawValue:
+        case .arriveHome:
             eventNameLabel.text = "Time Arrived Home"
-        default:
-            eventNameLabel.text = ""
         }
 
         guard let activityTimeDate = event.value(forKey: #keyPath(Event.eventTime)) as? Date else {
+            Log.log(.error, "event \(event) has missing or invalid `eventTime`")
             return
         }
 

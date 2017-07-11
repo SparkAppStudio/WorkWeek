@@ -30,12 +30,20 @@ class DailyObject: Object {
 }
 
 class Event: Object {
-    var eventName: String?
     var eventTime: Date?
-    convenience init(eventName: String, eventTime: Date) {
+    private var kindStorage: String?
+    var kind: NotificationCenter.CheckInEvent? {
+        guard let kindStorage = kindStorage else {
+            Log.log(.error, "event \(self) has missing or invalid `kind`")
+            return nil
+        }
+        return NotificationCenter.CheckInEvent(rawValue: kindStorage)
+    }
+
+    convenience init(kind: NotificationCenter.CheckInEvent, time: Date) {
         self.init()
-        self.eventName = eventName
-        self.eventTime = eventTime
+        self.kindStorage = kind.rawValue
+        self.eventTime = time
     }
 }
 
@@ -89,7 +97,7 @@ class RealmManager {
         let todayKey = todayDate.primaryKeyBasedOnDate()
         let weeklyKey = todayDate.weeklyPrimaryKeyBasedOnDate()
 
-        let event = Event(eventName: checkInEvent.rawValue, eventTime: Date())
+        let event = Event(kind: checkInEvent, time: Date())
         let eventKeypath = dailyObjectKeyPath(for: checkInEvent)
 
         // update DailyObject with new event
