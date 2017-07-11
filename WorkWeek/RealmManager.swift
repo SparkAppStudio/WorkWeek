@@ -111,7 +111,7 @@ class RealmManager {
                 }
             }
         } catch {
-            Log.log("error")
+            Log.log(.error, "Failed to save new Event. \(error.localizedDescription)")
         }
     }
 
