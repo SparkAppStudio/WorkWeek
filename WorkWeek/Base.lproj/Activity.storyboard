@@ -35,11 +35,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKr-PA-O4q">
+                                <rect key="frame" x="87" y="507" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="2nY-uY-NQ8"/>
+                                    <constraint firstAttribute="height" constant="40" id="QiE-Op-hsl"/>
+                                </constraints>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="didTapSettings:" destination="Kgw-xI-26n" eventType="touchUpInside" id="h0l-LR-ymh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JKr-PA-O4q" firstAttribute="centerX" secondItem="mzw-b3-UWr" secondAttribute="centerX" id="ke1-cW-Jpj"/>
+                            <constraint firstItem="AWV-1G-jAM" firstAttribute="top" secondItem="JKr-PA-O4q" secondAttribute="bottom" constant="120" id="mKL-3R-fWI"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="countdownDisplay" destination="6dg-OT-A9e" id="B4J-L5-GuL"/>
+                        <outlet property="settingsButton" destination="JKr-PA-O4q" id="UJs-kd-UbO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ao-Gt-MTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
