@@ -77,9 +77,8 @@ class RealmManager {
             try realm.write {
                 realm.deleteAll()
             }
-        } catch let error as NSError {
-            //handle error
-            Log.log(error.localizedDescription)
+        } catch {
+            Log.log(.error, error.localizedDescription)
         }
     }
 
