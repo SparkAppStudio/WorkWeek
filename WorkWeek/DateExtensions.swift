@@ -35,4 +35,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 
+    func weeklyPrimaryKeyBasedOnDate() -> String {
+        let cal = Calendar.current
+        let dateComponents = cal.dateComponents(in: .current, from: self)
+        guard let week = dateComponents.weekOfYear else { return ""}
+        guard let year = dateComponents.year else { return ""}
+        return "\(week)" + "\(year)"
+    }
+
 }

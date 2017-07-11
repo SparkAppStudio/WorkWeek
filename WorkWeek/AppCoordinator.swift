@@ -7,17 +7,17 @@ import CoreLocation
 
 class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate {
 
+    let locationManager: CLLocationManager
     let navigationController: UINavigationController
     var childCoordinators = NSMutableArray()
 
-    let locationManager = CLLocationManager()
-
-    init(with navController: UINavigationController) {
+    init(with navController: UINavigationController, locationManager: CLLocationManager) {
         self.navigationController = navController
+        self.locationManager = locationManager
     }
 
     func start() {
-        Log.log("\(#file): \(#function)")
+        Log.log()
 
         #if DEBUG  // In Debug modes allow going straight to the settings page if, the userdefault key is set
             let showSettingsDEBUG = UserDefaults.standard.bool(for: .overrideShowSettingsFirst)
@@ -42,24 +42,6 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
                                                           delegate: self)
         childCoordinators.add(onboardingCoordinator)
         onboardingCoordinator.start()
-    }
-
-    func onboardingShowHomeMap(with coordinator: OnboardingCoordinator) {
-        let settingsCoordinator = SettingsCoordinator(with: navigationController,
-                                                      manger: locationManager,
-                                                      delegate: self)
-        childCoordinators.add(settingsCoordinator)
-        settingsCoordinator.didTapHomeMap()
-
-    }
-
-    func onboardingShowWorkMap(with coordinator: OnboardingCoordinator) {
-        let settingsCoordinator = SettingsCoordinator(with: navigationController,
-                                                      manger: locationManager,
-                                                      delegate: self)
-        childCoordinators.add(settingsCoordinator)
-        settingsCoordinator.didTapWorkMap()
-
     }
 
     func onboardingFinished(with coordinator: OnboardingCoordinator) {

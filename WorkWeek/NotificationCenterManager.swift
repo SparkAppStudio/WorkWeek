@@ -16,7 +16,7 @@ extension NotificationCenter {
         case arriveHome
     }
 
-    func post(name: CheckInEvents, object: Any?) {
+    func post(name: CheckInEvents, object: Any? = nil) {
         let name = NSNotification.Name(name.rawValue)
         post(name: name, object: object)
     }
@@ -31,21 +31,21 @@ class NotificationCenterManager {
 
     func postLeaveHomeNotification() {
         RealmManager.shared.saveDataToRealm(for: .leaveHome)
-        notificationCenter.post(name: .leaveHome, object: nil)
+        notificationCenter.post(name: .leaveHome)
     }
 
     func postArriveWorkNotification() {
         RealmManager.shared.saveDataToRealm(for: .arriveWork)
-        notificationCenter.post(name: .arriveWork, object: nil)
+        notificationCenter.post(name: .arriveWork)
     }
 
     func postLeaveWorkNotification() {
         RealmManager.shared.saveDataToRealm(for: .leaveWork)
-        notificationCenter.post(name: .leaveWork, object: nil)
+        notificationCenter.post(name: .leaveWork)
     }
 
     func postArriveHomeNotification() {
         RealmManager.shared.saveDataToRealm(for: .arriveHome)
-        notificationCenter.post(name: .arriveHome, object: nil)
+        notificationCenter.post(name: .arriveHome)
     }
 }

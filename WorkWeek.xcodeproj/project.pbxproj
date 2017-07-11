@@ -20,6 +20,7 @@
 		526E50741EF6CDBC0066F043 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E50731EF6CDBC0066F043 /* Dictionary+Extensions.swift */; };
 		526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E50751EF6CE3C0066F043 /* CrashReporting.swift */; };
 		527039351EF8D85B00A0B6BA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527039341EF8D85B00A0B6BA /* Log.swift */; };
+		5272B78C1F12A62200F003FD /* MapVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272B78B1F12A62200F003FD /* MapVCDelegate.swift */; };
 		5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */; };
 		5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */; };
 		5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA391EDCF91E00E71CE8 /* Activity.storyboard */; };
@@ -63,6 +64,7 @@
 		526E50731EF6CDBC0066F043 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		526E50751EF6CE3C0066F043 /* CrashReporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashReporting.swift; sourceTree = "<group>"; };
 		527039341EF8D85B00A0B6BA /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		5272B78B1F12A62200F003FD /* MapVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVCDelegate.swift; sourceTree = "<group>"; };
 		5287CA321EDCF91E00E71CE8 /* WorkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
@@ -145,8 +147,6 @@
 				5287CA411EDCF91E00E71CE8 /* Info.plist */,
 				526E50711EF62DD50066F043 /* Analytics.swift */,
 				527039341EF8D85B00A0B6BA /* Log.swift */,
-				526E50731EF6CDBC0066F043 /* Dictionary+Extensions.swift */,
-				525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */,
 				526E50751EF6CE3C0066F043 /* CrashReporting.swift */,
 				5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */,
 			);
@@ -174,6 +174,7 @@
 				52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */,
 				52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */,
 				52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */,
+				5272B78B1F12A62200F003FD /* MapVCDelegate.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -202,6 +203,8 @@
 		D1102CED1F038AEE006A0E2F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */,
+				526E50731EF6CDBC0066F043 /* Dictionary+Extensions.swift */,
 				D1102CEB1F038950006A0E2F /* DateExtensions.swift */,
 				C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */,
 			);
@@ -407,6 +410,7 @@
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,
 				525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */,
 				D1C481971F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift in Sources */,
+				5272B78C1F12A62200F003FD /* MapVCDelegate.swift in Sources */,
 				D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */,
 				C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */,
 				5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */,
@@ -545,10 +549,10 @@
 				INFOPLIST_FILE = WorkWeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SparkAppStudio.WorkWeek;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sparkappstudio.workweek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0e87e880-a3be-45b2-abc2-516cce1d8db9";
-				PROVISIONING_PROFILE_SPECIFIER = "Spark App Studio WildCard";
+				PROVISIONING_PROFILE = "e9adbb80-285b-4b16-a3c1-dd695eef119c";
+				PROVISIONING_PROFILE_SPECIFIER = "buddybuild Development - com.SparkAppStudio.WorkWeek";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -557,7 +561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VY4FR2X9W5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -566,9 +570,10 @@
 				INFOPLIST_FILE = WorkWeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SparkAppStudio.WorkWeek;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sparkappstudio.workweek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e9adbb80-285b-4b16-a3c1-dd695eef119c";
+				PROVISIONING_PROFILE_SPECIFIER = "buddybuild Development - com.SparkAppStudio.WorkWeek";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

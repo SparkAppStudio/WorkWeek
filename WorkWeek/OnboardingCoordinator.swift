@@ -7,11 +7,9 @@ import CoreLocation
 
 protocol OnboardingCoordinatorDelegate : class {
     func onboardingFinished(with coordinator: OnboardingCoordinator)
-    func onboardingShowHomeMap(with coordinator: OnboardingCoordinator)
-    func onboardingShowWorkMap(with coordinator: OnboardingCoordinator)
 }
 
-class OnboardingCoordinator: OnboardPageViewDelegate {
+class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
@@ -27,9 +25,10 @@ class OnboardingCoordinator: OnboardPageViewDelegate {
     }
 
     func start() {
-        Log.log("\(#file): \(#function)")
+        Log.log()
         let initial = OnboardPageViewController.instantiate()
         initial.onboardDelegate = self
+        initial.locationManager = locationManager
 
         navigationController.setViewControllers([initial], animated: false)
         navigationController.isNavigationBarHidden = true
@@ -40,10 +39,18 @@ class OnboardingCoordinator: OnboardPageViewDelegate {
     }
 
     func pageDidTapHome() {
-        delegate?.onboardingShowHomeMap(with: self)
+        locationManager.startUpdatingLocation()
+        SettingsMapViewController.push(onto: navigationController,
+                                       as: .home,
+                                       location: locationManager,
+                                       delegate: self)
     }
 
     func pageDidTapWork() {
-        delegate?.onboardingShowWorkMap(with: self)
+        locationManager.startUpdatingLocation()
+        SettingsMapViewController.push(onto: navigationController,
+                                       as: .work,
+                                       location: locationManager,
+                                       delegate: self)
     }
 }

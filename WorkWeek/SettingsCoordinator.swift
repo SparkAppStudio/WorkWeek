@@ -25,7 +25,7 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     }
 
     func start() {
-        Log.log("\(#file): \(#function)")
+        Log.log()
 
         navigationController.isNavigationBarHidden = true
 
@@ -37,13 +37,17 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     // MARK: Settings Main Protocol
 
     func didTapHomeMap() {
-        locationManager.startUpdatingLocation()
-        pushMapVC(type: .home, delegate: self, onto: navigationController)
+        SettingsMapViewController.push(onto: navigationController,
+                                       as: .home,
+                                       location: locationManager,
+                                       delegate: self)
     }
 
     func didTapWorkMap() {
-        locationManager.startUpdatingLocation()
-        pushMapVC(type: .work, delegate: self, onto: navigationController)
+        SettingsMapViewController.push(onto: navigationController,
+                                       as: .work,
+                                       location: locationManager,
+                                       delegate: self)
     }
 
     func notificationsSwitched(_ isOn: Bool) {
@@ -56,37 +60,4 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         delegate?.settingsFinished(with: self)
     }
 
-    private func pushMapVC(type: MapVCType, delegate: MapVCDelegate, onto: UINavigationController) {
-        let mapViewController = SettingsMapViewController.instantiate()
-        mapViewController.locationManager = locationManager
-        mapViewController.type = type
-        mapViewController.delegate = delegate
-        onto.pushViewController(mapViewController, animated: true)
-    }
-
-    // MARK: MapVCDelegate
-
-    func save(type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
-        let region: CLRegion
-        switch type {
-        case .home:
-            region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.home.rawValue)
-        case .work:
-            region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.work.rawValue)
-        }
-        locationManager.startMonitoring(for: region)
-        navigationController.popViewController(animated: true)
-    }
-
-    func cancel() {
-        navigationController.popViewController(animated: true)
-    }
-
-}
-
-protocol SettingsMainProtocol: class {
-    func didTapWorkMap()
-    func didTapHomeMap()
-    func notificationsSwitched(_ isOn: Bool)
-    func didTapDone()
 }

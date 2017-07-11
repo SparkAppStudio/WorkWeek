@@ -20,6 +20,8 @@ extension UINavigationController {
 
     // MARK: Dev Settings
 
+    #if DEBUG
+
     func presentDevSettingsAlertController() {
         let alert = UIAlertController(title: "DEV SETTINGS", message: nil, preferredStyle: .actionSheet)
 
@@ -40,7 +42,7 @@ extension UINavigationController {
         }
 
         let showAllRealmAction = UIAlertAction(title: "Show Realm Data", style: .default) { (_) in
-            RealmManager.shared.displayAllDailyObjects()
+            RealmManager.shared.queryAllDailyObjects()
         }
 
         let removeAllRealmAction = UIAlertAction(title: "Remove Realm Data", style: .default) { (_) in
@@ -58,4 +60,5 @@ extension UINavigationController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
+    #endif
 }

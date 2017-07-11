@@ -43,7 +43,7 @@ class RealmManager {
 
     static let shared = RealmManager()
 
-    static var realm: Realm {
+    private var realm: Realm {
         do {
             let realm = try Realm()
             return realm
@@ -53,54 +53,27 @@ class RealmManager {
         return self.realm
     }
 
-    // MARK: - Save Operations
-    func saveDailyActivities(_ dailyOject: DailyObject) {
-        do {
-            let realm = try Realm()
-            try realm.write {
-                realm.add(dailyOject)
-            }
-
-        } catch let error as NSError {
-            //handle error
-            Log.log(error.localizedDescription)
-        }
-
-    }
-
     // MARK: - Query Operations
-    func getDailyObject(for date: Date) -> DailyObject? {
+    func queryDailyObject(for date: Date) -> DailyObject? {
         let key = date.primaryKeyBasedOnDate()
-        do {
-            let realm = try Realm()
-            let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
-            return dailyObject
-        } catch let error as NSError {
-            Log.log(error.localizedDescription)
-            return DailyObject()
-        }
+        let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+        return dailyObject
     }
 
-    func displayAllDailyObjects() {
-        do {
-            let realm = try Realm()
-            let allDailyObject = realm.objects(DailyObject.self)
-            Log.log(allDailyObject.debugDescription)
-        } catch let error as NSError {
-            //handle error
-            Log.log(error.localizedDescription)
-        }
+    func queryAllDailyObjects() {
+        let allDailyObject = realm.objects(DailyObject.self)
+        Log.log(allDailyObject.debugDescription)
     }
 
-    func getAllWeeklyObjects() {
-
+    func queryAllObjects<T: Object>(ofType type: T.Type) -> [T] {
+        let allObjects = realm.objects(type)
+        Log.log(allObjects.debugDescription)
+        return Array(allObjects)
     }
 
     // MARK: - Delete Operations
-
     func removeAllObjects() {
         do {
-            let realm = try Realm()
             try realm.write {
                 realm.deleteAll()
             }
@@ -113,8 +86,9 @@ class RealmManager {
     // MARK: - Update Opertions
     func saveDataToRealm(for checkInEvents: NotificationCenter.CheckInEvents) {
         // Check if there alredy exists an daily object for today
-        let key = Date().primaryKeyBasedOnDate()
         let todayDate = Date()
+        let key = todayDate.primaryKeyBasedOnDate()
+        let weeklyKey = todayDate.weeklyPrimaryKeyBasedOnDate()
         // Create a new Event
         let event = Event(eventName: checkInEvents.rawValue, eventTime: Date())
         // update DailyObject with new event
@@ -130,13 +104,21 @@ class RealmManager {
             updateKeypath = "timeArriveHome"
         }
         do {
-            try RealmManager.realm.write {
-                RealmManager.realm.add(event)
-                RealmManager.realm.create(DailyObject.self,
-                                          value: ["dateString": key,
-                                                  updateKeypath: event,
-                                                  "date": todayDate],
-                                          update: true)
+            try realm.write {
+                realm.add(event)
+                let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+                let createdDailyObject = realm.create(DailyObject.self,
+                                                     value: ["dateString": key,
+                                                             updateKeypath: event,
+                                                             "date": todayDate],
+                                                     update: true)
+                let weeklyObject = realm.create(WeeklyObject.self,
+                                                value: ["weekAndTheYear": weeklyKey],
+                                                update: true)
+                // After DailyObject is created for the first time, need to Save it into weekly
+                if dailyObjectResult == nil {
+                    weeklyObject.dailyObjects.append(createdDailyObject)
+                }
             }
         } catch {
             Log.log("error")
