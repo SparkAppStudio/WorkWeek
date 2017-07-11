@@ -12,6 +12,7 @@ import Reusable
 class DailyCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
+    @IBOutlet weak var backDropViewOutlet: UIView!
 
     func configureCell(_ event: Event) {
         guard let kind = event.kind else {
@@ -36,5 +37,7 @@ class DailyCollectionViewCell: UICollectionViewCell, Reusable {
         }
 
         eventTimeLabel.text = activityTimeDate.dailyActivityEventDateFormat()
+
+
     }
 }

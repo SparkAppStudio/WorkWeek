@@ -12,6 +12,11 @@ import RealmSwift
 class WeeklyObject: Object {
     dynamic var weekAndTheYear: String?
     let dailyObjects = List<DailyObject>()
+    var totalWorkTime: TimeInterval {
+        return dailyObjects.reduce(0.0) { (sum, daily) in
+            return sum + daily.workTime
+        }
+    }
     override static func primaryKey() -> String? {
         return #keyPath(WeeklyObject.weekAndTheYear)
     }
@@ -24,14 +29,22 @@ class DailyObject: Object {
     dynamic var timeArriveWork: Event?
     dynamic var timeLeftWork: Event?
     dynamic var timeArriveHome: Event?
+    var workTime: TimeInterval {
+        guard let arriveWorkEventTime = timeArriveWork?.eventTime,
+            let leftWorkEventTime = timeLeftWork?.eventTime else {
+                return 0.0
+        }
+        return leftWorkEventTime.timeIntervalSince(arriveWorkEventTime)
+    }
     override static func primaryKey() -> String? {
         return #keyPath(DailyObject.dateString)
     }
 }
 
 class Event: Object {
-    var eventTime: Date?
-    private var kindStorage: String?
+    dynamic var eventTime: Date = Date()
+    dynamic private var kindStorage: String? = ""
+    
     var kind: NotificationCenter.CheckInEvent? {
         guard let kindStorage = kindStorage else {
             Log.log(.error, "event \(self) has missing or invalid `kind`")
@@ -45,6 +58,7 @@ class Event: Object {
         self.kindStorage = kind.rawValue
         self.eventTime = time
     }
+
 }
 
 class RealmManager {
@@ -106,10 +120,10 @@ class RealmManager {
                 realm.add(event)
                 let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: todayKey)
                 let createdDailyObject = realm.create(DailyObject.self,
-                                                     value: [#keyPath(DailyObject.dateString): todayKey,
-                                                             eventKeypath: event,
-                                                             #keyPath(DailyObject.date): todayDate],
-                                                     update: true)
+                                                      value: [#keyPath(DailyObject.dateString): todayKey,
+                                                              eventKeypath: event,
+                                                              #keyPath(DailyObject.date): todayDate],
+                                                      update: true)
                 let weeklyObject = realm.create(WeeklyObject.self,
                                                 value: [#keyPath(WeeklyObject.weekAndTheYear): weeklyKey],
                                                 update: true)
