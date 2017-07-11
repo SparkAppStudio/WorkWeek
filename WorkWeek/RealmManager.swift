@@ -48,7 +48,7 @@ class RealmManager {
             let realm = try Realm()
             return realm
         } catch {
-            Log.log("Cannot Access Database")
+            Log.log(.error,"Cannot Access Realm Database. error \(error.localizedDescription)")
         }
         return self.realm
     }
