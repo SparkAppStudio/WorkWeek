@@ -18,7 +18,7 @@ class DailyCollectionViewCell: UICollectionViewCell, Reusable {
         guard let activityNameString = event.value(forKey: "eventName") as? String else {
             return
         }
-        let cases = NotificationCenter.CheckInEvents.self
+        let cases = NotificationCenter.CheckInEvent.self
         switch activityNameString {
         case cases.leaveHome.rawValue:
             eventNameLabel.text = "Time Left Home"

@@ -83,7 +83,7 @@ class RealmManager {
     }
 
     // MARK: - Update Opertions
-    func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvents) {
+    func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvent) {
         let todayDate = Date()
         let key = todayDate.primaryKeyBasedOnDate()
         let weeklyKey = todayDate.weeklyPrimaryKeyBasedOnDate()
@@ -113,7 +113,7 @@ class RealmManager {
         }
     }
 
-    func dailyObjectKeyPath(for checkInEvent: NotificationCenter.CheckInEvents) -> String {
+    func dailyObjectKeyPath(for checkInEvent: NotificationCenter.CheckInEvent) -> String {
         let updateKeypath: String
         switch checkInEvent {
         case .leaveHome:
