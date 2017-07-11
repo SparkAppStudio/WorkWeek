@@ -14,11 +14,7 @@ class WeeklyObject: Object {
     let dailyObjects = List<DailyObject>()
     var totalWorkTime: TimeInterval {
         return dailyObjects.reduce(0.0) { (sum, daily) in
-            guard let timeArriveWork = daily.timeArriveWork?.eventTime,
-                let timeLeaveWork = daily.timeLeftWork?.eventTime else {
-                    return sum
-            }
-            return sum + timeLeaveWork.timeIntervalSince(timeArriveWork)
+            return sum + daily.workTime
         }
     }
     override static func primaryKey() -> String? {
@@ -33,19 +29,28 @@ class DailyObject: Object {
     dynamic var timeArriveWork: Event?
     dynamic var timeLeftWork: Event?
     dynamic var timeArriveHome: Event?
+    var workTime: TimeInterval {
+        guard let arriveWorkEventTime = timeArriveWork?.eventTime,
+            let leftWorkEventTime = timeLeftWork?.eventTime else {
+                return 0.0
+        }
+        return leftWorkEventTime.timeIntervalSince(arriveWorkEventTime)
+    }
     override static func primaryKey() -> String? {
         return #keyPath(DailyObject.dateString)
     }
 }
 
 class Event: Object {
-    dynamic var eventName: String?
-    dynamic var eventTime: Date?
+    dynamic var eventName: String = ""
+    dynamic var eventTime: Date = Date()
+
     convenience init(eventName: String, eventTime: Date) {
         self.init()
         self.eventName = eventName
         self.eventTime = eventTime
     }
+
 }
 
 class RealmManager {
