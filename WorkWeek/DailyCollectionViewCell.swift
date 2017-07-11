@@ -10,6 +10,15 @@ import UIKit
 import Reusable
 
 class DailyCollectionViewCell: UICollectionViewCell, Reusable {
+
+    static var formatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        dateFormatter.timeZone = TimeZone.current
+        return dateFormatter
+    }()
+
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
 
@@ -36,6 +45,6 @@ class DailyCollectionViewCell: UICollectionViewCell, Reusable {
             return
         }
 
-        eventTimeLabel.text = activityTimeDate.dailyActivityEventDateFormat()
+        eventTimeLabel.text = DailyCollectionViewCell.formatter.string(from: activityTimeDate)
     }
 }

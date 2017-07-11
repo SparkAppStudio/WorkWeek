@@ -115,6 +115,7 @@ extension AppDelegate: CLLocationManagerDelegate {
             NotificationCenterManager.shared.postArriveWorkNotification()
         }
     }
+
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         guard let typedRegion = RegionId(rawValue:region.identifier) else {
             Log.log(.error, "Could not create a typed region from \(region.identifier)")

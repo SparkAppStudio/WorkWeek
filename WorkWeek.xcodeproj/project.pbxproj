@@ -40,7 +40,6 @@
 		D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */; };
 		D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */; };
 		D1102CEA1F00C085006A0E2F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE91F00C085006A0E2F /* AppConstants.swift */; };
-		D1102CEC1F038950006A0E2F /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CEB1F038950006A0E2F /* DateExtensions.swift */; };
 		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
 		D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */; };
@@ -86,7 +85,6 @@
 		D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionHeaderView.swift; sourceTree = "<group>"; };
 		D1102CE91F00C085006A0E2F /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		D1102CEB1F038950006A0E2F /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 			children = (
 				525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */,
 				526E50731EF6CDBC0066F043 /* Dictionary+Extensions.swift */,
-				D1102CEB1F038950006A0E2F /* DateExtensions.swift */,
 				C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */,
 			);
 			name = Extensions;
@@ -401,7 +398,6 @@
 				52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */,
 				526E50721EF62DD50066F043 /* Analytics.swift in Sources */,
 				D1CA47071EE35528003628FF /* ActivityPageViewController.swift in Sources */,
-				D1102CEC1F038950006A0E2F /* DateExtensions.swift in Sources */,
 				D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */,
 				D1CA47051EE354FC003628FF /* WeeklyCollectionViewController.swift in Sources */,
 				52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */,
