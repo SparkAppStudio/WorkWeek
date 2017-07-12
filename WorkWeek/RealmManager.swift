@@ -63,6 +63,13 @@ class Event: Object {
 
 class RealmManager {
 
+    static var dateFormatter: DateFormatter = {
+        let fmt = DateFormatter()
+        fmt.dateStyle = DateFormatter.Style.short
+        fmt.timeZone = TimeZone.current
+        return fmt
+    }()
+
     static let shared = RealmManager()
 
     private var realm: Realm {
@@ -77,7 +84,7 @@ class RealmManager {
 
     // MARK: - Query Operations
     func queryDailyObject(for date: Date) -> DailyObject? {
-        let key = date.primaryKeyBasedOnDate()
+        let key = dailyPrimaryKeyBased(on: date)
         let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
         return dailyObject
     }
@@ -107,9 +114,9 @@ class RealmManager {
     // MARK: - Update Opertions
     func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvent) {
         let todayDate = Date()
-
-        let todayKey = todayDate.primaryKeyBasedOnDate()
-        let weeklyKey = todayDate.weeklyPrimaryKeyBasedOnDate()
+      
+        let todayKey = dailyPrimaryKeyBased(on: todayDate)
+        let weeklyKey = weeklyPrimaryKeyBased(on: todayDate)
 
         let event = Event(kind: checkInEvent, time: Date())
         let eventKeypath = dailyObjectKeyPath(for: checkInEvent)
@@ -150,6 +157,18 @@ class RealmManager {
             updateKeypath = #keyPath(DailyObject.timeArriveHome)
         }
         return updateKeypath
+    }
+
+    func dailyPrimaryKeyBased(on date: Date) -> String {
+        return RealmManager.dateFormatter.string(from: date)
+    }
+
+    func weeklyPrimaryKeyBased(on date: Date ) -> String {
+        let cal = Calendar.current
+        let dateComponents = cal.dateComponents(in: .current, from: date)
+        guard let week = dateComponents.weekOfYear else { return ""}
+        guard let year = dateComponents.year else { return ""}
+        return "\(week)" + "\(year)"
     }
 
 }
