@@ -24,25 +24,24 @@ class DailyCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var backDropViewOutlet: UIView!
 
     func configureCell(_ event: Event) {
-        //TODO: Do you know why this is not a "TypeSafe" property access?
-        guard let activityNameString = event.value(forKey: "eventName") as? String else {
+        guard let kind = event.kind else {
+            Log.log(.error, "event \(event) has missing or invalid `typedKind`")
             return
         }
-        let cases = NotificationCenter.CheckInEvents.self
-        switch activityNameString {
-        case cases.leaveHome.rawValue:
+
+        switch kind {
+        case .leaveHome:
             eventNameLabel.text = "Time Left Home"
-        case cases.arriveWork.rawValue:
+        case .arriveWork:
             eventNameLabel.text = "Time Arrived Work"
-        case cases.leaveWork.rawValue:
+        case .leaveWork:
             eventNameLabel.text = "Time Left Work"
-        case cases.arriveHome.rawValue:
+        case .arriveHome:
             eventNameLabel.text = "Time Arrived Home"
-        default:
-            eventNameLabel.text = ""
         }
 
-        guard let activityTimeDate = event.value(forKey: "eventTime") as? Date else {
+        guard let activityTimeDate = event.value(forKey: #keyPath(Event.eventTime)) as? Date else {
+            Log.log(.error, "event \(event) has missing or invalid `eventTime`")
             return
         }
         eventTimeLabel.text = DailyCollectionViewCell.formatter.string(from: activityTimeDate)

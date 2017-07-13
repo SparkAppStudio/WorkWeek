@@ -42,13 +42,21 @@ class DailyObject: Object {
 }
 
 class Event: Object {
-    dynamic var eventName: String = ""
     dynamic var eventTime: Date = Date()
+    dynamic private var kindStorage: String? = ""
+    
+    var kind: NotificationCenter.CheckInEvent? {
+        guard let kindStorage = kindStorage else {
+            Log.log(.error, "event \(self) has missing or invalid `kind`")
+            return nil
+        }
+        return NotificationCenter.CheckInEvent(rawValue: kindStorage)
+    }
 
-    convenience init(eventName: String, eventTime: Date) {
+    convenience init(kind: NotificationCenter.CheckInEvent, time: Date) {
         self.init()
-        self.eventName = eventName
-        self.eventTime = eventTime
+        self.kindStorage = kind.rawValue
+        self.eventTime = time
     }
 
 }
@@ -69,7 +77,7 @@ class RealmManager {
             let realm = try Realm()
             return realm
         } catch {
-            Log.log("Cannot Access Database")
+            Log.log(.error, "Cannot Access Realm Database. error \(error.localizedDescription)")
         }
         return self.realm
     }
@@ -98,43 +106,33 @@ class RealmManager {
             try realm.write {
                 realm.deleteAll()
             }
-        } catch let error as NSError {
-            //handle error
-            Log.log(error.localizedDescription)
+        } catch {
+            Log.log(.error, error.localizedDescription)
         }
     }
 
     // MARK: - Update Opertions
-    func saveDataToRealm(for checkInEvents: NotificationCenter.CheckInEvents) {
-        // Check if there alredy exists an daily object for today
+    func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvent) {
         let todayDate = Date()
-        let key = dailyPrimaryKeyBased(on: todayDate)
+      
+        let todayKey = dailyPrimaryKeyBased(on: todayDate)
         let weeklyKey = weeklyPrimaryKeyBased(on: todayDate)
-        // Create a new Event
-        let event = Event(eventName: checkInEvents.rawValue, eventTime: Date())
+
+        let event = Event(kind: checkInEvent, time: Date())
+        let eventKeypath = dailyObjectKeyPath(for: checkInEvent)
+
         // update DailyObject with new event
-        let updateKeypath: String
-        switch checkInEvents {
-        case .leaveHome:
-            updateKeypath = "timeLeftHome"
-        case .arriveWork:
-            updateKeypath = "timeArriveWork"
-        case .leaveWork:
-            updateKeypath = "timeLeftWork"
-        case .arriveHome:
-            updateKeypath = "timeArriveHome"
-        }
         do {
             try realm.write {
                 realm.add(event)
-                let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
+                let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: todayKey)
                 let createdDailyObject = realm.create(DailyObject.self,
-                                                      value: ["dateString": key,
-                                                              updateKeypath: event,
-                                                              "date": todayDate],
+                                                      value: [#keyPath(DailyObject.dateString): todayKey,
+                                                              eventKeypath: event,
+                                                              #keyPath(DailyObject.date): todayDate],
                                                       update: true)
                 let weeklyObject = realm.create(WeeklyObject.self,
-                                                value: ["weekAndTheYear": weeklyKey],
+                                                value: [#keyPath(WeeklyObject.weekAndTheYear): weeklyKey],
                                                 update: true)
                 // After DailyObject is created for the first time, need to Save it into weekly
                 if dailyObjectResult == nil {
@@ -142,8 +140,23 @@ class RealmManager {
                 }
             }
         } catch {
-            Log.log("error")
+            Log.log(.error, "Failed to save new Event. \(error.localizedDescription)")
         }
+    }
+
+    func dailyObjectKeyPath(for checkInEvent: NotificationCenter.CheckInEvent) -> String {
+        let updateKeypath: String
+        switch checkInEvent {
+        case .leaveHome:
+            updateKeypath = #keyPath(DailyObject.timeLeftHome)
+        case .arriveWork:
+            updateKeypath = #keyPath(DailyObject.timeArriveWork)
+        case .leaveWork:
+            updateKeypath = #keyPath(DailyObject.timeLeftWork)
+        case .arriveHome:
+            updateKeypath = #keyPath(DailyObject.timeArriveHome)
+        }
+        return updateKeypath
     }
 
     func dailyPrimaryKeyBased(on date: Date) -> String {
