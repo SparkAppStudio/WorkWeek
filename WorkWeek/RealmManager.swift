@@ -40,7 +40,7 @@ class DailyObject: Object {
 class Event: Object {
     dynamic var eventTime: Date = Date()
     dynamic private var kindStorage: String? = ""
-    
+
     var kind: NotificationCenter.CheckInEvent? {
         guard let kindStorage = kindStorage else {
             Log.log(.error, "event \(self) has missing or invalid `kind`")
@@ -110,7 +110,7 @@ class RealmManager {
     // MARK: - Update Opertions
     func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvent) {
         let todayDate = Date()
-      
+
         let todayKey = dailyPrimaryKeyBased(on: todayDate)
         let weeklyKey = weeklyPrimaryKeyBased(on: todayDate)
 
@@ -167,4 +167,25 @@ class RealmManager {
         return "\(week)" + "\(year)"
     }
 
+    // MARK: - User
+
+    /// Saves a base user, to realm. The user object has sane defaults.
+    /// Calling this again, if a user exists, has no effect.
+    func saveInitialUser() {
+
+        func userExists() -> Bool {
+            return realm.objects(User.self).count > 0
+        }
+
+        guard !userExists() else { return }
+
+        let user = User()
+        do {
+            try realm.write {
+                realm.add(user)
+            }
+        } catch {
+            Log.log(.error, "Failed to save initial User. \(error.localizedDescription)")
+        }
+    }
 }
