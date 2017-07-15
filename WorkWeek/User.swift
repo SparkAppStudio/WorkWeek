@@ -15,13 +15,13 @@ class User: Object {
     struct Weekdays: OptionSet {
         let rawValue: Int
 
-        static let sunday    = Weekdays(rawValue: 0b0000_0001)
-        static let monday    = Weekdays(rawValue: 0b0000_0010)
-        static let tuesday   = Weekdays(rawValue: 0b0000_0100)
-        static let wednesday = Weekdays(rawValue: 0b0000_1000)
-        static let thrusday  = Weekdays(rawValue: 0b0001_0000)
-        static let friday    = Weekdays(rawValue: 0b0010_0000)
-        static let saturday  = Weekdays(rawValue: 0b0100_0000)
+        static let sunday    = Weekdays(rawValue: 1 << 0)
+        static let monday    = Weekdays(rawValue: 1 << 1)
+        static let tuesday   = Weekdays(rawValue: 1 << 2)
+        static let wednesday = Weekdays(rawValue: 1 << 3)
+        static let thrusday  = Weekdays(rawValue: 1 << 4)
+        static let friday    = Weekdays(rawValue: 1 << 5)
+        static let saturday  = Weekdays(rawValue: 1 << 6)
     }
 
     enum NotificationChoice: Int {
