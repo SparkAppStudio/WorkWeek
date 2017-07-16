@@ -18,6 +18,7 @@ class WeeklyCollectionViewController: UICollectionViewController {
         }
     }()
 
+//    var results: Results<WeeklyObject>!
     lazy var results: Results<WeeklyObject>? = {
         do {
             let now = Date()
