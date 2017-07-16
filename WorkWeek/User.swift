@@ -19,7 +19,7 @@ class User: Object {
         static let monday    = Weekdays(rawValue: 1 << 1)
         static let tuesday   = Weekdays(rawValue: 1 << 2)
         static let wednesday = Weekdays(rawValue: 1 << 3)
-        static let thrusday  = Weekdays(rawValue: 1 << 4)
+        static let thursday  = Weekdays(rawValue: 1 << 4)
         static let friday    = Weekdays(rawValue: 1 << 5)
         static let saturday  = Weekdays(rawValue: 1 << 6)
     }
@@ -39,9 +39,9 @@ class User: Object {
         week.insert(.monday)
         week.insert(.tuesday)
         week.insert(.wednesday)
-        week.insert(.thrusday)
+        week.insert(.thursday)
         week.insert(.friday)
-        return week.rawValue
+        return week.rawValue  /// 0b0011_1110
     }()
 
     // Default is No Notifications
@@ -51,7 +51,11 @@ class User: Object {
     // this allows users to do things like
     // `user.weekdays.contains(.monday)`
     var weekdays: Weekdays {
-        return Weekdays(rawValue: weekdaysStorage)
+        get {
+            return Weekdays(rawValue: weekdaysStorage)
+        }
+        set {
+            weekdaysStorage = newValue.rawValue
+        }
     }
-
 }

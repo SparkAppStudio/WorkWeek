@@ -33,7 +33,7 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
         } else {
             showOnboarding()
         }
-        
+
         RealmManager.shared.saveInitialUser()
     }
 

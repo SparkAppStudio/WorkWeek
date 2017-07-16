@@ -71,6 +71,7 @@ class RealmManager {
     private var realm: Realm {
         do {
             let realm = try Realm()
+            Log.log("Realm file path\(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
             return realm
         } catch {
             Log.log(.error, "Cannot Access Realm Database. error \(error.localizedDescription)")
