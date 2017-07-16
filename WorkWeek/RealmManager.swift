@@ -189,4 +189,14 @@ class RealmManager {
             Log.log(.error, "Failed to save initial User. \(error.localizedDescription)")
         }
     }
+
+    func update(user: User, with weekdays: User.Weekdays) {
+        do {
+            try realm.write {
+                user.weekdays = weekdays
+            }
+        } catch {
+            Log.log(.error, "Failed to update Weekdays for user: \(user). \(error.localizedDescription)")
+        }
+    }
 }

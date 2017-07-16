@@ -104,47 +104,50 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     }
 
     func saveButtonUpdates() {
+        var updated = user.weekdays
         if sunday.isSelected {
-            user.weekdays.insert(.sunday)
+            updated.insert(.sunday)
         } else {
-            user.weekdays.remove(.sunday)
+            updated.remove(.sunday)
         }
 
         if monday.isSelected {
-            user.weekdays.insert(.monday)
+            updated.insert(.monday)
         } else {
-            user.weekdays.remove(.monday)
+            updated.remove(.monday)
         }
 
         if tuesday.isSelected {
-            user.weekdays.insert(.tuesday)
+            updated.insert(.tuesday)
         } else {
-            user.weekdays.remove(.tuesday)
+            updated.remove(.tuesday)
         }
 
         if wednesday.isSelected {
-            user.weekdays.insert(.wednesday)
+            updated.insert(.wednesday)
         } else {
-            user.weekdays.remove(.wednesday)
+            updated.remove(.wednesday)
         }
 
         if thursday.isSelected {
-            user.weekdays.insert(.thursday)
+            updated.insert(.thursday)
         } else {
-            user.weekdays.remove(.thursday)
+            updated.remove(.thursday)
         }
 
         if friday.isSelected {
-            user.weekdays.insert(.friday)
+            updated.insert(.friday)
         } else {
-            user.weekdays.remove(.friday)
+            updated.remove(.friday)
         }
 
         if saturday.isSelected {
-            user.weekdays.insert(.saturday)
+            updated.insert(.saturday)
         } else {
-            user.weekdays.remove(.saturday)
+            updated.remove(.saturday)
         }
+
+        RealmManager.shared.update(user: user, with: updated)
     }
 
     func setPickerDefaultRow() {
