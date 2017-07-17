@@ -18,7 +18,6 @@ import CoreLocation
 ///
 /// The default `cancel` simply pops the map VC off the navigation stack.
 protocol MapVCDelegate: class {
-    var navigationController: UINavigationController { get }
     var locationManager: CLLocationManager { get }
 
     /// The Map View Controller calls this delegate method when the user chooses
@@ -29,15 +28,15 @@ protocol MapVCDelegate: class {
     ///   - coordinate: The coordinate, a the center of the map (probably used
     ///                 to set the center of a geofence
     ///   - radius: the radius shown by the circle in the middle of the map
-    func save(type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)
+    func save(nav: UINavigationController, type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)
 
     /// The Map View Controller calls this method when the user chooses not to
     /// save their work. The user probably just wants to dismiss the map.
-    func cancel()
+    func cancel(nav: UINavigationController)
 }
 
 extension MapVCDelegate {
-    func save(type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+    func save(nav: UINavigationController, type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
         let region: CLRegion
         switch type {
         case .home:
@@ -46,10 +45,10 @@ extension MapVCDelegate {
             region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.work.rawValue)
         }
         locationManager.startMonitoring(for: region)
-        navigationController.popViewController(animated: true)
+        nav.popViewController(animated: true)
     }
 
-    func cancel() {
-        navigationController.popViewController(animated: true)
+    func cancel(nav: UINavigationController) {
+        nav.popViewController(animated: true)
     }
 }

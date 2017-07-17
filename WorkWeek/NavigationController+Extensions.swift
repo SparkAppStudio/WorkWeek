@@ -9,7 +9,7 @@
 import UIKit
 
 extension UINavigationController {
-    func popWithModalAnimation() {
+    func popWithFadeAnimation() {
         let transition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)

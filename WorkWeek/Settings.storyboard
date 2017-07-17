@@ -143,13 +143,6 @@
                                     <constraint firstAttribute="trailing" secondItem="4je-7f-bQF" secondAttribute="trailing" constant="8" id="y81-rF-yef"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvv-MR-jKI" userLabel="StatusBarBackground">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="TwF-Bv-0T5"/>
-                                </constraints>
-                            </view>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mpb-kY-Ss4" userLabel="ShadowView">
                                 <rect key="frame" x="0.0" y="949" width="375" height="2"/>
                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -180,7 +173,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="wvv-MR-jKI" secondAttribute="trailing" id="5TB-87-01T"/>
                             <constraint firstItem="PiK-PI-kuc" firstAttribute="top" secondItem="9hh-7D-AiD" secondAttribute="bottom" id="77m-Si-ceq"/>
                             <constraint firstItem="9hh-7D-AiD" firstAttribute="top" secondItem="AO2-iM-pHW" secondAttribute="bottom" id="Ci3-6K-SGW"/>
                             <constraint firstAttribute="trailing" secondItem="Mpb-kY-Ss4" secondAttribute="trailing" id="OcD-na-Mnc"/>
@@ -189,8 +181,6 @@
                             <constraint firstItem="Mpb-kY-Ss4" firstAttribute="leading" secondItem="b4d-XH-gUT" secondAttribute="leading" id="fFe-61-4Bc"/>
                             <constraint firstItem="AO2-iM-pHW" firstAttribute="top" secondItem="b4d-XH-gUT" secondAttribute="top" id="frv-j2-8OC"/>
                             <constraint firstItem="9hh-7D-AiD" firstAttribute="leading" secondItem="b4d-XH-gUT" secondAttribute="leading" id="hKf-qk-DdJ"/>
-                            <constraint firstItem="wvv-MR-jKI" firstAttribute="leading" secondItem="b4d-XH-gUT" secondAttribute="leading" id="jXo-LJ-0J5"/>
-                            <constraint firstItem="wvv-MR-jKI" firstAttribute="top" secondItem="b4d-XH-gUT" secondAttribute="top" id="lcw-Do-SXR"/>
                             <constraint firstAttribute="trailing" secondItem="9hh-7D-AiD" secondAttribute="trailing" id="mua-DJ-f1V"/>
                             <constraint firstItem="9hh-7D-AiD" firstAttribute="top" secondItem="Mpb-kY-Ss4" secondAttribute="bottom" id="rP2-N5-j4Y"/>
                         </constraints>

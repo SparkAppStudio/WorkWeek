@@ -47,12 +47,13 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
         super.viewDidLoad()
 
         searchBar.delegate = self
-
         switch type {
         case .home:
             headerLabel.text = NSLocalizedString("Home", comment: "Settings Map Set Work Location")
+            title = NSLocalizedString("Home", comment: "Settings Map Set Work Location")
         case .work:
             headerLabel.text = NSLocalizedString("Work", comment: "Settings Map Set Work Location")
+            title = NSLocalizedString("Work", comment: "Settings Map Set Work Location")
         }
 
         drawOverlays(for: type)
@@ -66,13 +67,13 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
     @IBAction func didTapDone(_ sender: UIButton) {
         let center = mapView.region.center
         let radius = mapView.visibleMapRect.sizeInMeters().width / 3.0 / 2.0
-        delegate?.save(type: type,
+        delegate?.save(nav: navigationController!, type: type,
                        coordinate: center,
                        radius: radius)
     }
 
     @IBAction func didTapCancel(_ sender: UIButton) {
-        delegate?.cancel()
+        delegate?.cancel(nav: navigationController!)
     }
 
     func drawOverlays(for type: MapVCType) {

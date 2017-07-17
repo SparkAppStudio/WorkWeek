@@ -5,7 +5,7 @@
 import UIKit
 import CoreLocation
 
-protocol OnboardingCoordinatorDelegate : class {
+protocol OnboardingCoordinatorDelegate: class {
     func onboardingFinished(with coordinator: OnboardingCoordinator)
 }
 

@@ -10,8 +10,8 @@ import Reusable
 private let padding: CGFloat = 8
 
 protocol SettingsMainProtocol: class {
-    func didTapWorkMap()
-    func didTapHomeMap()
+    func didTapWorkMap(nav: UINavigationController)
+    func didTapHomeMap(nav: UINavigationController)
     func notificationsSwitched(_ isOn: Bool)
     func didTapDone()
 }
@@ -41,7 +41,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Settings"
         setMainContentStackViewEqualToPhoneWidth()
         configureStyle(of: work, home)
         configureStyle(of: monday, tuesday, wednesday, thursday, friday, saturday, sunday)
@@ -57,11 +57,11 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     // MARK: Actions
 
     @IBAction func homeMapPressed(_ sender: UIButton) {
-        delegate?.didTapHomeMap()
+        delegate?.didTapHomeMap(nav: navigationController!)
     }
 
     @IBAction func workMapPressed(_ sender: UIButton) {
-        delegate?.didTapWorkMap()
+        delegate?.didTapWorkMap(nav: navigationController!)
     }
 
     @IBAction func notificationsToggled(_ sender: UISwitch) {
