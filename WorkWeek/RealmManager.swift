@@ -84,7 +84,7 @@ class RealmManager {
 
     static let shared = RealmManager()
 
-    private var realm: Realm {
+    private var realm: Realm = {
         do {
             let realm = try Realm()
             Log.log("Realm file path\(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
@@ -92,8 +92,8 @@ class RealmManager {
         } catch {
             Log.log(.error, "Cannot Access Realm Database. error \(error.localizedDescription)")
         }
-        return self.realm
-    }
+        fatalError("Realm Could not get created.. Nothing to see here")
+    }()
 
     // MARK: - Query Operations
     func queryDailyObject(for date: Date) -> DailyObject? {
@@ -207,12 +207,21 @@ class RealmManager {
     }
 
     func update(user: User, with weekdays: User.Weekdays) {
+        unhandledErrorWrite( user.weekdays = weekdays)
+    }
+    func updateHours(for user: User, with hours: Double) {
+        unhandledErrorWrite( user.hoursInWorkDay = hours)
+    }
+
+    func unhandledErrorWrite(_ action: @autoclosure () -> Void ) {
         do {
             try realm.write {
-                user.weekdays = weekdays
+                action()
             }
         } catch {
-            Log.log(.error, "Failed to update Weekdays for user: \(user). \(error.localizedDescription)")
+            Log.log(.error, "Failed Write. \(error.localizedDescription)")
         }
     }
+
+
 }

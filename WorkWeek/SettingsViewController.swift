@@ -148,19 +148,20 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         }
 
         RealmManager.shared.update(user: user, with: updated)
+
     }
 
     func setPickerDefaultRow() {
-        // TODO: Populate from User object
-        let eightHours = 15
-        picker.selectRow(eightHours, inComponent: 0, animated: false)
+        let default8HourIndex = 15
+        let index = pickerDataSource.pickerData.index(of: user.hoursInWorkDay) ?? default8HourIndex
+        picker.selectRow(index, inComponent: 0, animated: false)
     }
+
 }
 
 extension SettingsViewController: PickerResponseForwarder {
     func didSelectWork(hours: Double) {
-        // TODO: Save User Hours choice
-        Log.log("Selected \(hours)")
+        RealmManager.shared.updateHours(for: user, with: hours)
     }
 }
 
