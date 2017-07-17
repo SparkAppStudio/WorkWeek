@@ -185,6 +185,11 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                 }
             }
         }
+
+        // TODO: User default notification choice is none. If they select notifications here
+        // we should update the `User` to reflect that they want settings, and shoudl decide
+        // that weekly or daily is the default
+
     }
 
     @IBAction func didTapDenyNotify(_ sender: UIButton) {
