@@ -8,6 +8,7 @@ import RealmSwift
 
 class WeeklyCollectionViewController: UICollectionViewController {
 
+    // TODO: - Move these to coordinator
     lazy var realm: Realm? = {
         do {
             var realm = try Realm()

@@ -25,7 +25,11 @@ class WeeklyObject: Object {
             let endString = dateFormatter.string(from: end)
             return beginString + " - " + endString
         } else {
-            return "Placeholder"
+            Log.log(.error,
+                    "Error formatting WeekInterval. first: \(dailyObjects.first.debugDescription)"
+                    +
+                    " second: \(dailyObjects.last.debugDescription)")
+            return "..."
         }
 
     }
