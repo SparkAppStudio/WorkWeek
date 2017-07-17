@@ -68,7 +68,7 @@ class RealmManager {
 
     static let shared = RealmManager()
 
-    private var realm: Realm {
+    private var realm: Realm = {
         do {
             let realm = try Realm()
             Log.log("Realm file path\(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
@@ -76,8 +76,8 @@ class RealmManager {
         } catch {
             Log.log(.error, "Cannot Access Realm Database. error \(error.localizedDescription)")
         }
-        return self.realm
-    }
+        fatalError("Realm Could not get created.. Nothing to see here")
+    }()
 
     // MARK: - Query Operations
     func queryDailyObject(for date: Date) -> DailyObject? {
