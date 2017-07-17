@@ -35,6 +35,8 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var picker: UIPickerView!
     var pickerDataSource = WorkDayHoursPickerDataSource()
 
+    @IBOutlet weak var notificationsSegment: UISegmentedControl!
+
     var user: User!
 
 
@@ -52,6 +54,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         pickerDataSource.delegate = self
 
         configureSelectedButtons(with: user.weekdays)
+        configureNotificationsSegment(with: user.notificationChoice)
 
         setPickerDefaultRow()
     }
@@ -89,8 +92,13 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     // MARK: Members (RE-asses this name?...
 
-    func configureNotificationsSegment() {
-
+    func configureNotificationsSegment(with choice: User.NotificationChoice) {
+        guard choice.rawValue < notificationsSegment.numberOfSegments else {
+            Log.log(.error, "User has choosen invalid Segment \(choice)")
+            notificationsSegment.selectedSegmentIndex = 0
+            return
+        }
+        notificationsSegment.selectedSegmentIndex = choice.rawValue
     }
 
     @IBAction func didTapNotifications(_ segment: UISegmentedControl) {

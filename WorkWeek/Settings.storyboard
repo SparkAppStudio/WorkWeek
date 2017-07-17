@@ -145,7 +145,7 @@
                                                     <segment title="Weekly"/>
                                                 </segments>
                                                 <connections>
-                                                    <action selector="didTapNotifications:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="6d1-G6-uIa"/>
+                                                    <action selector="didTapNotifications:" destination="ttp-Yw-Jgs" eventType="valueChanged" id="VHe-SM-m1T"/>
                                                 </connections>
                                             </segmentedControl>
                                         </subviews>
@@ -211,6 +211,7 @@
                         <outlet property="home" destination="Ocd-CC-dK1" id="ucf-Mq-P00"/>
                         <outlet property="mainStackViewContentWidth" destination="jGm-7F-uyG" id="AlW-68-5bY"/>
                         <outlet property="monday" destination="DoT-bP-FdR" id="ebc-eB-xas"/>
+                        <outlet property="notificationsSegment" destination="Xwa-Sq-4o4" id="2eE-yj-sOn"/>
                         <outlet property="picker" destination="32a-So-1JK" id="hEq-jG-3Pb"/>
                         <outlet property="saturday" destination="fLW-Bv-rs8" id="K0u-Yk-hTN"/>
                         <outlet property="sunday" destination="7ST-IS-pTT" id="4be-2S-tyi"/>
