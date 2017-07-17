@@ -5,7 +5,7 @@
 import UIKit
 import CoreLocation
 
-class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate {
+class AppCoordinator: OnboardingCoordinatorDelegate {
 
     let locationManager: CLLocationManager
     let navigationController: UINavigationController
@@ -65,22 +65,25 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
 
     // MARK: Settings
     // TODO: eventually will go away but leaving so our build configs still work
-
-    #if DEBUG
-    func showSettings() {
-        let settingsCoordinator = SettingsCoordinator(with: navigationController,
-                                                      manger: locationManager,
-                                                      delegate: self)
-        childCoordinators.add(settingsCoordinator)
-        settingsCoordinator.start()
-    }
-
-    func settingsFinished(with coordinator: SettingsCoordinator) {
-        childCoordinators.remove(coordinator)
-        showActivity(animated: false)
-    }
-    #endif
 }
+
+#if DEBUG
+
+    extension AppCoordinator: SettingsCoordinatorDelegate {
+        func showSettings() {
+            let settingsCoordinator = SettingsCoordinator(with: navigationController,
+                                                          manger: locationManager,
+                                                          delegate: self)
+            childCoordinators.add(settingsCoordinator)
+            settingsCoordinator.start()
+        }
+
+        func settingsFinished(with coordinator: SettingsCoordinator) {
+            childCoordinators.remove(coordinator)
+            showActivity(animated: false)
+        }
+    }
+#endif
 
 extension UserDefaults {
     enum Key: String {
