@@ -191,12 +191,21 @@ class RealmManager {
     }
 
     func update(user: User, with weekdays: User.Weekdays) {
+        unhandledErrorWrite( user.weekdays = weekdays)
+    }
+    func updateHours(for user: User, with hours: Double) {
+        unhandledErrorWrite( user.hoursInWorkDay = hours)
+    }
+
+    func unhandledErrorWrite(_ action: @autoclosure () -> Void ) {
         do {
             try realm.write {
-                user.weekdays = weekdays
+                action()
             }
         } catch {
-            Log.log(.error, "Failed to update Weekdays for user: \(user). \(error.localizedDescription)")
+            Log.log(.error, "Failed Write. \(error.localizedDescription)")
         }
     }
+
+
 }
