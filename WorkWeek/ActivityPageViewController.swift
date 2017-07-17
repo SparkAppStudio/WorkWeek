@@ -21,7 +21,7 @@ final class ActivityPageViewController: UIPageViewController, ActivityStoryboard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        changePageIndicatorColor()
         delegate = manager
         dataSource = manager
 
@@ -41,11 +41,18 @@ final class ActivityPageViewController: UIPageViewController, ActivityStoryboard
 
     func configOrderedViewControllers() -> [UIViewController] {
         let countdownVC = CountdownViewController.instantiate()
+        countdownVC.title = "Count Down"
+        let navCountdownVC = UINavigationController(rootViewController: countdownVC)
         countdownVC.delegate = self
-        let dailyVC = DailyCollectionViewController.instantiate()
-        let weeklyVC = WeeklyCollectionViewController.instantiate()
 
-        return [countdownVC, dailyVC, weeklyVC]
+        let dailyVC = DailyCollectionViewController.instantiate()
+        dailyVC.title = "Daily Activity"
+        let navDailyVC = UINavigationController(rootViewController: dailyVC)
+        let weeklyVC = WeeklyCollectionViewController.instantiate()
+        weeklyVC.title = "Weekly Report"
+        let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
+
+        return [navCountdownVC, navDailyVC, navWeeklyVC]
     }
 
     func countdownPageDidTapSettings() {
@@ -58,5 +65,11 @@ extension UIPageViewController {
         for subview in self.view.subviews where subview is UIScrollView {
             subview.frame = view.frame
         }
+    }
+
+    func changePageIndicatorColor() {
+        let proxy = UIPageControl.appearance()
+        proxy.pageIndicatorTintColor = UIColor.lightGray
+        proxy.currentPageIndicatorTintColor = UIColor.green
     }
 }
