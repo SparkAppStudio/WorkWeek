@@ -27,15 +27,38 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     func start() {
         Log.log()
 
+        guard let user = getUserFromRealm() else {
+            showErrorAlert()
+            return
+        }
+
         navigationController.isNavigationBarHidden = true
 
         let initial = SettingsViewController.instantiate()
         initial.delegate = self
-
+        initial.user = user
         let settingsNavController = UINavigationController(rootViewController: initial)
 
         navigationController.present(settingsNavController, animated: true, completion: nil)
     }
+
+    func getUserFromRealm() -> User? {
+        RealmManager.shared.saveInitialUser()
+        return RealmManager.shared.queryAllObjects(ofType: User.self).first
+    }
+
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "🤔Error🤔",
+                                      message: "Looks like something has gone wrong with our database. Press \"OK\" to restart",
+                                      preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default) { _ in
+            fatalError()
+        }
+
+        alert.addAction(ok)
+        navigationController.present(alert, animated: true, completion: nil)
+    }
+
 
     // MARK: Settings Main Protocol
 
@@ -51,11 +74,6 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
                                        as: .work,
                                        location: locationManager,
                                        delegate: self)
-    }
-
-    func notificationsSwitched(_ isOn: Bool) {
-        let state = isOn ? "ON" : "OFF"
-        Log.log("switched notifications to \(state)")
     }
 
     func didTapDone() {

@@ -64,30 +64,51 @@
                                                             <constraint firstAttribute="width" secondItem="7ST-IS-pTT" secondAttribute="height" multiplier="1:1" id="xEs-g3-HJz"/>
                                                         </constraints>
                                                         <state key="normal" title="S"/>
+                                                        <connections>
+                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="bNV-G5-2LS"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoT-bP-FdR">
                                                         <rect key="frame" x="47" y="0.0" width="38.5" height="39"/>
                                                         <state key="normal" title="M"/>
+                                                        <connections>
+                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="f60-5q-OHg"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nix-B9-5C7">
                                                         <rect key="frame" x="93.5" y="0.0" width="39" height="39"/>
                                                         <state key="normal" title="T"/>
+                                                        <connections>
+                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="fY4-hn-zVV"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paC-XE-ryM">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paC-XE-ryM">
                                                         <rect key="frame" x="140.5" y="0.0" width="39" height="39"/>
                                                         <state key="normal" title="W"/>
+                                                        <connections>
+                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="edX-dl-Ngw"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFf-F8-CQE">
                                                         <rect key="frame" x="187.5" y="0.0" width="39" height="39"/>
                                                         <state key="normal" title="T"/>
+                                                        <connections>
+                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="db4-C9-ccg"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVJ-vh-kxk">
                                                         <rect key="frame" x="234.5" y="0.0" width="38.5" height="39"/>
                                                         <state key="normal" title="F"/>
+                                                        <connections>
+                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="0eI-Eg-E2b"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLW-Bv-rs8">
                                                         <rect key="frame" x="281" y="0.0" width="39" height="39"/>
                                                         <state key="normal" title="S"/>
+                                                        <connections>
+                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="hA0-yJ-gsz"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

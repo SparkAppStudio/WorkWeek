@@ -2,7 +2,6 @@
 //  Copyright © 2017 Spark App Studio. All rights reserved.
 //
 
-import UIKit
 import Reusable
 
 class WeeklyCollectionViewCell: UICollectionViewCell, Reusable {
@@ -11,7 +10,8 @@ class WeeklyCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var weeklyHourLabel: UILabel!
 
     func configureCell(for weeklyObject: WeeklyObject) {
-        Log.log(weeklyObject.debugDescription)
+        let totalWorkTime = weeklyObject.totalWorkTime
+        weeklyHourLabel.text = totalWorkTime.convert(preserving: [.hour, .minute, .second])
+        weekLabel.text = weeklyObject.weekInterval
     }
-
 }

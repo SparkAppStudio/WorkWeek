@@ -11,6 +11,7 @@
 		5208F3AD1EDE4C22008F82CC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */; };
 		52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52223FA81EE123F20014F4A9 /* AppCoordinator.swift */; };
 		52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52223FAA1EE1299B0014F4A9 /* Reusable.framework */; };
+		524392FC1F148C4100EEFEA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524392FB1F148C4100EEFEA3 /* User.swift */; };
 		52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */; };
 		52510E941EFCD03E006F5C97 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52510E931EFCD03E006F5C97 /* MapKit.framework */; };
 		525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */; };
@@ -41,7 +42,7 @@
 		D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */; };
 		D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */; };
 		D1102CEA1F00C085006A0E2F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE91F00C085006A0E2F /* AppConstants.swift */; };
-		D1102CEC1F038950006A0E2F /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CEB1F038950006A0E2F /* DateExtensions.swift */; };
+		D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */; };
 		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
 		D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */; };
@@ -56,6 +57,7 @@
 		5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		52223FA81EE123F20014F4A9 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		52223FAA1EE1299B0014F4A9 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
+		524392FB1F148C4100EEFEA3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMapViewController.swift; sourceTree = "<group>"; };
 		52510E931EFCD03E006F5C97 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Extensions.swift"; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 		D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionHeaderView.swift; sourceTree = "<group>"; };
 		D1102CE91F00C085006A0E2F /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		D1102CEB1F038950006A0E2F /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
 		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -207,8 +209,8 @@
 			children = (
 				525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */,
 				526E50731EF6CDBC0066F043 /* Dictionary+Extensions.swift */,
-				D1102CEB1F038950006A0E2F /* DateExtensions.swift */,
 				C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */,
+				D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -218,6 +220,7 @@
 			children = (
 				D1B21F931EF521870023D427 /* RealmManager.swift */,
 				D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */,
+				524392FB1F148C4100EEFEA3 /* User.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -395,9 +398,11 @@
 				C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */,
 				C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */,
 				C3C760A81F085AAA00F5C773 /* NavigationController+Extensions.swift in Sources */,
+				524392FC1F148C4100EEFEA3 /* User.swift in Sources */,
 				52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */,
 				D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */,
 				52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */,
+				D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */,
 				D1B21F941EF521870023D427 /* RealmManager.swift in Sources */,
 				D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */,
 				52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */,
@@ -405,7 +410,6 @@
 				C3DEA7271F14850E001F2696 /* ActivityCoordinator.swift in Sources */,
 				526E50721EF62DD50066F043 /* Analytics.swift in Sources */,
 				D1CA47071EE35528003628FF /* ActivityPageViewController.swift in Sources */,
-				D1102CEC1F038950006A0E2F /* DateExtensions.swift in Sources */,
 				D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */,
 				D1CA47051EE354FC003628FF /* WeeklyCollectionViewController.swift in Sources */,
 				52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */,

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -71,36 +72,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xlF-K2-iEg">
-                            <size key="itemSize" width="375" height="124"/>
+                            <size key="itemSize" width="375" height="256"/>
                             <size key="headerReferenceSize" width="50" height="103"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="DailyCollectionViewCell" reuseIdentifier="DailyCollectionViewCell" id="FsY-Xy-AQf" customClass="DailyCollectionViewCell" customModule="WorkWeek" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="103" width="375" height="124"/>
+                                <rect key="frame" x="0.0" y="103" width="375" height="256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p54-Eq-TJU">
-                                            <rect key="frame" x="20" y="32" width="335" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cft-Ne-bob">
-                                            <rect key="frame" x="20" y="83" width="335" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qz9-vB-AVx">
+                                            <rect key="frame" x="22" y="14" width="330" height="226"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LeftHome" translatesAutoresizingMaskIntoConstraints="NO" id="gFA-Om-sEA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="330" height="150"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Left Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p54-Eq-TJU">
+                                                    <rect key="frame" x="8" y="8" width="314" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:45 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cft-Ne-bob">
+                                                    <rect key="frame" x="0.0" y="158" width="330" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                    <color key="textColor" red="0.62126410028065637" green="0.6482755829015544" blue="0.6482755829015544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="highlightedColor" red="0.48505766609995687" green="0.4901635362694301" blue="0.4901635362694301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="p54-Eq-TJU" firstAttribute="leading" secondItem="Qz9-vB-AVx" secondAttribute="leading" constant="8" id="1Lh-Kp-AXz"/>
+                                                <constraint firstItem="p54-Eq-TJU" firstAttribute="top" secondItem="Qz9-vB-AVx" secondAttribute="top" constant="8" id="HzX-HS-S4Q"/>
+                                                <constraint firstAttribute="trailing" secondItem="gFA-Om-sEA" secondAttribute="trailing" id="O96-Oa-o6s"/>
+                                                <constraint firstAttribute="trailing" secondItem="p54-Eq-TJU" secondAttribute="trailing" constant="8" id="Ukz-zK-MHn"/>
+                                                <constraint firstItem="p54-Eq-TJU" firstAttribute="centerX" secondItem="Qz9-vB-AVx" secondAttribute="centerX" id="XgG-Eg-yuP"/>
+                                                <constraint firstItem="gFA-Om-sEA" firstAttribute="top" secondItem="Qz9-vB-AVx" secondAttribute="top" id="akJ-f7-gzG"/>
+                                                <constraint firstItem="cft-Ne-bob" firstAttribute="leading" secondItem="Qz9-vB-AVx" secondAttribute="leading" id="iWY-x5-hp4"/>
+                                                <constraint firstItem="cft-Ne-bob" firstAttribute="top" secondItem="gFA-Om-sEA" secondAttribute="bottom" constant="8" id="jmq-da-z1I"/>
+                                                <constraint firstAttribute="trailing" secondItem="cft-Ne-bob" secondAttribute="trailing" id="sRd-62-vje"/>
+                                                <constraint firstItem="gFA-Om-sEA" firstAttribute="leading" secondItem="Qz9-vB-AVx" secondAttribute="leading" id="xyY-WQ-zeb"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="Qz9-vB-AVx" firstAttribute="top" secondItem="FsY-Xy-AQf" secondAttribute="topMargin" constant="6" id="9hD-zc-tCN"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Qz9-vB-AVx" secondAttribute="bottom" constant="8" id="OAI-ye-I1h"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Qz9-vB-AVx" secondAttribute="trailing" constant="15" id="hKe-0t-Kf6"/>
+                                    <constraint firstItem="Qz9-vB-AVx" firstAttribute="leading" secondItem="FsY-Xy-AQf" secondAttribute="leadingMargin" constant="14" id="lqQ-Iw-4kQ"/>
+                                </constraints>
                                 <connections>
+                                    <outlet property="backDropViewOutlet" destination="Qz9-vB-AVx" id="FEb-ab-6bT"/>
                                     <outlet property="eventNameLabel" destination="p54-Eq-TJU" id="QXT-b9-0dy"/>
                                     <outlet property="eventTimeLabel" destination="cft-Ne-bob" id="Kdy-Cy-ub8"/>
                                 </connections>
@@ -215,4 +241,7 @@
             <point key="canvasLocation" x="-847" y="478"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LeftHome" width="330" height="150"/>
+    </resources>
 </document>

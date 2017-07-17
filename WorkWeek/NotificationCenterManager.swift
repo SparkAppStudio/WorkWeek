@@ -9,14 +9,14 @@
 import Foundation
 
 extension NotificationCenter {
-    enum CheckInEvents: String {
+    enum CheckInEvent: String {
         case leaveHome
         case arriveWork
         case leaveWork
         case arriveHome
     }
 
-    func post(name: CheckInEvents, object: Any? = nil) {
+    func post(name: CheckInEvent, object: Any? = nil) {
         let name = NSNotification.Name(name.rawValue)
         post(name: name, object: object)
     }
