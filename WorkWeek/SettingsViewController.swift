@@ -93,23 +93,11 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     // MARK: Members (RE-asses this name?...
 
     func configureNotificationsSegment(with choice: User.NotificationChoice) {
-        guard choice.rawValue < notificationsSegment.numberOfSegments else {
-            Log.log(.error, "User has choosen invalid Segment \(choice)")
-            notificationsSegment.selectedSegmentIndex = 0
-            return
-        }
-        notificationsSegment.selectedSegmentIndex = choice.rawValue
+        notificationsSegment.setSelected(choice)
     }
 
     @IBAction func didTapNotifications(_ segment: UISegmentedControl) {
-        let selected = segment.selectedSegmentIndex
-
-        if let choice = User.NotificationChoice(rawValue: selected) {
-            RealmManager.shared.updateNotificationsChoice(for: user, with: choice)
-        } else {
-            Log.log(.error, "Could Not Build Notification Choice from Index \(selected)")
-            RealmManager.shared.updateNotificationsChoice(for: user, with: .none)
-        }
+        RealmManager.shared.updateNotificationsChoice(for: user, with: segment.choice)
     }
 
     func configureSelectedButtons(with days: User.Weekdays) {
@@ -189,5 +177,14 @@ extension UIButton {
         layer.cornerRadius = 10.0
         backgroundColor = .gray
         setTitleColor(.white, for: .normal)
+    }
+}
+
+extension UISegmentedControl {
+    func setSelected(_ index: User.NotificationChoice) {
+        selectedSegmentIndex = index.rawValue
+    }
+    var choice: User.NotificationChoice {
+        return User.NotificationChoice(rawValue: selectedSegmentIndex) ?? .none
     }
 }
