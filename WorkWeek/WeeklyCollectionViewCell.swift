@@ -12,5 +12,6 @@ class WeeklyCollectionViewCell: UICollectionViewCell, Reusable {
     func configureCell(for weeklyObject: WeeklyObject) {
         let totalWorkTime = weeklyObject.totalWorkTime
         weeklyHourLabel.text = totalWorkTime.convert(preserving: [.hour, .minute, .second])
+        weekLabel.text = weeklyObject.weekInterval
     }
 }

@@ -13,7 +13,6 @@ class DailyCollectionViewCell: UICollectionViewCell, Reusable {
 
     static var formatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .medium
         dateFormatter.timeZone = TimeZone.current
         return dateFormatter
