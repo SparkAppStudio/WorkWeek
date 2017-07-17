@@ -34,10 +34,10 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
 
         navigationController.isNavigationBarHidden = true
 
-        let initial = SettingsViewController.instantiate()
-        initial.delegate = self
-        initial.user = user
-        let settingsNavController = UINavigationController(rootViewController: initial)
+        let settingsVC = SettingsViewController.instantiate()
+        settingsVC.delegate = self
+        settingsVC.user = user
+        let settingsNavController = UINavigationController(rootViewController: settingsVC)
 
         navigationController.present(settingsNavController, animated: true, completion: nil)
     }

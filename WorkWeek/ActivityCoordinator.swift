@@ -35,18 +35,24 @@ class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate
     func start(animated: Bool) {
         Log.log()
 
-        let initial = ActivityPageViewController.instantiate()
-        initial.activityDelegate = self
-        initial.locationManager = locationManager
+        let activityVC = ActivityPageViewController.instantiate()
+        activityVC.activityDelegate = self
+        activityVC.locationManager = locationManager
         navigationController.isNavigationBarHidden = true
 
         if animated {
-            navigationController.viewControllers.insert(initial, at: 0)
+            navigationController.viewControllers.insert(activityVC, at: 0)
             navigationController.popWithFadeAnimation()
 
         } else {
-            navigationController.setViewControllers([initial], animated: false)
+            navigationController.setViewControllers([activityVC], animated: false)
         }
+    }
+
+    // MARK: ActivityPageViewDelegate
+
+    func pageDidTapSettings() {
+        showSettings()
     }
 
     func showSettings() {
@@ -59,15 +65,5 @@ class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate
 
     func settingsFinished(with coordinator: SettingsCoordinator) {
         childCoordinators.remove(coordinator)
-    }
-
-    func showActivity() {
-        let initial = ActivityPageViewController.instantiate()
-        navigationController.setViewControllers([initial], animated: false)
-        navigationController.isNavigationBarHidden = true
-    }
-
-    func pageDidTapSettings() {
-        showSettings()
     }
 }
