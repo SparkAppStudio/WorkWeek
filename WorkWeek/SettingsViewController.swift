@@ -83,15 +83,26 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         delegate?.didTapWorkMap(nav: navigationController!)
     }
 
-    @IBAction func notificationsToggled(_ sender: UISwitch) {
-        // TODO: Update User Oject Settings Choice
-    }
-
     @IBAction func didTapDone(_ sender: UIButton) {
         delegate?.didTapDone()
     }
 
     // MARK: Members (RE-asses this name?...
+
+    func configureNotificationsSegment() {
+
+    }
+
+    @IBAction func didTapNotifications(_ segment: UISegmentedControl) {
+        let selected = segment.selectedSegmentIndex
+
+        if let choice = User.NotificationChoice(rawValue: selected) {
+            RealmManager.shared.updateNotificationsChoice(for: user, with: choice)
+        } else {
+            Log.log(.error, "Could Not Build Notification Choice from Index \(selected)")
+            RealmManager.shared.updateNotificationsChoice(for: user, with: .none)
+        }
+    }
 
     func configureSelectedButtons(with days: User.Weekdays) {
         sunday.isSelected = days.contains(.sunday)

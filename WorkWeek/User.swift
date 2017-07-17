@@ -45,7 +45,20 @@ class User: Object {
     }()
 
     // Default is No Notifications
-    dynamic var notificationChoice: Int = 0
+    dynamic var notificationChoiceStorage: Int = 0
+
+    var notificationChoice: NotificationChoice {
+        get {
+            guard let choice = NotificationChoice(rawValue: notificationChoiceStorage) else {
+                Log.log(.error, "Could Not build NotificationChoice from \(notificationChoiceStorage)")
+                return NotificationChoice.none
+            }
+            return choice
+        }
+        set {
+            notificationChoiceStorage = newValue.rawValue
+        }
+    }
 
     // The storage is an Int, while we'd like our public API to expose the actual options
     // this allows users to do things like
