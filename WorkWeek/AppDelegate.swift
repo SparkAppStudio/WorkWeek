@@ -69,11 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let navigation = UINavigationController()
         window?.rootViewController = navigation
+        window?.makeKeyAndVisible()
 
         appCoordinator = AppCoordinator(with: navigation, locationManager: locationManager)
         appCoordinator.start()
 
-        window?.makeKeyAndVisible()
     }
 
     func createLocationManager() {

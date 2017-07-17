@@ -11,6 +11,7 @@
 		5208F3AD1EDE4C22008F82CC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */; };
 		52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52223FA81EE123F20014F4A9 /* AppCoordinator.swift */; };
 		52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52223FAA1EE1299B0014F4A9 /* Reusable.framework */; };
+		524392FC1F148C4100EEFEA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524392FB1F148C4100EEFEA3 /* User.swift */; };
 		52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */; };
 		52510E941EFCD03E006F5C97 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52510E931EFCD03E006F5C97 /* MapKit.framework */; };
 		525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */; };
@@ -55,6 +56,7 @@
 		5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		52223FA81EE123F20014F4A9 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		52223FAA1EE1299B0014F4A9 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
+		524392FB1F148C4100EEFEA3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMapViewController.swift; sourceTree = "<group>"; };
 		52510E931EFCD03E006F5C97 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Extensions.swift"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			children = (
 				D1B21F931EF521870023D427 /* RealmManager.swift */,
 				D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */,
+				524392FB1F148C4100EEFEA3 /* User.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */,
 				C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */,
 				C3C760A81F085AAA00F5C773 /* NavigationController+Extensions.swift in Sources */,
+				524392FC1F148C4100EEFEA3 /* User.swift in Sources */,
 				52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */,
 				D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */,
 				52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */,
