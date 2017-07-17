@@ -37,7 +37,9 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         let settingsVC = SettingsViewController.instantiate()
         settingsVC.delegate = self
         settingsVC.user = user
-        navigationController.pushViewController(settingsVC, animated: false)
+        let settingsNavController = UINavigationController(rootViewController: settingsVC)
+
+        navigationController.present(settingsNavController, animated: true, completion: nil)
     }
 
     func getUserFromRealm() -> User? {
@@ -60,15 +62,15 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
 
     // MARK: Settings Main Protocol
 
-    func didTapHomeMap() {
-        SettingsMapViewController.push(onto: navigationController,
+    func didTapHomeMap(nav: UINavigationController) {
+        SettingsMapViewController.push(onto: nav,
                                        as: .home,
                                        location: locationManager,
                                        delegate: self)
     }
 
-    func didTapWorkMap() {
-        SettingsMapViewController.push(onto: navigationController,
+    func didTapWorkMap(nav: UINavigationController) {
+        SettingsMapViewController.push(onto: nav,
                                        as: .work,
                                        location: locationManager,
                                        delegate: self)
@@ -76,6 +78,7 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
 
     func didTapDone() {
         Log.log("User tapped one on Main Settings")
+        navigationController.dismiss(animated: true, completion: nil)
         delegate?.settingsFinished(with: self)
     }
 

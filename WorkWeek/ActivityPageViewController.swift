@@ -3,19 +3,21 @@
 //
 
 import UIKit
-import Reusable
+import CoreLocation
 
-class ActivityPageViewController: UIPageViewController, ActivityStoryboard {
 
-    var orderedViewControllers = [
-        CountdownViewController.instantiate(),
-        DailyCollectionViewController.instantiate(),
-        WeeklyCollectionViewController.instantiate()
-    ]
+protocol ActivityPageViewDelegate: class {
+    func pageDidTapSettings()
+}
+
+final class ActivityPageViewController: UIPageViewController, ActivityStoryboard, CountdownViewDelegate {
 
     lazy var manager: PageManager = {
-        return PageManager(viewControllers: self.orderedViewControllers)
+        return PageManager(viewControllers: self.configOrderedViewControllers())
     }()
+
+    weak var activityDelegate: ActivityPageViewDelegate?
+    var locationManager: CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,7 @@ class ActivityPageViewController: UIPageViewController, ActivityStoryboard {
         delegate = manager
         dataSource = manager
 
-        guard let firstVC = orderedViewControllers.first else {
+        guard let firstVC = manager.orderedViewControllers.first else {
             assertionFailure("No pages in array")
             return
         }
@@ -35,6 +37,19 @@ class ActivityPageViewController: UIPageViewController, ActivityStoryboard {
         super.viewDidLayoutSubviews()
         self.view.backgroundColor = .white
         self.removePageViewControllerBlackEmptyBackground()
+    }
+
+    func configOrderedViewControllers() -> [UIViewController] {
+        let countdownVC = CountdownViewController.instantiate()
+        countdownVC.delegate = self
+        let dailyVC = DailyCollectionViewController.instantiate()
+        let weeklyVC = WeeklyCollectionViewController.instantiate()
+
+        return [countdownVC, dailyVC, weeklyVC]
+    }
+
+    func countdownPageDidTapSettings() {
+        activityDelegate?.pageDidTapSettings()
     }
 }
 

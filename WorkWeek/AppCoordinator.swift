@@ -29,7 +29,7 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
 
         let userHasSeenOnboarding = UserDefaults.standard.bool(for: .hasSeenOnboarding)
         if userHasSeenOnboarding {
-            showActivity()
+            showActivity(animated: false)
         } else {
             showOnboarding()
         }
@@ -50,28 +50,23 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
         childCoordinators.remove(coordinator)
         let defaults = UserDefaults.standard
         defaults.set(true, for: .hasSeenOnboarding)
-        transitionToActivity()
+        showActivity(animated: true)
     }
 
     // MARK: Onboarding Delegate
 
-    func transitionToActivity() {
-        let initial = ActivityPageViewController.instantiate()
-        navigationController.isNavigationBarHidden = true
-
-        navigationController.viewControllers.insert(initial, at: 0)
-        navigationController.popWithModalAnimation()
-    }
-
 
     // MARK: Activity
-    func showActivity() {
-        let initial = ActivityPageViewController.instantiate()
-        navigationController.setViewControllers([initial], animated: false)
-        navigationController.isNavigationBarHidden = true
+    func showActivity(animated: Bool) {
+        let activityCR = ActivityCoordinator(with: navigationController, manager: locationManager)
+        childCoordinators.add(activityCR)
+        activityCR.start(animated: animated)
     }
 
     // MARK: Settings
+    // TODO: eventually will go away but leaving so our build configs still work
+
+    #if DEBUG
     func showSettings() {
         let settingsCoordinator = SettingsCoordinator(with: navigationController,
                                                       manger: locationManager,
@@ -82,8 +77,9 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
 
     func settingsFinished(with coordinator: SettingsCoordinator) {
         childCoordinators.remove(coordinator)
-        showActivity()
+        showActivity(animated: false)
     }
+    #endif
 }
 
 extension UserDefaults {

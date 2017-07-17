@@ -37,6 +37,7 @@ class WeeklyCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView?.alwaysBounceVertical = true
         setupRealm()
     }
 

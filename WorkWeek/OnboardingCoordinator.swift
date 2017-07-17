@@ -5,7 +5,7 @@
 import UIKit
 import CoreLocation
 
-protocol OnboardingCoordinatorDelegate : class {
+protocol OnboardingCoordinatorDelegate: class {
     func onboardingFinished(with coordinator: OnboardingCoordinator)
 }
 
@@ -26,11 +26,11 @@ class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate {
 
     func start() {
         Log.log()
-        let initial = OnboardPageViewController.instantiate()
-        initial.onboardDelegate = self
-        initial.locationManager = locationManager
+        let onboardVC = OnboardPageViewController.instantiate()
+        onboardVC.onboardDelegate = self
+        onboardVC.locationManager = locationManager
 
-        navigationController.setViewControllers([initial], animated: false)
+        navigationController.setViewControllers([onboardVC], animated: false)
         navigationController.isNavigationBarHidden = true
     }
 

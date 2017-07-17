@@ -5,9 +5,22 @@
 import UIKit
 import Reusable
 
+protocol CountdownViewDelegate: class {
+    func countdownPageDidTapSettings()
+}
+
 final class CountdownViewController: UIViewController {
 
+    // MARK: IBOutlets
     @IBOutlet weak var countdownDisplay: UILabel!
+    @IBOutlet weak var settingsButton: UIButton!
+
+    // MARK: IBActions
+    @IBAction func didTapSettings(_ sender: UIButton) {
+        delegate?.countdownPageDidTapSettings()
+    }
+
+    weak var delegate: CountdownViewDelegate?
 
     var timer = Timer()
     var timeRemaining = 28800
