@@ -5,7 +5,7 @@
 import UIKit
 import CoreLocation
 
-class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate, ActivityCoordinatorDelegate {
+class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate {
 
     let locationManager: CLLocationManager
     let navigationController: UINavigationController
@@ -58,13 +58,9 @@ class AppCoordinator: OnboardingCoordinatorDelegate, SettingsCoordinatorDelegate
 
     // MARK: Activity
     func showActivity(animated: Bool) {
-        let activityCR = ActivityCoordinator(with: navigationController, manager: locationManager, delegate: self)
+        let activityCR = ActivityCoordinator(with: navigationController, manager: locationManager)
         childCoordinators.add(activityCR)
         activityCR.start(animated: animated)
-    }
-
-    func activityRequestedSettings(with coordinator: ActivityCoordinator) {
-        //do nothing for now; this should be renamed
     }
 
     // MARK: Settings

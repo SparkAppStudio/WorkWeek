@@ -10,26 +10,19 @@ import UIKit
 import CoreLocation
 
 
-protocol ActivityCoordinatorDelegate: class {
-    func activityRequestedSettings(with coordinator: ActivityCoordinator)
-}
-
 class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
-    weak var delegate: ActivityCoordinatorDelegate?
 
     var childCoordinators = NSMutableArray()
 
 
     init(with navController: UINavigationController,
-         manager: CLLocationManager,
-         delegate: ActivityCoordinatorDelegate) {
+         manager: CLLocationManager) {
 
         self.navigationController = navController
         self.locationManager = manager
-        self.delegate = delegate
     }
 
     func start(animated: Bool) {
