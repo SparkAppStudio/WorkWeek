@@ -46,6 +46,8 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        zoomMap()
+
         searchBar.delegate = self
         switch type {
         case .home:
@@ -57,9 +59,6 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
         }
 
         drawOverlays(for: type)
-
-        // TODO: Remove this, we should already have authorization when we get here
-       locationManager.requestAlwaysAuthorization()
     }
 
     // MARK: Actions
@@ -75,6 +74,20 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
     @IBAction func didTapCancel(_ sender: UIButton) {
         delegate?.cancel(nav: navigationController!)
     }
+
+    // MARK: - Members
+    func zoomMap() {
+        defer { didUpdateUserLocationOnce = true }
+
+        if let coord = locationManager.location?.coordinate {
+            let userZoomedRegion = MKCoordinateRegionMakeWithDistance(
+                coord,
+                1_000, 1_000)
+
+            mapView.setRegion(userZoomedRegion, animated: false)
+        }
+    }
+
 
     func drawOverlays(for type: MapVCType) {
         switch type {
@@ -133,13 +146,14 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
 }
 
 extension SettingsMapViewController: MKMapViewDelegate {
+
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         defer { didUpdateUserLocationOnce = true }
 
         if !didUpdateUserLocationOnce {
             let userZoomedRegion = MKCoordinateRegionMakeWithDistance(
-                                        userLocation.coordinate,
-                                        1_000, 1_000)
+                userLocation.coordinate,
+                1_000, 1_000)
 
             mapView.setRegion(userZoomedRegion, animated: true)
         }
