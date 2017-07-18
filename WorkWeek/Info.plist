@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Mostly just to be creepy.</string>
+	<string>Work Week needs to access your location for calculating your work hours. Work Week may not be running when you arrive at work, which is why we need Always Authorization. </string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
