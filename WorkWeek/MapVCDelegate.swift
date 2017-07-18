@@ -28,15 +28,15 @@ protocol MapVCDelegate: class {
     ///   - coordinate: The coordinate, a the center of the map (probably used
     ///                 to set the center of a geofence
     ///   - radius: the radius shown by the circle in the middle of the map
-    func save(nav: UINavigationController, type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)
+    func save(viewController: UIViewController, type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)
 
     /// The Map View Controller calls this method when the user chooses not to
     /// save their work. The user probably just wants to dismiss the map.
-    func cancel(nav: UINavigationController)
+    func cancel(viewController: UIViewController)
 }
 
 extension MapVCDelegate {
-    func save(nav: UINavigationController, type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+    func save(viewController: UIViewController, type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
         let region: CLRegion
         switch type {
         case .home:
@@ -45,10 +45,10 @@ extension MapVCDelegate {
             region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.work.rawValue)
         }
         locationManager.startMonitoring(for: region)
-        nav.popViewController(animated: true)
+        viewController.dismiss(animated: true, completion: nil)
     }
 
-    func cancel(nav: UINavigationController) {
-        nav.popViewController(animated: true)
+    func cancel(viewController: UIViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 }

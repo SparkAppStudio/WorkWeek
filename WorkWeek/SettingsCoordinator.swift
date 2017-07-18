@@ -63,14 +63,14 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     // MARK: Settings Main Protocol
 
     func didTapHomeMap(nav: UINavigationController) {
-        SettingsMapViewController.push(onto: nav,
+        SettingsMapViewController.presentMapWith(navController: nav,
                                        as: .home,
                                        location: locationManager,
                                        delegate: self)
     }
 
     func didTapWorkMap(nav: UINavigationController) {
-        SettingsMapViewController.push(onto: nav,
+        SettingsMapViewController.presentMapWith(navController: nav,
                                        as: .work,
                                        location: locationManager,
                                        delegate: self)

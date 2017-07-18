@@ -40,7 +40,7 @@ class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate {
 
     func pageDidTapHome() {
         locationManager.startUpdatingLocation()
-        SettingsMapViewController.push(onto: navigationController,
+        SettingsMapViewController.presentMapWith(navController: navigationController,
                                        as: .home,
                                        location: locationManager,
                                        delegate: self)
@@ -48,7 +48,7 @@ class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate {
 
     func pageDidTapWork() {
         locationManager.startUpdatingLocation()
-        SettingsMapViewController.push(onto: navigationController,
+        SettingsMapViewController.presentMapWith(navController: navigationController,
                                        as: .work,
                                        location: locationManager,
                                        delegate: self)

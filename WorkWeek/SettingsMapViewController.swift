@@ -18,12 +18,15 @@ enum RegionId: String {
 
 class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchBarDelegate {
 
-    static func push(onto: UINavigationController, as type: MapVCType, location: CLLocationManager, delegate: MapVCDelegate) {
+    static func presentMapWith(navController: UINavigationController,
+                               as type: MapVCType,
+                               location: CLLocationManager,
+                               delegate: MapVCDelegate) {
         let mapViewController = SettingsMapViewController.instantiate()
         mapViewController.locationManager = location
         mapViewController.type = type
         mapViewController.delegate = delegate
-        onto.pushViewController(mapViewController, animated: true)
+        navController.present(mapViewController, animated: true)
     }
 
     @IBOutlet weak var headerLabel: UILabel!
@@ -67,13 +70,13 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
     @IBAction func didTapDone(_ sender: UIButton) {
         let center = mapView.region.center
         let radius = mapView.visibleMapRect.sizeInMeters().width / 3.0 / 2.0
-        delegate?.save(nav: navigationController!, type: type,
+        delegate?.save(viewController: self, type: type,
                        coordinate: center,
                        radius: radius)
     }
 
     @IBAction func didTapCancel(_ sender: UIButton) {
-        delegate?.cancel(nav: navigationController!)
+        delegate?.cancel(viewController: self)
     }
 
     func drawOverlays(for type: MapVCType) {
