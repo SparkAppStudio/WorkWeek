@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="951"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4je-7f-bQF">
-                                        <rect key="frame" x="8" y="8" width="320" height="655"/>
+                                        <rect key="frame" x="8" y="8" width="320" height="644.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiZ-vj-xkd">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
@@ -127,28 +127,26 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfa-cD-Kbz">
-                                                <rect key="frame" x="0.0" y="586" width="320" height="31"/>
+                                                <rect key="frame" x="0.0" y="586" width="320" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIc-qb-EUD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="271" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tct-wC-KLw">
-                                                        <rect key="frame" x="271" y="0.0" width="51" height="31"/>
-                                                        <connections>
-                                                            <action selector="notificationsToggled:" destination="ttp-Yw-Jgs" eventType="valueChanged" id="jgN-it-hnp"/>
-                                                        </connections>
-                                                    </switch>
                                                 </subviews>
                                             </stackView>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Xwa-Sq-4o4">
-                                                <rect key="frame" x="0.0" y="627" width="320" height="29"/>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xwa-Sq-4o4">
+                                                <rect key="frame" x="0.0" y="616.5" width="320" height="29"/>
                                                 <segments>
+                                                    <segment title="None"/>
                                                     <segment title="Daily"/>
                                                     <segment title="Weekly"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="didTapNotifications:" destination="ttp-Yw-Jgs" eventType="valueChanged" id="VHe-SM-m1T"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <constraints>
@@ -213,6 +211,7 @@
                         <outlet property="home" destination="Ocd-CC-dK1" id="ucf-Mq-P00"/>
                         <outlet property="mainStackViewContentWidth" destination="jGm-7F-uyG" id="AlW-68-5bY"/>
                         <outlet property="monday" destination="DoT-bP-FdR" id="ebc-eB-xas"/>
+                        <outlet property="notificationsSegment" destination="Xwa-Sq-4o4" id="2eE-yj-sOn"/>
                         <outlet property="picker" destination="32a-So-1JK" id="hEq-jG-3Pb"/>
                         <outlet property="saturday" destination="fLW-Bv-rs8" id="K0u-Yk-hTN"/>
                         <outlet property="sunday" destination="7ST-IS-pTT" id="4be-2S-tyi"/>

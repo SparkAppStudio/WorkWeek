@@ -213,6 +213,10 @@ class RealmManager {
         unhandledErrorWrite( user.hoursInWorkDay = hours)
     }
 
+    func updateNotificationsChoice(for user: User, with choice: User.NotificationChoice) {
+        unhandledErrorWrite( user.notificationChoice =  choice)
+    }
+
     func unhandledErrorWrite(_ action: @autoclosure () -> Void ) {
         do {
             try realm.write {

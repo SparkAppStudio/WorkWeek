@@ -35,6 +35,8 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var picker: UIPickerView!
     var pickerDataSource = WorkDayHoursPickerDataSource()
 
+    @IBOutlet weak var notificationsSegment: UISegmentedControl!
+
     var user: User!
 
 
@@ -52,6 +54,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         pickerDataSource.delegate = self
 
         configureSelectedButtons(with: user.weekdays)
+        configureNotificationsSegment(with: user.notificationChoice)
 
         setPickerDefaultRow()
     }
@@ -83,15 +86,19 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         delegate?.didTapWorkMap(nav: navigationController!)
     }
 
-    @IBAction func notificationsToggled(_ sender: UISwitch) {
-        // TODO: Update User Oject Settings Choice
-    }
-
     @IBAction func didTapDone(_ sender: UIButton) {
         delegate?.didTapDone()
     }
 
     // MARK: Members (RE-asses this name?...
+
+    func configureNotificationsSegment(with choice: User.NotificationChoice) {
+        notificationsSegment.setSelected(choice)
+    }
+
+    @IBAction func didTapNotifications(_ segment: UISegmentedControl) {
+        RealmManager.shared.updateNotificationsChoice(for: user, with: segment.choice)
+    }
 
     func configureSelectedButtons(with days: User.Weekdays) {
         sunday.isSelected = days.contains(.sunday)
@@ -170,5 +177,14 @@ extension UIButton {
         layer.cornerRadius = 10.0
         backgroundColor = .gray
         setTitleColor(.white, for: .normal)
+    }
+}
+
+extension UISegmentedControl {
+    func setSelected(_ index: User.NotificationChoice) {
+        selectedSegmentIndex = index.rawValue
+    }
+    var choice: User.NotificationChoice {
+        return User.NotificationChoice(rawValue: selectedSegmentIndex) ?? .none
     }
 }
