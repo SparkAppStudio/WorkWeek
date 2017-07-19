@@ -30,44 +30,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCC-7G-UAk">
-                                <rect key="frame" x="60" y="104" width="255.5" height="57.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAC-eE-SNq">
-                                <rect key="frame" x="43.5" y="233.5" width="288" height="88.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="3u9-QN-m8d"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="74"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkh-Qu-5ZS">
-                                <rect key="frame" x="43.5" y="356" width="288" height="251"/>
-                                <string key="text">Work week is the best way to understand your work habits and lead you to develop better work life balance.
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qh8-u0-BB0">
+                                <rect key="frame" x="16" y="50" width="343" height="601"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCC-7G-UAk">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="57.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAC-eE-SNq">
+                                        <rect key="frame" x="0.0" y="57.5" width="343" height="343"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="74"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkh-Qu-5ZS">
+                                        <rect key="frame" x="0.0" y="400.5" width="343" height="200.5"/>
+                                        <string key="text">Work week is the best way to understand your work habits and lead you to develop better work life balance.
 
 Track your working hours to let you see if you are meeting your daily or weekly work targets
 
 Know when your shift is ending, ensure you charge clients the right ammount, or automate punching in and out the clock for hourly jobs.
 
 Work week is automatic, private, and insightful</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zkh-Qu-5ZS" firstAttribute="width" secondItem="RAC-eE-SNq" secondAttribute="width" id="F8f-dR-x2x"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="zkh-Qu-5ZS" firstAttribute="width" secondItem="RAC-eE-SNq" secondAttribute="width" id="0F3-vv-iuh"/>
-                            <constraint firstItem="sCC-7G-UAk" firstAttribute="top" secondItem="q2b-fd-LrA" secondAttribute="bottom" constant="84" id="40q-6i-d3a"/>
-                            <constraint firstItem="RAC-eE-SNq" firstAttribute="top" secondItem="sCC-7G-UAk" secondAttribute="bottom" constant="72" id="BA2-96-t9c"/>
-                            <constraint firstItem="sCC-7G-UAk" firstAttribute="centerX" secondItem="0nQ-kd-cTF" secondAttribute="centerX" id="ECm-h7-8Ql"/>
-                            <constraint firstItem="zkh-Qu-5ZS" firstAttribute="top" secondItem="RAC-eE-SNq" secondAttribute="bottom" constant="34" id="Iyj-GM-sxO"/>
-                            <constraint firstItem="RAC-eE-SNq" firstAttribute="centerX" secondItem="0nQ-kd-cTF" secondAttribute="centerX" id="YJF-FB-MOx"/>
-                            <constraint firstItem="zkh-Qu-5ZS" firstAttribute="centerX" secondItem="0nQ-kd-cTF" secondAttribute="centerX" id="imy-XE-T7C"/>
+                            <constraint firstItem="F6Y-b1-FbL" firstAttribute="top" secondItem="qh8-u0-BB0" secondAttribute="bottom" constant="16" id="TSE-vF-ftM"/>
+                            <constraint firstItem="qh8-u0-BB0" firstAttribute="top" secondItem="q2b-fd-LrA" secondAttribute="bottom" constant="30" id="fUu-cS-vF9"/>
+                            <constraint firstItem="qh8-u0-BB0" firstAttribute="leading" secondItem="0nQ-kd-cTF" secondAttribute="leadingMargin" id="rnH-Bv-YIh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qh8-u0-BB0" secondAttribute="trailing" id="rzl-ef-zpO"/>
                         </constraints>
                     </view>
                 </viewController>
