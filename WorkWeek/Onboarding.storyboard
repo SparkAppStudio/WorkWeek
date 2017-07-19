@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -86,94 +87,96 @@ Work week is automatic, private, and insightful</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF3-eL-7bu">
-                                <rect key="frame" x="43.5" y="467" width="288" height="67"/>
-                                <string key="text">Look through your work history and see how close you were to your weekly and daily goals. See trends and make adjustments to lead a healthier and happier life.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Metrics" translatesAutoresizingMaskIntoConstraints="NO" id="5Ut-Kv-RnY">
-                                <rect key="frame" x="43.5" y="558" width="288" height="73"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zXh-HO-S8T">
+                                <rect key="frame" x="16" y="36" width="261" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onl-hf-pnA">
+                                        <rect key="frame" x="0.0" y="0.0" width="261" height="43"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-YT-EpJ">
+                                        <rect key="frame" x="0.0" y="43" width="261" height="67"/>
+                                        <string key="text">Using location on your iPhone, work week knows when you arrive at the office and when you leave. No need to manually track hours.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="73" id="DLl-pb-hrO"/>
-                                    <constraint firstAttribute="width" constant="288" id="tNF-94-A4K"/>
+                                    <constraint firstItem="eQn-YT-EpJ" firstAttribute="width" secondItem="onl-hf-pnA" secondAttribute="width" id="NJc-px-4hS"/>
                                 </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="xLU-Jl-SHW">
+                                <rect key="frame" x="273" y="36" width="78" height="71"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insightful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-UK-gYF">
-                                <rect key="frame" x="43.5" y="416" width="288" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="zzn-a3-dFF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g8-U8-VnQ">
-                                <rect key="frame" x="35" y="220" width="120" height="43"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-YT-EpJ">
-                                <rect key="frame" x="200" y="121" width="853" height="17"/>
-                                <string key="text">Using location on your iPhone, work week knows when you arrive at the office and when you leave. No need to manually track hours.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onl-hf-pnA">
-                                <rect key="frame" x="200" y="70" width="853" height="43"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="GBG-Fv-zmS">
+                                <rect key="frame" x="103" y="246" width="256" height="93.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g8-U8-VnQ">
+                                        <rect key="frame" x="136" y="0.0" width="120" height="43"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Week checks when you enter or leave designated addresses. Your data never leaves your phone." textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-TF-1oT">
+                                        <rect key="frame" x="3" y="43" width="253" height="50.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone" translatesAutoresizingMaskIntoConstraints="NO" id="FQO-fQ-T8t">
-                                <rect key="frame" x="43.5" y="158" width="68" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="AYs-vs-8HE"/>
-                                    <constraint firstAttribute="height" constant="120" id="S6f-85-4hQ"/>
-                                </constraints>
+                                <rect key="frame" x="31" y="246" width="68" height="120"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="xLU-Jl-SHW">
-                                <rect key="frame" x="1061" y="40" width="150" height="160"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="03a-Qm-4Fa">
+                                <rect key="frame" x="16" y="452" width="339" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insightful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-UK-gYF">
+                                        <rect key="frame" x="0.0" y="0.0" width="339" height="43"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF3-eL-7bu">
+                                        <rect key="frame" x="0.0" y="43" width="339" height="67"/>
+                                        <string key="text">Look through your work history and see how close you were to your weekly and daily goals. See trends and make adjustments to lead a healthier and happier life.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="aDx-NA-ceP"/>
-                                    <constraint firstAttribute="height" constant="160" id="b4m-Vx-LAR"/>
+                                    <constraint firstItem="i2P-UK-gYF" firstAttribute="leading" secondItem="03a-Qm-4Fa" secondAttribute="leading" id="KyX-3y-Eno"/>
+                                    <constraint firstAttribute="trailing" secondItem="i2P-UK-gYF" secondAttribute="trailing" id="agw-3J-r1t"/>
                                 </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="Metrics" translatesAutoresizingMaskIntoConstraints="NO" id="5Ut-Kv-RnY">
+                                <rect key="frame" x="16" y="578" width="343" height="73"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-TF-1oT">
-                                <rect key="frame" x="131.5" y="271" width="23.5" height="1203"/>
-                                <string key="text">We never track you  exactly, we only check when you enter or leave designated addresses. Furthermore, your data never leaves your phone so you can rest assured  no one but yourself knows when you get to work.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="FQO-fQ-T8t" firstAttribute="top" secondItem="eQn-YT-EpJ" secondAttribute="bottom" constant="20" id="2Ma-QQ-Q9d"/>
-                            <constraint firstItem="xLU-Jl-SHW" firstAttribute="leading" secondItem="onl-hf-pnA" secondAttribute="trailing" constant="8" id="9nK-Ll-pZT"/>
-                            <constraint firstItem="5Ut-Kv-RnY" firstAttribute="centerX" secondItem="u2e-oD-ndb" secondAttribute="centerX" id="Cfg-ws-afD"/>
-                            <constraint firstItem="eF3-eL-7bu" firstAttribute="width" secondItem="5Ut-Kv-RnY" secondAttribute="width" id="D15-ru-sLa"/>
-                            <constraint firstAttribute="trailing" secondItem="9g8-U8-VnQ" secondAttribute="trailing" constant="220" id="Dc6-HE-k9t"/>
-                            <constraint firstItem="5Ut-Kv-RnY" firstAttribute="top" secondItem="eF3-eL-7bu" secondAttribute="bottom" constant="24" id="DgB-2o-LOr"/>
-                            <constraint firstItem="eQn-YT-EpJ" firstAttribute="top" secondItem="onl-hf-pnA" secondAttribute="bottom" constant="8" id="Gry-dD-Qc5"/>
-                            <constraint firstItem="eQn-YT-EpJ" firstAttribute="leading" secondItem="onl-hf-pnA" secondAttribute="leading" id="IGl-4U-MYa"/>
-                            <constraint firstItem="FQO-fQ-T8t" firstAttribute="leading" secondItem="i2P-UK-gYF" secondAttribute="leading" id="J9u-tl-2ao"/>
-                            <constraint firstAttribute="trailing" secondItem="xLU-Jl-SHW" secondAttribute="trailing" constant="196" id="Len-vf-2da"/>
-                            <constraint firstItem="eF3-eL-7bu" firstAttribute="top" secondItem="i2P-UK-gYF" secondAttribute="bottom" constant="8" id="Qik-np-wrk"/>
-                            <constraint firstItem="HRx-hk-Wcc" firstAttribute="top" secondItem="5Ut-Kv-RnY" secondAttribute="bottom" constant="36" id="S2o-e1-STZ"/>
-                            <constraint firstItem="qDF-TF-1oT" firstAttribute="top" secondItem="9g8-U8-VnQ" secondAttribute="bottom" constant="8" id="V8M-MN-fRf"/>
-                            <constraint firstItem="eF3-eL-7bu" firstAttribute="centerX" secondItem="u2e-oD-ndb" secondAttribute="centerX" id="Va7-Sm-Oxm"/>
-                            <constraint firstItem="onl-hf-pnA" firstAttribute="top" secondItem="Caf-e5-VYP" secondAttribute="bottom" constant="50" id="WgI-Bc-h5h"/>
-                            <constraint firstItem="i2P-UK-gYF" firstAttribute="centerX" secondItem="u2e-oD-ndb" secondAttribute="centerX" id="Yrs-YG-M2Q"/>
-                            <constraint firstItem="xLU-Jl-SHW" firstAttribute="top" secondItem="Caf-e5-VYP" secondAttribute="bottom" constant="20" id="m1W-Q3-dgM"/>
-                            <constraint firstItem="qDF-TF-1oT" firstAttribute="trailing" secondItem="9g8-U8-VnQ" secondAttribute="trailing" id="nAq-e4-ra8"/>
-                            <constraint firstItem="eQn-YT-EpJ" firstAttribute="width" secondItem="onl-hf-pnA" secondAttribute="width" id="oe6-bE-4Eq"/>
-                            <constraint firstItem="9g8-U8-VnQ" firstAttribute="top" secondItem="xLU-Jl-SHW" secondAttribute="bottom" constant="20" id="vgM-cA-H4j"/>
-                            <constraint firstItem="onl-hf-pnA" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leading" constant="200" id="wBk-t3-A4Z"/>
-                            <constraint firstItem="qDF-TF-1oT" firstAttribute="leading" secondItem="FQO-fQ-T8t" secondAttribute="trailing" constant="20" id="yJn-5A-CYU"/>
+                            <constraint firstAttribute="trailing" secondItem="03a-Qm-4Fa" secondAttribute="trailing" constant="20" symbolic="YES" id="ACb-SA-y4C"/>
+                            <constraint firstItem="FQO-fQ-T8t" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zXh-HO-S8T" secondAttribute="bottom" constant="16" id="DP9-zt-UQH"/>
+                            <constraint firstItem="5Ut-Kv-RnY" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leadingMargin" id="Ed8-ax-OJ5"/>
+                            <constraint firstItem="GBG-Fv-zmS" firstAttribute="leading" secondItem="FQO-fQ-T8t" secondAttribute="trailing" constant="4" id="MRL-LP-TuY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GBG-Fv-zmS" secondAttribute="trailing" id="Mpm-jt-JM4"/>
+                            <constraint firstItem="03a-Qm-4Fa" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leadingMargin" id="QVU-SQ-qOB"/>
+                            <constraint firstItem="5Ut-Kv-RnY" firstAttribute="top" secondItem="eF3-eL-7bu" secondAttribute="bottom" constant="16" id="RAP-6s-a7E"/>
+                            <constraint firstItem="HRx-hk-Wcc" firstAttribute="top" secondItem="5Ut-Kv-RnY" secondAttribute="bottom" constant="16" id="S2o-e1-STZ"/>
+                            <constraint firstItem="zXh-HO-S8T" firstAttribute="trailing" secondItem="xLU-Jl-SHW" secondAttribute="leading" constant="4" id="YMs-ZK-6cq"/>
+                            <constraint firstItem="xLU-Jl-SHW" firstAttribute="top" secondItem="Caf-e5-VYP" secondAttribute="bottom" constant="16" id="d8o-cm-SHH"/>
+                            <constraint firstItem="xLU-Jl-SHW" firstAttribute="top" secondItem="zXh-HO-S8T" secondAttribute="top" id="gCF-vc-M9b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Ut-Kv-RnY" secondAttribute="trailing" id="gQy-nv-0Nf"/>
+                            <constraint firstItem="FQO-fQ-T8t" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leadingMargin" constant="15" id="iFE-hj-QMR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xLU-Jl-SHW" secondAttribute="trailing" constant="8" id="jtd-hm-3mO"/>
+                            <constraint firstItem="FQO-fQ-T8t" firstAttribute="top" secondItem="eQn-YT-EpJ" secondAttribute="bottom" priority="750" constant="100" id="kQH-R0-4W1"/>
+                            <constraint firstItem="zXh-HO-S8T" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leading" constant="16" id="oKw-Ss-44I"/>
+                            <constraint firstItem="i2P-UK-gYF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qDF-TF-1oT" secondAttribute="bottom" constant="16" id="uph-ui-eMT"/>
+                            <constraint firstItem="GBG-Fv-zmS" firstAttribute="top" secondItem="FQO-fQ-T8t" secondAttribute="top" id="wKT-Vx-yf8"/>
                         </constraints>
                     </view>
                 </viewController>
