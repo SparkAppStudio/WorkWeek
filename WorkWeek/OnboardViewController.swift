@@ -204,7 +204,6 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
 protocol OnboardSettingsViewDelegate: class {
     func settingsPageDidTapHome()
     func settingsPageDidTapWork()
-    func settingsPageIsDone()
 }
 
 class OnboardSettingsViewController: UIViewController, OnboardingStoryboard {

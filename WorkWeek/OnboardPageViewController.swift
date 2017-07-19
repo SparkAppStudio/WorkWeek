@@ -68,10 +68,6 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         }
     }
 
-    func settingsPageIsDone() {
-        //do nothing
-    }
-
     func settingsPageDidTapHome() {
         onboardDelegate?.pageDidTapHome()
     }
