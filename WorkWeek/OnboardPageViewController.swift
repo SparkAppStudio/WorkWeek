@@ -88,22 +88,5 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         super.viewDidLayoutSubviews()
         let sparkBlue = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
         self.view.backgroundColor = sparkBlue
-        extendPageViewContent(view: view)
-    }
-
-    func extendPageViewContent(view: UIView) {
-        // Iterate through subviews and make their frame as tall as this controller frame.
-        // This stretches the content below the pageVC controls (the dots) and covers the black empty background
-        // make the widths extra wide and create offset for origin so its still centered. This hides the black when scrolling with a bounce
-        // width is *2 the width because that is maximum they could swipe slowly 
-        // and so this way they will not see the page view background color
-        for subview in view.subviews where subview is UIScrollView {
-
-            let wideSize = CGSize(width: view.frame.width * 2, height: view.frame.height)
-            let offsetOrigin = CGPoint(x: -view.frame.width / 2, y: view.frame.origin.y)
-            let subviewFrame = CGRect(origin: offsetOrigin, size: wideSize)
-
-            subview.frame = subviewFrame
-        }
     }
 }
