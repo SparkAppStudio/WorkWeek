@@ -68,6 +68,10 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         }
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     func settingsPageDidTapHome() {
         onboardDelegate?.pageDidTapHome()
     }
