@@ -39,10 +39,6 @@ class DailyCollectionViewCell: UICollectionViewCell, Reusable {
             eventNameLabel.text = "Time Arrived Home"
         }
 
-        guard let activityTimeDate = event.value(forKey: #keyPath(Event.eventTime)) as? Date else {
-            Log.log(.error, "event \(event) has missing or invalid `eventTime`")
-            return
-        }
-        eventTimeLabel.text = DailyCollectionViewCell.formatter.string(from: activityTimeDate)
+        eventTimeLabel.text = DailyCollectionViewCell.formatter.string(from: event.eventTime)
     }
 }
