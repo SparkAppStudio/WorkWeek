@@ -303,62 +303,65 @@ Work week is automatic, private, and insightful</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epw-w0-eHR">
-                                <rect key="frame" x="78.5" y="84" width="218" height="58"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVB-dB-F0e">
-                                <rect key="frame" x="43.5" y="166" width="288" height="20.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NxA-mU-io7">
+                                <rect key="frame" x="16" y="60" width="343" height="188"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epw-w0-eHR">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="57.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVB-dB-F0e">
+                                        <rect key="frame" x="0.0" y="57.5" width="343" height="130.5"/>
+                                        <string key="text">We can send you notifications when its time to go home or you accomplish a special goal! This is optional, but makes the experience much better and we really recommend it. We send notifications very rarely, so we won’t spam you!</string>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WaL-nT-FHf">
+                                <rect key="frame" x="16" y="467" width="343" height="160"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4a-So-6n4">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="76"/>
+                                        <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="Qqo-vY-fFL"/>
+                                        </constraints>
+                                        <state key="normal" title="Grant Access">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapGrantNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="N5Q-57-7qL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWx-8v-a5k">
+                                        <rect key="frame" x="0.0" y="84" width="343" height="76"/>
+                                        <color key="backgroundColor" red="0.85098039219999999" green="0.25882352939999997" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Open the App">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapDenyNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="wmK-GD-C8q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="h1W-P7-2gr"/>
+                                    <constraint firstItem="xWx-8v-a5k" firstAttribute="height" secondItem="m4a-So-6n4" secondAttribute="height" id="ALS-AB-QvA"/>
                                 </constraints>
-                                <string key="text">We can send you notifications when its time to go home or you accomplish a special goal! This is optional, but makes the experience much better and we really recommend it. We send notifications very rarely, so we won’t spam you!</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4a-So-6n4">
-                                <rect key="frame" x="43.5" y="371" width="288" height="76"/>
-                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="oxI-D5-PQl"/>
-                                </constraints>
-                                <state key="normal" title="Grant Access">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapGrantNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="N5Q-57-7qL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWx-8v-a5k">
-                                <rect key="frame" x="43.5" y="471" width="288" height="76"/>
-                                <color key="backgroundColor" red="0.85098039219999999" green="0.25882352939999997" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="gS9-yo-xaQ"/>
-                                </constraints>
-                                <state key="normal" title="Open the App">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapDenyNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="wmK-GD-C8q"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="xWx-8v-a5k" firstAttribute="leading" secondItem="m4a-So-6n4" secondAttribute="leading" id="38W-wH-HrA"/>
-                            <constraint firstItem="m4a-So-6n4" firstAttribute="centerX" secondItem="LfG-7d-uwf" secondAttribute="centerX" id="49k-vV-HEb"/>
-                            <constraint firstItem="epw-w0-eHR" firstAttribute="top" secondItem="6bu-9x-aMX" secondAttribute="bottom" constant="64" id="4oY-FD-rW0"/>
-                            <constraint firstItem="xWx-8v-a5k" firstAttribute="trailing" secondItem="m4a-So-6n4" secondAttribute="trailing" id="VbQ-tk-qAs"/>
-                            <constraint firstItem="jVB-dB-F0e" firstAttribute="centerX" secondItem="LfG-7d-uwf" secondAttribute="centerX" id="hl3-nN-yiW"/>
-                            <constraint firstItem="xWx-8v-a5k" firstAttribute="top" secondItem="m4a-So-6n4" secondAttribute="bottom" constant="24" id="kiM-xP-SlP"/>
-                            <constraint firstItem="p7p-31-mdk" firstAttribute="top" secondItem="xWx-8v-a5k" secondAttribute="bottom" constant="120" id="lJj-Ry-etV"/>
-                            <constraint firstItem="jVB-dB-F0e" firstAttribute="top" secondItem="epw-w0-eHR" secondAttribute="bottom" constant="24" id="mVe-nY-smi"/>
-                            <constraint firstItem="epw-w0-eHR" firstAttribute="centerX" secondItem="LfG-7d-uwf" secondAttribute="centerX" id="t6N-ek-kgo"/>
-                            <constraint firstItem="m4a-So-6n4" firstAttribute="leading" secondItem="jVB-dB-F0e" secondAttribute="leading" id="wbz-iY-83g"/>
-                            <constraint firstItem="m4a-So-6n4" firstAttribute="trailing" secondItem="jVB-dB-F0e" secondAttribute="trailing" id="xzq-9M-ne9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NxA-mU-io7" secondAttribute="trailing" id="8C7-bw-Xi6"/>
+                            <constraint firstItem="NxA-mU-io7" firstAttribute="top" secondItem="6bu-9x-aMX" secondAttribute="bottom" constant="40" id="JXY-cp-cYY"/>
+                            <constraint firstItem="WaL-nT-FHf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NxA-mU-io7" secondAttribute="bottom" constant="8" id="KO9-PE-qKl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WaL-nT-FHf" secondAttribute="trailing" id="Sqt-iS-x25"/>
+                            <constraint firstItem="p7p-31-mdk" firstAttribute="top" secondItem="WaL-nT-FHf" secondAttribute="bottom" priority="750" constant="40" id="dpH-cV-u3Q"/>
+                            <constraint firstItem="NxA-mU-io7" firstAttribute="leading" secondItem="LfG-7d-uwf" secondAttribute="leadingMargin" id="uOY-Yn-0i8"/>
+                            <constraint firstItem="WaL-nT-FHf" firstAttribute="leading" secondItem="LfG-7d-uwf" secondAttribute="leadingMargin" id="yb8-zD-A6O"/>
                         </constraints>
                     </view>
                     <connections>
