@@ -26,19 +26,11 @@ class DailyCollectionViewController: UICollectionViewController {
 
     var dailyObject: DailyObject? {
         didSet {
-            events.removeAll()
-            if let timeLeftHome = dailyObject?.timeLeftHome {
-                events.append(timeLeftHome)
+            guard let dailyObject = dailyObject else {
+                events.removeAll()
+                return
             }
-            if let timeArriveWork = dailyObject?.timeArriveWork {
-                events.append(timeArriveWork)
-            }
-            if let timeLeftWork = dailyObject?.timeLeftWork {
-                events.append(timeLeftWork)
-            }
-            if let timeArriveHome = dailyObject?.timeArriveHome {
-                events.append(timeArriveHome)
-            }
+            events = dailyObject.events
         }
     }
 
@@ -46,27 +38,6 @@ class DailyCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView?.alwaysBounceVertical = true
         configureNotificationObservers()
-
-    }
-
-    func leftHomeNotified() {
-        print("Left Home Notification Received")
-        reloadViewController()
-    }
-
-    func arriveWorkNotified() {
-        print("Arrive Work Notification received")
-        reloadViewController()
-    }
-
-    func leftWorkNotified() {
-        print("Left Work Notification Received")
-        reloadViewController()
-    }
-
-    func arriveHomeNotified() {
-        print("Arrive Home Notification Received")
-        reloadViewController()
     }
 
     func reloadViewController() {
@@ -74,10 +45,10 @@ class DailyCollectionViewController: UICollectionViewController {
     }
 
     func configureNotificationObservers() {
-        notificationCenter.addObserver(self, selector: #selector(leftHomeNotified), name: .leaveHome)
-        notificationCenter.addObserver(self, selector: #selector(arriveWorkNotified), name: .arriveWork)
-        notificationCenter.addObserver(self, selector: #selector(leftWorkNotified), name: .leaveWork)
-        notificationCenter.addObserver(self, selector: #selector(arriveHomeNotified), name: .arriveHome)
+        notificationCenter.addObserver(self, selector: #selector(reloadViewController), name: .leaveHome)
+        notificationCenter.addObserver(self, selector: #selector(reloadViewController), name: .arriveWork)
+        notificationCenter.addObserver(self, selector: #selector(reloadViewController), name: .leaveWork)
+        notificationCenter.addObserver(self, selector: #selector(reloadViewController), name: .arriveHome)
     }
 
 }

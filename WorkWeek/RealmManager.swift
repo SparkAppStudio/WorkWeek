@@ -51,6 +51,23 @@ class DailyObject: Object {
     override static func primaryKey() -> String? {
         return #keyPath(DailyObject.dateString)
     }
+
+    var events: [Event] {
+        var tempEvents = [Event]()
+        if let timeLeftHome = timeLeftHome {
+            tempEvents.append(timeLeftHome)
+        }
+        if let timeArriveWork = timeArriveWork {
+            tempEvents.append(timeArriveWork)
+        }
+        if let timeLeftWork = timeLeftWork {
+            tempEvents.append(timeLeftWork)
+        }
+        if let timeArriveHome = timeArriveHome {
+            tempEvents.append(timeArriveHome)
+        }
+        return tempEvents
+    }
 }
 
 class Event: Object {

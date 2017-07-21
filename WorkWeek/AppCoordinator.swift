@@ -37,7 +37,6 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
         RealmManager.shared.saveInitialUser()
     }
 
-    // MARK: Onboarding
     func showOnboarding() {
         let onboardingCoordinator = OnboardingCoordinator(with: navigationController,
                                                           manger: locationManager,
@@ -53,18 +52,11 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
         showActivity(animated: true)
     }
 
-    // MARK: Onboarding Delegate
-
-
-    // MARK: Activity
     func showActivity(animated: Bool) {
         let activityCR = ActivityCoordinator(with: navigationController, manager: locationManager)
         childCoordinators.add(activityCR)
         activityCR.start(animated: animated)
     }
-
-    // MARK: Settings
-    // TODO: eventually will go away but leaving so our build configs still work
 }
 
 #if DEBUG
@@ -84,24 +76,3 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
         }
     }
 #endif
-
-extension UserDefaults {
-    enum Key: String {
-        case hasSeenOnboarding
-        case overrideShowSettingsFirst
-    }
-
-    func bool(for key: Key) -> Bool {
-        return bool(forKey: key.rawValue)
-    }
-
-    func set(_ value: Bool, for key: Key) {
-        set(value, forKey: key.rawValue)
-    }
-
-    //someday John
-//    @available(*, deprecated)
-//    open func set(_ value: Bool, forKey defaultName: String) {
-//        self.set(value, forKey: defaultName)
-//    }
-}
