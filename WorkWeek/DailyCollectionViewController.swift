@@ -26,19 +26,11 @@ class DailyCollectionViewController: UICollectionViewController {
 
     var dailyObject: DailyObject? {
         didSet {
-            events.removeAll()
-            if let timeLeftHome = dailyObject?.timeLeftHome {
-                events.append(timeLeftHome)
+            guard let dailyObject = dailyObject else {
+                events.removeAll()
+                return
             }
-            if let timeArriveWork = dailyObject?.timeArriveWork {
-                events.append(timeArriveWork)
-            }
-            if let timeLeftWork = dailyObject?.timeLeftWork {
-                events.append(timeLeftWork)
-            }
-            if let timeArriveHome = dailyObject?.timeArriveHome {
-                events.append(timeArriveHome)
-            }
+            events = dailyObject.events
         }
     }
 
