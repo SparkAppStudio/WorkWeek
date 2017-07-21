@@ -40,31 +40,15 @@ class DailyCollectionViewController: UICollectionViewController {
         configureNotificationObservers()
     }
 
-    func leftHomeNotified() {
-        reloadViewController()
-    }
-
-    func arriveWorkNotified() {
-        reloadViewController()
-    }
-
-    func leftWorkNotified() {
-        reloadViewController()
-    }
-
-    func arriveHomeNotified() {
-        reloadViewController()
-    }
-
     func reloadViewController() {
         self.collectionView?.reloadData()
     }
 
     func configureNotificationObservers() {
-        notificationCenter.addObserver(self, selector: #selector(leftHomeNotified), name: .leaveHome)
-        notificationCenter.addObserver(self, selector: #selector(arriveWorkNotified), name: .arriveWork)
-        notificationCenter.addObserver(self, selector: #selector(leftWorkNotified), name: .leaveWork)
-        notificationCenter.addObserver(self, selector: #selector(arriveHomeNotified), name: .arriveHome)
+        notificationCenter.addObserver(self, selector: #selector(reloadViewController), name: .leaveHome)
+        notificationCenter.addObserver(self, selector: #selector(reloadViewController), name: .arriveWork)
+        notificationCenter.addObserver(self, selector: #selector(reloadViewController), name: .leaveWork)
+        notificationCenter.addObserver(self, selector: #selector(reloadViewController), name: .arriveHome)
     }
 
 }
