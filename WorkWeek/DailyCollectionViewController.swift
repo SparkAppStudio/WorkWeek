@@ -79,10 +79,10 @@ class DailyCollectionViewController: UICollectionViewController {
         notificationCenter.addObserver(self, selector: #selector(leftWorkNotified), name: .leaveWork)
         notificationCenter.addObserver(self, selector: #selector(arriveHomeNotified), name: .arriveHome)
     }
-
 }
 
 // MARK: - DataSource
+
 extension DailyCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -97,7 +97,6 @@ extension DailyCollectionViewController {
             return cell
     }
 
-    // TODO: Log this error condition.
     override func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
@@ -108,13 +107,14 @@ extension DailyCollectionViewController {
                                                   withReuseIdentifier: Identifiers.dailyCollectionHeaderView.rawValue,
                                                   for: indexPath) as? DailyCollectionHeaderView
                 else {
+                    Log.log(.error, "Failed to dequeue header of \(kind) for \(Identifiers.dailyCollectionHeaderView.rawValue)")
                     return UICollectionReusableView()
             }
             headerView.configureView(date: Date())
             return headerView
         default:
-            // TODO: log this error condition, and what the kind was.
-            assert(false, "unexpected element kind")
+            assertionFailure("unexpected element kind \(kind)")
+            Log.log(.error, "viewForSupplementaryElementOfKind failed to get \(kind)")
             return UICollectionReusableView()
         }
     }
