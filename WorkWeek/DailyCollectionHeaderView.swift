@@ -14,6 +14,7 @@ class DailyCollectionHeaderView: UICollectionReusableView {
     }()
 
     @IBOutlet weak var currentDateLabel: UILabel!
+
     func configureView(date: Date) {
         currentDateLabel.text = DailyCollectionHeaderView.formatter.string(from: date)
     }

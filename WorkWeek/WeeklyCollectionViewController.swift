@@ -19,7 +19,6 @@ class WeeklyCollectionViewController: UICollectionViewController {
         }
     }()
 
-//    var results: Results<WeeklyObject>!
     lazy var results: Results<WeeklyObject>? = {
         do {
             let now = Date()
@@ -62,13 +61,12 @@ class WeeklyCollectionViewController: UICollectionViewController {
     }
 }
 
-// DataSource
+// MARK: - DataSource
+
 extension WeeklyCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
-//        weeklyReports = RealmManager.shared.queryAllObjects(ofType: WeeklyObject.self)
-//        return weeklyReports.count
         return results?.count ?? 0
     }
 
@@ -76,14 +74,12 @@ extension WeeklyCollectionViewController {
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(for: indexPath) as WeeklyCollectionViewCell
-//        cell.configureCell(for: weeklyReports[indexPath.row])
         if let weeklyObject = results?[indexPath.row] {
             cell.configureCell(for: weeklyObject)
         }
         return cell
     }
 
-    // TODO: Log this error condition.
     override func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
@@ -94,12 +90,13 @@ extension WeeklyCollectionViewController {
                                                   withReuseIdentifier: Identifiers.weeklyCollectionHeaderView.rawValue,
                                                   for: indexPath) as? WeeklyCollectionHeaderView
                 else {
+                    Log.log(.error, "Failed to get header for \(Identifiers.weeklyCollectionHeaderView.rawValue)")
                     return UICollectionReusableView()
             }
             return headerView
         default:
-            // TODO: log this error condition, and what the kind was.
-            assert(false, "unexpected element kind")
+            assertionFailure("unexpected element kind")
+            Log.log(.error, "Couldn't dequeue Supplementary View for \(kind)")
             return UICollectionReusableView()
         }
     }
