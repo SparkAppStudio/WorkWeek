@@ -89,96 +89,95 @@ Work week is automatic, private, and insightful</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zXh-HO-S8T">
-                                <rect key="frame" x="16" y="36" width="261" height="110"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Lg5-Y0-HNm">
+                                <rect key="frame" x="16" y="24" width="343" height="643"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onl-hf-pnA">
-                                        <rect key="frame" x="0.0" y="0.0" width="261" height="43"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-YT-EpJ">
-                                        <rect key="frame" x="0.0" y="43" width="261" height="67"/>
-                                        <string key="text">Using location on your iPhone, work week knows when you arrive at the office and when you leave. No need to manually track hours.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCh-Sg-HA8">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="114"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zXh-HO-S8T">
+                                                <rect key="frame" x="0.0" y="0.0" width="250.5" height="114"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Automatic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="onl-hf-pnA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="250.5" height="43"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-YT-EpJ">
+                                                        <rect key="frame" x="0.0" y="47" width="250.5" height="67"/>
+                                                        <string key="text">Using location on your iPhone, work week knows when you arrive at the office and when you leave. No need to manually track hours.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="xLU-Jl-SHW">
+                                                <rect key="frame" x="250.5" y="0.0" width="92.5" height="114"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLN-eM-QS3">
+                                        <rect key="frame" x="0.0" y="243.5" width="343" height="120"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="iphone" translatesAutoresizingMaskIntoConstraints="NO" id="FQO-fQ-T8t">
+                                                <rect key="frame" x="0.0" y="0.0" width="68" height="120"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="GBG-Fv-zmS">
+                                                <rect key="frame" x="68" y="0.0" width="275" height="120"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Private" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9g8-U8-VnQ">
+                                                        <rect key="frame" x="155" y="0.0" width="120" height="43"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Work Week checks when you enter or leave designated addresses. Your data never leaves your phone." textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-TF-1oT">
+                                                        <rect key="frame" x="22" y="43" width="253" height="77"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Vyg-8m-NCH">
+                                        <rect key="frame" x="0.0" y="456" width="343" height="187"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="03a-Qm-4Fa">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="110"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Insightful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-UK-gYF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF3-eL-7bu">
+                                                        <rect key="frame" x="0.0" y="43" width="343" height="67"/>
+                                                        <string key="text">Look through your work history and see how close you were to your weekly and daily goals. See trends and make adjustments to lead a healthier and happier life.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="Metrics" translatesAutoresizingMaskIntoConstraints="NO" id="5Ut-Kv-RnY">
+                                                <rect key="frame" x="0.0" y="114" width="343" height="73"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="eQn-YT-EpJ" firstAttribute="width" secondItem="onl-hf-pnA" secondAttribute="width" id="NJc-px-4hS"/>
-                                </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="xLU-Jl-SHW">
-                                <rect key="frame" x="273" y="36" width="78" height="71"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="GBG-Fv-zmS">
-                                <rect key="frame" x="103" y="246" width="256" height="93.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g8-U8-VnQ">
-                                        <rect key="frame" x="136" y="0.0" width="120" height="43"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Week checks when you enter or leave designated addresses. Your data never leaves your phone." textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-TF-1oT">
-                                        <rect key="frame" x="3" y="43" width="253" height="50.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone" translatesAutoresizingMaskIntoConstraints="NO" id="FQO-fQ-T8t">
-                                <rect key="frame" x="31" y="246" width="68" height="120"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="03a-Qm-4Fa">
-                                <rect key="frame" x="16" y="452" width="339" height="110"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insightful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-UK-gYF">
-                                        <rect key="frame" x="0.0" y="0.0" width="339" height="43"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF3-eL-7bu">
-                                        <rect key="frame" x="0.0" y="43" width="339" height="67"/>
-                                        <string key="text">Look through your work history and see how close you were to your weekly and daily goals. See trends and make adjustments to lead a healthier and happier life.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="i2P-UK-gYF" firstAttribute="leading" secondItem="03a-Qm-4Fa" secondAttribute="leading" id="KyX-3y-Eno"/>
-                                    <constraint firstAttribute="trailing" secondItem="i2P-UK-gYF" secondAttribute="trailing" id="agw-3J-r1t"/>
-                                </constraints>
-                            </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="Metrics" translatesAutoresizingMaskIntoConstraints="NO" id="5Ut-Kv-RnY">
-                                <rect key="frame" x="16" y="578" width="343" height="73"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="03a-Qm-4Fa" secondAttribute="trailing" constant="20" symbolic="YES" id="ACb-SA-y4C"/>
-                            <constraint firstItem="FQO-fQ-T8t" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zXh-HO-S8T" secondAttribute="bottom" constant="16" id="DP9-zt-UQH"/>
-                            <constraint firstItem="5Ut-Kv-RnY" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leadingMargin" id="Ed8-ax-OJ5"/>
-                            <constraint firstItem="GBG-Fv-zmS" firstAttribute="leading" secondItem="FQO-fQ-T8t" secondAttribute="trailing" constant="4" id="MRL-LP-TuY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GBG-Fv-zmS" secondAttribute="trailing" id="Mpm-jt-JM4"/>
-                            <constraint firstItem="03a-Qm-4Fa" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leadingMargin" id="QVU-SQ-qOB"/>
-                            <constraint firstItem="5Ut-Kv-RnY" firstAttribute="top" secondItem="eF3-eL-7bu" secondAttribute="bottom" constant="16" id="RAP-6s-a7E"/>
-                            <constraint firstItem="HRx-hk-Wcc" firstAttribute="top" secondItem="5Ut-Kv-RnY" secondAttribute="bottom" constant="16" id="S2o-e1-STZ"/>
-                            <constraint firstItem="zXh-HO-S8T" firstAttribute="trailing" secondItem="xLU-Jl-SHW" secondAttribute="leading" constant="4" id="YMs-ZK-6cq"/>
-                            <constraint firstItem="xLU-Jl-SHW" firstAttribute="top" secondItem="Caf-e5-VYP" secondAttribute="bottom" constant="16" id="d8o-cm-SHH"/>
-                            <constraint firstItem="xLU-Jl-SHW" firstAttribute="top" secondItem="zXh-HO-S8T" secondAttribute="top" id="gCF-vc-M9b"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5Ut-Kv-RnY" secondAttribute="trailing" id="gQy-nv-0Nf"/>
-                            <constraint firstItem="FQO-fQ-T8t" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leadingMargin" constant="15" id="iFE-hj-QMR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xLU-Jl-SHW" secondAttribute="trailing" constant="8" id="jtd-hm-3mO"/>
-                            <constraint firstItem="FQO-fQ-T8t" firstAttribute="top" secondItem="eQn-YT-EpJ" secondAttribute="bottom" priority="750" constant="100" id="kQH-R0-4W1"/>
-                            <constraint firstItem="zXh-HO-S8T" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leading" constant="16" id="oKw-Ss-44I"/>
-                            <constraint firstItem="i2P-UK-gYF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qDF-TF-1oT" secondAttribute="bottom" constant="16" id="uph-ui-eMT"/>
-                            <constraint firstItem="GBG-Fv-zmS" firstAttribute="top" secondItem="FQO-fQ-T8t" secondAttribute="top" id="wKT-Vx-yf8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lg5-Y0-HNm" secondAttribute="trailing" id="Wz2-7V-0QU"/>
+                            <constraint firstItem="Lg5-Y0-HNm" firstAttribute="top" secondItem="Caf-e5-VYP" secondAttribute="bottom" constant="4" id="dBY-wi-nuk"/>
+                            <constraint firstItem="Lg5-Y0-HNm" firstAttribute="leading" secondItem="u2e-oD-ndb" secondAttribute="leadingMargin" id="v5v-dg-Wfh"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Lg5-Y0-HNm" secondAttribute="bottom" id="wre-MZ-4Ug"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -198,45 +197,68 @@ Work week is automatic, private, and insightful</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWf-hx-4wz">
-                                <rect key="frame" x="89.5" y="84" width="196" height="58"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery Friendly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVj-nT-QK1">
-                                <rect key="frame" x="123.5" y="496.5" width="128" height="20.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFJ-Ch-iUy">
-                                <rect key="frame" x="43.5" y="166" width="288" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="9IE-oT-PNI"/>
-                                </constraints>
-                                <string key="text">We need access to your iPhone GPS to know when you go to work. Work Week will not function without this. Grant access and continue to a happy work life! </string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We never continually track location, only when you enter or leave an address that you setup" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiu-ps-GGy">
-                                <rect key="frame" x="43.5" y="525" width="288" height="20.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no login or server, all your data stays on your device" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FN-MG-FBr">
-                                <rect key="frame" x="43.5" y="610.5" width="288" height="20.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jHe-fn-2Hh">
+                                <rect key="frame" x="16" y="20" width="343" height="144"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWf-hx-4wz">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="57.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFJ-Ch-iUy">
+                                        <rect key="frame" x="0.0" y="57.5" width="343" height="86.5"/>
+                                        <string key="text">We need access to your iPhone GPS to know when you go to work. Work Week will not function without this. Grant access and continue to a happy work life! </string>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="obt-QL-BKR">
+                                <rect key="frame" x="0.0" y="525" width="375" height="142"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xRW-Wd-NJo">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery Friendly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVj-nT-QK1">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We never continually track location, only when you enter or leave an address that you setup" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiu-ps-GGy">
+                                                <rect key="frame" x="0.0" y="20.5" width="375" height="42.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VG1-9L-AKR">
+                                        <rect key="frame" x="0.0" y="79" width="375" height="63"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyO-nE-pbc">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no login or server, all your data stays on your device" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FN-MG-FBr">
+                                                <rect key="frame" x="0.0" y="20.5" width="375" height="42.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noj-gz-43s">
-                                <rect key="frame" x="43.5" y="384.5" width="288" height="76"/>
+                                <rect key="frame" x="36" y="295" width="303" height="76"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="JjN-Qr-CUk"/>
+                                    <constraint firstAttribute="height" priority="750" constant="76" id="F2V-Zl-fjl"/>
                                 </constraints>
                                 <state key="normal" title="Grant Access">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -245,35 +267,20 @@ Work week is automatic, private, and insightful</string>
                                     <action selector="didTapGrantLocation:" destination="HRI-QM-ONB" eventType="touchUpInside" id="A91-C4-7wQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyO-nE-pbc">
-                                <rect key="frame" x="159" y="581.5" width="57" height="20.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="8FN-MG-FBr" firstAttribute="trailing" secondItem="uiu-ps-GGy" secondAttribute="trailing" id="0QV-mY-94C"/>
-                            <constraint firstItem="uiu-ps-GGy" firstAttribute="leading" secondItem="qFJ-Ch-iUy" secondAttribute="leading" id="5pA-b7-lXc"/>
-                            <constraint firstItem="uiu-ps-GGy" firstAttribute="top" secondItem="LVj-nT-QK1" secondAttribute="bottom" constant="8" id="67T-Ce-VP2"/>
-                            <constraint firstItem="8FN-MG-FBr" firstAttribute="centerX" secondItem="AUG-8R-POQ" secondAttribute="centerX" id="GJr-GB-lfv"/>
-                            <constraint firstItem="HWf-hx-4wz" firstAttribute="centerX" secondItem="AUG-8R-POQ" secondAttribute="centerX" id="IAh-S3-jfe"/>
-                            <constraint firstItem="noj-gz-43s" firstAttribute="centerX" secondItem="AUG-8R-POQ" secondAttribute="centerX" id="J34-2B-vFb"/>
-                            <constraint firstItem="noj-gz-43s" firstAttribute="leading" secondItem="qFJ-Ch-iUy" secondAttribute="leading" id="LR4-m0-M3k"/>
-                            <constraint firstItem="noj-gz-43s" firstAttribute="trailing" secondItem="qFJ-Ch-iUy" secondAttribute="trailing" id="MtD-pZ-C5G"/>
-                            <constraint firstItem="jyO-nE-pbc" firstAttribute="centerX" secondItem="AUG-8R-POQ" secondAttribute="centerX" id="NAc-7U-aNl"/>
-                            <constraint firstItem="8FN-MG-FBr" firstAttribute="top" secondItem="jyO-nE-pbc" secondAttribute="bottom" constant="8" id="SQ0-Bh-eNq"/>
-                            <constraint firstItem="HWf-hx-4wz" firstAttribute="top" secondItem="ufM-Hb-kfC" secondAttribute="bottom" constant="64" id="WdJ-9W-brh"/>
-                            <constraint firstItem="jyO-nE-pbc" firstAttribute="top" secondItem="uiu-ps-GGy" secondAttribute="bottom" constant="36" id="XHO-Fu-vPo"/>
-                            <constraint firstItem="qFJ-Ch-iUy" firstAttribute="centerX" secondItem="AUG-8R-POQ" secondAttribute="centerX" id="cbx-FH-40I"/>
-                            <constraint firstItem="8FN-MG-FBr" firstAttribute="leading" secondItem="uiu-ps-GGy" secondAttribute="leading" id="ftH-RX-WB7"/>
-                            <constraint firstItem="uiu-ps-GGy" firstAttribute="trailing" secondItem="qFJ-Ch-iUy" secondAttribute="trailing" id="oei-IE-15F"/>
-                            <constraint firstItem="uiu-ps-GGy" firstAttribute="centerX" secondItem="AUG-8R-POQ" secondAttribute="centerX" id="vK3-tz-7SO"/>
-                            <constraint firstItem="LVj-nT-QK1" firstAttribute="centerX" secondItem="AUG-8R-POQ" secondAttribute="centerX" id="wlm-nm-6do"/>
-                            <constraint firstItem="LVj-nT-QK1" firstAttribute="top" secondItem="noj-gz-43s" secondAttribute="bottom" constant="36" id="yIm-gE-pOE"/>
-                            <constraint firstItem="U8i-SN-3wu" firstAttribute="top" secondItem="8FN-MG-FBr" secondAttribute="bottom" constant="36" id="zVV-hg-Txn"/>
-                            <constraint firstItem="qFJ-Ch-iUy" firstAttribute="top" secondItem="HWf-hx-4wz" secondAttribute="bottom" constant="24" id="zfu-bo-U7e"/>
+                            <constraint firstItem="obt-QL-BKR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="noj-gz-43s" secondAttribute="bottom" constant="8" id="2oi-6M-Lls"/>
+                            <constraint firstItem="obt-QL-BKR" firstAttribute="leading" secondItem="AUG-8R-POQ" secondAttribute="leading" id="8O2-8y-UFg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="noj-gz-43s" secondAttribute="trailing" constant="20" id="9fV-4q-UJX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jHe-fn-2Hh" secondAttribute="trailing" id="GPF-ds-Vve"/>
+                            <constraint firstItem="jHe-fn-2Hh" firstAttribute="top" secondItem="ufM-Hb-kfC" secondAttribute="bottom" id="Gey-oE-H2n"/>
+                            <constraint firstItem="noj-gz-43s" firstAttribute="centerY" secondItem="AUG-8R-POQ" secondAttribute="centerY" priority="250" id="Mpv-kj-N6o"/>
+                            <constraint firstItem="noj-gz-43s" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qFJ-Ch-iUy" secondAttribute="bottom" constant="4" id="VTx-oi-M4d"/>
+                            <constraint firstItem="U8i-SN-3wu" firstAttribute="top" secondItem="obt-QL-BKR" secondAttribute="bottom" id="acj-yX-Z55"/>
+                            <constraint firstAttribute="trailing" secondItem="obt-QL-BKR" secondAttribute="trailing" id="ht5-jg-cwe"/>
+                            <constraint firstItem="jHe-fn-2Hh" firstAttribute="leading" secondItem="AUG-8R-POQ" secondAttribute="leadingMargin" id="x09-4e-5qb"/>
+                            <constraint firstItem="noj-gz-43s" firstAttribute="leading" secondItem="AUG-8R-POQ" secondAttribute="leadingMargin" constant="20" id="z7v-eZ-9qF"/>
                         </constraints>
                     </view>
                     <connections>
@@ -296,62 +303,65 @@ Work week is automatic, private, and insightful</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epw-w0-eHR">
-                                <rect key="frame" x="78.5" y="84" width="218" height="58"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVB-dB-F0e">
-                                <rect key="frame" x="43.5" y="166" width="288" height="20.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NxA-mU-io7">
+                                <rect key="frame" x="16" y="60" width="343" height="188"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epw-w0-eHR">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="57.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVB-dB-F0e">
+                                        <rect key="frame" x="0.0" y="57.5" width="343" height="130.5"/>
+                                        <string key="text">We can send you notifications when its time to go home or you accomplish a special goal! This is optional, but makes the experience much better and we really recommend it. We send notifications very rarely, so we won’t spam you!</string>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WaL-nT-FHf">
+                                <rect key="frame" x="16" y="467" width="343" height="160"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4a-So-6n4">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="76"/>
+                                        <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="Qqo-vY-fFL"/>
+                                        </constraints>
+                                        <state key="normal" title="Grant Access">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapGrantNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="N5Q-57-7qL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWx-8v-a5k">
+                                        <rect key="frame" x="0.0" y="84" width="343" height="76"/>
+                                        <color key="backgroundColor" red="0.85098039219999999" green="0.25882352939999997" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Open the App">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapDenyNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="wmK-GD-C8q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="h1W-P7-2gr"/>
+                                    <constraint firstItem="xWx-8v-a5k" firstAttribute="height" secondItem="m4a-So-6n4" secondAttribute="height" id="ALS-AB-QvA"/>
                                 </constraints>
-                                <string key="text">We can send you notifications when its time to go home or you accomplish a special goal! This is optional, but makes the experience much better and we really recommend it. We send notifications very rarely, so we won’t spam you!</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4a-So-6n4">
-                                <rect key="frame" x="43.5" y="371" width="288" height="76"/>
-                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="oxI-D5-PQl"/>
-                                </constraints>
-                                <state key="normal" title="Grant Access">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapGrantNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="N5Q-57-7qL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWx-8v-a5k">
-                                <rect key="frame" x="43.5" y="471" width="288" height="76"/>
-                                <color key="backgroundColor" red="0.85098039219999999" green="0.25882352939999997" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="gS9-yo-xaQ"/>
-                                </constraints>
-                                <state key="normal" title="Open the App">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapDenyNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="wmK-GD-C8q"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="xWx-8v-a5k" firstAttribute="leading" secondItem="m4a-So-6n4" secondAttribute="leading" id="38W-wH-HrA"/>
-                            <constraint firstItem="m4a-So-6n4" firstAttribute="centerX" secondItem="LfG-7d-uwf" secondAttribute="centerX" id="49k-vV-HEb"/>
-                            <constraint firstItem="epw-w0-eHR" firstAttribute="top" secondItem="6bu-9x-aMX" secondAttribute="bottom" constant="64" id="4oY-FD-rW0"/>
-                            <constraint firstItem="xWx-8v-a5k" firstAttribute="trailing" secondItem="m4a-So-6n4" secondAttribute="trailing" id="VbQ-tk-qAs"/>
-                            <constraint firstItem="jVB-dB-F0e" firstAttribute="centerX" secondItem="LfG-7d-uwf" secondAttribute="centerX" id="hl3-nN-yiW"/>
-                            <constraint firstItem="xWx-8v-a5k" firstAttribute="top" secondItem="m4a-So-6n4" secondAttribute="bottom" constant="24" id="kiM-xP-SlP"/>
-                            <constraint firstItem="p7p-31-mdk" firstAttribute="top" secondItem="xWx-8v-a5k" secondAttribute="bottom" constant="120" id="lJj-Ry-etV"/>
-                            <constraint firstItem="jVB-dB-F0e" firstAttribute="top" secondItem="epw-w0-eHR" secondAttribute="bottom" constant="24" id="mVe-nY-smi"/>
-                            <constraint firstItem="epw-w0-eHR" firstAttribute="centerX" secondItem="LfG-7d-uwf" secondAttribute="centerX" id="t6N-ek-kgo"/>
-                            <constraint firstItem="m4a-So-6n4" firstAttribute="leading" secondItem="jVB-dB-F0e" secondAttribute="leading" id="wbz-iY-83g"/>
-                            <constraint firstItem="m4a-So-6n4" firstAttribute="trailing" secondItem="jVB-dB-F0e" secondAttribute="trailing" id="xzq-9M-ne9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NxA-mU-io7" secondAttribute="trailing" id="8C7-bw-Xi6"/>
+                            <constraint firstItem="NxA-mU-io7" firstAttribute="top" secondItem="6bu-9x-aMX" secondAttribute="bottom" constant="40" id="JXY-cp-cYY"/>
+                            <constraint firstItem="WaL-nT-FHf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NxA-mU-io7" secondAttribute="bottom" constant="8" id="KO9-PE-qKl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WaL-nT-FHf" secondAttribute="trailing" id="Sqt-iS-x25"/>
+                            <constraint firstItem="p7p-31-mdk" firstAttribute="top" secondItem="WaL-nT-FHf" secondAttribute="bottom" priority="750" constant="40" id="dpH-cV-u3Q"/>
+                            <constraint firstItem="NxA-mU-io7" firstAttribute="leading" secondItem="LfG-7d-uwf" secondAttribute="leadingMargin" id="uOY-Yn-0i8"/>
+                            <constraint firstItem="WaL-nT-FHf" firstAttribute="leading" secondItem="LfG-7d-uwf" secondAttribute="leadingMargin" id="yb8-zD-A6O"/>
                         </constraints>
                     </view>
                     <connections>
@@ -375,63 +385,74 @@ Work week is automatic, private, and insightful</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiV-qC-Uhi">
-                                <rect key="frame" x="43" y="377" width="288" height="76"/>
-                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="RBq-7t-R47"/>
-                                </constraints>
-                                <state key="normal" title="Set Home">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapGrantNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="v2c-2z-bIp"/>
-                                    <action selector="didTapHome:" destination="fh2-1T-3ta" eventType="touchUpInside" id="T6H-cL-hz6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-vE-gPf">
-                                <rect key="frame" x="43" y="477" width="288" height="76"/>
-                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="8yl-lH-IrZ"/>
-                                </constraints>
-                                <state key="normal" title="Set Work">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapDenyNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="M7M-lC-q4V"/>
-                                    <action selector="didTapWork:" destination="fh2-1T-3ta" eventType="touchUpInside" id="9UQ-sY-NWH"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuq-xO-4UH">
-                                <rect key="frame" x="43.5" y="84" width="288" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="QcO-XZ-o3u"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your work and home location" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zae-wS-h2Z">
-                                <rect key="frame" x="43" y="166" width="288" height="20.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rFr-E1-oV4">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Nh-ZC-ppf">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="308.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Set Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuq-xO-4UH">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="150.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your work and home location" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zae-wS-h2Z">
+                                                <rect key="frame" x="0.0" y="158.5" width="343" height="150"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lHb-v8-AYC">
+                                        <rect key="frame" x="0.0" y="338.5" width="343" height="308.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayQ-wj-H97">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="55.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiV-qC-Uhi">
+                                                <rect key="frame" x="0.0" y="63.5" width="343" height="55"/>
+                                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Set Home">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapGrantNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="v2c-2z-bIp"/>
+                                                    <action selector="didTapHome:" destination="fh2-1T-3ta" eventType="touchUpInside" id="T6H-cL-hz6"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pqx-RH-xLz">
+                                                <rect key="frame" x="0.0" y="126.5" width="343" height="55.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-vE-gPf">
+                                                <rect key="frame" x="0.0" y="190" width="343" height="55"/>
+                                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Set Work">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapDenyNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="M7M-lC-q4V"/>
+                                                    <action selector="didTapWork:" destination="fh2-1T-3ta" eventType="touchUpInside" id="9UQ-sY-NWH"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRk-s3-KVj">
+                                                <rect key="frame" x="0.0" y="253" width="343" height="55.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="qFi-vE-gPf" firstAttribute="centerX" secondItem="cRz-JL-ZW7" secondAttribute="centerX" id="3od-yh-yHg"/>
-                            <constraint firstItem="zae-wS-h2Z" firstAttribute="top" secondItem="iuq-xO-4UH" secondAttribute="bottom" constant="24" id="9TR-uh-Cmn"/>
-                            <constraint firstItem="zae-wS-h2Z" firstAttribute="width" secondItem="iuq-xO-4UH" secondAttribute="width" id="BRn-zD-RpG"/>
-                            <constraint firstItem="iuq-xO-4UH" firstAttribute="top" secondItem="gJA-Ad-x1G" secondAttribute="bottom" constant="64" id="EIM-od-qfi"/>
-                            <constraint firstItem="iuq-xO-4UH" firstAttribute="centerX" secondItem="cRz-JL-ZW7" secondAttribute="centerX" id="TQ4-PH-xxa"/>
-                            <constraint firstItem="zae-wS-h2Z" firstAttribute="centerX" secondItem="cRz-JL-ZW7" secondAttribute="centerX" id="eaa-ma-wFA"/>
-                            <constraint firstItem="qFi-vE-gPf" firstAttribute="leading" secondItem="yiV-qC-Uhi" secondAttribute="leading" id="epH-Lb-Qhh"/>
-                            <constraint firstItem="qFi-vE-gPf" firstAttribute="trailing" secondItem="yiV-qC-Uhi" secondAttribute="trailing" id="gEf-bC-28P"/>
-                            <constraint firstItem="qFi-vE-gPf" firstAttribute="width" secondItem="iuq-xO-4UH" secondAttribute="width" id="nGO-Sw-DAZ"/>
-                            <constraint firstItem="qFi-vE-gPf" firstAttribute="top" secondItem="yiV-qC-Uhi" secondAttribute="bottom" constant="24" id="tF0-ah-yXX"/>
-                            <constraint firstItem="bsd-OX-ee0" firstAttribute="top" secondItem="qFi-vE-gPf" secondAttribute="bottom" constant="114" id="yxq-5g-ztR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rFr-E1-oV4" secondAttribute="trailing" id="jc8-Zt-h5H"/>
+                            <constraint firstItem="rFr-E1-oV4" firstAttribute="top" secondItem="gJA-Ad-x1G" secondAttribute="bottom" id="l4H-gg-RNc"/>
+                            <constraint firstItem="rFr-E1-oV4" firstAttribute="leading" secondItem="cRz-JL-ZW7" secondAttribute="leadingMargin" id="ofJ-Ne-8fh"/>
+                            <constraint firstItem="bsd-OX-ee0" firstAttribute="top" secondItem="rFr-E1-oV4" secondAttribute="bottom" id="rFy-Mj-MU5"/>
                         </constraints>
                     </view>
                     <connections>
