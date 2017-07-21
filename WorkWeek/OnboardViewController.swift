@@ -166,17 +166,7 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                         self.configureDisplay(button: self.denyNotifyButton)
                     } else {
                         Log.log(error?.localizedDescription ?? "failed to grant, error")
-
-                        //show error to user, ask to try again
-                        DispatchQueue.main.async {
-                            let alert = UIAlertController(title: "Oh Noes!",
-                                    message: "Error granting access, please try again",
-                                    preferredStyle: .alert)
-
-                            self.present(alert, animated: true, completion: nil)
-                        }
-
-
+                        showFailedToGrantPermissionsPopup()
                     }
                 }
             } else {
@@ -185,6 +175,22 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                 }
             }
         }
+
+        func showFailedToGrantPermissionsPopup() {
+
+            //show error to user, ask to try again
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Oh Noes!",
+                                              message: "Error granting access, please try again",
+                                              preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                    alert.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+
 
         // TODO: User default notification choice is none. If they select notifications here
         // we should update the `User` to reflect that they want settings, and shoudl decide
