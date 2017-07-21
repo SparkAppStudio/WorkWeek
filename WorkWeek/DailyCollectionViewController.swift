@@ -46,26 +46,21 @@ class DailyCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView?.alwaysBounceVertical = true
         configureNotificationObservers()
-
     }
 
     func leftHomeNotified() {
-        print("Left Home Notification Received")
         reloadViewController()
     }
 
     func arriveWorkNotified() {
-        print("Arrive Work Notification received")
         reloadViewController()
     }
 
     func leftWorkNotified() {
-        print("Left Work Notification Received")
         reloadViewController()
     }
 
     func arriveHomeNotified() {
-        print("Arrive Home Notification Received")
         reloadViewController()
     }
 
