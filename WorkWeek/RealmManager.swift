@@ -234,6 +234,14 @@ class RealmManager {
         unhandledErrorWrite( user.notificationChoice =  choice)
     }
 
+    func getUserHours() -> Double {
+        guard let user = realm.objects(User.self).first else {
+            saveInitialUser()
+            return 8.0 // Default work day 8 hours
+        }
+        return user.hoursInWorkDay
+    }
+
     func unhandledErrorWrite(_ action: @autoclosure () -> Void ) {
         do {
             try realm.write {
