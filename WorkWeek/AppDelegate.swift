@@ -12,14 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var locationWindow: UIWindow?
     var appCoordinator: AppCoordinator!
     var locationManager: CLLocationManager!
-
-    var pushManager: PushNotificationManager!
+    var locationDelegate = LocationDelegate() // swiftlint:disable:this weak_delegate
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         createLocationManager()
-        createPushNotificationManager()
 
         CrashReporting.configure()
 
@@ -81,17 +79,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func createLocationManager() {
         let locationManager = CLLocationManager()
-        locationManager.delegate = self
+        locationManager.delegate = locationDelegate
         self.locationManager = locationManager
-    }
-
-    func createPushNotificationManager() {
-        pushManager = PushNotificationManager()
     }
 
 }
 
-extension AppDelegate: CLLocationManagerDelegate {
+final class LocationDelegate: NSObject, CLLocationManagerDelegate {
+
+    var pushManager = PushNotificationManager()
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // When user becomes authorized, update their location, so the map will 
