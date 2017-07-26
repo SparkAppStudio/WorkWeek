@@ -121,7 +121,7 @@ extension AppDelegate: CLLocationManagerDelegate {
             NotificationCenterManager.shared.postArriveHomeNotification()
         case .work:
             NotificationCenterManager.shared.postArriveWorkNotification()
-            pushManager.handleArrivedAtWork()
+            pushManager.userHasArrivedAtWork()
         }
     }
 
@@ -135,7 +135,7 @@ extension AppDelegate: CLLocationManagerDelegate {
             NotificationCenterManager.shared.postLeaveHomeNotification()
         case .work:
             NotificationCenterManager.shared.postLeaveWorkNotification()
-            pushManager.handleDepartedWork()
+            pushManager.userHasDepartedWork()
         }
     }
 
@@ -146,7 +146,7 @@ import UserNotifications
 
 final class PushNotificationManager {
 
-    func handleArrivedAtWork() {
+    func userHasArrivedAtWork() {
         let workHours = RealmManager.shared.getUserHours()
 
         let content = UNMutableNotificationContent()
@@ -181,7 +181,7 @@ final class PushNotificationManager {
         // TODO: Can we add a delivery handler, to log when the notifiation is finally shown?
     }
 
-    func handleDepartedWork() {
+    func userHasDepartedWork() {
         // cancel any scheduled notifications
         let current = UNUserNotificationCenter.current()
         current.removeAllPendingNotificationRequests()
