@@ -22,17 +22,21 @@ final class PushNotificationManager {
         content.title = "End of Work"
         content.subtitle = "Go home"
         content.body = "Some Body to love"
+        content.sound = UNNotificationSound.default()
         let req = UNNotificationRequest(identifier: "ArrivedAtWork", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
-        // TODO: Add Logging
-
-        // TODO: Can we add a delivery handler, to log when the notifiation is finally shown?
+        Log.log("Arrived Work. Notification scheduled for: \(endDate)")
     }
 
     func userHasDepartedWork() {
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        // TODO: Add Logging Here
+        let center = UNUserNotificationCenter.current()
+        center.getPendingNotificationRequests(completionHandler: { (req) in
+            if req.count > 0 {
+                Log.log("User Departed work. Canceling \(req.count) un-delivered notifications")
+            }
+        })
+        center.removeAllPendingNotificationRequests()
     }
 
 }
