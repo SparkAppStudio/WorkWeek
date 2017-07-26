@@ -114,6 +114,7 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
     }
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         guard let searchText = searchBar.text, searchText != "" else {
@@ -126,7 +127,8 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
         let searchRequest = MKLocalSearchRequest()
         searchRequest.naturalLanguageQuery = searchText
         searchRequest.region = mapView.region
-                let localSearch = MKLocalSearch(request: searchRequest)
+
+        let localSearch = MKLocalSearch(request: searchRequest)
         localSearch.startResult {[weak self] result  in
             self?.handleSearchResult(result)
         }
@@ -140,7 +142,7 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
         case .failure(let typedError):
             switch typedError {
             case .bothResponseAndErrorNil:
-                Log.log(.error, "Attemted search, got no error and no response")
+                Log.log(.error, "Attempted search, got no error and no response")
             case .error(let err):
                 Log.log(.error, "System Error when searching: \(err.localizedDescription)")
             }
@@ -194,18 +196,20 @@ class CenterCircleView: UIView {
 }
 
 extension MKMapRect {
+
     struct Size {
         let width: CLLocationDistance
         let height: CLLocationDistance
     }
+
     func sizeInMeters() -> Size {
         let topLeft = self.origin
         let topRight = MKMapPoint(x: topLeft.x + self.size.width,
                                    y: topLeft.y)
         let width = MKMetersBetweenMapPoints(topLeft, topRight)
 
-        let bottomLeft = MKMapPoint(x: topLeft.x, y: topLeft.y + self.size.height)
-
+        let bottomLeft = MKMapPoint(x: topLeft.x,
+                                    y: topLeft.y + self.size.height)
         let height = MKMetersBetweenMapPoints(topLeft, bottomLeft)
 
         return Size(width: width, height: height)
