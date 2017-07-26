@@ -8,6 +8,8 @@ import RealmSwift
 /// Stores the users preferences can be changed in settings or during onboarding
 class User: Object {
 
+    static let defaultWorkDayLength = 8.0
+
     /// The Days on which a user could choose to be notified
     /// Sunday starts at 1 to better align with the Date API's
     /// conformst to `OptionSet` so many can be set at once and stored in realm
@@ -30,7 +32,7 @@ class User: Object {
         case weekly
     }
 
-    dynamic var hoursInWorkDay: Double = 8.0
+    dynamic var hoursInWorkDay: Double = User.defaultWorkDayLength
 
     // the list of days they want notificaitons for
     // by default Select M-F

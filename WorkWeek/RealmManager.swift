@@ -237,7 +237,7 @@ class RealmManager {
     func getUserHours() -> Double {
         guard let user = realm.objects(User.self).first else {
             saveInitialUser()
-            return 8.0 // Default work day 8 hours
+            return User.defaultWorkDayLength
         }
         return user.hoursInWorkDay
     }
@@ -251,6 +251,5 @@ class RealmManager {
             Log.log(.error, "Failed Write. \(error.localizedDescription)")
         }
     }
-
 
 }
