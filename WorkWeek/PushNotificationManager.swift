@@ -27,7 +27,7 @@ final class PushNotificationManager {
         let req = UNNotificationRequest(identifier: "ArrivedAtWork", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
-        Log.log("Arrived Work. Notification scheduled for: \(trigger.nextTriggerDate())")
+        Log.log("Arrived Work. Notification scheduled for: \(String(describing: trigger.nextTriggerDate()))")
     }
 
     func userHasDepartedWork() {

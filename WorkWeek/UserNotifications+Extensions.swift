@@ -16,5 +16,5 @@ extension UNCalendarNotificationTrigger {
         let components = Calendar.current.dateComponents(in: Calendar.current.timeZone, from: endDate)
         self.init(dateMatching: components, repeats: false)
     }
-    
+
 }
