@@ -31,7 +31,6 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var centerCircleView: CenterCircleView!
 
