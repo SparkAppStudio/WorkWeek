@@ -8,15 +8,16 @@ import UserNotifications
 final class PushNotificationManager {
 
     func userHasArrivedAtWork() {
+        // TODO: The logic here is not quite correct, It will only fire properly
+        // if the user arrives at work and then does not leave for 8 hours
+        // if they exit the office for lunch when the re-arrive at work the the
+        // new Notification needs to be based on the time left in the day / week
         let workHours = RealmManager.shared.getUserHours()
 
-        guard let endDate = Date().byAdding(hours: workHours) else {
-            Log.log(.error, "Error building Future Date. Now: \(Date()), adding: \(workHours)")
+        guard let trigger = UNCalendarNotificationTrigger(hoursInFuture: workHours) else {
+            Log.log(.error, "Nil Trigger for Future Date. Now: \(Date()), adding: \(workHours)")
             return
         }
-
-        let components = Calendar.current.dateComponents(in: Calendar.current.timeZone, from: endDate)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
 
         let content = UNMutableNotificationContent()
         content.title = "End of Work"
@@ -26,7 +27,7 @@ final class PushNotificationManager {
         let req = UNNotificationRequest(identifier: "ArrivedAtWork", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
-        Log.log("Arrived Work. Notification scheduled for: \(endDate)")
+        Log.log("Arrived Work. Notification scheduled for: \(trigger.nextTriggerDate())")
     }
 
     func userHasDepartedWork() {

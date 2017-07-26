@@ -25,6 +25,7 @@
 		5272B78C1F12A62200F003FD /* MapVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272B78B1F12A62200F003FD /* MapVCDelegate.swift */; };
 		52802FE21F285387009A519B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52802FE11F285387009A519B /* Date+Extensions.swift */; };
 		52802FE41F2853CA009A519B /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52802FE31F2853CA009A519B /* PushNotificationManager.swift */; };
+		52802FE61F28581F009A519B /* UserNotifications+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52802FE51F28581F009A519B /* UserNotifications+Extensions.swift */; };
 		5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */; };
 		5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */; };
 		5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA391EDCF91E00E71CE8 /* Activity.storyboard */; };
@@ -74,6 +75,7 @@
 		5272B78B1F12A62200F003FD /* MapVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVCDelegate.swift; sourceTree = "<group>"; };
 		52802FE11F285387009A519B /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		52802FE31F2853CA009A519B /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		52802FE51F28581F009A519B /* UserNotifications+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserNotifications+Extensions.swift"; sourceTree = "<group>"; };
 		5287CA321EDCF91E00E71CE8 /* WorkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */,
 				D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */,
 				521AF7FA1F21902900C8F707 /* UserDefaults+Extensions.swift */,
+				52802FE51F28581F009A519B /* UserNotifications+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */,
 				52802FE41F2853CA009A519B /* PushNotificationManager.swift in Sources */,
 				52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */,
+				52802FE61F28581F009A519B /* UserNotifications+Extensions.swift in Sources */,
 				D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */,
 				D1B21F941EF521870023D427 /* RealmManager.swift in Sources */,
 				D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */,
