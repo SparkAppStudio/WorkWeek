@@ -7,6 +7,9 @@ import CoreLocation
 
 final class LocationDelegate: NSObject, CLLocationManagerDelegate {
 
+    // TODO: Inject this dependency since other use it
+    let notificationManager = NotificationCenterManager.shared
+
     let pushManager = PushNotificationManager()
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -34,9 +37,9 @@ final class LocationDelegate: NSObject, CLLocationManagerDelegate {
         }
         switch typedRegion {
         case .home:
-            NotificationCenterManager.shared.postArriveHomeNotification()
+            notificationManager.postArriveHomeNotification()
         case .work:
-            NotificationCenterManager.shared.postArriveWorkNotification()
+            notificationManager.postArriveWorkNotification()
             pushManager.userHasArrivedAtWork()
         }
     }
@@ -48,9 +51,9 @@ final class LocationDelegate: NSObject, CLLocationManagerDelegate {
         }
         switch typedRegion {
         case .home:
-            NotificationCenterManager.shared.postLeaveHomeNotification()
+            notificationManager.postLeaveHomeNotification()
         case .work:
-            NotificationCenterManager.shared.postLeaveWorkNotification()
+            notificationManager.postLeaveWorkNotification()
             pushManager.userHasDepartedWork()
         }
     }
