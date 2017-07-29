@@ -38,6 +38,18 @@ class DailyCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView?.alwaysBounceVertical = true
         configureNotificationObservers()
+
+        let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
+        let width = UIScreen.main.bounds.width
+
+        // was showing as full bleed on the, small phone, added some padding around the edges, kept the same ratio
+        flowLayout?.itemSize = CGSize(width: width, height: (256.0 / 375.0) * width)
+
+        // make it so the bottom cell can scroll to be above the dots...
+        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30.0, right: 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 30.0, right: 0)
+        // wanted to make the whole scroll view be above the dots... not sure which inset that is...
+        // could just put a white or translucent view down there.... but it might be hacky to get it under the page indicator
     }
 
     func reloadViewController() {

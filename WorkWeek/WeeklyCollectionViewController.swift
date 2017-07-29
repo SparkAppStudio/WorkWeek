@@ -38,6 +38,13 @@ class WeeklyCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.alwaysBounceVertical = true
+
+        let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
+        let width = UIScreen.main.bounds.width
+
+        // added some padding around the edges, kept the same ratio as storyboard
+        flowLayout?.itemSize = CGSize(width: width, height: (122.0 / 364.0) * width)
+
         setupRealm()
     }
 
