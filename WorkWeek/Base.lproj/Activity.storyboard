@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dcZ-vr-lJ0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dcZ-vr-lJ0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,24 +23,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HH:MM:SS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dg-OT-A9e">
-                                <rect key="frame" x="54" y="96" width="267" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You have been at work for: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eh-KN-eJu">
-                                <rect key="frame" x="84" y="240" width="207" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-XJ-UMj">
+                                <rect key="frame" x="16" y="96" width="343" height="76.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HH:MM:SS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dg-OT-A9e">
+                                        <rect key="frame" x="98.5" y="0.0" width="146" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have been at work for: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eh-KN-eJu">
+                                        <rect key="frame" x="68" y="56" width="207" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKr-PA-O4q">
-                                <rect key="frame" x="87" y="507" width="200" height="40"/>
+                                <rect key="frame" x="74.5" y="507" width="225" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="2nY-uY-NQ8"/>
                                     <constraint firstAttribute="height" constant="40" id="QiE-Op-hsl"/>
                                 </constraints>
                                 <state key="normal" title="Settings"/>
@@ -50,8 +53,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Lsg-XJ-UMj" firstAttribute="centerX" secondItem="mzw-b3-UWr" secondAttribute="centerX" id="JaG-Wz-8fq"/>
+                            <constraint firstItem="Lsg-XJ-UMj" firstAttribute="top" secondItem="bj0-eQ-AFc" secondAttribute="bottom" constant="76" id="O8P-mQ-B8g"/>
+                            <constraint firstItem="Lsg-XJ-UMj" firstAttribute="leading" secondItem="mzw-b3-UWr" secondAttribute="leadingMargin" id="U1B-r1-E1q"/>
                             <constraint firstItem="JKr-PA-O4q" firstAttribute="centerX" secondItem="mzw-b3-UWr" secondAttribute="centerX" id="ke1-cW-Jpj"/>
                             <constraint firstItem="AWV-1G-jAM" firstAttribute="top" secondItem="JKr-PA-O4q" secondAttribute="bottom" constant="120" id="mKL-3R-fWI"/>
+                            <constraint firstItem="JKr-PA-O4q" firstAttribute="width" secondItem="mzw-b3-UWr" secondAttribute="width" multiplier="0.6" id="mvT-tm-5gq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lsg-XJ-UMj" secondAttribute="trailing" id="zyt-lg-cgy"/>
                         </constraints>
                     </view>
                     <connections>
@@ -158,7 +166,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="weeklyCollectionViewCell" reuseIdentifier="WeeklyCollectionViewCell" id="3mh-5u-EdE" customClass="WeeklyCollectionViewCell" customModule="WorkWeek" customModuleProvider="target">
-                                <rect key="frame" x="6" y="0.0" width="364" height="122"/>
+                                <rect key="frame" x="5.5" y="0.0" width="364" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="364" height="122"/>

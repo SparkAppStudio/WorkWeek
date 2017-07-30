@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -254,13 +254,6 @@
                                     <constraint firstAttribute="width" secondItem="K4j-Pr-RUl" secondAttribute="height" multiplier="1:1" id="u8A-Vr-oMM"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show The Address In this Label, probably with a drop shadow or something" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIP-Oe-f44">
-                                <rect key="frame" x="27.5" y="470" width="320.5" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VED-rO-Ljs">
                                 <rect key="frame" x="16" y="598" width="343" height="69"/>
                                 <subviews>
@@ -295,18 +288,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="vdt-nX-h0a" secondAttribute="trailing" id="89f-7K-mT1"/>
                             <constraint firstItem="VED-rO-Ljs" firstAttribute="leading" secondItem="P1D-qb-71k" secondAttribute="leadingMargin" id="8PO-IW-cmD"/>
                             <constraint firstItem="K4j-Pr-RUl" firstAttribute="centerX" secondItem="d9X-x2-OCi" secondAttribute="centerX" id="9Pl-FB-DTJ"/>
-                            <constraint firstItem="LIP-Oe-f44" firstAttribute="centerX" secondItem="d9X-x2-OCi" secondAttribute="centerX" id="Amc-0p-Cn6"/>
                             <constraint firstItem="vdt-nX-h0a" firstAttribute="leading" secondItem="P1D-qb-71k" secondAttribute="leadingMargin" id="HBf-hN-K5g"/>
                             <constraint firstItem="ckW-Wv-jHI" firstAttribute="top" secondItem="vdt-nX-h0a" secondAttribute="bottom" id="JMn-vN-gRk"/>
-                            <constraint firstItem="LIP-Oe-f44" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="P1D-qb-71k" secondAttribute="trailingMargin" id="QeH-UI-RpT"/>
                             <constraint firstItem="d9X-x2-OCi" firstAttribute="top" secondItem="ckW-Wv-jHI" secondAttribute="bottom" id="b61-jf-R3j"/>
                             <constraint firstAttribute="trailing" secondItem="ckW-Wv-jHI" secondAttribute="trailing" id="fvD-Sz-TWA"/>
                             <constraint firstItem="K4j-Pr-RUl" firstAttribute="centerY" secondItem="d9X-x2-OCi" secondAttribute="centerY" id="h5J-km-zzT"/>
                             <constraint firstItem="gR6-pX-AkG" firstAttribute="top" secondItem="VED-rO-Ljs" secondAttribute="bottom" id="hCN-aV-uah"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VED-rO-Ljs" secondAttribute="trailing" id="khN-Lg-nQz"/>
-                            <constraint firstItem="LIP-Oe-f44" firstAttribute="top" secondItem="K4j-Pr-RUl" secondAttribute="bottom" constant="60" id="ogj-rD-mLF"/>
-                            <constraint firstAttribute="leadingMargin" relation="lessThanOrEqual" secondItem="LIP-Oe-f44" secondAttribute="leading" id="pU7-0d-9Np"/>
-                            <constraint firstItem="LIP-Oe-f44" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="d9X-x2-OCi" secondAttribute="bottom" priority="999" id="t5u-jE-N6z"/>
                             <constraint firstItem="d9X-x2-OCi" firstAttribute="leading" secondItem="P1D-qb-71k" secondAttribute="leading" id="wOk-kQ-9V1"/>
                             <constraint firstAttribute="trailing" secondItem="d9X-x2-OCi" secondAttribute="trailing" id="wfQ-hk-EAe"/>
                             <constraint firstItem="K4j-Pr-RUl" firstAttribute="width" secondItem="d9X-x2-OCi" secondAttribute="width" multiplier="0.3333" id="ylh-bW-fhs"/>
@@ -314,7 +302,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addressLabel" destination="LIP-Oe-f44" id="Y3G-ia-JGS"/>
                         <outlet property="centerCircleView" destination="K4j-Pr-RUl" id="aqI-DW-Bwb"/>
                         <outlet property="headerLabel" destination="vdt-nX-h0a" id="MVk-rE-MSb"/>
                         <outlet property="mapView" destination="d9X-x2-OCi" id="RBP-en-FNt"/>
