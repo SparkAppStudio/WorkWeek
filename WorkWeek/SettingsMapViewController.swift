@@ -63,6 +63,12 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
         drawOverlays(for: type)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.track(.pageView(.settingsMap))
+    }
+
+
     // MARK: Actions
 
     @IBAction func didTapDone(_ sender: UIButton) {

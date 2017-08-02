@@ -28,11 +28,20 @@ final class Analytics {
         case appEvent(String)
     }
 
-    /// The list of pages tracked by analytics, (to be expanded over time)
+    /// The list of pages tracked by analytics
     enum Page: String {
-        case onboarding
-        case settings
-        case activity
+        case onboardWelcome
+        case onboardExplain
+        case onboardLocation
+        case onboardSettings
+        case onboardNotify
+
+        case activityCountdown
+        case activityDaily
+        case activityWeekly
+
+        case settingsMap
+        case settingsMain
     }
 
     /// Here's where you track your events
