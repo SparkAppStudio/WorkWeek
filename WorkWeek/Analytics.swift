@@ -67,5 +67,6 @@ final class Analytics {
             eventName = page.rawValue
         }
         Answers.logCustomEvent(withName: eventName, customAttributes: data)
+        Log.log(.debug, "Analytics Event: \(eventName)")
     }
 }
