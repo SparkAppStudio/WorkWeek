@@ -42,7 +42,7 @@ final class Analytics {
     ///   - content: An assocaited description, String
     ///   - moreData: Any more data you'd like to record, user email, sale total, etc
     static func track(_ event: Event,
-                      _ content: String?,
+                      _ content: String? = nil,
                       extraData: [String: Any]? = nil) {
 
         var data: [String: Any] = ["Content": content ?? "n/a"]
