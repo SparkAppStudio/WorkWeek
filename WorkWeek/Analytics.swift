@@ -28,15 +28,11 @@ final class Analytics {
         case appEvent(String)
     }
 
-    /// The current 3 page types, for tracking pageView Events
-    ///
-    /// - onboarding: pass a string to give it some uniquenness
-    /// - settings: pass a string to give it some uniquenness
-    /// - activity: pass a string to give it some uniquenness
-    enum Page {
-        case onboarding(String)
-        case settings(String)
-        case activity(String)
+    /// The list of pages tracked by analytics, (to be expanded over time)
+    enum Page: String {
+        case onboarding
+        case settings
+        case activity
     }
 
     /// Here's where you track your events
@@ -59,14 +55,7 @@ final class Analytics {
         case .appEvent(let theEvent):
             eventName = theEvent
         case .pageView(let page):
-            switch page {
-            case .onboarding(let info):
-                eventName = "Onboarding: \(info)"
-            case .settings(let info):
-                eventName = "Settings: \(info)"
-            case .activity(let info):
-                eventName = "Activity: \(info)"
-            }
+            eventName = page.rawValue
         }
         Answers.logCustomEvent(withName: eventName, customAttributes: data)
     }
