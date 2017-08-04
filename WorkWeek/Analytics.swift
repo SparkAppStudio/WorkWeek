@@ -6,6 +6,8 @@ import Foundation
 import Fabric
 import Crashlytics
 
+private let appLaunchEventName = "App Launch Event"
+
 /// Where you track your events
 ///
 /// USAGE
@@ -24,6 +26,7 @@ final class Analytics {
     /// - pageView: The user viewed a page of our application.
     /// - appEvent: Some other type of App Event
     enum Event {
+        case appLaunch
         case pageView(Page)
         case appEvent(String)
     }
@@ -56,6 +59,8 @@ final class Analytics {
 
         let eventName: String
         switch event {
+        case .appLaunch:
+            eventName = appLaunchEventName
         case .appEvent(let theEvent):
             eventName = theEvent
         case .pageView(let page):
