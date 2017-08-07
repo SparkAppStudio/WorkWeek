@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         CrashReporting.configure()
 
-        Analytics.track(.appEvent(#function), "App Was launched")
+        let parsedOptions = parse(launchOptions)
+        Analytics.track(.appLaunch, "", extraData: parsedOptions)
 
         configureWindowAndCoordinator()
         return true
@@ -81,12 +82,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager.delegate = self
         self.locationManager = locationManager
     }
+
+    private func parse(_ options: [UIApplicationLaunchOptionsKey: Any]?) -> [String: Any] {
+        guard let options = options else { return [:] }
+        var out: [String: Any] = [:]
+        for (k, v) in options {
+            out[k.rawValue] = v
+        }
+        return out
+    }
 }
 
 extension AppDelegate: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        // When user becomes authorized, update their location, so the map will 
+        // When user becomes authorized, update their location, so the map will
         // be up to date when they get to it
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
