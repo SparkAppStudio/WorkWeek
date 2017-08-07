@@ -57,6 +57,10 @@ class DailyObject: Object {
                         index += 1
                     }
 
+                    guard index < allEvents.count else {
+                        break
+                    }
+
                     if allEvents[index].kind == NotificationCenter.CheckInEvent.leaveWork {
                         let leaveWork = allEvents[index]
                         index += 1
