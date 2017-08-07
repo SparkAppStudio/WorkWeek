@@ -70,6 +70,7 @@
 		526E50751EF6CE3C0066F043 /* CrashReporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashReporting.swift; sourceTree = "<group>"; };
 		527039341EF8D85B00A0B6BA /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5272B78B1F12A62200F003FD /* MapVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVCDelegate.swift; sourceTree = "<group>"; };
+		527430E31F33FDC600ED238D /* WorkWeekCustomViews.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WorkWeekCustomViews.playground; sourceTree = "<group>"; };
 		5287CA321EDCF91E00E71CE8 /* WorkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		5287CA291EDCF91E00E71CE8 = {
 			isa = PBXGroup;
 			children = (
+				527430E31F33FDC600ED238D /* WorkWeekCustomViews.playground */,
 				5287CA341EDCF91E00E71CE8 /* WorkWeek */,
 				5287CA331EDCF91E00E71CE8 /* Products */,
 				5287CA481EDCFA9100E71CE8 /* Frameworks */,
