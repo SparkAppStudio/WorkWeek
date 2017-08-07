@@ -34,7 +34,6 @@
 		52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */; };
 		52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */; };
 		52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */; };
-		52E1FFE21F3813A80091C1CB /* WorkWeekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1FFE11F3813A80091C1CB /* WorkWeekTests.swift */; };
 		C362A4071EE34EA200AB9830 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C362A4061EE34EA200AB9830 /* Onboarding.storyboard */; };
 		C362A4091EE3517800AB9830 /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */; };
 		C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */; };
@@ -96,7 +95,6 @@
 		52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHoursPickerDataSource.swift; sourceTree = "<group>"; };
 		52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		52E1FFDF1F3813A80091C1CB /* WorkWeekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkWeekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		52E1FFE11F3813A80091C1CB /* WorkWeekTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkWeekTests.swift; sourceTree = "<group>"; };
 		52E1FFE31F3813A80091C1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C362A4061EE34EA200AB9830 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 		52E1FFE01F3813A80091C1CB /* WorkWeekTests */ = {
 			isa = PBXGroup;
 			children = (
-				52E1FFE11F3813A80091C1CB /* WorkWeekTests.swift */,
 				52E1FFE31F3813A80091C1CB /* Info.plist */,
 				520855661F38144A00409642 /* DailyObjectTests.swift */,
 			);
@@ -504,7 +501,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				520855671F38144A00409642 /* DailyObjectTests.swift in Sources */,
-				52E1FFE21F3813A80091C1CB /* WorkWeekTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
