@@ -28,15 +28,20 @@ final class Analytics {
         case appEvent(String)
     }
 
-    /// The current 3 page types, for tracking pageView Events
-    ///
-    /// - onboarding: pass a string to give it some uniquenness
-    /// - settings: pass a string to give it some uniquenness
-    /// - activity: pass a string to give it some uniquenness
-    enum Page {
-        case onboarding(String)
-        case settings(String)
-        case activity(String)
+    /// The list of pages tracked by analytics
+    enum Page: String {
+        case onboardWelcome
+        case onboardExplain
+        case onboardLocation
+        case onboardSettings
+        case onboardNotify
+
+        case activityCountdown
+        case activityDaily
+        case activityWeekly
+
+        case settingsMap
+        case settingsMain
     }
 
     /// Here's where you track your events
@@ -46,10 +51,10 @@ final class Analytics {
     ///   - content: An assocaited description, String
     ///   - moreData: Any more data you'd like to record, user email, sale total, etc
     static func track(_ event: Event,
-                      _ content: String,
+                      _ content: String? = nil,
                       extraData: [String: Any]? = nil) {
 
-        var data: [String: Any] = ["Content": content]
+        var data: [String: Any] = ["Content": content ?? "n/a"]
         if let extraData = extraData {
             data.merge(extraData)
         }
@@ -59,15 +64,9 @@ final class Analytics {
         case .appEvent(let theEvent):
             eventName = theEvent
         case .pageView(let page):
-            switch page {
-            case .onboarding(let info):
-                eventName = "Onboarding: \(info)"
-            case .settings(let info):
-                eventName = "Settings: \(info)"
-            case .activity(let info):
-                eventName = "Activity: \(info)"
-            }
+            eventName = page.rawValue
         }
         Answers.logCustomEvent(withName: eventName, customAttributes: data)
+        Log.log(.debug, "Analytics Event: \(eventName)")
     }
 }
