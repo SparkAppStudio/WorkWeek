@@ -2,30 +2,96 @@
 //  Copyright © 2017 Spark App Studio. All rights reserved.
 //
 
+@testable import WorkWeek
+import RealmSwift
 import XCTest
 
 class DailyObjectTests: XCTestCase {
 
+    var dailyObject: DailyObject!
+
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        dailyObject = DailyObject()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        dailyObject = nil
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testWorkTimeIsZeroForNoEvents() {
+        XCTAssertEqual(dailyObject.events.count, 0)
+        XCTAssertEqual(dailyObject.workTime, 0.0)
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testWorkTimeIsZeroForOneArrivalAtWork() {
+        let arrival = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
+        dailyObject.allEvents.append(arrival)
+        XCTAssertEqual(dailyObject.events.count, 1)
+        XCTAssertEqual(dailyObject.workTime, 0.0)
+    }
+
+    func testWorkTimeIsZeroForOneDepartureFromWork() {
+        let departure = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 0.0))
+        dailyObject.allEvents.append(departure)
+        XCTAssertEqual(dailyObject.events.count, 1)
+        XCTAssertEqual(dailyObject.workTime, 0.0)
+    }
+
+    func testWorkTimeIsCountedForAValidPair() {
+        let arrival = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
+        let departure = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 10.0)) //work for 10 seconds
+        dailyObject.allEvents.append(arrival)
+        dailyObject.allEvents.append(departure)
+        XCTAssertEqual(dailyObject.events.count, 2)
+        XCTAssertEqual(dailyObject.workTime, 10.0)
+    }
+
+    func testWorkTimeIsCountedForAValidPairSurroundedByInValidItems() {
+
+        // i.e. Arrive, Arrive, Leave, Leave
+        //                 |------|  this duration is counted
+
+        let arrival1 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
+        let arrival2 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 10.0))
+        let departure1 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 20.0)) //work for 10 seconds
+        let departure2 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 30.0))
+        dailyObject.allEvents.append(arrival1)
+        dailyObject.allEvents.append(arrival2)
+        dailyObject.allEvents.append(departure1)
+        dailyObject.allEvents.append(departure2)
+        XCTAssertEqual(dailyObject.events.count, 4)
+        XCTAssertEqual(dailyObject.workTime, 10.0)
+    }
+
+    func testWorkTimeIsCountedForTwoValidPairSurroundedByInValidItems() {
+
+        // i.e. Arrive1, Arrive2, Leave1, Leave2, Arrive3, Arrive4, Leave3, Leave4
+        //                 |------|                      |------|
+        // returns the sum of these 2 valid intervals
+
+        let arrival1 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
+        let arrival2 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 10.0))
+        let departure1 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 20.0)) //work for 10 seconds
+        let departure2 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 30.0))
+        let arrival3 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 40.0))
+        let arrival4 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 50.0))
+        let departure3 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 60.0)) //work for 10 seconds
+        let departure4 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 70.0))
+
+        dailyObject.allEvents.append(arrival1)
+        dailyObject.allEvents.append(arrival2)
+        dailyObject.allEvents.append(departure1)
+        dailyObject.allEvents.append(departure2)
+        dailyObject.allEvents.append(arrival3)
+        dailyObject.allEvents.append(arrival4)
+        dailyObject.allEvents.append(departure3)
+        dailyObject.allEvents.append(departure4)
+
+        XCTAssertEqual(dailyObject.events.count, 8)
+        XCTAssertEqual(dailyObject.workTime, 20.0)
     }
 
 }
