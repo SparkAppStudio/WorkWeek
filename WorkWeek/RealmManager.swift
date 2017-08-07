@@ -44,6 +44,7 @@ class DailyObject: Object {
     dynamic var timeArriveHome: Event?
 
     var validWorkingDurations: [(Event, Event)] {
+
         var index = 0
         var pairs = [(Event, Event)]()
         while index < allEvents.count {
@@ -79,14 +80,11 @@ class DailyObject: Object {
     }
 
     var workTime: TimeInterval {
-        var totalTimeInterval: TimeInterval = 0
-        for (arriveWork, leaveWork) in validWorkingDurations {
-            let interval = DateInterval(start: arriveWork.eventTime, end: leaveWork.eventTime)
-            totalTimeInterval += interval.duration
+        return validWorkingDurations.reduce(0.0) { (res, pair) -> TimeInterval in
+            return res + DateInterval(start: pair.0.eventTime, end: pair.1.eventTime).duration
         }
-
-        return totalTimeInterval
     }
+
     override static func primaryKey() -> String? {
         return #keyPath(DailyObject.dateString)
     }
