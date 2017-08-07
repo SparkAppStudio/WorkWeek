@@ -37,36 +37,58 @@ class WeeklyObject: Object {
 class DailyObject: Object {
     dynamic var dateString: String?
     dynamic var date: Date?
+    let allEvents = List<Event>()
     dynamic var timeLeftHome: Event?
     dynamic var timeArriveWork: Event?
     dynamic var timeLeftWork: Event?
     dynamic var timeArriveHome: Event?
-    var workTime: TimeInterval {
-        guard let arriveWorkEventTime = timeArriveWork?.eventTime,
-            let leftWorkEventTime = timeLeftWork?.eventTime else {
-                return 0.0
+
+    var validWorkingDurations: [(Event, Event)] {
+        var index = 0
+        var pairs = [(Event, Event)]()
+        while index < allEvents.count {
+            if allEvents[index].kind == NotificationCenter.CheckInEvent.arriveWork {
+                var arriveWork = allEvents[index]
+                index += 1
+                while index < allEvents.count {
+
+                    if allEvents[index].kind == NotificationCenter.CheckInEvent.arriveWork {
+                        arriveWork = allEvents[index]
+                        index += 1
+                    }
+
+                    if allEvents[index].kind == NotificationCenter.CheckInEvent.leaveWork {
+                        let leaveWork = allEvents[index]
+                        index += 1
+                        let pair = (arriveWork, leaveWork)
+                        pairs.append(pair)
+                        break
+                    } else {
+                        index += 1
+                    }
+                }
+            } else {
+                index += 1
+            }
         }
-        return leftWorkEventTime.timeIntervalSince(arriveWorkEventTime)
+        return pairs
+    }
+
+    var workTime: TimeInterval {
+        var totalTimeInterval: TimeInterval = 0
+        for (arriveWork, leaveWork) in validWorkingDurations {
+            let interval = DateInterval(start: arriveWork.eventTime, end: leaveWork.eventTime)
+            totalTimeInterval += interval.duration
+        }
+
+        return totalTimeInterval
     }
     override static func primaryKey() -> String? {
         return #keyPath(DailyObject.dateString)
     }
 
     var events: [Event] {
-        var tempEvents = [Event]()
-        if let timeLeftHome = timeLeftHome {
-            tempEvents.append(timeLeftHome)
-        }
-        if let timeArriveWork = timeArriveWork {
-            tempEvents.append(timeArriveWork)
-        }
-        if let timeLeftWork = timeLeftWork {
-            tempEvents.append(timeLeftWork)
-        }
-        if let timeArriveHome = timeArriveHome {
-            tempEvents.append(timeArriveHome)
-        }
-        return tempEvents
+        return Array(allEvents)
     }
 }
 
@@ -149,21 +171,27 @@ class RealmManager {
         let weeklyKey = weeklyPrimaryKeyBased(on: todayDate)
 
         let event = Event(kind: checkInEvent, time: Date())
-        let eventKeypath = dailyObjectKeyPath(for: checkInEvent)
 
         // update DailyObject with new event
         do {
             try realm.write {
                 realm.add(event)
+                // Fetch daily object for the day
                 let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: todayKey)
+
+                // Create a daily object without updating event
                 let createdDailyObject = realm.create(DailyObject.self,
                                                       value: [#keyPath(DailyObject.dateString): todayKey,
-                                                              eventKeypath: event,
                                                               #keyPath(DailyObject.date): todayDate],
                                                       update: true)
+
+                // Append the event inside allEvents
+                createdDailyObject.allEvents.append(event)
+
                 let weeklyObject = realm.create(WeeklyObject.self,
                                                 value: [#keyPath(WeeklyObject.weekAndTheYear): weeklyKey],
                                                 update: true)
+
                 // After DailyObject is created for the first time, need to Save it into weekly
                 if dailyObjectResult == nil {
                     weeklyObject.dailyObjects.append(createdDailyObject)
