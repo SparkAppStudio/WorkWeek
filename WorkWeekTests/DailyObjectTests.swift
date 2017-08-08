@@ -28,14 +28,14 @@ class DailyObjectTests: XCTestCase {
 
     func testWorkTimeIsZeroForOneArrivalAtWork() {
         let arrival = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
-        dailyObject.allEvents.append(arrival)
+        dailyObject.allEventsRaw.append(arrival)
         XCTAssertEqual(dailyObject.events.count, 1)
         XCTAssertEqual(dailyObject.workTime, 0.0)
     }
 
     func testWorkTimeIsZeroForOneDepartureFromWork() {
         let departure = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 0.0))
-        dailyObject.allEvents.append(departure)
+        dailyObject.allEventsRaw.append(departure)
         XCTAssertEqual(dailyObject.events.count, 1)
         XCTAssertEqual(dailyObject.workTime, 0.0)
     }
@@ -43,11 +43,25 @@ class DailyObjectTests: XCTestCase {
     func testWorkTimeIsCountedForAValidPair() {
         let arrival = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
         let departure = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 10.0)) //work for 10 seconds
-        dailyObject.allEvents.append(arrival)
-        dailyObject.allEvents.append(departure)
+        dailyObject.allEventsRaw.append(arrival)
+        dailyObject.allEventsRaw.append(departure)
         XCTAssertEqual(dailyObject.events.count, 2)
         XCTAssertEqual(dailyObject.workTime, 10.0)
     }
+
+    func testWorkTimeNotCountedForThreeArrivalsInValidItems() {
+        // i.e. Arrive, Arrive
+
+        let arrival1 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
+        let arrival2 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 10.0))
+        let arrival3 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 20.0))
+        dailyObject.allEventsRaw.append(arrival1)
+        dailyObject.allEventsRaw.append(arrival2)
+        dailyObject.allEventsRaw.append(arrival3)
+        XCTAssertEqual(dailyObject.events.count, 3)
+        XCTAssertEqual(dailyObject.workTime, 0.0)
+    }
+
 
     func testWorkTimeIsCountedForAValidPairSurroundedByInValidItems() {
 
@@ -58,10 +72,10 @@ class DailyObjectTests: XCTestCase {
         let arrival2 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 10.0))
         let departure1 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 20.0)) //work for 10 seconds
         let departure2 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 30.0))
-        dailyObject.allEvents.append(arrival1)
-        dailyObject.allEvents.append(arrival2)
-        dailyObject.allEvents.append(departure1)
-        dailyObject.allEvents.append(departure2)
+        dailyObject.allEventsRaw.append(arrival1)
+        dailyObject.allEventsRaw.append(arrival2)
+        dailyObject.allEventsRaw.append(departure1)
+        dailyObject.allEventsRaw.append(departure2)
         XCTAssertEqual(dailyObject.events.count, 4)
         XCTAssertEqual(dailyObject.workTime, 10.0)
     }
@@ -81,14 +95,14 @@ class DailyObjectTests: XCTestCase {
         let departure3 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 60.0)) //work for 10 seconds
         let departure4 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 70.0))
 
-        dailyObject.allEvents.append(arrival1)
-        dailyObject.allEvents.append(arrival2)
-        dailyObject.allEvents.append(departure1)
-        dailyObject.allEvents.append(departure2)
-        dailyObject.allEvents.append(arrival3)
-        dailyObject.allEvents.append(arrival4)
-        dailyObject.allEvents.append(departure3)
-        dailyObject.allEvents.append(departure4)
+        dailyObject.allEventsRaw.append(arrival1)
+        dailyObject.allEventsRaw.append(arrival2)
+        dailyObject.allEventsRaw.append(departure1)
+        dailyObject.allEventsRaw.append(departure2)
+        dailyObject.allEventsRaw.append(arrival3)
+        dailyObject.allEventsRaw.append(arrival4)
+        dailyObject.allEventsRaw.append(departure3)
+        dailyObject.allEventsRaw.append(departure4)
 
         XCTAssertEqual(dailyObject.events.count, 8)
         XCTAssertEqual(dailyObject.workTime, 20.0)
