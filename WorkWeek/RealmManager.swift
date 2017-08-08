@@ -37,34 +37,55 @@ class WeeklyObject: Object {
 class DailyObject: Object {
     dynamic var dateString: String?
     dynamic var date: Date?
-    let allEvents = List<Event>()
+    let allEventsRaw = List<Event>()
     dynamic var timeLeftHome: Event?
     dynamic var timeArriveWork: Event?
     dynamic var timeLeftWork: Event?
     dynamic var timeArriveHome: Event?
 
-    var validWorkingDurations: [(Event, Event)] {
-        var index = 0
-        var pairs = [(Event, Event)]()
-        while index < allEvents.count {
-            if allEvents[index].kind == NotificationCenter.CheckInEvent.arriveWork {
-                var arriveWork = allEvents[index]
-                index += 1
-                while index < allEvents.count {
+    struct Pair {
+        let start: Event
+        let end: Event
 
-                    if allEvents[index].kind == NotificationCenter.CheckInEvent.arriveWork {
-                        arriveWork = allEvents[index]
+        var interval: TimeInterval {
+            return DateInterval(start: start.eventTime, end: end.eventTime).duration
+        }
+    }
+
+    var validWorkingDurations: [Pair] {
+
+        var index = 0
+        var pairs = [Pair]()
+
+        func discardLeadingLeaves(_ list: [Event]) -> [Event] {
+            return Array(list.drop(while: { $0.kind == .leaveWork }))
+        }
+
+        func discardTrailingArrivals(_ list: [Event]) -> [Event] {
+            return Array(list.reversed().drop(while: { $0.kind == .arriveWork}).reversed())
+        }
+
+        let sanitized = discardTrailingArrivals(discardLeadingLeaves(Array(allEventsRaw)))
+
+        while index < allEventsRaw.count {
+            if allEventsRaw[index].kind == .arriveWork {
+                var arriveWork = allEventsRaw[index]
+                index += 1
+                while index < allEventsRaw.count {
+
+                    if allEventsRaw[index].kind == .arriveWork {
+                        arriveWork = allEventsRaw[index]
                         index += 1
                     }
 
-                    guard index < allEvents.count else {
+                    guard index < allEventsRaw.count else {
                         break
                     }
 
-                    if allEvents[index].kind == NotificationCenter.CheckInEvent.leaveWork {
-                        let leaveWork = allEvents[index]
+                    if allEventsRaw[index].kind == .leaveWork {
+                        let leaveWork = allEventsRaw[index]
                         index += 1
-                        let pair = (arriveWork, leaveWork)
+                        let pair = Pair(start:arriveWork, end:leaveWork)
                         pairs.append(pair)
                         break
                     } else {
@@ -79,20 +100,17 @@ class DailyObject: Object {
     }
 
     var workTime: TimeInterval {
-        var totalTimeInterval: TimeInterval = 0
-        for (arriveWork, leaveWork) in validWorkingDurations {
-            let interval = DateInterval(start: arriveWork.eventTime, end: leaveWork.eventTime)
-            totalTimeInterval += interval.duration
+        return validWorkingDurations.reduce(0.0) { (res, pair) -> TimeInterval in
+            return res + pair.interval
         }
-
-        return totalTimeInterval
     }
+
     override static func primaryKey() -> String? {
         return #keyPath(DailyObject.dateString)
     }
 
     var events: [Event] {
-        return Array(allEvents)
+        return Array(allEventsRaw)
     }
 }
 
@@ -190,7 +208,7 @@ class RealmManager {
                                                       update: true)
 
                 // Append the event inside allEvents
-                createdDailyObject.allEvents.append(event)
+                createdDailyObject.allEventsRaw.append(event)
 
                 let weeklyObject = realm.create(WeeklyObject.self,
                                                 value: [#keyPath(WeeklyObject.weekAndTheYear): weeklyKey],
