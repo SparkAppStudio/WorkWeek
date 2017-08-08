@@ -54,7 +54,6 @@ class DailyObject: Object {
 
     var validWorkingDurations: [Pair] {
 
-        var index = 0
         var pairs = [Pair]()
 
         func discardLeadingLeaves(_ list: [Event]) -> [Event] {
@@ -65,35 +64,20 @@ class DailyObject: Object {
             return Array(list.reversed().drop(while: { $0.kind == .arriveWork}).reversed())
         }
 
-        let sanitized = discardTrailingArrivals(discardLeadingLeaves(Array(allEventsRaw)))
+        func discardNoneWorkEvents(_ list: [Event]) -> [Event] {
+            return Array(list.filter({ (event) -> Bool in
+                event.kind == .arriveWork || event.kind == .leaveWork
+            }))
+        }
 
-        while index < allEventsRaw.count {
-            if allEventsRaw[index].kind == .arriveWork {
-                var arriveWork = allEventsRaw[index]
-                index += 1
-                while index < allEventsRaw.count {
+        let eventsArray = Array(allEventsRaw)
 
-                    if allEventsRaw[index].kind == .arriveWork {
-                        arriveWork = allEventsRaw[index]
-                        index += 1
-                    }
+        let sanitized = discardNoneWorkEvents(discardTrailingArrivals(discardLeadingLeaves(eventsArray)))
 
-                    guard index < allEventsRaw.count else {
-                        break
-                    }
-
-                    if allEventsRaw[index].kind == .leaveWork {
-                        let leaveWork = allEventsRaw[index]
-                        index += 1
-                        let pair = Pair(start:arriveWork, end:leaveWork)
-                        pairs.append(pair)
-                        break
-                    } else {
-                        index += 1
-                    }
-                }
-            } else {
-                index += 1
+        for (index, item) in sanitized.enumerated() {
+            guard index < sanitized.count - 1 else { break }
+            if item.kind == .arriveWork && sanitized[index + 1].kind == .leaveWork {
+                pairs.append(Pair(start: item, end: sanitized[index + 1]))
             }
         }
         return pairs
