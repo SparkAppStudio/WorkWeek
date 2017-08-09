@@ -99,7 +99,7 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,
             selector: #selector(OnboardLocationViewController.appDidBecomeActive(notification:)),
-            name: NSNotification.Name.UIApplicationDidBecomeActive,
+            name: .UIApplicationDidBecomeActive,
             object: nil)
     }
 

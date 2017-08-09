@@ -5,29 +5,33 @@
 import Foundation
 import UserNotifications
 
-final class PushNotificationManager {
+final class PushNotificationManager: NSObject {
+
+    override init() {
+        super.init()
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+    }
 
     func userHasArrivedAtWork() {
-        // TODO: The logic here is not quite correct, It will only fire properly
-        // if the user arrives at work and then does not leave for 8 hours
-        // if they exit the office for lunch when the re-arrive at work the the
-        // new Notification needs to be based on the time left in the day / week
-        let workHours = RealmManager.shared.getUserHours()
+        let workTimeLeft = RealmManager.shared.getUserTimeLeft()
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: workTimeLeft, repeats: false)
 
-        guard let trigger = UNCalendarNotificationTrigger(hoursInFuture: workHours) else {
-            Log.log(.error, "Nil Trigger for Future Date. Now: \(Date()), adding: \(workHours)")
-            return
-        }
-
-        let content = UNMutableNotificationContent()
-        content.title = "End of Work"
-        content.subtitle = "Go home"
-        content.body = "Some Body to love"
-        content.sound = UNNotificationSound.default()
+        let content = buildMessage()
         let req = UNNotificationRequest(identifier: "ArrivedAtWork", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
         Log.log("Arrived Work. Notification scheduled for: \(String(describing: trigger.nextTriggerDate()))")
+    }
+
+    func buildMessage() -> UNNotificationContent {
+        let content = UNMutableNotificationContent()
+        // TODO: Needs better Copy
+        content.title = "End of Work"
+        content.subtitle = "Go home"
+        content.body = "Some Body to love"
+        content.sound = UNNotificationSound.default()
+        return content
     }
 
     func userHasDepartedWork() {
@@ -38,6 +42,16 @@ final class PushNotificationManager {
             }
         })
         center.removeAllPendingNotificationRequests()
+    }
+
+}
+
+extension PushNotificationManager: UNUserNotificationCenterDelegate {
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(UNNotificationPresentationOptions.alert)
     }
 
 }

@@ -234,12 +234,18 @@ class RealmManager {
         unhandledErrorWrite( user.notificationChoice =  choice)
     }
 
-    func getUserHours() -> Double {
+    func getUserTimeLeft() -> TimeInterval {
+        let today = Date()
+        let timeSoFar = queryDailyObject(for: today)?.workTime ?? 0.0
+        return usersDefaultWorkDayLength() - timeSoFar
+    }
+
+    func usersDefaultWorkDayLength() -> TimeInterval {
         guard let user = realm.objects(User.self).first else {
             saveInitialUser()
-            return User.defaultWorkDayLength
+            return User.defaultWorkDayLength * 60.0 * 60.0 // convert hours to seconds
         }
-        return user.hoursInWorkDay
+        return user.hoursInWorkDay * 60.0 * 60.0 // convert hours to seconds
     }
 
     func unhandledErrorWrite(_ action: @autoclosure () -> Void ) {
