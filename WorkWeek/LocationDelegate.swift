@@ -5,6 +5,11 @@
 import Foundation
 import CoreLocation
 
+enum RegionId: String {
+    case home
+    case work
+}
+
 final class LocationDelegate: NSObject, CLLocationManagerDelegate {
 
     // TODO: Inject this dependency since other use it

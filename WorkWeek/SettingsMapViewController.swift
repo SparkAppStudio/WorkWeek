@@ -5,13 +5,7 @@
 import UIKit
 import MapKit
 
-// TODO: Combine these 2 enums?
 enum MapVCType {
-    case home
-    case work
-}
-
-enum RegionId: String {
     case home
     case work
 }
@@ -89,7 +83,6 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
             mapView.setRegion(userZoomedRegion, animated: false)
         }
     }
-
 
     func drawOverlays(for type: MapVCType) {
         switch type {
