@@ -59,6 +59,12 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         setPickerDefaultRow()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.track(.pageView(.settingsMain))
+    }
+
+
     func setMainContentStackViewEqualToPhoneWidth() {
         mainStackViewContentWidth.constant = UIScreen.main.bounds.width - padding * 2
     }

@@ -35,6 +35,11 @@ final class CountdownViewController: UIViewController {
         #endif
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.track(.pageView(.activityCountdown))
+    }
+
     #if DEBUG
     // We are willing to become first responder to get shake motion
     override var canBecomeFirstResponder: Bool {

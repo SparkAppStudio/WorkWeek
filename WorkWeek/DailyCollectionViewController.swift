@@ -52,6 +52,11 @@ class DailyCollectionViewController: UICollectionViewController {
         // could just put a white or translucent view down there.... but it might be hacky to get it under the page indicator
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.track(.pageView(.activityDaily))
+    }
+
     func reloadViewController() {
         self.collectionView?.reloadData()
     }

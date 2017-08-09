@@ -47,6 +47,12 @@ class WeeklyCollectionViewController: UICollectionViewController {
         setupRealm()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.track(.pageView(.activityWeekly))
+    }
+
+
     func setupRealm() {
         self.notificationToken = results?.addNotificationBlock({ (changes: RealmCollectionChange) in
             switch changes {

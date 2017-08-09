@@ -8,9 +8,19 @@ import UserNotifications
 
 class OnboardWelcomeViewController: UIViewController, OnboardingStoryboard {
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.track(.pageView(.onboardWelcome))
+    }
+
 }
 
 class OnboardExplainViewController: UIViewController, OnboardingStoryboard {
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.track(.pageView(.onboardExplain))
+    }
 
 }
 
@@ -40,6 +50,12 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
         super.viewWillAppear(animated)
         configureDisplay()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.track(.pageView(.onboardLocation))
+    }
+
 
     func configureDisplay() {
         switch CLLocationManager.authorizationStatus() {
@@ -108,6 +124,12 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
         configureDisplay(button: grantNotifyButton)
         configureDisplay(button: denyNotifyButton)
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.track(.pageView(.onboardNotify))
+    }
+
 
     func appDidBecomeActive(notification: NSNotification) {
         configureDisplay(button: grantNotifyButton)
@@ -218,6 +240,11 @@ class OnboardSettingsViewController: UIViewController, OnboardingStoryboard {
 
     @IBOutlet weak var setHomeButton: UIButton!
     @IBOutlet weak var setWorkButton: UIButton!
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.track(.pageView(.onboardSettings))
+    }
 
     @IBAction func didTapHome(_ sender: UIButton) {
         delegate?.settingsPageDidTapHome()
