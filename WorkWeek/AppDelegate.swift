@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var locationWindow: UIWindow?
     var appCoordinator: AppCoordinator!
     var locationManager: CLLocationManager!
+    var locationDelegate = LocationDelegate() // swiftlint:disable:this weak_delegate
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -79,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func createLocationManager() {
         let locationManager = CLLocationManager()
-        locationManager.delegate = self
+        locationManager.delegate = locationDelegate
         self.locationManager = locationManager
     }
 
@@ -91,52 +92,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return out
     }
-}
-
-extension AppDelegate: CLLocationManagerDelegate {
-
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        // When user becomes authorized, update their location, so the map will
-        // be up to date when they get to it
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse:
-            manager.startUpdatingLocation()
-        case .denied, .notDetermined, .restricted:
-            break
-        }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        Log.log(.error, String(describing: error))
-        if (error as? CLError)?.code == .denied {
-            manager.stopUpdatingLocation()
-        }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        guard let typedRegion = RegionId(rawValue: region.identifier) else {
-            Log.log(.error, "Could not create a typed region from \(region.identifier)")
-            return
-        }
-        switch typedRegion {
-        case .home:
-            NotificationCenterManager.shared.postArriveHomeNotification()
-        case .work:
-            NotificationCenterManager.shared.postArriveWorkNotification()
-        }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        guard let typedRegion = RegionId(rawValue:region.identifier) else {
-            Log.log(.error, "Could not create a typed region from \(region.identifier)")
-            return
-        }
-        switch typedRegion {
-        case .home:
-            NotificationCenterManager.shared.postLeaveHomeNotification()
-        case .work:
-            NotificationCenterManager.shared.postLeaveWorkNotification()
-        }
-    }
-
 }

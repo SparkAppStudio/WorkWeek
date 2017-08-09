@@ -36,6 +36,7 @@ protocol MapVCDelegate: class {
 }
 
 extension MapVCDelegate {
+
     func save(viewController: UIViewController, type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
         let region: CLRegion
         switch type {
