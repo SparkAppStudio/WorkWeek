@@ -26,10 +26,8 @@ final class PushNotificationManager: NSObject {
 
     func buildMessage() -> UNNotificationContent {
         let content = UNMutableNotificationContent()
-        // TODO: Needs better Copy
-        content.title = "End of Work"
-        content.subtitle = "Go home"
-        content.body = "Some Body to love"
+        content.title = "You Did It"
+        content.body = "🏄 You reached your goal. Enjoy. 🙌"
         content.sound = UNNotificationSound.default()
         return content
     }
