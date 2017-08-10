@@ -99,6 +99,14 @@ class DailyObject: Object {
     var events: [Event] {
         return Array(allEventsRaw)
     }
+
+    func getPair(sanitized: [Event]) -> (Pair, [Event])? {
+        var mutableCopy: [Event] = sanitized
+        guard let arrivalAtWork = mutableCopy.popFirst() as? Event else { return nil }
+        let startsWithLeave = mutableCopy.drop(while: {$0.kind == .leaveWork})
+        guard let end = startsWithLeave.dropFirst else { return nil }
+        return (Pair(start:arrivalAtWork, end), startsWithLeave)
+    }
 }
 
 class Event: Object {
