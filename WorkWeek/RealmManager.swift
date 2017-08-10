@@ -56,40 +56,45 @@ class DailyObject: Object {
 
         var pairs = [Pair]()
 
-        func discardLeadingLeaves(_ list: [Event]) -> [Event] {
-            return Array(list.drop(while: { $0.kind == .leaveWork }))
-        }
-
-        func discardTrailingArrivals(_ list: [Event]) -> [Event] {
-            return Array(list.reversed().drop(while: { $0.kind == .arriveWork}).reversed())
-        }
-
         func discardNoneWorkEvents(_ list: [Event]) -> [Event] {
             return Array(list.filter({ (event) -> Bool in
                 event.kind == .arriveWork || event.kind == .leaveWork
             }))
         }
 
-        let eventsArray = Array(allEventsRaw)
-
-        let sanitized = eventsArray
-                        |> discardLeadingLeaves
-                        |> discardTrailingArrivals
-                        |> discardNoneWorkEvents
-
-        for (index, item) in sanitized.enumerated() {
-            guard index < sanitized.count - 1 else { break }
-            if item.kind == .arriveWork && sanitized[index + 1].kind == .leaveWork {
-                pairs.append(Pair(start: item, end: sanitized[index + 1]))
-            }
+        func getPair(_ sanitized: [Event]) -> [Pair] {
+            var mutableCopy = sanitized
+            guard let arriveWork = findArrival(&mutableCopy) else { return [] }
+            guard let leaveWork = findDeparture(&mutableCopy) else { return [] }
+            mutableCopy = Array(mutableCopy.drop(while: {$0.kind == .leaveWork}))
+            let foundPair = Pair(start: arriveWork, end: leaveWork)
+            return [foundPair] + getPair(Array(mutableCopy))
         }
-        return pairs
+
+        func findArrival(_ mutableCopy: inout [Event]) -> Event? {
+            guard !mutableCopy.isEmpty else {
+                return nil
+            }
+            let arriveArray = mutableCopy.prefix { $0.kind == .arriveWork }
+            return arriveArray.last
+        }
+
+        func findDeparture(_ mutableCopy: inout [Event]) -> Event? {
+            mutableCopy = Array(mutableCopy.drop { $0.kind == .arriveWork })
+            guard !mutableCopy.isEmpty else {
+                return nil
+            }
+            return mutableCopy.removeFirst()
+        }
+
+        return Array(allEventsRaw)
+                    |> discardNoneWorkEvents
+                    |> getPair
+
     }
 
     var workTime: TimeInterval {
-        return validWorkingDurations.reduce(0.0) { (res, pair) -> TimeInterval in
-            return res + pair.interval
-        }
+        return validWorkingDurations.reduce(0) { $0 + $1.interval }
     }
 
     override static func primaryKey() -> String? {
@@ -100,13 +105,6 @@ class DailyObject: Object {
         return Array(allEventsRaw)
     }
 
-    func getPair(sanitized: [Event]) -> (Pair, [Event])? {
-        var mutableCopy: [Event] = sanitized
-        guard let arrivalAtWork = mutableCopy.popFirst() as? Event else { return nil }
-        let startsWithLeave = mutableCopy.drop(while: {$0.kind == .leaveWork})
-        guard let end = startsWithLeave.dropFirst else { return nil }
-        return (Pair(start:arrivalAtWork, end), startsWithLeave)
-    }
 }
 
 class Event: Object {
