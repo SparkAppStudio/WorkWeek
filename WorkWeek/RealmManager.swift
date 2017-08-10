@@ -72,7 +72,10 @@ class DailyObject: Object {
 
         let eventsArray = Array(allEventsRaw)
 
-        let sanitized = discardNoneWorkEvents(discardTrailingArrivals(discardLeadingLeaves(eventsArray)))
+        let sanitized = eventsArray
+                        |> discardLeadingLeaves
+                        |> discardTrailingArrivals
+                        |> discardNoneWorkEvents
 
         for (index, item) in sanitized.enumerated() {
             guard index < sanitized.count - 1 else { break }
