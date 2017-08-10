@@ -17,3 +17,5 @@ fail("fit left in tests") if `grep -r fit specs/ `.length > 1
 
 xcode_summary.ignored_files = '**/Carthage/**'
 xcode_summary.report 'xcodebuild.json'
+
+swiftlint.lint_files
