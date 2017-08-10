@@ -49,8 +49,36 @@ class DailyObjectTests: XCTestCase {
         XCTAssertEqual(dailyObject.workTime, 10.0)
     }
 
+    func testDiscardsInvalidItemsAtFrontOfList() {
+        // i.e. Depart, Arrive, Depart
+        //                  |----|
+        let departure1 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 0.0))
+        let arrival = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 10.0))
+        let departure2 = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 20.0)) //work for 10 seconds
+        dailyObject.allEventsRaw.append(departure1)
+        dailyObject.allEventsRaw.append(arrival)
+        dailyObject.allEventsRaw.append(departure2)
+        XCTAssertEqual(dailyObject.events.count, 3)
+        XCTAssertEqual(dailyObject.workTime, 10.0)
+    }
+
+    func testDiscardsInvalidItemsAtEndOfList() {
+        // i.e. Arrive, Depart, Arrive, Arrive
+        //          |----|
+        let arrival1 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
+        let departure = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 10.0)) //work for 10 seconds
+        let arrival2 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 20.0))
+        let arrival3 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 30.0))
+        dailyObject.allEventsRaw.append(arrival1)
+        dailyObject.allEventsRaw.append(departure)
+        dailyObject.allEventsRaw.append(arrival2)
+        dailyObject.allEventsRaw.append(arrival3)
+        XCTAssertEqual(dailyObject.events.count, 4)
+        XCTAssertEqual(dailyObject.workTime, 10.0)
+    }
+
     func testWorkTimeNotCountedForThreeArrivalsInValidItems() {
-        // i.e. Arrive, Arrive
+        // i.e. Arrive, Arrive, Arrive
 
         let arrival1 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
         let arrival2 = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 10.0))
