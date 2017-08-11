@@ -10,6 +10,7 @@ warn("Big PR") if git.lines_of_code > 500
 
 # Warn for TODO's, we don't need to fix them all just don't let them get out of control
 todoist.warn_for_todos
+todoist.print_todos_table
 
 swiftlint.lint_files
 swiftlint.lint_files inline_mode: true
