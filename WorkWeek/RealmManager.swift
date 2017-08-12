@@ -37,37 +37,74 @@ class WeeklyObject: Object {
 class DailyObject: Object {
     dynamic var dateString: String?
     dynamic var date: Date?
-    dynamic var timeLeftHome: Event?
-    dynamic var timeArriveWork: Event?
-    dynamic var timeLeftWork: Event?
-    dynamic var timeArriveHome: Event?
-    var workTime: TimeInterval {
-        guard let arriveWorkEventTime = timeArriveWork?.eventTime,
-            let leftWorkEventTime = timeLeftWork?.eventTime else {
-                return 0.0
+    let allEventsRaw = List<Event>()
+
+    struct Pair {
+        let start: Event
+        let end: Event
+
+        var interval: TimeInterval {
+            return DateInterval(start: start.eventTime, end: end.eventTime).duration
         }
-        return leftWorkEventTime.timeIntervalSince(arriveWorkEventTime)
     }
+
+    var validWorkingDurations: [Pair] {
+
+        func discardLeadingLeaves(_ list: [Event]) -> [Event] {
+            return Array(list.drop(while: { $0.kind == .leaveWork }))
+        }
+
+        func discardTrailingArrivals(_ list: [Event]) -> [Event] {
+            return Array(list.reversed().drop(while: { $0.kind == .arriveWork}).reversed())
+        }
+
+        func discardNoneWorkEvents(_ list: [Event]) -> [Event] {
+            return list.filter { $0.kind == .arriveWork || $0.kind == .leaveWork }
+        }
+
+        func getPair(_ sanitized: [Event]) -> [Pair] {
+            var mutableCopy = sanitized
+            guard let arriveWork = findArrival(&mutableCopy) else { return [] }
+            guard let leaveWork = findDeparture(&mutableCopy) else { return [] }
+            let foundPair = Pair(start: arriveWork, end: leaveWork)
+            return [foundPair] + getPair(Array(mutableCopy))
+        }
+
+        func findArrival(_ mutableCopy: inout [Event]) -> Event? {
+            guard !mutableCopy.isEmpty else { return nil }
+            let arriveArray = mutableCopy.prefix { $0.kind == .arriveWork }
+            defer {  mutableCopy = Array(mutableCopy.drop { $0.kind == .arriveWork }) }
+            return arriveArray.last
+        }
+
+        func findDeparture(_ mutableCopy: inout [Event]) -> Event? {
+            guard !mutableCopy.isEmpty else { return nil }
+            let departure = mutableCopy.removeFirst()
+            guard departure.kind == .leaveWork else { return nil }
+            defer { mutableCopy = Array(mutableCopy.drop(while: {$0.kind == .leaveWork})) }
+            return departure
+        }
+
+        return Array(allEventsRaw)
+            |> discardLeadingLeaves
+            |> discardTrailingArrivals
+            |> discardNoneWorkEvents
+            |> getPair
+
+    }
+
+    var workTime: TimeInterval {
+        return validWorkingDurations.reduce(0) { $0 + $1.interval }
+    }
+
     override static func primaryKey() -> String? {
         return #keyPath(DailyObject.dateString)
     }
 
     var events: [Event] {
-        var tempEvents = [Event]()
-        if let timeLeftHome = timeLeftHome {
-            tempEvents.append(timeLeftHome)
-        }
-        if let timeArriveWork = timeArriveWork {
-            tempEvents.append(timeArriveWork)
-        }
-        if let timeLeftWork = timeLeftWork {
-            tempEvents.append(timeLeftWork)
-        }
-        if let timeArriveHome = timeArriveHome {
-            tempEvents.append(timeArriveHome)
-        }
-        return tempEvents
+        return Array(allEventsRaw)
     }
+
 }
 
 class Event: Object {
@@ -149,21 +186,27 @@ class RealmManager {
         let weeklyKey = weeklyPrimaryKeyBased(on: todayDate)
 
         let event = Event(kind: checkInEvent, time: Date())
-        let eventKeypath = dailyObjectKeyPath(for: checkInEvent)
 
         // update DailyObject with new event
         do {
             try realm.write {
                 realm.add(event)
+                // Fetch daily object for the day
                 let dailyObjectResult = realm.object(ofType: DailyObject.self, forPrimaryKey: todayKey)
+
+                // Create a daily object without updating event
                 let createdDailyObject = realm.create(DailyObject.self,
                                                       value: [#keyPath(DailyObject.dateString): todayKey,
-                                                              eventKeypath: event,
                                                               #keyPath(DailyObject.date): todayDate],
                                                       update: true)
+
+                // Append the event inside allEvents
+                createdDailyObject.allEventsRaw.append(event)
+
                 let weeklyObject = realm.create(WeeklyObject.self,
                                                 value: [#keyPath(WeeklyObject.weekAndTheYear): weeklyKey],
                                                 update: true)
+
                 // After DailyObject is created for the first time, need to Save it into weekly
                 if dailyObjectResult == nil {
                     weeklyObject.dailyObjects.append(createdDailyObject)
@@ -174,20 +217,6 @@ class RealmManager {
         }
     }
 
-    func dailyObjectKeyPath(for checkInEvent: NotificationCenter.CheckInEvent) -> String {
-        let updateKeypath: String
-        switch checkInEvent {
-        case .leaveHome:
-            updateKeypath = #keyPath(DailyObject.timeLeftHome)
-        case .arriveWork:
-            updateKeypath = #keyPath(DailyObject.timeArriveWork)
-        case .leaveWork:
-            updateKeypath = #keyPath(DailyObject.timeLeftWork)
-        case .arriveHome:
-            updateKeypath = #keyPath(DailyObject.timeArriveHome)
-        }
-        return updateKeypath
-    }
 
     func dailyPrimaryKeyBased(on date: Date) -> String {
         return RealmManager.dateFormatter.string(from: date)

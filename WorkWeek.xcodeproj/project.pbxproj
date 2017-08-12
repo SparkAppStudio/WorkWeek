@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520855671F38144A00409642 /* DailyObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520855661F38144A00409642 /* DailyObjectTests.swift */; };
 		5208F3AC1EDE4C22008F82CC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5208F3AA1EDE4C22008F82CC /* Fabric.framework */; };
 		5208F3AD1EDE4C22008F82CC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */; };
 		521AF7FB1F21902900C8F707 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521AF7FA1F21902900C8F707 /* UserDefaults+Extensions.swift */; };
 		52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52223FA81EE123F20014F4A9 /* AppCoordinator.swift */; };
 		52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52223FAA1EE1299B0014F4A9 /* Reusable.framework */; };
+		523ADD221F3B5083005D2830 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ADD211F3B5083005D2830 /* CustomOperators.swift */; };
 		524392FC1F148C4100EEFEA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524392FB1F148C4100EEFEA3 /* User.swift */; };
 		52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */; };
 		52510E941EFCD03E006F5C97 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52510E931EFCD03E006F5C97 /* MapKit.framework */; };
@@ -55,12 +57,24 @@
 		D1CA47071EE35528003628FF /* ActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47061EE35528003628FF /* ActivityPageViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		52E1FFE41F3813A80091C1CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5287CA2A1EDCF91E00E71CE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5287CA311EDCF91E00E71CE8;
+			remoteInfo = WorkWeek;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		520855661F38144A00409642 /* DailyObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyObjectTests.swift; sourceTree = "<group>"; };
 		5208F3AA1EDE4C22008F82CC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		521AF7FA1F21902900C8F707 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		52223FA81EE123F20014F4A9 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		52223FAA1EE1299B0014F4A9 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
+		523ADD211F3B5083005D2830 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		524392FB1F148C4100EEFEA3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMapViewController.swift; sourceTree = "<group>"; };
 		52510E931EFCD03E006F5C97 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -87,6 +101,8 @@
 		52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHoursPickerDataSource.swift; sourceTree = "<group>"; };
 		52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		52E1FFDF1F3813A80091C1CB /* WorkWeekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkWeekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52E1FFE31F3813A80091C1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C362A4061EE34EA200AB9830 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
 		C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +137,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52E1FFDC1F3813A80091C1CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -129,6 +152,7 @@
 			children = (
 				527430E31F33FDC600ED238D /* WorkWeekCustomViews.playground */,
 				5287CA341EDCF91E00E71CE8 /* WorkWeek */,
+				52E1FFE01F3813A80091C1CB /* WorkWeekTests */,
 				5287CA331EDCF91E00E71CE8 /* Products */,
 				5287CA481EDCFA9100E71CE8 /* Frameworks */,
 			);
@@ -138,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				5287CA321EDCF91E00E71CE8 /* WorkWeek.app */,
+				52E1FFDF1F3813A80091C1CB /* WorkWeekTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,6 +217,15 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		52E1FFE01F3813A80091C1CB /* WorkWeekTests */ = {
+			isa = PBXGroup;
+			children = (
+				52E1FFE31F3813A80091C1CB /* Info.plist */,
+				520855661F38144A00409642 /* DailyObjectTests.swift */,
+			);
+			path = WorkWeekTests;
+			sourceTree = "<group>";
+		};
 		C3FE380B1EFDD4CD00E1D60E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +255,7 @@
 				C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */,
 				D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */,
 				521AF7FA1F21902900C8F707 /* UserDefaults+Extensions.swift */,
+				523ADD211F3B5083005D2830 /* CustomOperators.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +318,24 @@
 			productReference = 5287CA321EDCF91E00E71CE8 /* WorkWeek.app */;
 			productType = "com.apple.product-type.application";
 		};
+		52E1FFDE1F3813A80091C1CB /* WorkWeekTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52E1FFE81F3813A80091C1CB /* Build configuration list for PBXNativeTarget "WorkWeekTests" */;
+			buildPhases = (
+				52E1FFDB1F3813A80091C1CB /* Sources */,
+				52E1FFDC1F3813A80091C1CB /* Frameworks */,
+				52E1FFDD1F3813A80091C1CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52E1FFE51F3813A80091C1CB /* PBXTargetDependency */,
+			);
+			name = WorkWeekTests;
+			productName = WorkWeekTests;
+			productReference = 52E1FFDF1F3813A80091C1CB /* WorkWeekTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -303,6 +356,11 @@
 							};
 						};
 					};
+					52E1FFDE1F3813A80091C1CB = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5287CA311EDCF91E00E71CE8;
+					};
 				};
 			};
 			buildConfigurationList = 5287CA2D1EDCF91E00E71CE8 /* Build configuration list for PBXProject "WorkWeek" */;
@@ -319,6 +377,7 @@
 			projectRoot = "";
 			targets = (
 				5287CA311EDCF91E00E71CE8 /* WorkWeek */,
+				52E1FFDE1F3813A80091C1CB /* WorkWeekTests */,
 			);
 		};
 /* End PBXProject section */
@@ -333,6 +392,13 @@
 				5287CA3D1EDCF91E00E71CE8 /* Assets.xcassets in Resources */,
 				5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */,
 				526799121EE349A500F41E01 /* Settings.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E1FFDD1F3813A80091C1CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +495,7 @@
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
 				52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
+				523ADD221F3B5083005D2830 /* CustomOperators.swift in Sources */,
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,
 				525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */,
 				D1C481971F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift in Sources */,
@@ -443,7 +510,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52E1FFDB1F3813A80091C1CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				520855671F38144A00409642 /* DailyObjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52E1FFE51F3813A80091C1CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5287CA311EDCF91E00E71CE8 /* WorkWeek */;
+			targetProxy = 52E1FFE41F3813A80091C1CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5287CA391EDCF91E00E71CE8 /* Activity.storyboard */ = {
@@ -600,6 +683,34 @@
 			};
 			name = Release;
 		};
+		52E1FFE61F3813A80091C1CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = WorkWeekTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SparkAppStudio.WorkWeekTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WorkWeek.app/WorkWeek";
+			};
+			name = Debug;
+		};
+		52E1FFE71F3813A80091C1CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = WorkWeekTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SparkAppStudio.WorkWeekTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WorkWeek.app/WorkWeek";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -617,6 +728,15 @@
 			buildConfigurations = (
 				5287CA451EDCF91E00E71CE8 /* Debug */,
 				5287CA461EDCF91E00E71CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52E1FFE81F3813A80091C1CB /* Build configuration list for PBXNativeTarget "WorkWeekTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52E1FFE61F3813A80091C1CB /* Debug */,
+				52E1FFE71F3813A80091C1CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
