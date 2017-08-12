@@ -50,8 +50,6 @@ class DailyObject: Object {
 
     var validWorkingDurations: [Pair] {
 
-        var pairs = [Pair]()
-
         func discardLeadingLeaves(_ list: [Event]) -> [Event] {
             return Array(list.drop(while: { $0.kind == .leaveWork }))
         }
