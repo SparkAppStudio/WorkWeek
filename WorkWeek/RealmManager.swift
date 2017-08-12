@@ -38,10 +38,6 @@ class DailyObject: Object {
     dynamic var dateString: String?
     dynamic var date: Date?
     let allEventsRaw = List<Event>()
-    dynamic var timeLeftHome: Event?
-    dynamic var timeArriveWork: Event?
-    dynamic var timeLeftWork: Event?
-    dynamic var timeArriveHome: Event?
 
     struct Pair {
         let start: Event
@@ -56,40 +52,46 @@ class DailyObject: Object {
 
         var pairs = [Pair]()
 
+        func discardLeadingLeaves(_ list: [Event]) -> [Event] {
+            return Array(list.drop(while: { $0.kind == .leaveWork }))
+        }
+
+        func discardTrailingArrivals(_ list: [Event]) -> [Event] {
+            return Array(list.reversed().drop(while: { $0.kind == .arriveWork}).reversed())
+        }
+
         func discardNoneWorkEvents(_ list: [Event]) -> [Event] {
-            return Array(list.filter({ (event) -> Bool in
-                event.kind == .arriveWork || event.kind == .leaveWork
-            }))
+            return list.filter { $0.kind == .arriveWork || $0.kind == .leaveWork }
         }
 
         func getPair(_ sanitized: [Event]) -> [Pair] {
             var mutableCopy = sanitized
             guard let arriveWork = findArrival(&mutableCopy) else { return [] }
             guard let leaveWork = findDeparture(&mutableCopy) else { return [] }
-            mutableCopy = Array(mutableCopy.drop(while: {$0.kind == .leaveWork}))
             let foundPair = Pair(start: arriveWork, end: leaveWork)
             return [foundPair] + getPair(Array(mutableCopy))
         }
 
         func findArrival(_ mutableCopy: inout [Event]) -> Event? {
-            guard !mutableCopy.isEmpty else {
-                return nil
-            }
+            guard !mutableCopy.isEmpty else { return nil }
             let arriveArray = mutableCopy.prefix { $0.kind == .arriveWork }
+            defer {  mutableCopy = Array(mutableCopy.drop { $0.kind == .arriveWork }) }
             return arriveArray.last
         }
 
         func findDeparture(_ mutableCopy: inout [Event]) -> Event? {
-            mutableCopy = Array(mutableCopy.drop { $0.kind == .arriveWork })
-            guard !mutableCopy.isEmpty else {
-                return nil
-            }
-            return mutableCopy.removeFirst()
+            guard !mutableCopy.isEmpty else { return nil }
+            let departure = mutableCopy.removeFirst()
+            guard departure.kind == .leaveWork else { return nil }
+            defer { mutableCopy = Array(mutableCopy.drop(while: {$0.kind == .leaveWork})) }
+            return departure
         }
 
         return Array(allEventsRaw)
-                    |> discardNoneWorkEvents
-                    |> getPair
+            |> discardLeadingLeaves
+            |> discardTrailingArrivals
+            |> discardNoneWorkEvents
+            |> getPair
 
     }
 
@@ -217,20 +219,6 @@ class RealmManager {
         }
     }
 
-    func dailyObjectKeyPath(for checkInEvent: NotificationCenter.CheckInEvent) -> String {
-        let updateKeypath: String
-        switch checkInEvent {
-        case .leaveHome:
-            updateKeypath = #keyPath(DailyObject.timeLeftHome)
-        case .arriveWork:
-            updateKeypath = #keyPath(DailyObject.timeArriveWork)
-        case .leaveWork:
-            updateKeypath = #keyPath(DailyObject.timeLeftWork)
-        case .arriveHome:
-            updateKeypath = #keyPath(DailyObject.timeArriveHome)
-        }
-        return updateKeypath
-    }
 
     func dailyPrimaryKeyBased(on date: Date) -> String {
         return RealmManager.dateFormatter.string(from: date)
