@@ -23,6 +23,7 @@
 		526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E50751EF6CE3C0066F043 /* CrashReporting.swift */; };
 		527039351EF8D85B00A0B6BA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527039341EF8D85B00A0B6BA /* Log.swift */; };
 		5272B78C1F12A62200F003FD /* MapVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272B78B1F12A62200F003FD /* MapVCDelegate.swift */; };
+		527A1B5A1F3EBAF90056A78A /* bigfile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 527A1B591F3EBAF90056A78A /* bigfile.txt */; };
 		52802FE41F2853CA009A519B /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52802FE31F2853CA009A519B /* PushNotificationManager.swift */; };
 		52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52802FE71F285C89009A519B /* LocationDelegate.swift */; };
 		5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */; };
@@ -72,9 +73,10 @@
 		526E50751EF6CE3C0066F043 /* CrashReporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashReporting.swift; sourceTree = "<group>"; };
 		527039341EF8D85B00A0B6BA /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5272B78B1F12A62200F003FD /* MapVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVCDelegate.swift; sourceTree = "<group>"; };
+		527430E31F33FDC600ED238D /* WorkWeekCustomViews.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WorkWeekCustomViews.playground; sourceTree = "<group>"; };
+		527A1B591F3EBAF90056A78A /* bigfile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bigfile.txt; sourceTree = "<group>"; };
 		52802FE31F2853CA009A519B /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		52802FE71F285C89009A519B /* LocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
-		527430E31F33FDC600ED238D /* WorkWeekCustomViews.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WorkWeekCustomViews.playground; sourceTree = "<group>"; };
 		5287CA321EDCF91E00E71CE8 /* WorkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				526E50751EF6CE3C0066F043 /* CrashReporting.swift */,
 				5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */,
 				52802FE71F285C89009A519B /* LocationDelegate.swift */,
+				527A1B591F3EBAF90056A78A /* bigfile.txt */,
 			);
 			path = WorkWeek;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				5287CA3D1EDCF91E00E71CE8 /* Assets.xcassets in Resources */,
 				5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */,
 				526799121EE349A500F41E01 /* Settings.storyboard in Resources */,
+				527A1B5A1F3EBAF90056A78A /* bigfile.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
