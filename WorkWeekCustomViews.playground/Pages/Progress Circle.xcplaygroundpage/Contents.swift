@@ -27,7 +27,7 @@ class Circle: UIView {
         }
 
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let colors:[CGFloat] = [1.0, 0.5, 0.4, 1.0,  // Start color
+        let colors: [CGFloat] = [1.0, 0.5, 0.4, 1.0,  // Start color
             0.8, 0.8, 0.3, 1.0]
         let locations: [CGFloat] = [0.0, 1.0]
         let gradient = CGGradient(colorSpace: colorSpace, colorComponents: colors, locations: locations, count: locations.count)
