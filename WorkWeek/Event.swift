@@ -22,5 +22,5 @@ class Event: Object {
         self.kindStorage = kind.rawValue
         self.eventTime = time
     }
-    
+
 }

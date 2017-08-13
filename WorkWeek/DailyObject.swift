@@ -71,9 +71,9 @@ class DailyObject: Object {
     override static func primaryKey() -> String? {
         return #keyPath(DailyObject.dateString)
     }
-    
+
     var events: [Event] {
         return Array(allEventsRaw)
     }
-    
+
 }
