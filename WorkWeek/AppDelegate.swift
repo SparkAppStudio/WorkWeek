@@ -8,10 +8,8 @@ import CoreLocation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    // TODO: Test This TODO?
-
-    var window : UIWindow?
-    var locationWindow : UIWindow?
+    var window: UIWindow?
+    var locationWindow: UIWindow?
     var appCoordinator: AppCoordinator!
     var locationManager: CLLocationManager!
     var locationDelegate = LocationDelegate() // swiftlint:disable:this weak_delegate
