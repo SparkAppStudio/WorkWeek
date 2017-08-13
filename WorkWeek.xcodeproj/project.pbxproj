@@ -156,11 +156,22 @@
 		5218067A1F40CDEB0079AFD4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				524392FB1F148C4100EEFEA3 /* User.swift */,
 				521806741F40CD170079AFD4 /* DailyObject.swift */,
 				521806761F40CD2B0079AFD4 /* WeeklyObject.swift */,
 				521806781F40CDC80079AFD4 /* Event.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		5218067B1F40CF610079AFD4 /* 3rdPartyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				526E50711EF62DD50066F043 /* Analytics.swift */,
+				527039341EF8D85B00A0B6BA /* Log.swift */,
+				526E50751EF6CE3C0066F043 /* CrashReporting.swift */,
+			);
+			name = 3rdPartyWrappers;
 			sourceTree = "<group>";
 		};
 		5287CA291EDCF91E00E71CE8 = {
@@ -190,19 +201,15 @@
 				52223FA81EE123F20014F4A9 /* AppCoordinator.swift */,
 				C3B0C4531EE3CC930000D097 /* PageManager.swift */,
 				D1102CE91F00C085006A0E2F /* AppConstants.swift */,
-				52802FE71F285C89009A519B /* LocationDelegate.swift */,
 				D1102CED1F038AEE006A0E2F /* Extensions */,
 				D1B21F921EF521720023D427 /* Managers */,
 				D1CA47011EE34D9F003628FF /* Activity */,
 				52E1A7291EFB91CA00FBF278 /* Settings */,
 				C3FE380B1EFDD4CD00E1D60E /* Onboarding */,
 				5218067A1F40CDEB0079AFD4 /* Models */,
-				C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */,
+				5218067B1F40CF610079AFD4 /* 3rdPartyWrappers */,
 				5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */,
 				5287CA411EDCF91E00E71CE8 /* Info.plist */,
-				526E50711EF62DD50066F043 /* Analytics.swift */,
-				527039341EF8D85B00A0B6BA /* Log.swift */,
-				526E50751EF6CE3C0066F043 /* CrashReporting.swift */,
 				5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */,
 			);
 			path = WorkWeek;
@@ -267,6 +274,7 @@
 		D1102CED1F038AEE006A0E2F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */,
 				525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */,
 				526E50731EF6CDBC0066F043 /* Dictionary+Extensions.swift */,
 				C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */,
@@ -280,9 +288,9 @@
 		D1B21F921EF521720023D427 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				52802FE71F285C89009A519B /* LocationDelegate.swift */,
 				D1B21F931EF521870023D427 /* RealmManager.swift */,
 				D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */,
-				524392FB1F148C4100EEFEA3 /* User.swift */,
 				52802FE31F2853CA009A519B /* PushNotificationManager.swift */,
 			);
 			name = Managers;
