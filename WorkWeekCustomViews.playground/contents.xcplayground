@@ -3,5 +3,6 @@
     <pages>
         <page name='Progress Circle'/>
         <page name='Gradient Label'/>
+        <page name='Button'/>
     </pages>
 </playground>
