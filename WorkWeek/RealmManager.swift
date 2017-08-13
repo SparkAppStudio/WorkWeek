@@ -79,7 +79,7 @@ class RealmManager {
                                                       update: true)
 
                 // Append the event inside allEvents
-                createdDailyObject.allEventsRaw.append(event)
+                createdDailyObject.add(event)
 
                 let weeklyObject = realm.create(WeeklyObject.self,
                                                 value: [#keyPath(WeeklyObject.weekAndTheYear): weeklyKey],

@@ -5,21 +5,38 @@
 import Foundation
 import RealmSwift
 
+private struct Pair {
+    let start: Event
+    let end: Event
+
+    var interval: TimeInterval {
+        return DateInterval(start: start.eventTime, end: end.eventTime).duration
+    }
+}
+
 class DailyObject: Object {
     dynamic var dateString: String?
     dynamic var date: Date?
-    let allEventsRaw = List<Event>()
 
-    struct Pair {
-        let start: Event
-        let end: Event
+    private let allEventsRaw = List<Event>()
 
-        var interval: TimeInterval {
-            return DateInterval(start: start.eventTime, end: end.eventTime).duration
-        }
+    var events: [Event] {
+        return Array(allEventsRaw)
     }
 
-    var validWorkingDurations: [Pair] {
+    var workTime: TimeInterval {
+        return validWorkingDurations.reduce(0) { $0 + $1.interval }
+    }
+
+    override static func primaryKey() -> String? {
+        return #keyPath(DailyObject.dateString)
+    }
+
+    func add(_ event: Event) {
+        allEventsRaw.append(event)
+    }
+
+    private var validWorkingDurations: [Pair] {
 
         func discardLeadingLeaves(_ list: [Event]) -> [Event] {
             return Array(list.drop(while: { $0.kind == .leaveWork }))
@@ -63,17 +80,4 @@ class DailyObject: Object {
             |> getPair
 
     }
-
-    var workTime: TimeInterval {
-        return validWorkingDurations.reduce(0) { $0 + $1.interval }
-    }
-
-    override static func primaryKey() -> String? {
-        return #keyPath(DailyObject.dateString)
-    }
-
-    var events: [Event] {
-        return Array(allEventsRaw)
-    }
-
 }
