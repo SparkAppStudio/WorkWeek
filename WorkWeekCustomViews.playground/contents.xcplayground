@@ -8,5 +8,6 @@
         <page name='MaskedGradientButton'/>
         <page name='SparkButton'/>
         <page name='OutlineButton'/>
+        <page name='Blue Onboarding Button'/>
     </pages>
 </playground>
