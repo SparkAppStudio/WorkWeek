@@ -5,5 +5,7 @@
         <page name='Gradient Label'/>
         <page name='ButtonWithBGandShadow'/>
         <page name='GradientButton'/>
+        <page name='MaskedGradientButton'/>
+        <page name='SparkButton'/>
     </pages>
 </playground>

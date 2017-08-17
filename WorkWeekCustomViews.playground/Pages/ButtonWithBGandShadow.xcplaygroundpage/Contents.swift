@@ -71,12 +71,6 @@ class ButtonWithBGandShadow: UIButton {
     }
 }
 
-class Responder: NSObject {
-    @objc func buttonTapped(_ sender: UIButton) {
-        print("Button was tapped")
-    }
-}
-
 let responder = Responder()
 
 let button = ButtonWithBGandShadow(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
