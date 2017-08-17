@@ -7,5 +7,6 @@
         <page name='GradientButton'/>
         <page name='MaskedGradientButton'/>
         <page name='SparkButton'/>
+        <page name='OutlineButton'/>
     </pages>
 </playground>
