@@ -6,6 +6,10 @@ import UIKit
 
 class GradientBackgroundView: UIView {
 
+    override class var layerClass: AnyClass {
+        return CAGradientLayer.self
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         sharedInit()
@@ -16,13 +20,10 @@ class GradientBackgroundView: UIView {
     }
 
     func sharedInit() {
-        let grad = CAGradientLayer()
+        guard let grad = layer as? CAGradientLayer else { return }
         grad.colors = [
             UIColor(red:0.21, green:0.93, blue:0.84, alpha:1).cgColor,
             UIColor(red:0.24, green:0.51, blue:0.97, alpha:1).cgColor]
         grad.locations = [0, 1]
-        layer.addSublayer(grad)
-        grad.bounds = layer.bounds
-        grad.position = layer.position
     }
 }

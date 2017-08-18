@@ -24,6 +24,8 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureGradient()
+
         delegate = manager
         dataSource = manager
 
@@ -33,6 +35,12 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         }
 
         setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
+    }
+
+    func configureGradient() {
+        let rect = view.bounds
+        let gradient = GradientBackgroundView(frame: rect)
+        view.insertSubview(gradient, at: 0)
     }
 
     func configOrderedViewControllers() -> [UIViewController] {
@@ -82,11 +90,5 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
 
     func notifyPageIsDone() {
         onboardDelegate?.pagesAreDone()
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        let sparkBlue = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
-        self.view.backgroundColor = sparkBlue
     }
 }
