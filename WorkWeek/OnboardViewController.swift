@@ -7,10 +7,13 @@ import CoreLocation
 import UserNotifications
 
 class OnboardWelcomeViewController: UIViewController, OnboardingStoryboard {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       view.backgroundColor = .clear
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        view.backgroundColor = .clear
         Analytics.track(.pageView(.onboardWelcome))
     }
 
@@ -18,9 +21,13 @@ class OnboardWelcomeViewController: UIViewController, OnboardingStoryboard {
 
 class OnboardExplainViewController: UIViewController, OnboardingStoryboard {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .clear
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        view.backgroundColor = .clear
         Analytics.track(.pageView(.onboardExplain))
     }
 
