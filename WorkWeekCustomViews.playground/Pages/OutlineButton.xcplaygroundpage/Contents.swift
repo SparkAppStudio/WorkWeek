@@ -25,7 +25,7 @@ class OutlineButton: UIButton {
         outlinePath.lineWidth = 1.0
         outlinePath.stroke()
     }
-    
+
     lazy private var label: UILabel = {
         let l = UILabel(frame: CGRect.zero)
         l.frame = self.bounds
@@ -34,20 +34,21 @@ class OutlineButton: UIButton {
         l.font = UIFont.systemFont(ofSize: 24.0)
         return l
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         sharedInit()
     }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         sharedInit()
     }
-    
+
     private func sharedInit() {
         addSubview(label)
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.label.textColor = color.withAlphaComponent(0.6)
@@ -57,7 +58,7 @@ class OutlineButton: UIButton {
             self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
         }
     }
-    
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         self.label.textColor = color.withAlphaComponent(1.0)
@@ -68,7 +69,6 @@ class OutlineButton: UIButton {
         }
     }
 }
-
 
 import PlaygroundSupport
 

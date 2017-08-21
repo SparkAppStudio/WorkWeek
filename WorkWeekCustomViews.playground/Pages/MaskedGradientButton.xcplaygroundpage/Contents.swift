@@ -30,7 +30,7 @@ public class MaskedGradientButton: UIButton {
 let responder = Responder()
 
 let button = MaskedGradientButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-button.addTarget(responder, action:#selector(Responder.buttonTapped(_:)) , for: .touchUpInside)
+button.addTarget(responder, action:#selector(Responder.buttonTapped(_:)), for: .touchUpInside)
 
 PlaygroundPage.current.liveView = button
 
