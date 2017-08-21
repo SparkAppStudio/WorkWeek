@@ -16,6 +16,7 @@
 		521AF7FB1F21902900C8F707 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521AF7FA1F21902900C8F707 /* UserDefaults+Extensions.swift */; };
 		52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52223FA81EE123F20014F4A9 /* AppCoordinator.swift */; };
 		52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52223FAA1EE1299B0014F4A9 /* Reusable.framework */; };
+		5232AC6C1F466EA700B72E2F /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232AC6B1F466EA700B72E2F /* GradientBackgroundView.swift */; };
 		523ADD221F3B5083005D2830 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ADD211F3B5083005D2830 /* CustomOperators.swift */; };
 		524392FC1F148C4100EEFEA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524392FB1F148C4100EEFEA3 /* User.swift */; };
 		52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */; };
@@ -80,6 +81,7 @@
 		521AF7FA1F21902900C8F707 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		52223FA81EE123F20014F4A9 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		52223FAA1EE1299B0014F4A9 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
+		5232AC6B1F466EA700B72E2F /* GradientBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		523ADD211F3B5083005D2830 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		524392FB1F148C4100EEFEA3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMapViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		C3FE380B1EFDD4CD00E1D60E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				5232AC6B1F466EA700B72E2F /* GradientBackgroundView.swift */,
 				C362A4061EE34EA200AB9830 /* Onboarding.storyboard */,
 				C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */,
 				C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */,
@@ -520,6 +523,7 @@
 				521AF7FB1F21902900C8F707 /* UserDefaults+Extensions.swift in Sources */,
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
 				52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */,
+				5232AC6C1F466EA700B72E2F /* GradientBackgroundView.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
 				521806791F40CDC80079AFD4 /* Event.swift in Sources */,
 				523ADD221F3B5083005D2830 /* CustomOperators.swift in Sources */,

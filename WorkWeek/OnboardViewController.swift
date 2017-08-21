@@ -7,6 +7,10 @@ import CoreLocation
 import UserNotifications
 
 class OnboardWelcomeViewController: UIViewController, OnboardingStoryboard {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       view.backgroundColor = .clear
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -16,6 +20,11 @@ class OnboardWelcomeViewController: UIViewController, OnboardingStoryboard {
 }
 
 class OnboardExplainViewController: UIViewController, OnboardingStoryboard {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .clear
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -40,6 +49,7 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .clear
         NotificationCenter.default.addObserver(self,
             selector: #selector(OnboardLocationViewController.appDidBecomeActive(notification:)),
             name: NSNotification.Name.UIApplicationDidBecomeActive,
@@ -113,6 +123,7 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .clear
         NotificationCenter.default.addObserver(self,
             selector: #selector(OnboardLocationViewController.appDidBecomeActive(notification:)),
             name: .UIApplicationDidBecomeActive,
@@ -240,6 +251,11 @@ class OnboardSettingsViewController: UIViewController, OnboardingStoryboard {
 
     @IBOutlet weak var setHomeButton: UIButton!
     @IBOutlet weak var setWorkButton: UIButton!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .clear
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
