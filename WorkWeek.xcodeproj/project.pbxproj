@@ -473,7 +473,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "# if running on CI skip\nif [ -n \"$BUDDYBUILD_APP_ID\" ] ; then\n    echo \"CI Detected. Skipping Linting, appID ${BUDDYBUILD_APP_ID}\"\n    exit 0 # success, skip on CI\nfi\n\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		5287CA471EDCFA2D00E71CE8 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
