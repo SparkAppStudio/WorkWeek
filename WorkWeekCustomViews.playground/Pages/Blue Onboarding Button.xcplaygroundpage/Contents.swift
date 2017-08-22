@@ -68,28 +68,10 @@ public class BlueButton: UIButton {
     private func sharedInit() {
         addSubview(label)
         label.sizeToFit()
-//        label.backgroundColor = .red
         let insetRect = frame.insetBy(dx: 4, dy: 4)
         let topRect = CGRect(x: insetRect.origin.x, y: insetRect.origin.y + 4, width: insetRect.width, height: insetRect.height - 6)
         label.frame = topRect
     }
-
-//    public override func sizeThatFits(_ size: CGSize) -> CGSize {
-//
-//        //        |-----------------|
-//        //        |-----------------|
-//        //        |      text       |
-//        //        |-----------------|
-//
-//        size
-//
-//        let labelSize = label.sizeThatFits(size)
-//        let ourChrome = CGSize(width: 42, height: 36)
-//
-//        //        return CGSize(width: labelSize.width + ourChrome.width,
-//        //                      height: labelSize.height + ourChrome.width)
-//        return CGSize(width: 200, height: 80)
-//    }
 }
 
 class GradientBackgroundView: UIView {
