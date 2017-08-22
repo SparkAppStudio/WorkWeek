@@ -32,7 +32,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var saturday: UIButton!
     @IBOutlet weak var sunday: UIButton!
 
-    @IBOutlet weak var picker: UIPickerView!
+//    @IBOutlet weak var picker: UIPickerView!
     var pickerDataSource = WorkDayHoursPickerDataSource()
 
     @IBOutlet weak var notificationsSegment: UISegmentedControl!
@@ -49,9 +49,9 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         configureStyle(of: work, home)
         configureStyle(of: monday, tuesday, wednesday, thursday, friday, saturday, sunday)
 
-        picker.delegate = pickerDataSource
-        picker.dataSource = pickerDataSource
-        pickerDataSource.delegate = self
+//        picker.delegate = pickerDataSource
+//        picker.dataSource = pickerDataSource
+//        pickerDataSource.delegate = self
 
         configureSelectedButtons(with: user.weekdays)
         configureNotificationsSegment(with: user.notificationChoice)
@@ -167,7 +167,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     func setPickerDefaultRow() {
         let default8HourIndex = 15
         let index = pickerDataSource.pickerData.index(of: user.hoursInWorkDay) ?? default8HourIndex
-        picker.selectRow(index, inComponent: 0, animated: false)
+//        picker.selectRow(index, inComponent: 0, animated: false)
     }
 
 }
