@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 
-class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate {
+class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate, UserGettable {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
@@ -61,24 +61,6 @@ class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate
                                                       delegate: self)
         childCoordinators.add(settingsCoordinator)
         settingsCoordinator.start()
-    }
-
-
-    func getUserFromRealm() -> User? {
-        RealmManager.shared.saveInitialUser()
-        return RealmManager.shared.queryAllObjects(ofType: User.self).first
-    }
-
-    func showErrorAlert() {
-        let alert = UIAlertController(title: "🤔Error🤔",
-                                      message: "Looks like something has gone wrong with our database. Press \"OK\" to restart",
-                                      preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default) { _ in
-            fatalError()
-        }
-
-        alert.addAction(ok)
-        navigationController.present(alert, animated: true, completion: nil)
     }
 
     func settingsFinished(with coordinator: SettingsCoordinator) {
