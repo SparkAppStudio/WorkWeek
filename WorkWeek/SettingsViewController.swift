@@ -12,6 +12,7 @@ private let padding: CGFloat = 8
 protocol SettingsMainProtocol: class {
     func didTapWorkMap(nav: UINavigationController)
     func didTapHomeMap(nav: UINavigationController)
+    func didTapSelectHours(nav: UINavigationController)
     func didTapDone()
 }
 
@@ -32,9 +33,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var saturday: UIButton!
     @IBOutlet weak var sunday: UIButton!
 
-//    @IBOutlet weak var picker: UIPickerView!
-    var pickerDataSource = WorkDayHoursPickerDataSource()
-
+    @IBOutlet weak var targetHoursButton: TwoLabelButton!
     @IBOutlet weak var notificationsSegment: UISegmentedControl!
 
     var user: User!
@@ -43,20 +42,17 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     // MARK: View Lifecycle
 
     override func viewDidLoad() {
+        assert(user != nil, "Error! User object shoudl be provided to the VC by the coordinator")
         super.viewDidLoad()
         title = "Settings"
         setMainContentStackViewEqualToPhoneWidth()
         configureStyle(of: work, home)
         configureStyle(of: monday, tuesday, wednesday, thursday, friday, saturday, sunday)
 
-//        picker.delegate = pickerDataSource
-//        picker.dataSource = pickerDataSource
-//        pickerDataSource.delegate = self
-
         configureSelectedButtons(with: user.weekdays)
         configureNotificationsSegment(with: user.notificationChoice)
 
-        setPickerDefaultRow()
+        targetHoursButton.rightTitle = "\(user.hoursInWorkDay)"
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -90,6 +86,10 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     @IBAction func workMapPressed(_ sender: UIButton) {
         delegate?.didTapWorkMap(nav: navigationController!)
+    }
+
+    @IBAction func didTapSelectHours(_ sender: TwoLabelButton) {
+        delegate?.didTapSelectHours(nav: navigationController!)
     }
 
     @IBAction func didTapDone(_ sender: UIButton) {
@@ -161,21 +161,8 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         }
 
         RealmManager.shared.update(user: user, with: updated)
-
     }
 
-    func setPickerDefaultRow() {
-        let default8HourIndex = 15
-        let index = pickerDataSource.pickerData.index(of: user.hoursInWorkDay) ?? default8HourIndex
-//        picker.selectRow(index, inComponent: 0, animated: false)
-    }
-
-}
-
-extension SettingsViewController: PickerResponseForwarder {
-    func didSelectWork(hours: Double) {
-        RealmManager.shared.updateHours(for: user, with: hours)
-    }
 }
 
 extension UIButton {

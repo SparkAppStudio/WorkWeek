@@ -38,6 +38,8 @@
 		5287CA401EDCF91E00E71CE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */; };
 		5287CA4D1EDCFB8400E71CE8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5287CA491EDCFA9200E71CE8 /* Realm.framework */; };
 		5287CA4E1EDCFB8400E71CE8 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */; };
+		5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */; };
+		5294A1351F4D3A5500DC186A /* TwoLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */; };
 		52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */; };
 		52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */; };
 		52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */; };
@@ -106,6 +108,8 @@
 		5287CA411EDCF91E00E71CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5287CA491EDCFA9200E71CE8 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursPickerViewController.swift; sourceTree = "<group>"; };
+		5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoLabelButton.swift; sourceTree = "<group>"; };
 		52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHoursPickerDataSource.swift; sourceTree = "<group>"; };
 		52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -233,12 +237,14 @@
 		52E1A7291EFB91CA00FBF278 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */,
 				526799111EE349A500F41E01 /* Settings.storyboard */,
 				526799131EE3555600F41E01 /* SettingsViewController.swift */,
 				52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */,
 				52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */,
 				52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */,
 				5272B78B1F12A62200F003FD /* MapVCDelegate.swift */,
+				5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				D1B21F941EF521870023D427 /* RealmManager.swift in Sources */,
 				D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */,
 				52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */,
+				5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */,
 				52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */,
 				C3DEA7271F14850E001F2696 /* ActivityCoordinator.swift in Sources */,
 				526E50721EF62DD50066F043 /* Analytics.swift in Sources */,
@@ -527,6 +534,7 @@
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
 				521806791F40CDC80079AFD4 /* Event.swift in Sources */,
 				523ADD221F3B5083005D2830 /* CustomOperators.swift in Sources */,
+				5294A1351F4D3A5500DC186A /* TwoLabelButton.swift in Sources */,
 				521806751F40CD170079AFD4 /* DailyObject.swift in Sources */,
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,
 				525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */,

@@ -62,9 +62,17 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
 #if DEBUG
 
     extension AppCoordinator: SettingsCoordinatorDelegate {
+
         func showSettings() {
+
+            guard let user = getUserFromRealm() else {
+                showErrorAlert()
+                return
+            }
+
             let settingsCoordinator = SettingsCoordinator(with: navigationController,
                                                           manger: locationManager,
+                                                          user: user,
                                                           delegate: self)
             childCoordinators.add(settingsCoordinator)
             settingsCoordinator.start()
@@ -74,5 +82,24 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
             childCoordinators.remove(coordinator)
             showActivity(animated: false)
         }
+
+        func getUserFromRealm() -> User? {
+            RealmManager.shared.saveInitialUser()
+            return RealmManager.shared.queryAllObjects(ofType: User.self).first
+        }
+
+        func showErrorAlert() {
+            let alert = UIAlertController(title: "🤔Error🤔",
+                                          message: "Looks like something has gone wrong with our database. Press \"OK\" to restart",
+                                          preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default) { _ in
+                fatalError()
+            }
+
+            alert.addAction(ok)
+            navigationController.present(alert, animated: true, completion: nil)
+        }
+
+
     }
 #endif
