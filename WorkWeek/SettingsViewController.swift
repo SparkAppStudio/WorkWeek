@@ -4,6 +4,8 @@
 
 import UIKit
 import Reusable
+import Realm
+import RealmSwift
 
 // NOTE: This must match the padding on the storyboard!
 // ex: |-padding-|StackView|-padding-| , where | the outer pipe is the scroll View
@@ -37,6 +39,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var notificationsSegment: UISegmentedControl!
 
     var user: User!
+    private var notificationToken: NotificationToken! = nil
 
 
     // MARK: View Lifecycle
@@ -53,6 +56,18 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         configureNotificationsSegment(with: user.notificationChoice)
 
         targetHoursButton.rightTitle = "\(user.hoursInWorkDay)"
+
+        notificationToken = user.addNotificationBlock { change in
+            switch change {
+            case .change(let properties):
+                if let hours = properties.first(where: { $0.name == "hoursInWorkDay" }),
+                    let hoursNumber = hours.newValue as? Double {
+                    self.targetHoursButton.rightTitle = "\(hoursNumber)"
+                }
+            default:
+                return
+            }
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
