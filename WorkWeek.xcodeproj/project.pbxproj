@@ -182,6 +182,15 @@
 			name = 3rdPartyWrappers;
 			sourceTree = "<group>";
 		};
+		5277676D1F4DCB2000062125 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */,
+				5277676B1F4DCA3D00062125 /* UserGettable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		5287CA291EDCF91E00E71CE8 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +218,7 @@
 				52223FA81EE123F20014F4A9 /* AppCoordinator.swift */,
 				C3B0C4531EE3CC930000D097 /* PageManager.swift */,
 				D1102CE91F00C085006A0E2F /* AppConstants.swift */,
+				5277676D1F4DCB2000062125 /* Protocols */,
 				D1102CED1F038AEE006A0E2F /* Extensions */,
 				D1B21F921EF521720023D427 /* Managers */,
 				D1CA47011EE34D9F003628FF /* Activity */,
@@ -219,7 +229,6 @@
 				5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */,
 				5287CA411EDCF91E00E71CE8 /* Info.plist */,
 				5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */,
-				5277676B1F4DCA3D00062125 /* UserGettable.swift */,
 			);
 			path = WorkWeek;
 			sourceTree = "<group>";
@@ -286,7 +295,6 @@
 		D1102CED1F038AEE006A0E2F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */,
 				525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */,
 				526E50731EF6CDBC0066F043 /* Dictionary+Extensions.swift */,
 				C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */,
