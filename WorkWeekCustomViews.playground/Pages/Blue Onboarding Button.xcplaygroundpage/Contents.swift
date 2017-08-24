@@ -100,7 +100,7 @@ class GradientBackgroundView: UIView {
 let responder = Responder()
 
 let button = BlueButton(frame: CGRect(x: 0, y: 0, width: 289, height: 76))
-button.addTarget(responder, action:#selector(Responder.buttonTapped(_:)) , for: .touchUpInside)
+button.addTarget(responder, action: #selector(Responder.buttonTapped(_:)), for: .touchUpInside)
 //button.sizeToFit()
 
 let gradientBackground = GradientBackgroundView(frame: UIScreen.main.bounds)

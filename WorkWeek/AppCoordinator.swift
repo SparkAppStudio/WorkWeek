@@ -61,10 +61,18 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
 
 #if DEBUG
 
-    extension AppCoordinator: SettingsCoordinatorDelegate {
+    extension AppCoordinator: SettingsCoordinatorDelegate, UserGettable {
+
         func showSettings() {
+
+            guard let user = getUserFromRealm() else {
+                showErrorAlert()
+                return
+            }
+
             let settingsCoordinator = SettingsCoordinator(with: navigationController,
                                                           manger: locationManager,
+                                                          user: user,
                                                           delegate: self)
             childCoordinators.add(settingsCoordinator)
             settingsCoordinator.start()
@@ -74,5 +82,6 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
             childCoordinators.remove(coordinator)
             showActivity(animated: false)
         }
+
     }
 #endif

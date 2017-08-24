@@ -18,6 +18,10 @@ class WorkDayHoursPickerDataSource: NSObject, UIPickerViewDataSource, UIPickerVi
     /// The delegate is called when the user has selected a row.
     weak var delegate: PickerResponseForwarder?
 
+    /// The 15th item in the pickerData is 8.0 our default value.
+    static let default8HourIndex = 15
+
+
     /// The data for the picker
     let pickerData: [Double] = {
         let str = stride(from: 0.5, to: 24, by: 0.5)

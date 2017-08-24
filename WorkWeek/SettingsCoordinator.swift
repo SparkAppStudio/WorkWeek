@@ -4,6 +4,7 @@
 
 import UIKit
 import CoreLocation
+import RealmSwift
 
 protocol SettingsCoordinatorDelegate: class {
     func settingsFinished(with coordinator: SettingsCoordinator)
@@ -11,57 +12,67 @@ protocol SettingsCoordinatorDelegate: class {
 
 class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
 
+    /// The app's navigation controller on which to present content
     let navigationController: UINavigationController
+
+    /// Location manager is required to set the users home and work region
     let locationManager: CLLocationManager
+
+    /// The delegate to call when the user is finished with settings
     weak var delegate: SettingsCoordinatorDelegate?
+
+    /// The user whose Settings should be modified
+    let user: User
+
+    private var settingsVC: SettingsViewController?
+    private var userUpdatedToken: NotificationToken?
 
     init(with navController: UINavigationController,
          manger: CLLocationManager,
+         user: User,
          delegate: SettingsCoordinatorDelegate) {
 
         self.navigationController = navController
         self.locationManager = manger
+        self.user = user
         self.delegate = delegate
+        configureNotificationsForUserChanges()
     }
+
+    lazy var settingsNavController: UINavigationController = {
+        let settingsVC = SettingsViewController.instantiate()
+        settingsVC.delegate = self
+        settingsVC.user = self.user
+        let settingsNavController = UINavigationController(rootViewController: settingsVC)
+        self.settingsVC = settingsVC //save a copy for later
+        return settingsNavController
+    }()
 
     func start() {
         Log.log()
 
-        guard let user = getUserFromRealm() else {
-            showErrorAlert()
-            return
-        }
-
         navigationController.isNavigationBarHidden = true
-
-        let settingsVC = SettingsViewController.instantiate()
-        settingsVC.delegate = self
-        settingsVC.user = user
-        let settingsNavController = UINavigationController(rootViewController: settingsVC)
-
         navigationController.present(settingsNavController, animated: true, completion: nil)
     }
 
-    func getUserFromRealm() -> User? {
-        RealmManager.shared.saveInitialUser()
-        return RealmManager.shared.queryAllObjects(ofType: User.self).first
-    }
-
-    func showErrorAlert() {
-        let alert = UIAlertController(title: "🤔Error🤔",
-                                      message: "Looks like something has gone wrong with our database. Press \"OK\" to restart",
-                                      preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default) { _ in
-            fatalError()
+    func configureNotificationsForUserChanges() {
+        userUpdatedToken = user.addNotificationBlock { [weak self] change in
+            switch change {
+            case .change(let properties):
+                if let hours = properties.first(where: { $0.name == "hoursInWorkDay" }),
+                    let hoursNumber = hours.newValue as? Double {
+                    self?.settingsVC?.updateUserHours(hours: "\(hoursNumber)")
+                }
+            default:
+                return
+            }
         }
-
-        alert.addAction(ok)
-        navigationController.present(alert, animated: true, completion: nil)
     }
 
 
     // MARK: Settings Main Protocol
 
+    // TODO: Remove Navigation Parameter from these 3 calls
     func didTapHomeMap(nav: UINavigationController) {
         SettingsMapViewController.presentMapWith(navController: nav,
                                        as: .home,
@@ -76,10 +87,22 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
                                        delegate: self)
     }
 
+    func didTapSelectHours(nav: UINavigationController) {
+        let pickerVC = HoursPickerViewController.instantiate()
+        pickerVC.delegate = self
+        pickerVC.user = user
+        nav.present(pickerVC, animated: true, completion: nil)
+    }
+
     func didTapDone() {
         Log.log("User tapped one on Main Settings")
         navigationController.dismiss(animated: true, completion: nil)
         delegate?.settingsFinished(with: self)
     }
+}
 
+extension SettingsCoordinator: HoursPickerDelegate {
+    func pickerFinished(pickerVC: UIViewController) {
+        pickerVC.dismiss(animated: true, completion: nil)
+    }
 }

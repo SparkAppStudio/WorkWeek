@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 
-class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate {
+class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate, UserGettable {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
@@ -49,8 +49,15 @@ class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate
     }
 
     func showSettings() {
+
+        guard let user = getUserFromRealm() else {
+            showErrorAlert()
+            return
+        }
+
         let settingsCoordinator = SettingsCoordinator(with: navigationController,
                                                       manger: locationManager,
+                                                      user: user,
                                                       delegate: self)
         childCoordinators.add(settingsCoordinator)
         settingsCoordinator.start()

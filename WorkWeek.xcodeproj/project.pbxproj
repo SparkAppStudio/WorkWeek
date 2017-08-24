@@ -29,6 +29,7 @@
 		526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E50751EF6CE3C0066F043 /* CrashReporting.swift */; };
 		527039351EF8D85B00A0B6BA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527039341EF8D85B00A0B6BA /* Log.swift */; };
 		5272B78C1F12A62200F003FD /* MapVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5272B78B1F12A62200F003FD /* MapVCDelegate.swift */; };
+		5277676C1F4DCA3D00062125 /* UserGettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5277676B1F4DCA3D00062125 /* UserGettable.swift */; };
 		52802FE41F2853CA009A519B /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52802FE31F2853CA009A519B /* PushNotificationManager.swift */; };
 		52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52802FE71F285C89009A519B /* LocationDelegate.swift */; };
 		5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */; };
@@ -38,6 +39,8 @@
 		5287CA401EDCF91E00E71CE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */; };
 		5287CA4D1EDCFB8400E71CE8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5287CA491EDCFA9200E71CE8 /* Realm.framework */; };
 		5287CA4E1EDCFB8400E71CE8 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */; };
+		5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */; };
+		5294A1351F4D3A5500DC186A /* TwoLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */; };
 		52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */; };
 		52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */; };
 		52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */; };
@@ -96,6 +99,7 @@
 		527039341EF8D85B00A0B6BA /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5272B78B1F12A62200F003FD /* MapVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVCDelegate.swift; sourceTree = "<group>"; };
 		527430E31F33FDC600ED238D /* WorkWeekCustomViews.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WorkWeekCustomViews.playground; sourceTree = "<group>"; };
+		5277676B1F4DCA3D00062125 /* UserGettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserGettable.swift; sourceTree = "<group>"; };
 		52802FE31F2853CA009A519B /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		52802FE71F285C89009A519B /* LocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 		5287CA321EDCF91E00E71CE8 /* WorkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +111,8 @@
 		5287CA411EDCF91E00E71CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5287CA491EDCFA9200E71CE8 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursPickerViewController.swift; sourceTree = "<group>"; };
+		5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoLabelButton.swift; sourceTree = "<group>"; };
 		52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHoursPickerDataSource.swift; sourceTree = "<group>"; };
 		52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -178,6 +184,15 @@
 			name = 3rdPartyWrappers;
 			sourceTree = "<group>";
 		};
+		5277676D1F4DCB2000062125 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */,
+				5277676B1F4DCA3D00062125 /* UserGettable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		5287CA291EDCF91E00E71CE8 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +220,7 @@
 				52223FA81EE123F20014F4A9 /* AppCoordinator.swift */,
 				C3B0C4531EE3CC930000D097 /* PageManager.swift */,
 				D1102CE91F00C085006A0E2F /* AppConstants.swift */,
+				5277676D1F4DCB2000062125 /* Protocols */,
 				D1102CED1F038AEE006A0E2F /* Extensions */,
 				D1B21F921EF521720023D427 /* Managers */,
 				D1CA47011EE34D9F003628FF /* Activity */,
@@ -235,12 +251,14 @@
 		52E1A7291EFB91CA00FBF278 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */,
 				526799111EE349A500F41E01 /* Settings.storyboard */,
 				526799131EE3555600F41E01 /* SettingsViewController.swift */,
 				52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */,
 				52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */,
 				52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */,
 				5272B78B1F12A62200F003FD /* MapVCDelegate.swift */,
+				5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -279,7 +297,6 @@
 		D1102CED1F038AEE006A0E2F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */,
 				C3A879B01F4BD7F700132FBA /* Design.swift */,
 				525A2D381F0615AD00895246 /* CLLocationManager+Extensions.swift */,
 				526E50731EF6CDBC0066F043 /* Dictionary+Extensions.swift */,
@@ -516,6 +533,7 @@
 				D1B21F941EF521870023D427 /* RealmManager.swift in Sources */,
 				D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */,
 				52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */,
+				5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */,
 				52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */,
 				C3DEA7271F14850E001F2696 /* ActivityCoordinator.swift in Sources */,
 				526E50721EF62DD50066F043 /* Analytics.swift in Sources */,
@@ -531,6 +549,7 @@
 				521806791F40CDC80079AFD4 /* Event.swift in Sources */,
 				C3A879B11F4BD7F700132FBA /* Design.swift in Sources */,
 				523ADD221F3B5083005D2830 /* CustomOperators.swift in Sources */,
+				5294A1351F4D3A5500DC186A /* TwoLabelButton.swift in Sources */,
 				521806751F40CD170079AFD4 /* DailyObject.swift in Sources */,
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,
 				525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */,
@@ -539,6 +558,7 @@
 				D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */,
 				C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */,
 				5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */,
+				5277676C1F4DCA3D00062125 /* UserGettable.swift in Sources */,
 				526799141EE3555600F41E01 /* SettingsViewController.swift in Sources */,
 				C362A4091EE3517800AB9830 /* OnboardPageViewController.swift in Sources */,
 				526E50741EF6CDBC0066F043 /* Dictionary+Extensions.swift in Sources */,

@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="951"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4je-7f-bQF">
-                                        <rect key="frame" x="8" y="8" width="320" height="644.5"/>
+                                        <rect key="frame" x="8" y="8" width="320" height="488"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiZ-vj-xkd">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
@@ -113,21 +113,22 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3tY-Z5-Thm">
-                                                <rect key="frame" x="0.0" y="339.5" width="320" height="236.5"/>
+                                                <rect key="frame" x="0.0" y="339.5" width="320" height="80"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Hours Per Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfV-pO-Cyu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32a-So-1JK">
-                                                        <rect key="frame" x="0.0" y="20.5" width="320" height="216"/>
-                                                    </pickerView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywS-EQ-Vdi" customClass="TwoLabelButton" customModule="WorkWeek" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="A1P-tj-R50"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <connections>
+                                                            <action selector="didTapSelectHours:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="7Ah-ad-dQI"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfa-cD-Kbz">
-                                                <rect key="frame" x="0.0" y="586" width="320" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="429.5" width="320" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIc-qb-EUD">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
@@ -138,7 +139,7 @@
                                                 </subviews>
                                             </stackView>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xwa-Sq-4o4">
-                                                <rect key="frame" x="0.0" y="616.5" width="320" height="29"/>
+                                                <rect key="frame" x="0.0" y="460" width="320" height="29"/>
                                                 <segments>
                                                     <segment title="None"/>
                                                     <segment title="Daily"/>
@@ -212,9 +213,9 @@
                         <outlet property="mainStackViewContentWidth" destination="jGm-7F-uyG" id="AlW-68-5bY"/>
                         <outlet property="monday" destination="DoT-bP-FdR" id="ebc-eB-xas"/>
                         <outlet property="notificationsSegment" destination="Xwa-Sq-4o4" id="2eE-yj-sOn"/>
-                        <outlet property="picker" destination="32a-So-1JK" id="hEq-jG-3Pb"/>
                         <outlet property="saturday" destination="fLW-Bv-rs8" id="K0u-Yk-hTN"/>
                         <outlet property="sunday" destination="7ST-IS-pTT" id="4be-2S-tyi"/>
+                        <outlet property="targetHoursButton" destination="ywS-EQ-Vdi" id="caP-29-z8b"/>
                         <outlet property="thursday" destination="UFf-F8-CQE" id="pSt-Mm-hVx"/>
                         <outlet property="tuesday" destination="nix-B9-5C7" id="ewS-4w-AgW"/>
                         <outlet property="wednesday" destination="paC-XE-ryM" id="3AJ-2Y-H92"/>
@@ -311,6 +312,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0A-Iw-CjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1229.5999999999999" y="88.605697151424295"/>
+        </scene>
+        <!--Hours Picker View Controller-->
+        <scene sceneID="qzI-5b-N7l">
+            <objects>
+                <viewController storyboardIdentifier="HoursPickerViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="1aG-qa-HYD" customClass="HoursPickerViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zXT-zD-x3e"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ll-4Z-BFs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4eQ-Lj-IGo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmJ-MC-U0O" userLabel="DrawerView">
+                                <rect key="frame" x="16" y="421" width="343" height="246"/>
+                                <subviews>
+                                    <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-hV-bhA">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="246"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHm-KM-n3b">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="216"/>
+                                            </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8x-qo-g2V">
+                                                <rect key="frame" x="0.0" y="216" width="343" height="30"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="didTapSave:" destination="1aG-qa-HYD" eventType="touchUpInside" id="QF4-ey-dpf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="sZB-hV-bhA" firstAttribute="top" secondItem="fmJ-MC-U0O" secondAttribute="top" id="1If-Tu-DKT"/>
+                                    <constraint firstAttribute="trailing" secondItem="sZB-hV-bhA" secondAttribute="trailing" id="Cff-W7-UPK"/>
+                                    <constraint firstItem="sZB-hV-bhA" firstAttribute="leading" secondItem="fmJ-MC-U0O" secondAttribute="leading" id="FA6-R4-O2z"/>
+                                    <constraint firstAttribute="bottom" secondItem="sZB-hV-bhA" secondAttribute="bottom" id="gCI-Vz-XNI"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fmJ-MC-U0O" secondAttribute="trailing" id="1hE-a5-H2t"/>
+                            <constraint firstItem="4ll-4Z-BFs" firstAttribute="top" secondItem="fmJ-MC-U0O" secondAttribute="bottom" id="3mf-Ei-8BP"/>
+                            <constraint firstItem="fmJ-MC-U0O" firstAttribute="leading" secondItem="4eQ-Lj-IGo" secondAttribute="leadingMargin" id="C9m-gS-Pw6"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="YsO-kz-zxQ" appends="YES" id="Psj-UK-xDz"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="gCI-Vz-XNI" id="1s2-dI-HMK"/>
+                        <outlet property="containerView" destination="fmJ-MC-U0O" id="Um6-pz-U4B"/>
+                        <outlet property="picker" destination="jHm-KM-n3b" id="32Y-04-a3c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e2U-fg-f7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="YsO-kz-zxQ">
+                    <connections>
+                        <action selector="didTapBackground:" destination="1aG-qa-HYD" id="grY-lu-NSY"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2058" y="143"/>
         </scene>
     </scenes>
 </document>

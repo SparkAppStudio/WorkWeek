@@ -133,6 +133,7 @@ class RealmManager {
     func update(user: User, with weekdays: User.Weekdays) {
         unhandledErrorWrite( user.weekdays = weekdays)
     }
+
     func updateHours(for user: User, with hours: Double) {
         unhandledErrorWrite( user.hoursInWorkDay = hours)
     }
