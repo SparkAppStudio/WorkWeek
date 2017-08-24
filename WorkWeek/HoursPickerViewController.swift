@@ -10,8 +10,6 @@ protocol HoursPickerDelegate: class {
 
 class HoursPickerViewController: UIViewController, SettingsStoryboard {
 
-    let default8HourIndex = 15
-
     @IBOutlet var containerView: UIView!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     var zeroHeightConstraint: NSLayoutConstraint!
@@ -20,6 +18,9 @@ class HoursPickerViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var picker: UIPickerView!
 
     weak var delegate: HoursPickerDelegate?
+
+    /// A temp holder for the picker value as it's changed. This value is saved if
+    /// the user chooses, or it may be discarded.
     var pickerValue: Double = 0.0
 
     var user: User! // provided by Coordinator
@@ -65,7 +66,8 @@ class HoursPickerViewController: UIViewController, SettingsStoryboard {
     }
 
     func setInitialPickerSelection() {
-        let index = pickerDataSource.pickerData.index(of: user.hoursInWorkDay) ?? default8HourIndex
+        let index = pickerDataSource.pickerData.index(of: user.hoursInWorkDay) ??
+                        WorkDayHoursPickerDataSource.default8HourIndex
         picker.selectRow(index, inComponent: 0, animated: false)
     }
 }
