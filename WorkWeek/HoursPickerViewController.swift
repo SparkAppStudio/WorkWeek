@@ -33,9 +33,14 @@ class HoursPickerViewController: UIViewController, SettingsStoryboard {
         configurePicker()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         animatePickerOnScreen()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        animatePickerOffScreen()
     }
 
     func prepareContainerForAnimation() {
@@ -53,11 +58,20 @@ class HoursPickerViewController: UIViewController, SettingsStoryboard {
 
     func animatePickerOnScreen() {
         view.layoutIfNeeded()
-        UIView.animate(withDuration: 2.0) {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseIn], animations: {
             self.zeroHeightConstraint.isActive = false
             self.bottomConstraint.isActive = true
             self.view.layoutIfNeeded()
-        }
+        }, completion: nil)
+    }
+
+    func animatePickerOffScreen() {
+        view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseOut], animations: {
+            self.bottomConstraint.isActive = false
+            self.zeroHeightConstraint.isActive = true
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 
     @IBAction func didTapBackground(_ sender: UITapGestureRecognizer) {
