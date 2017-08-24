@@ -17,6 +17,7 @@ class HoursPickerViewController: UIViewController, SettingsStoryboard {
     let pickerDataSource = WorkDayHoursPickerDataSource()
     @IBOutlet weak var picker: UIPickerView!
 
+    /// Who to call when we've finished our work.
     weak var delegate: HoursPickerDelegate?
 
     /// A temp holder for the picker value as it's changed. This value is saved if
@@ -28,22 +29,29 @@ class HoursPickerViewController: UIViewController, SettingsStoryboard {
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(user != nil, "User should be provided by the Coordinator")
-
-        // prepare to animate up
-        bottomConstraint.isActive = false
-        zeroHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: 0)
-        zeroHeightConstraint.isActive = true
-
-        picker.delegate = pickerDataSource
-        picker.dataSource = pickerDataSource
-        pickerDataSource.delegate = self
-
-        setInitialPickerSelection()
+        prepareContainerForAnimation()
+        configurePicker()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        animatePickerOnScreen()
+    }
 
+    func prepareContainerForAnimation() {
+        bottomConstraint.isActive = false
+        zeroHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: 0)
+        zeroHeightConstraint.isActive = true
+    }
+
+    func configurePicker() {
+        picker.delegate = pickerDataSource
+        picker.dataSource = pickerDataSource
+        pickerDataSource.delegate = self
+        setInitialPickerSelection()
+    }
+
+    func animatePickerOnScreen() {
         view.layoutIfNeeded()
         UIView.animate(withDuration: 2.0) {
             self.zeroHeightConstraint.isActive = false
