@@ -4,6 +4,7 @@
 
 import UIKit
 import CoreLocation
+import RealmSwift
 
 protocol SettingsCoordinatorDelegate: class {
     func settingsFinished(with coordinator: SettingsCoordinator)
@@ -23,6 +24,9 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     /// The user whose Settings should be modified
     let user: User
 
+    private var settingsVC: SettingsViewController?
+    private var userUpdatedToken: NotificationToken?
+
     init(with navController: UINavigationController,
          manger: CLLocationManager,
          user: User,
@@ -32,6 +36,7 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         self.locationManager = manger
         self.user = user
         self.delegate = delegate
+        configureNotificationsForUserChanges()
     }
 
     lazy var settingsNavController: UINavigationController = {
@@ -39,6 +44,7 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         settingsVC.delegate = self
         settingsVC.user = self.user
         let settingsNavController = UINavigationController(rootViewController: settingsVC)
+        self.settingsVC = settingsVC //save a copy for later
         return settingsNavController
     }()
 
@@ -48,6 +54,21 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         navigationController.isNavigationBarHidden = true
         navigationController.present(settingsNavController, animated: true, completion: nil)
     }
+
+    func configureNotificationsForUserChanges() {
+        userUpdatedToken = user.addNotificationBlock { [weak self] change in
+            switch change {
+            case .change(let properties):
+                if let hours = properties.first(where: { $0.name == "hoursInWorkDay" }),
+                    let hoursNumber = hours.newValue as? Double {
+                    self?.settingsVC?.updateUserHours(hours: "\(hoursNumber)")
+                }
+            default:
+                return
+            }
+        }
+    }
+
 
     // MARK: Settings Main Protocol
 
