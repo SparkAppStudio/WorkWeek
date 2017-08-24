@@ -5,7 +5,7 @@
 import UIKit
 
 @IBDesignable
-class TwoLabelButton: UIButton {
+final class TwoLabelButton: UIButton {
 
     var rightTitle: String {
         get { return right.text ?? "" }
@@ -45,16 +45,17 @@ class TwoLabelButton: UIButton {
         sharedInit()
     }
 
-    private var stack: UIStackView!
+    private lazy var stack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [self.left, self.right])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.isUserInteractionEnabled = false
+        stack.alignment = .center
+        stack.distribution = .fillProportionally
+        return stack
+    }()
 
     private func sharedInit() {
         self.setTitle(nil, for: .normal)
-        let stack = UIStackView(arrangedSubviews: [left, right])
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.isUserInteractionEnabled = false
-        self.stack = stack
-        stack.alignment = .center
-        stack.distribution = .fillProportionally
         self.addSubview(stack)
 
         right.text = "8.0"
