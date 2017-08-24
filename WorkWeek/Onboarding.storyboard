@@ -30,6 +30,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Screen" translatesAutoresizingMaskIntoConstraints="NO" id="qPt-0y-Uku">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qh8-u0-BB0">
                                 <rect key="frame" x="16" y="50" width="343" height="601"/>
                                 <subviews>
@@ -39,35 +42,28 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAC-eE-SNq">
-                                        <rect key="frame" x="0.0" y="57.5" width="343" height="343"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="74"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XA7-rW-ASV">
+                                        <rect key="frame" x="0.0" y="57.5" width="343" height="426.5"/>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkh-Qu-5ZS">
-                                        <rect key="frame" x="0.0" y="400.5" width="343" height="200.5"/>
+                                        <rect key="frame" x="0.0" y="484" width="343" height="117"/>
                                         <string key="text">Work week is the best way to understand your work habits and lead you to develop better work life balance.
 
-Track your working hours to let you see if you are meeting your daily or weekly work targets
-
-Know when your shift is ending, ensure you charge clients the right ammount, or automate punching in and out the clock for hourly jobs.
-
-Work week is automatic, private, and insightful</string>
+Know when your shift is ending, ensure you charge clients the right ammount, or automate punching in and out the clock for hourly jobs.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="zkh-Qu-5ZS" firstAttribute="width" secondItem="RAC-eE-SNq" secondAttribute="width" id="F8f-dR-x2x"/>
-                                </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="qPt-0y-Uku" firstAttribute="top" secondItem="0nQ-kd-cTF" secondAttribute="topMargin" id="Bjy-Pg-cry"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="qPt-0y-Uku" secondAttribute="bottom" id="FuC-Xz-LNF"/>
                             <constraint firstItem="F6Y-b1-FbL" firstAttribute="top" secondItem="qh8-u0-BB0" secondAttribute="bottom" constant="16" id="TSE-vF-ftM"/>
+                            <constraint firstAttribute="trailing" secondItem="qPt-0y-Uku" secondAttribute="trailing" id="WSe-cs-HSO"/>
                             <constraint firstItem="qh8-u0-BB0" firstAttribute="top" secondItem="q2b-fd-LrA" secondAttribute="bottom" constant="30" id="fUu-cS-vF9"/>
+                            <constraint firstItem="qPt-0y-Uku" firstAttribute="leading" secondItem="0nQ-kd-cTF" secondAttribute="leading" id="fuF-tT-dbj"/>
                             <constraint firstItem="qh8-u0-BB0" firstAttribute="leading" secondItem="0nQ-kd-cTF" secondAttribute="leadingMargin" id="rnH-Bv-YIh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qh8-u0-BB0" secondAttribute="trailing" id="rzl-ef-zpO"/>
                         </constraints>
@@ -93,20 +89,19 @@ Work week is automatic, private, and insightful</string>
                                 <rect key="frame" x="16" y="24" width="343" height="643"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCh-Sg-HA8">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="114"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="97.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zXh-HO-S8T">
-                                                <rect key="frame" x="0.0" y="0.0" width="250.5" height="114"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="254" height="97.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Automatic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="onl-hf-pnA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="250.5" height="43"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="254" height="43"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-YT-EpJ">
-                                                        <rect key="frame" x="0.0" y="47" width="250.5" height="67"/>
-                                                        <string key="text">Using location on your iPhone, work week knows when you arrive at the office and when you leave. No need to manually track hours.</string>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Using your iPhone, work week knows when you arrive at the office and when you leave. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-YT-EpJ">
+                                                        <rect key="frame" x="0.0" y="47" width="254" height="50.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -114,12 +109,12 @@ Work week is automatic, private, and insightful</string>
                                                 </subviews>
                                             </stackView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="xLU-Jl-SHW">
-                                                <rect key="frame" x="250.5" y="0.0" width="92.5" height="114"/>
+                                                <rect key="frame" x="254" y="0.0" width="89" height="97.5"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLN-eM-QS3">
-                                        <rect key="frame" x="0.0" y="243.5" width="343" height="120"/>
+                                        <rect key="frame" x="0.0" y="247.5" width="343" height="120"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="iphone" translatesAutoresizingMaskIntoConstraints="NO" id="FQO-fQ-T8t">
                                                 <rect key="frame" x="0.0" y="0.0" width="68" height="120"/>
@@ -133,8 +128,8 @@ Work week is automatic, private, and insightful</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Work Week checks when you enter or leave designated addresses. Your data never leaves your phone." textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-TF-1oT">
-                                                        <rect key="frame" x="22" y="43" width="253" height="77"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Your data never leaves your phone so you can rest assured  no one but yourself knows when you get to work." textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-TF-1oT">
+                                                        <rect key="frame" x="2.5" y="43" width="272.5" height="77"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -144,10 +139,10 @@ Work week is automatic, private, and insightful</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Vyg-8m-NCH">
-                                        <rect key="frame" x="0.0" y="456" width="343" height="187"/>
+                                        <rect key="frame" x="0.0" y="489.5" width="343" height="153.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="03a-Qm-4Fa">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="110"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="76.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Insightful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-UK-gYF">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
@@ -155,9 +150,8 @@ Work week is automatic, private, and insightful</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF3-eL-7bu">
-                                                        <rect key="frame" x="0.0" y="43" width="343" height="67"/>
-                                                        <string key="text">Look through your work history and see how close you were to your weekly and daily goals. See trends and make adjustments to lead a healthier and happier life.</string>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="See trends and make adjustments to lead a healthier and happier life." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF3-eL-7bu">
+                                                        <rect key="frame" x="0.0" y="43" width="343" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -165,7 +159,7 @@ Work week is automatic, private, and insightful</string>
                                                 </subviews>
                                             </stackView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="Metrics" translatesAutoresizingMaskIntoConstraints="NO" id="5Ut-Kv-RnY">
-                                                <rect key="frame" x="0.0" y="114" width="343" height="73"/>
+                                                <rect key="frame" x="0.0" y="80.5" width="343" height="73"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -198,7 +192,7 @@ Work week is automatic, private, and insightful</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jHe-fn-2Hh">
-                                <rect key="frame" x="16" y="20" width="343" height="144"/>
+                                <rect key="frame" x="16" y="20" width="343" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWf-hx-4wz">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="57.5"/>
@@ -206,9 +200,8 @@ Work week is automatic, private, and insightful</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFJ-Ch-iUy">
-                                        <rect key="frame" x="0.0" y="57.5" width="343" height="86.5"/>
-                                        <string key="text">We need access to your iPhone GPS to know when you go to work. Work Week will not function without this. Grant access and continue to a happy work life! </string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We need access to your iPhone GPS otherwise Work Week will not function. Grant access and live a happy work life! " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFJ-Ch-iUy">
+                                        <rect key="frame" x="0.0" y="57.5" width="343" height="64.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -216,7 +209,7 @@ Work week is automatic, private, and insightful</string>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="obt-QL-BKR">
-                                <rect key="frame" x="0.0" y="525" width="375" height="142"/>
+                                <rect key="frame" x="0.0" y="547" width="375" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xRW-Wd-NJo">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
@@ -227,7 +220,7 @@ Work week is automatic, private, and insightful</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We never continually track location, only when you enter or leave an address that you setup" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiu-ps-GGy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We never continually track location, only when you enter or leave an address that you choose" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiu-ps-GGy">
                                                 <rect key="frame" x="0.0" y="20.5" width="375" height="42.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -236,7 +229,7 @@ Work week is automatic, private, and insightful</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VG1-9L-AKR">
-                                        <rect key="frame" x="0.0" y="79" width="375" height="63"/>
+                                        <rect key="frame" x="0.0" y="79" width="375" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyO-nE-pbc">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -244,8 +237,8 @@ Work week is automatic, private, and insightful</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no login or server, all your data stays on your device" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FN-MG-FBr">
-                                                <rect key="frame" x="0.0" y="20.5" width="375" height="42.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All your data stays on your device" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FN-MG-FBr">
+                                                <rect key="frame" x="0.0" y="20.5" width="375" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -255,7 +248,7 @@ Work week is automatic, private, and insightful</string>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noj-gz-43s">
-                                <rect key="frame" x="36" y="295" width="303" height="76"/>
+                                <rect key="frame" x="36" y="295.5" width="303" height="76"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="750" constant="76" id="F2V-Zl-fjl"/>
@@ -304,7 +297,7 @@ Work week is automatic, private, and insightful</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NxA-mU-io7">
-                                <rect key="frame" x="16" y="60" width="343" height="188"/>
+                                <rect key="frame" x="16" y="60" width="343" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epw-w0-eHR">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="57.5"/>
@@ -312,9 +305,8 @@ Work week is automatic, private, and insightful</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVB-dB-F0e">
-                                        <rect key="frame" x="0.0" y="57.5" width="343" height="130.5"/>
-                                        <string key="text">We can send you notifications when its time to go home or you accomplish a special goal! This is optional, but makes the experience much better and we really recommend it. We send notifications very rarely, so we won’t spam you!</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Week can send you notifications when its time to go home or you accomplish a special goal. No spam, promise." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVB-dB-F0e">
+                                        <rect key="frame" x="0.0" y="57.5" width="343" height="64.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -466,6 +458,7 @@ Work week is automatic, private, and insightful</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Launch Screen" width="375" height="667"/>
         <image name="Metrics" width="288" height="73"/>
         <image name="home" width="78" height="71"/>
         <image name="iphone" width="68" height="120"/>
