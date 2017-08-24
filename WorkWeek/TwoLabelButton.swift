@@ -35,6 +35,15 @@ final class TwoLabelButton: UIButton {
         return l
     }()
 
+    private lazy var stack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [self.left, self.right])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.isUserInteractionEnabled = false
+        stack.alignment = .center
+        stack.distribution = .fillProportionally
+        return stack
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         sharedInit()
@@ -44,15 +53,6 @@ final class TwoLabelButton: UIButton {
         super.init(coder: aDecoder)
         sharedInit()
     }
-
-    private lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [self.left, self.right])
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.isUserInteractionEnabled = false
-        stack.alignment = .center
-        stack.distribution = .fillProportionally
-        return stack
-    }()
 
     private func sharedInit() {
         self.setTitle(nil, for: .normal)
