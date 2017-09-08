@@ -9,5 +9,6 @@
         <page name='SparkButton'/>
         <page name='OutlineButton'/>
         <page name='Blue Onboarding Button'/>
+        <page name='ButtonWithPressAnimation'/>
     </pages>
 </playground>
