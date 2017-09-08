@@ -39,6 +39,12 @@ class RealmManager {
         Log.log(allDailyObject.debugDescription)
     }
 
+    func queryWeeklyObject(for date: Date) -> WeeklyObject? {
+        let key = weeklyPrimaryKeyBased(on: date)
+        let weeklyObject = realm.object(ofType: WeeklyObject.self, forPrimaryKey: key)
+        return weeklyObject
+    }
+
     func queryAllObjects<T: Object>(ofType type: T.Type) -> [T] {
         let allObjects = realm.objects(type)
         Log.log(allObjects.debugDescription)
@@ -95,7 +101,6 @@ class RealmManager {
         }
     }
 
-
     func dailyPrimaryKeyBased(on date: Date) -> String {
         return RealmManager.dateFormatter.string(from: date)
     }
@@ -142,10 +147,13 @@ class RealmManager {
         unhandledErrorWrite( user.notificationChoice =  choice)
     }
 
-    func getUserTimeLeft() -> TimeInterval {
-        let today = Date()
-        let timeSoFar = queryDailyObject(for: today)?.workTime ?? 0.0
+    func getUserTimeLeft(in date: Date = Date()) -> TimeInterval {
+        let timeSoFar = queryDailyObject(for: date)?.workTime ?? 0.0
         return usersDefaultWorkDayLength() - timeSoFar
+    }
+
+    func getUserTimeLeftInWeek() -> TimeInterval {
+        return 0.0
     }
 
     func usersDefaultWorkDayLength() -> TimeInterval {

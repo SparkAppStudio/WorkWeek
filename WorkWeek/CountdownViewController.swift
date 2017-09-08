@@ -9,11 +9,51 @@ protocol CountdownViewDelegate: class {
     func countdownPageDidTapSettings()
 }
 
+
+protocol CountdownData {
+    var timeLeftInDay: TimeInterval { get }
+    var timeLeftInWeek: TimeInterval { get }
+}
+struct CountDown: CountdownData {
+    var timeLeftInDay: TimeInterval {
+        return RealmManager.shared.getUserTimeLeft()
+    }
+    var timeLeftInWeek: TimeInterval {
+        let weekly = RealmManager.shared.queryWeeklyObject(for: Date())!
+        return weekly.totalWorkTime
+    }
+}
+
+//    struct FakeDataForTesting: CountdownData {
+//        var timeLeftInDay: TimeInterval {
+//            // 5 hours, 37 Minutes, 10 seconds
+//            return 5 * 60 * 60 + 37 * 60 + 10
+//        }
+//        var timeLeftInWeek: TimeInterval {
+//             // 15 hours, 27 min, 10 sec
+//            return 15 * 60 * 60 + 27 * 60 + 10
+//        }
+//    }
+
+//    let timeLeftInDay: TimeInterval
+//    let timeLeftInWeek: TimeInterval
+//
+//    let targetTime: TimeInterval
+//
+//    let sundayHours: TimeInterval
+//    let mondayHours: TimeInterval
+//    let tuesdayHours: TimeInterval
+//    let wednesdayHours: TimeInterval
+//    let thursdayHours: TimeInterval
+//    let fridayHours: TimeInterval
+//    let saturdayHours: TimeInterval
+
+
 final class CountdownViewController: UIViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak var countdownDisplay: UILabel!
-    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var weekTimeDisplay: UILabel!
 
     // MARK: IBActions
     @IBAction func didTapSettings(_ sender: UIButton) {
@@ -22,13 +62,15 @@ final class CountdownViewController: UIViewController {
 
     weak var delegate: CountdownViewDelegate?
 
+    var data: CountdownData = CountDown()
+
     var timer = Timer()
-    var timeRemaining = 28800
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //By default, start count down from 8 hours
-        runTimer()
+
+        updateTimer(timer)
+
         #if DEBUG
         // To get shake gesture
         self.becomeFirstResponder()
@@ -55,30 +97,32 @@ final class CountdownViewController: UIViewController {
     #endif
 
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1,
+        timer = Timer.scheduledTimer(timeInterval: 30,
                                      target: self,
                                      selector: (#selector(CountdownViewController.updateTimer(_:))),
                                      userInfo: nil, repeats: true)
     }
 
-    func updateTimer(_ timer: Timer) {
-        if timeRemaining < 1 {
-            timer.invalidate()
-            //Time is up, do some stuff
-        } else {
-            timeRemaining -= 1
-            countdownDisplay.text = timeString(time: TimeInterval(timeRemaining))
-        }
-    }
+    lazy var hourMinuteFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        return formatter
+    }()
 
-    func timeString(time: TimeInterval) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    lazy var hoursFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour]
+        return formatter
+    }()
+
+    @objc func updateTimer(_ timer: Timer) {
+        countdownDisplay.text = hourMinuteFormatter.string(from: data.timeLeftInDay)
+        let weekHours = hoursFormatter.string(from: data.timeLeftInWeek)!
+        weekTimeDisplay.text = "\(weekHours) work hours left in the week"
     }
 }
 
 extension CountdownViewController: ActivityStoryboard {
+
 }
 
