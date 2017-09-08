@@ -9,11 +9,11 @@ protocol CountdownViewDelegate: class {
     func countdownPageDidTapSettings()
 }
 
-
 protocol CountdownData {
     var timeLeftInDay: TimeInterval { get }
     var timeLeftInWeek: TimeInterval { get }
 }
+
 struct CountDown: CountdownData {
     var timeLeftInDay: TimeInterval {
         return RealmManager.shared.getUserTimeLeft()
@@ -24,16 +24,20 @@ struct CountDown: CountdownData {
     }
 }
 
-//    struct FakeDataForTesting: CountdownData {
-//        var timeLeftInDay: TimeInterval {
-//            // 5 hours, 37 Minutes, 10 seconds
-//            return 5 * 60 * 60 + 37 * 60 + 10
-//        }
-//        var timeLeftInWeek: TimeInterval {
-//             // 15 hours, 27 min, 10 sec
-//            return 15 * 60 * 60 + 27 * 60 + 10
-//        }
+//struct FakeDataForTesting: CountdownData {
+//    var timeLeftInDay: TimeInterval {
+//        // 5 hours, 37 Minutes, 10 seconds
+//        let hours: TimeInterval = 5 * 60 * 60
+//        let minutes: TimeInterval = 37 * 60
+//        return hours + minutes + 10
 //    }
+//    var timeLeftInWeek: TimeInterval {
+//         // 15 hours, 27 min, 10 sec
+//        let hours: TimeInterval = 15 * 60 * 60
+//        let minutes: TimeInterval = 27 * 60
+//        return hours + minutes + 10
+//    }
+//}
 
 //    let timeLeftInDay: TimeInterval
 //    let timeLeftInWeek: TimeInterval
