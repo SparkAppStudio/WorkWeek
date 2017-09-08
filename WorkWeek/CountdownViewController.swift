@@ -72,7 +72,7 @@ final class CountdownViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        runTimer()
         updateTimer(timer)
 
         #if DEBUG
