@@ -723,7 +723,7 @@
 				);
 				INFOPLIST_FILE = WorkWeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=200";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sparkappstudio.workweek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e9adbb80-285b-4b16-a3c1-dd695eef119c";
@@ -744,7 +744,7 @@
 				);
 				INFOPLIST_FILE = WorkWeek/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=200";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sparkappstudio.workweek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e9adbb80-285b-4b16-a3c1-dd695eef119c";
