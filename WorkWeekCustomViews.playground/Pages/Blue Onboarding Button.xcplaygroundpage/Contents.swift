@@ -3,12 +3,12 @@ import UIKit
 import PlaygroundSupport
 
 struct Colors {
-    static let bg = UIColor(red:0.21, green:0.2, blue:0.22, alpha:1)
+    static let background = UIColor(red:0.21, green:0.2, blue:0.22, alpha:1)
     static let dark = UIColor.darkGray
     static let green = UIColor(red:0.21, green:0.93, blue:0.84, alpha:1)
     static let blue = UIColor(red:0.24, green:0.51, blue:0.97, alpha:1)
-    static let gradL = UIColor(red:0.22, green:0.89, blue:0.51, alpha:1)
-    static let gradR = UIColor(red:0.23, green:0.84, blue:0.83, alpha:1)
+    static let gradientLeft = UIColor(red:0.22, green:0.89, blue:0.51, alpha:1)
+    static let gradientRight = UIColor(red:0.23, green:0.84, blue:0.83, alpha:1)
 }
 
 public class BlueButton: UIButton {
@@ -24,7 +24,8 @@ public class BlueButton: UIButton {
         let insetRect = rect.insetBy(dx: 4, dy: 4)
 
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let colors: NSArray = [Colors.gradL.cgColor, Colors.gradR.cgColor]
+        let colors: NSArray = [Colors.gradientLeft.cgColor,
+                               Colors.gradientRight.cgColor]
         guard let gradient = CGGradient(colorsSpace: colorSpace,
                                         colors: colors,
                                         locations: [0, 1]) else { return }

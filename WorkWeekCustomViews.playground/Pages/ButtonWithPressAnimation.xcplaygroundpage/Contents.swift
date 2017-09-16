@@ -30,12 +30,12 @@ class ActiveButton: UIButton {
         return UIColor.lightGray.cgColor
     }
 
-    lazy var bg: CAShapeLayer = {
+    lazy var backgroundLayer: CAShapeLayer = {
         let bg = RoundedLayer()
         bg.fillColor = self.bgColor
         return bg
     }()
-    lazy var fg: RoundedLayer = {
+    lazy var foregroundLayer: RoundedLayer = {
         let fg = RoundedLayer()
         fg.fillColor = self.fgColor
         fg.shadowColor = UIColor.black.cgColor
@@ -49,9 +49,9 @@ class ActiveButton: UIButton {
         super.init(frame: frame)
 
         bg.frame = bgFrame
-        layer.addSublayer(bg)
+        layer.addSublayer(backgroundLayer)
         fg.frame = bounds
-        layer.addSublayer(fg)
+        layer.addSublayer(foregroundLayer)
     }
 
     required init?(coder aDecoder: NSCoder) {
