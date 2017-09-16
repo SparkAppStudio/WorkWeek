@@ -89,7 +89,7 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
         }
     }
 
-    func appDidBecomeActive(notification: NSNotification) {
+    @objc func appDidBecomeActive(notification: NSNotification) {
         configureDisplay()
     }
 

@@ -7,8 +7,7 @@ import RealmSwift
 
 class WeeklyObject: Object {
 
-    dynamic var weekAndTheYear: String?
-
+    @objc dynamic var weekAndTheYear: String?
     let dailyObjects = List<DailyObject>()
 
     var totalWorkTime: TimeInterval {
