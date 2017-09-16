@@ -6,8 +6,8 @@ import Foundation
 import RealmSwift
 
 class Event: Object {
-    dynamic var eventTime: Date = Date()
-    dynamic private var kindStorage: String? = ""
+    @objc dynamic var eventTime: Date = Date()
+    @objc dynamic private var kindStorage: String? = ""
 
     var kind: NotificationCenter.CheckInEvent? {
         guard let kindStorage = kindStorage else {

@@ -32,11 +32,11 @@ class User: Object {
         case weekly
     }
 
-    dynamic var hoursInWorkDay: Double = User.defaultWorkDayLength
+    @objc dynamic var hoursInWorkDay: Double = User.defaultWorkDayLength
 
     // the list of days they want notificaitons for
     // by default Select M-F
-    dynamic var weekdaysStorage: Int = {
+    @objc dynamic var weekdaysStorage: Int = {
         var week = Weekdays()
         week.insert(.monday)
         week.insert(.tuesday)
@@ -47,7 +47,7 @@ class User: Object {
     }()
 
     // Default is No Notifications
-    dynamic var notificationChoiceStorage: Int = 0
+    @objc dynamic var notificationChoiceStorage: Int = 0
 
     var notificationChoice: NotificationChoice {
         get {

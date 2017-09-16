@@ -15,8 +15,8 @@ private struct Pair {
 }
 
 class DailyObject: Object {
-    dynamic var dateString: String?
-    dynamic var date: Date?
+    @objc dynamic var dateString: String?
+    @objc dynamic var date: Date?
 
     private let allEventsRaw = List<Event>()
 
