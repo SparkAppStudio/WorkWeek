@@ -48,9 +48,9 @@ class ActiveButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        bg.frame = bgFrame
+        backgroundLayer.frame = bgFrame
         layer.addSublayer(backgroundLayer)
-        fg.frame = bounds
+        foregroundLayer.frame = bounds
         layer.addSublayer(foregroundLayer)
     }
 
@@ -73,13 +73,13 @@ class ActiveButton: UIButton {
 
     func animateBG(highlighted: Bool) {
         if highlighted {
-            fg.fillColor = fgHighlightColor
-            bg.setAffineTransform( CGAffineTransform(translationX: 0, y: 2))
-            fg.shadowOpacity = 0.0
+            foregroundLayer.fillColor = fgHighlightColor
+            backgroundLayer.setAffineTransform( CGAffineTransform(translationX: 0, y: 2))
+            foregroundLayer.shadowOpacity = 0.0
         } else {
-            fg.fillColor = fgColor
-            bg.setAffineTransform(CGAffineTransform.identity)
-            fg.shadowOpacity = 0.3
+            foregroundLayer.fillColor = fgColor
+            backgroundLayer.setAffineTransform(CGAffineTransform.identity)
+            foregroundLayer.shadowOpacity = 0.3
         }
     }
 }
