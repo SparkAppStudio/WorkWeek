@@ -62,9 +62,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UIView.animate(withDuration: 0.5, animations: {
             self.locationWindow?.alpha = 0
-        }) { _ in
+        }, completion: { _ in
             self.locationWindow = nil
-        }
+        })
     }
 
     func configureWindowAndCoordinator() {
