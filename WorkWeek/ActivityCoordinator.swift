@@ -67,6 +67,13 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
     }
 
     func configOrderedViewControllers() -> [UIViewController] {
+
+        if RealmManager.shared.queryWeeklyObject(for: Date()) == nil {
+            // User has no data...
+            let blue = BlueViewController(nibName: nil, bundle: nil)
+            return [blue]
+        }
+
         let countdownVC = CountdownViewController.instantiate()
         countdownVC.data = CountDown()
         countdownVC.title = "Count Down"
@@ -93,5 +100,12 @@ extension ActivityCoordinator: UserGettable {
 extension ActivityCoordinator: CountdownViewDelegate {
     func countdownPageDidTapSettings() {
         showSettings()
+    }
+}
+
+class BlueViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .blue
     }
 }
