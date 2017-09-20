@@ -65,8 +65,7 @@ final class CountdownViewController: UIViewController {
     }
 
     weak var delegate: CountdownViewDelegate?
-
-    var data: CountdownData = CountDown()
+    var data: CountdownData!
 
     var timer = Timer()
 
@@ -126,7 +125,4 @@ final class CountdownViewController: UIViewController {
     }
 }
 
-extension CountdownViewController: ActivityStoryboard {
-
-}
-
+extension CountdownViewController: ActivityStoryboard { }

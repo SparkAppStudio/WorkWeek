@@ -1,8 +1,4 @@
 //
-//  ActivityCoordinator.swift
-//  WorkWeek
-//
-//  Created by Douglas Hewitt on 7/10/17.
 //  Copyright © 2017 Spark App Studio. All rights reserved.
 //
 
@@ -10,7 +6,7 @@ import UIKit
 import CoreLocation
 
 
-class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate, UserGettable {
+class ActivityCoordinator: SettingsCoordinatorDelegate, UserGettable {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
@@ -29,23 +25,16 @@ class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate
         Log.log()
 
         let activityVC = ActivityPageViewController.instantiate()
-        activityVC.activityDelegate = self
+        activityVC.orderedViewControllers = configOrderedViewControllers()
         activityVC.locationManager = locationManager
         navigationController.isNavigationBarHidden = true
 
         if animated {
             navigationController.viewControllers.insert(activityVC, at: 0)
             navigationController.popWithFadeAnimation()
-
         } else {
             navigationController.setViewControllers([activityVC], animated: false)
         }
-    }
-
-    // MARK: ActivityPageViewDelegate
-
-    func pageDidTapSettings() {
-        showSettings()
     }
 
     func showSettings() {
@@ -65,5 +54,28 @@ class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate
 
     func settingsFinished(with coordinator: SettingsCoordinator) {
         childCoordinators.remove(coordinator)
+    }
+
+    func configOrderedViewControllers() -> [UIViewController] {
+        let countdownVC = CountdownViewController.instantiate()
+        countdownVC.data = CountDown()
+        countdownVC.title = "Count Down"
+        let navCountdownVC = UINavigationController(rootViewController: countdownVC)
+        countdownVC.delegate = self
+
+        let dailyVC = DailyCollectionViewController.instantiate()
+        dailyVC.title = "Daily Activity"
+        let navDailyVC = UINavigationController(rootViewController: dailyVC)
+        let weeklyVC = WeeklyCollectionViewController.instantiate()
+        weeklyVC.title = "Weekly Report"
+        let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
+
+        return [navCountdownVC, navDailyVC, navWeeklyVC]
+    }
+}
+
+extension ActivityCoordinator: CountdownViewDelegate {
+    func countdownPageDidTapSettings() {
+        showSettings()
     }
 }

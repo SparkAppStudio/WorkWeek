@@ -5,18 +5,24 @@
 import UIKit
 import CoreLocation
 
-
-protocol ActivityPageViewDelegate: class {
-    func pageDidTapSettings()
+struct CountDown: CountdownData {
+    var timeLeftInDay: TimeInterval {
+        return RealmManager.shared.getUserTimeLeft()
+    }
+    var timeLeftInWeek: TimeInterval {
+        let weekly = RealmManager.shared.queryWeeklyObject(for: Date())!
+        return weekly.totalWorkTime
+    }
 }
 
-final class ActivityPageViewController: UIPageViewController, ActivityStoryboard, CountdownViewDelegate {
+final class ActivityPageViewController: UIPageViewController, ActivityStoryboard {
+
+    var orderedViewControllers: [UIViewController]!
 
     lazy var manager: PageManager = {
-        return PageManager(viewControllers: self.configOrderedViewControllers())
+        return PageManager(viewControllers: orderedViewControllers)
     }()
 
-    weak var activityDelegate: ActivityPageViewDelegate?
     var locationManager: CLLocationManager!
 
     override func viewDidLoad() {
@@ -37,26 +43,6 @@ final class ActivityPageViewController: UIPageViewController, ActivityStoryboard
         super.viewDidLayoutSubviews()
         self.view.backgroundColor = .white
         self.removePageViewControllerBlackEmptyBackground()
-    }
-
-    func configOrderedViewControllers() -> [UIViewController] {
-        let countdownVC = CountdownViewController.instantiate()
-        countdownVC.title = "Count Down"
-        let navCountdownVC = UINavigationController(rootViewController: countdownVC)
-        countdownVC.delegate = self
-
-        let dailyVC = DailyCollectionViewController.instantiate()
-        dailyVC.title = "Daily Activity"
-        let navDailyVC = UINavigationController(rootViewController: dailyVC)
-        let weeklyVC = WeeklyCollectionViewController.instantiate()
-        weeklyVC.title = "Weekly Report"
-        let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
-
-        return [navCountdownVC, navDailyVC, navWeeklyVC]
-    }
-
-    func countdownPageDidTapSettings() {
-        activityDelegate?.pageDidTapSettings()
     }
 }
 
