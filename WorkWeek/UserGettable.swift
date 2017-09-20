@@ -5,7 +5,7 @@
 import UIKit
 
 protocol UserGettable {
-    var navigationController: UINavigationController { get }
+    var vcForPresentation: UIViewController { get }
     func getUserFromRealm() -> User?
     func showErrorAlert()
 }
@@ -25,6 +25,6 @@ extension UserGettable {
         }
 
         alert.addAction(ok)
-        navigationController.present(alert, animated: true, completion: nil)
+        vcForPresentation.present(alert, animated: true, completion: nil)
     }
 }

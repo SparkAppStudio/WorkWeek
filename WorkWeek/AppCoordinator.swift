@@ -63,6 +63,10 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
 
     extension AppCoordinator: SettingsCoordinatorDelegate, UserGettable {
 
+        var vcForPresentation: UIViewController {
+            return navigationController
+        }
+
         func showSettings() {
 
             guard let user = getUserFromRealm() else {

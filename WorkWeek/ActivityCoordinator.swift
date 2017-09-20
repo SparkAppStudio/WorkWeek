@@ -15,7 +15,7 @@ struct CountDown: CountdownData {
     }
 }
 
-class ActivityCoordinator: SettingsCoordinatorDelegate, UserGettable {
+class ActivityCoordinator: SettingsCoordinatorDelegate {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
@@ -80,6 +80,12 @@ class ActivityCoordinator: SettingsCoordinatorDelegate, UserGettable {
         let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
 
         return [navCountdownVC, navDailyVC, navWeeklyVC]
+    }
+}
+
+extension ActivityCoordinator: UserGettable {
+    var vcForPresentation: UIViewController {
+        return navigationController
     }
 }
 
