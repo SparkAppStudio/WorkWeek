@@ -9,6 +9,7 @@ struct CountDown: CountdownData {
     var timeLeftInDay: TimeInterval {
         return RealmManager.shared.getUserTimeLeft()
     }
+
     var timeLeftInWeek: TimeInterval {
         let weekly = RealmManager.shared.queryWeeklyObject(for: Date())!
         return weekly.totalWorkTime
