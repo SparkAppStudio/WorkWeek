@@ -28,6 +28,19 @@ class RealmManager {
     }()
 
     // MARK: - Query Operations
+
+    var hasDataForThisWeek: Bool {
+        return queryWeeklyObject(for: Date()) != nil
+    }
+
+    var hasDataForPreviousWeek: Bool {
+        let today = Date()
+        let todayComps = Calendar.current.dateComponents([.weekOfYear, .weekday], from: today)
+        let lastWeek = Calendar.current.nextDate(after: Date.distantPast , matching: todayComps, matchingPolicy: .nextTime, repeatedTimePolicy: .first, direction: .backward)
+        guard let lastWeekDate = lastWeek else { return false }
+        guard let _ = queryWeeklyObject(for: lastWeekDate) else { return false }
+        return true
+    }
     func queryDailyObject(for date: Date) -> DailyObject? {
         let key = dailyPrimaryKeyBased(on: date)
         let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)

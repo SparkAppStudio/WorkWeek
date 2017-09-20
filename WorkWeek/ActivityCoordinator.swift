@@ -68,11 +68,22 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
 
     func configOrderedViewControllers() -> [UIViewController] {
 
-        if RealmManager.shared.queryWeeklyObject(for: Date()) == nil {
-            // User has no data...
-            let blue = BlueViewController(nibName: nil, bundle: nil)
-            return [blue]
+        if !RealmManager.shared.hasDataForThisWeek {
+            // User has no data for This week...
+
+            var missingDataVCs: [UIViewController] = []
+            let coach = NoDataCoachViewController(nibName: nil, bundle: nil)
+            missingDataVCs.append(coach)
+            if RealmManager.shared.hasDataForPreviousWeek {
+                let weeklyVC = WeeklyCollectionViewController.instantiate()
+                weeklyVC.title = "Weekly Report"
+                let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
+                missingDataVCs.append(navWeeklyVC)
+            }
+            return missingDataVCs
         }
+
+        // The usuall case of use has real data for this week and last week.
 
         let countdownVC = CountdownViewController.instantiate()
         countdownVC.data = CountDown()
