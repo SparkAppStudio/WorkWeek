@@ -14,16 +14,6 @@ protocol CountdownData {
     var timeLeftInWeek: TimeInterval { get }
 }
 
-struct CountDown: CountdownData {
-    var timeLeftInDay: TimeInterval {
-        return RealmManager.shared.getUserTimeLeft()
-    }
-    var timeLeftInWeek: TimeInterval {
-        let weekly = RealmManager.shared.queryWeeklyObject(for: Date())!
-        return weekly.totalWorkTime
-    }
-}
-
 //struct FakeDataForTesting: CountdownData {
 //    var timeLeftInDay: TimeInterval {
 //        // 5 hours, 37 Minutes, 10 seconds
