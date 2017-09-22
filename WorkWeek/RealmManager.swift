@@ -36,9 +36,13 @@ class RealmManager {
     var hasDataForPreviousWeek: Bool {
         let today = Date()
         let todayComps = Calendar.current.dateComponents([.weekOfYear, .weekday], from: today)
-        let lastWeek = Calendar.current.nextDate(after: Date.distantPast , matching: todayComps, matchingPolicy: .nextTime, repeatedTimePolicy: .first, direction: .backward)
+        let lastWeek = Calendar.current.nextDate(after: Date.distantPast,
+                                                 matching: todayComps,
+                                                 matchingPolicy: .nextTime,
+                                                 repeatedTimePolicy: .first,
+                                                 direction: .backward)
         guard let lastWeekDate = lastWeek else { return false }
-        guard let _ = queryWeeklyObject(for: lastWeekDate) else { return false }
+        guard queryWeeklyObject(for: lastWeekDate) != nil else { return false }
         return true
     }
     func queryDailyObject(for date: Date) -> DailyObject? {
