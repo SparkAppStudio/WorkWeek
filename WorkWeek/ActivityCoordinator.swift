@@ -86,7 +86,7 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
         // The usuall case of use has real data for this week and last week.
 
         let countdownVC = CountdownViewController.instantiate()
-        countdownVC.data = CountDown()
+        countdownVC.data = CountDown() // NOTE: This VC is only seeded with this struct data one time.
         countdownVC.title = "Count Down"
         let navCountdownVC = UINavigationController(rootViewController: countdownVC)
         countdownVC.delegate = self

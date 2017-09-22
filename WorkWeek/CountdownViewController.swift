@@ -55,14 +55,14 @@ final class CountdownViewController: UIViewController {
     }
 
     weak var delegate: CountdownViewDelegate?
-    var data: CountdownData!
+    var data: CountdownData! // NOTE: this is just a Struct! Need to seed this VC with new data if daily or weely object changes...
 
     var timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         runTimer()
-        updateTimer(timer)
+        tick(timer)
 
         #if DEBUG
         // To get shake gesture
@@ -90,9 +90,9 @@ final class CountdownViewController: UIViewController {
     #endif
 
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 30,
+        timer = Timer.scheduledTimer(timeInterval: 10,
                                      target: self,
-                                     selector: (#selector(CountdownViewController.updateTimer(_:))),
+                                     selector: (#selector(CountdownViewController.tick(_:))),
                                      userInfo: nil, repeats: true)
     }
 
@@ -108,10 +108,27 @@ final class CountdownViewController: UIViewController {
         return formatter
     }()
 
-    @objc func updateTimer(_ timer: Timer) {
+    @objc func tick(_ timer: Timer) {
+        blink()
         countdownDisplay.text = hourMinuteFormatter.string(from: data.timeLeftInDay)
         let weekHours = hoursFormatter.string(from: data.timeLeftInWeek)!
         weekTimeDisplay.text = "\(weekHours) work hours left in the week"
+    }
+
+    var blinkEnabled = false
+    lazy var blinkView: UIView = {
+        let view = UIView(frame: CGRect(x: 10, y: 100, width: 50, height: 50))
+        self.view.addSubview(view)
+        return view
+    }()
+    func blink() {
+        if blinkEnabled {
+            blinkView.backgroundColor = .clear
+            blinkEnabled = false
+        } else {
+            blinkView.backgroundColor = .red
+            blinkEnabled = true
+        }
     }
 }
 
