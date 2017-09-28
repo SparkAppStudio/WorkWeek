@@ -30,12 +30,12 @@ class ActiveButton: UIButton {
         return UIColor.lightGray.cgColor
     }
 
-    lazy var bg: CAShapeLayer = {
+    lazy var backgroundLayer: CAShapeLayer = {
         let bg = RoundedLayer()
         bg.fillColor = self.bgColor
         return bg
     }()
-    lazy var fg: RoundedLayer = {
+    lazy var foregroundLayer: RoundedLayer = {
         let fg = RoundedLayer()
         fg.fillColor = self.fgColor
         fg.shadowColor = UIColor.black.cgColor
@@ -48,10 +48,10 @@ class ActiveButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        bg.frame = bgFrame
-        layer.addSublayer(bg)
-        fg.frame = bounds
-        layer.addSublayer(fg)
+        backgroundLayer.frame = bgFrame
+        layer.addSublayer(backgroundLayer)
+        foregroundLayer.frame = bounds
+        layer.addSublayer(foregroundLayer)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -73,13 +73,13 @@ class ActiveButton: UIButton {
 
     func animateBG(highlighted: Bool) {
         if highlighted {
-            fg.fillColor = fgHighlightColor
-            bg.setAffineTransform( CGAffineTransform(translationX: 0, y: 2))
-            fg.shadowOpacity = 0.0
+            foregroundLayer.fillColor = fgHighlightColor
+            backgroundLayer.setAffineTransform( CGAffineTransform(translationX: 0, y: 2))
+            foregroundLayer.shadowOpacity = 0.0
         } else {
-            fg.fillColor = fgColor
-            bg.setAffineTransform(CGAffineTransform.identity)
-            fg.shadowOpacity = 0.3
+            foregroundLayer.fillColor = fgColor
+            backgroundLayer.setAffineTransform(CGAffineTransform.identity)
+            foregroundLayer.shadowOpacity = 0.3
         }
     }
 }

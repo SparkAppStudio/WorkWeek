@@ -57,7 +57,7 @@ class DailyCollectionViewController: UICollectionViewController {
         Analytics.track(.pageView(.activityDaily))
     }
 
-    func reloadViewController() {
+    @objc func reloadViewController() {
         self.collectionView?.reloadData()
     }
 

@@ -61,7 +61,7 @@ final class CountdownViewController: UIViewController {
                                      userInfo: nil, repeats: true)
     }
 
-    func updateTimer(_ timer: Timer) {
+    @objc func updateTimer(_ timer: Timer) {
         if timeRemaining < 1 {
             timer.invalidate()
             //Time is up, do some stuff
