@@ -6,13 +6,13 @@ import UIKit
 import CoreLocation
 
 struct CountDown: CountdownData {
+    var calculator: UserHoursCalculator { return RealmManager.shared.getUserCalculator }
     var timeLeftInDay: TimeInterval {
-        return RealmManager.shared.getUserTimeLeft()
+        return calculator.getUserTimeLeftToday()
     }
 
     var timeLeftInWeek: TimeInterval {
-        let weekly = RealmManager.shared.queryWeeklyObject(for: Date())!
-        return weekly.totalWorkTime
+        return calculator.getUserTimeLeftInWeek()
     }
 }
 
@@ -67,14 +67,15 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
     }
 
     func configOrderedViewControllers() -> [UIViewController] {
+        let userCaluclator = RealmManager.shared.getUserCalculator
 
-        if !RealmManager.shared.hasDataForThisWeek {
+        if !userCaluclator.hasDataForThisWeek {
             // User has no data for This week...
 
             var missingDataVCs: [UIViewController] = []
             let coach = NoDataCoachViewController(nibName: nil, bundle: nil)
             missingDataVCs.append(coach)
-            if RealmManager.shared.hasDataForPreviousWeek {
+            if userCaluclator.hasDataForPreviousWeek {
                 let weeklyVC = WeeklyCollectionViewController.instantiate()
                 weeklyVC.title = "Weekly Report"
                 let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
@@ -86,7 +87,7 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
         // The usuall case of use has real data for this week and last week.
 
         let countdownVC = CountdownViewController.instantiate()
-        countdownVC.data = CountDown() // NOTE: This VC is only seeded with this struct data one time.
+        countdownVC.data = CountDown()
         countdownVC.title = "Count Down"
         let navCountdownVC = UINavigationController(rootViewController: countdownVC)
         countdownVC.delegate = self

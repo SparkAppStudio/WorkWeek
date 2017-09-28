@@ -121,6 +121,7 @@ final class CountdownViewController: UIViewController {
         self.view.addSubview(view)
         return view
     }()
+
     func blink() {
         if blinkEnabled {
             blinkView.backgroundColor = .clear
