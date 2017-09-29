@@ -28,9 +28,10 @@ class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate
     func start(animated: Bool) {
         Log.log()
 
-        let activityVC = ActivityPageViewController.instantiate()
-        activityVC.activityDelegate = self
-        activityVC.locationManager = locationManager
+//        let activityVC = ActivityPageViewController.instantiate()
+        let activityVC = ActivityViewController()
+//        activityVC.activityDelegate = self
+//        activityVC.locationManager = locationManager
         navigationController.isNavigationBarHidden = true
 
         if animated {
