@@ -55,7 +55,7 @@ final class CountdownViewController: UIViewController {
     }
 
     weak var delegate: CountdownViewDelegate?
-    var data: CountdownData! // NOTE: this is just a Struct! Need to seed this VC with new data if daily or weely object changes...
+    var data: CountdownData!
 
     var timer = Timer()
 

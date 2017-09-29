@@ -8,7 +8,7 @@ import CoreLocation
 struct CountDown: CountdownData {
     var calculator: UserHoursCalculator { return RealmManager.shared.getUserCalculator }
     var timeLeftInDay: TimeInterval {
-        return calculator.getUserTimeLeftToday()
+        return calculator.getUserTimeLeftToday
     }
 
     var timeLeftInWeek: TimeInterval {

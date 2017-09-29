@@ -136,4 +136,23 @@ class DailyObjectTests: XCTestCase {
         XCTAssertEqual(dailyObject.workTime, 20.0)
     }
 
+    func testUserIsNotAtWorkYet() {
+        let leftHome = Event(kind: .leaveHome, time: Date(timeIntervalSince1970: 0.0))
+        dailyObject.add(leftHome)
+        XCTAssertEqual(dailyObject.isAtWork, false)
+    }
+
+    func testUserIsAtWorkSimpleCase() {
+        let leftHome = Event(kind: .leaveHome, time: Date(timeIntervalSince1970: 0.0))
+        let arriveWork = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 10.0))
+        dailyObject.add(leftHome)
+        dailyObject.add(arriveWork)
+        XCTAssertEqual(dailyObject.isAtWork, true)
+    }
+
+    func testUserIsAtWorkIfOnlyArrive() {
+        let arriveWork = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
+        dailyObject.add(arriveWork)
+        XCTAssertEqual(dailyObject.isAtWork, true)
+    }
 }

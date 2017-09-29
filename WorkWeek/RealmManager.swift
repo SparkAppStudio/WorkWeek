@@ -206,13 +206,27 @@ class UserHoursCalculator {
         return previousWeek != nil
     }
 
-    func getUserTimeLeftToday() -> TimeInterval {
-        guard let dailyObject = dailyObject else {
-            Log.log(.debug, "User Has not yet gone to work Today")
-            return usersDefaultWorkDayLength()
+    var isAtWork: Bool {
+        guard let dailyObject = dailyObject else { return false }
+        guard let lastEvent = dailyObject.events.last else {
+            return false // no events yet today, not at work
         }
-        let timeSoFar = dailyObject.workTime
-        return usersDefaultWorkDayLength() - timeSoFar
+        return lastEvent.kind == NotificationCenter.CheckInEvent.arriveWork
+    }
+
+    var timeSoFarToday: TimeInterval {
+        guard let dailyObject = dailyObject else { return 0.0 }
+        let priorDurations = dailyObject.completedWorkTime
+
+        if isAtWork, let arriveWork = dailyObject.events.last {
+            let now = Date()
+            return priorDurations + now.timeIntervalSince(arriveWork.eventTime)
+        }
+        return priorDurations
+    }
+
+    var getUserTimeLeftToday: TimeInterval {
+        return usersDefaultWorkDayLength() - timeSoFarToday
     }
 
     private func usersDefaultWorkDayLength() -> TimeInterval {
@@ -220,7 +234,7 @@ class UserHoursCalculator {
     }
 
     func getUserTimeLeftInWeek() -> TimeInterval {
-        return 0.0
+        return 0.0 // TODO:
     }
 
 }

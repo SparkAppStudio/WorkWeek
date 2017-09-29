@@ -24,16 +24,16 @@ class DailyObject: Object {
         return Array(allEventsRaw)
     }
 
-    var workTime: TimeInterval {
-        return validWorkingDurations.reduce(0) { $0 + $1.interval }
-    }
-
     override static func primaryKey() -> String? {
         return #keyPath(DailyObject.dateString)
     }
 
     func add(_ event: Event) {
         allEventsRaw.append(event)
+    }
+
+    var completedWorkTime: TimeInterval {
+        return validWorkingDurations.reduce(0) { $0 + $1.interval }
     }
 
     private var validWorkingDurations: [Pair] {

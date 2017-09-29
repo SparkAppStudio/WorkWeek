@@ -12,7 +12,7 @@ class WeeklyObject: Object {
 
     var totalWorkTime: TimeInterval {
         return dailyObjects.reduce(0.0) { (sum, daily) in
-            return sum + daily.workTime
+            return sum + daily.completedWorkTime
         }
     }
 

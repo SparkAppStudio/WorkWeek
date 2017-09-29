@@ -16,7 +16,7 @@ final class PushNotificationManager: NSObject {
     lazy var calculator = RealmManager.shared.getUserCalculator
 
     func userHasArrivedAtWork() {
-        let workTimeLeft = calculator.getUserTimeLeftToday()
+        let workTimeLeft = calculator.getUserTimeLeftToday
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: workTimeLeft, repeats: false)
         Log.log(.debug, "User Arrived At Work")
         let formatter = DateFormatter()
