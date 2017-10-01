@@ -206,22 +206,9 @@ class UserHoursCalculator {
         return previousWeek != nil
     }
 
-    var isAtWork: Bool {
-        guard let dailyObject = dailyObject else { return false }
-        guard let lastEvent = dailyObject.events.last else {
-            return false // no events yet today, not at work
-        }
-        return lastEvent.kind == NotificationCenter.CheckInEvent.arriveWork
-    }
-
     var timeSoFarToday: TimeInterval {
         guard let dailyObject = dailyObject else { return 0.0 }
         let priorDurations = dailyObject.completedWorkTime
-
-        if isAtWork, let arriveWork = dailyObject.events.last {
-            let now = Date()
-            return priorDurations + now.timeIntervalSince(arriveWork.eventTime)
-        }
         return priorDurations
     }
 
@@ -239,7 +226,8 @@ class UserHoursCalculator {
             return 0.0
         }
         let workHoursPerWeek = user.hoursInWorkDay * Double(user.weekdays.numberSelected)
-        return workHoursPerWeek - weeklyObject.totalWorkTime
+        let workHoursInSeconds = workHoursPerWeek * 60 * 60
+        return workHoursInSeconds - weeklyObject.totalWorkTime
     }
 
     var percentOfWorkRemaining: Int {

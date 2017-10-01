@@ -31,8 +31,21 @@ class DailyObject: Object {
     func add(_ event: Event) {
         allEventsRaw.append(event)
     }
+    
+    var isAtWork: Bool {
+        guard let lastEvent = events.last else {
+            return false // no events yet today, not at work
+        }
+        return lastEvent.kind == NotificationCenter.CheckInEvent.arriveWork
+    }
+
 
     var completedWorkTime: TimeInterval {
+        if isAtWork, let arriveWork = events.last {
+            let now = Date()
+            let priorDurations = validWorkingDurations.reduce(0) { $0 + $1.interval }
+            return priorDurations + now.timeIntervalSince(arriveWork.eventTime)
+        }
         return validWorkingDurations.reduce(0) { $0 + $1.interval }
     }
 
