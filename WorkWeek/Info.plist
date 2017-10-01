@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app really does not work with this one? sorry.</string>
+	<string>Work Week needs to access your location for calculating your work hours. Work Week may not be running when you arrive at work, which is why we need Always Authorization. </string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Um What&apos;s this one for?</string>
+	<string>Work Week needs to access your location for calculating your work hours. Work Week may not be running when you arrive at work, which is why we need Always Authorization. </string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>CFBundleDevelopmentRegion</key>
