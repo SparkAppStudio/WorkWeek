@@ -11,6 +11,7 @@ protocol CountdownViewDelegate: class {
 
 protocol CountdownData {
     var timeLeftInDay: TimeInterval { get }
+    var totalHoursForToday: TimeInterval { get }
     var timeLeftInWeek: TimeInterval { get }
 }
 
@@ -47,6 +48,7 @@ final class CountdownViewController: UIViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak var countdownDisplay: UILabel!
+    @IBOutlet weak var percentLeft: UILabel!
     @IBOutlet weak var weekTimeDisplay: UILabel!
 
     // MARK: IBActions
@@ -113,6 +115,8 @@ final class CountdownViewController: UIViewController {
         countdownDisplay.text = hourMinuteFormatter.string(from: data.timeLeftInDay)
         let weekHours = hoursFormatter.string(from: data.timeLeftInWeek)!
         weekTimeDisplay.text = "\(weekHours) work hours left in the week"
+        let percentOfWorkRemaining = data.timeLeftInDay / data.totalHoursForToday
+        percentLeft.text = "\(percentOfWorkRemaining) % left"
     }
 
     var blinkEnabled = false

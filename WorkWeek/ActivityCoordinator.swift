@@ -6,9 +6,15 @@ import UIKit
 import CoreLocation
 
 struct CountDown: CountdownData {
+
     var calculator: UserHoursCalculator { return RealmManager.shared.getUserCalculator }
+
     var timeLeftInDay: TimeInterval {
         return calculator.getUserTimeLeftToday
+    }
+
+    var totalHoursForToday: TimeInterval {
+        return calculator.usersDefaultWorkDayLength
     }
 
     var timeLeftInWeek: TimeInterval {

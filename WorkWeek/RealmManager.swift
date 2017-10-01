@@ -226,15 +226,20 @@ class UserHoursCalculator {
     }
 
     var getUserTimeLeftToday: TimeInterval {
-        return usersDefaultWorkDayLength() - timeSoFarToday
+        return usersDefaultWorkDayLength - timeSoFarToday
     }
 
-    private func usersDefaultWorkDayLength() -> TimeInterval {
+    var usersDefaultWorkDayLength: TimeInterval {
         return user.hoursInWorkDay * 60.0 * 60.0 // convert hours to seconds
     }
 
     func getUserTimeLeftInWeek() -> TimeInterval {
-        return 0.0 // TODO:
+        guard let weeklyObject = weeklyObject else {
+            // No weekly object?
+            return 0.0
+        }
+        let workHoursPerWeek = user.hoursInWorkDay * Double(user.weekdays.numberSelected)
+        return workHoursPerWeek - weeklyObject.totalWorkTime
     }
 
 }
