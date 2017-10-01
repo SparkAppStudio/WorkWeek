@@ -31,7 +31,7 @@ class DailyObject: Object {
     func add(_ event: Event) {
         allEventsRaw.append(event)
     }
-    
+
     var isAtWork: Bool {
         guard let lastEvent = events.last else {
             return false // no events yet today, not at work
