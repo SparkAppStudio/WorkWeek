@@ -30,7 +30,6 @@ class WeeklyObject: Object {
                 " second: \(dailyObjects.last.debugDescription)")
             return "..."
         }
-
     }
 
     override static func primaryKey() -> String? {

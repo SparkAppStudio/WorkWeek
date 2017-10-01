@@ -29,16 +29,16 @@ class RealmManager {
 
     var getUserCalculator: UserHoursCalculator {
         let user = realm.objects(User.self).first ?? saveInitialUser()
-        let dailyObject = queryDailyObject(for: Date())
-        let weeklyObject = queryWeeklyObject(for: Date())
-        let previous = previousWeeklyObject(fromDate: Date())
+        let dailyObject = queryDailyObject()
+        let weeklyObject = queryWeeklyObject()
+        let previous = previousWeeklyObject()
 
         return UserHoursCalculator(user: user, dailyObject: dailyObject, weeklyObject: weeklyObject, previousWeek: previous)
     }
 
     // MARK: - Query Operations
 
-    func queryDailyObject(for date: Date) -> DailyObject? {
+    func queryDailyObject(for date: Date = Date()) -> DailyObject? {
         let key = dailyPrimaryKeyBased(on: date)
         let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
         return dailyObject
@@ -49,7 +49,7 @@ class RealmManager {
         Log.log(allDailyObject.debugDescription)
     }
 
-    func queryWeeklyObject(for date: Date) -> WeeklyObject? {
+    func queryWeeklyObject(for date: Date = Date()) -> WeeklyObject? {
         let key = weeklyPrimaryKeyBased(on: date)
         let weeklyObject = realm.object(ofType: WeeklyObject.self, forPrimaryKey: key)
         return weeklyObject
