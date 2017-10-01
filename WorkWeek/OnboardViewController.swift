@@ -52,7 +52,7 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
         view.backgroundColor = .clear
         NotificationCenter.default.addObserver(self,
             selector: #selector(OnboardLocationViewController.appDidBecomeActive(_:)),
-            name: NSNotification.Name.UIApplicationDidBecomeActive,
+            name: Notification.Name.UIApplicationDidBecomeActive,
             object: nil)
     }
 
@@ -89,7 +89,7 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
         }
     }
 
-    @objc func appDidBecomeActive(_ notification: NSNotification) {
+    @objc func appDidBecomeActive(_ notification: Notification) {
         configureDisplay()
     }
 
@@ -142,7 +142,7 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
     }
 
 
-    @objc func appDidBecomeActive(_ notification: NSNotification) {
+    @objc func appDidBecomeActive(_ notification: Notification) {
         configureDisplay(button: grantNotifyButton)
         configureDisplay(button: denyNotifyButton)
     }
