@@ -23,21 +23,21 @@ class DailyObjectTests: XCTestCase {
 
     func testWorkTimeIsZeroForNoEvents() {
         XCTAssertEqual(dailyObject.events.count, 0)
-        XCTAssertEqual(dailyObject.workTime, 0.0)
+        XCTAssertEqual(dailyObject.completedWorkTime, 0.0)
     }
 
     func testWorkTimeIsZeroForOneArrivalAtWork() {
         let arrival = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
         dailyObject.add(arrival)
         XCTAssertEqual(dailyObject.events.count, 1)
-        XCTAssertEqual(dailyObject.workTime, 0.0)
+        XCTAssertEqual(dailyObject.completedWorkTime, 0.0)
     }
 
     func testWorkTimeIsZeroForOneDepartureFromWork() {
         let departure = Event(kind: .leaveWork, time: Date(timeIntervalSince1970: 0.0))
         dailyObject.add(departure)
         XCTAssertEqual(dailyObject.events.count, 1)
-        XCTAssertEqual(dailyObject.workTime, 0.0)
+        XCTAssertEqual(dailyObject.completedWorkTime, 0.0)
     }
 
     func testWorkTimeIsCountedForAValidPair() {
@@ -46,7 +46,7 @@ class DailyObjectTests: XCTestCase {
         dailyObject.add(arrival)
         dailyObject.add(departure)
         XCTAssertEqual(dailyObject.events.count, 2)
-        XCTAssertEqual(dailyObject.workTime, 10.0)
+        XCTAssertEqual(dailyObject.completedWorkTime, 10.0)
     }
 
     func testDiscardsInvalidItemsAtFrontOfList() {
@@ -59,7 +59,7 @@ class DailyObjectTests: XCTestCase {
         dailyObject.add(arrival)
         dailyObject.add(departure2)
         XCTAssertEqual(dailyObject.events.count, 3)
-        XCTAssertEqual(dailyObject.workTime, 10.0)
+        XCTAssertEqual(dailyObject.completedWorkTime, 10.0)
     }
 
     func testDiscardsInvalidItemsAtEndOfList() {
@@ -74,7 +74,7 @@ class DailyObjectTests: XCTestCase {
         dailyObject.add(arrival2)
         dailyObject.add(arrival3)
         XCTAssertEqual(dailyObject.events.count, 4)
-        XCTAssertEqual(dailyObject.workTime, 10.0)
+        XCTAssertEqual(dailyObject.completedWorkTime, 10.0)
     }
 
     func testWorkTimeNotCountedForThreeArrivalsInValidItems() {
@@ -87,7 +87,7 @@ class DailyObjectTests: XCTestCase {
         dailyObject.add(arrival2)
         dailyObject.add(arrival3)
         XCTAssertEqual(dailyObject.events.count, 3)
-        XCTAssertEqual(dailyObject.workTime, 0.0)
+        XCTAssertEqual(dailyObject.completedWorkTime, 0.0)
     }
 
 
@@ -105,7 +105,7 @@ class DailyObjectTests: XCTestCase {
         dailyObject.add(departure1)
         dailyObject.add(departure2)
         XCTAssertEqual(dailyObject.events.count, 4)
-        XCTAssertEqual(dailyObject.workTime, 10.0)
+        XCTAssertEqual(dailyObject.completedWorkTime, 10.0)
     }
 
     func testWorkTimeIsCountedForTwoValidPairSurroundedByInValidItems() {
@@ -133,13 +133,16 @@ class DailyObjectTests: XCTestCase {
         dailyObject.add(departure4)
 
         XCTAssertEqual(dailyObject.events.count, 8)
-        XCTAssertEqual(dailyObject.workTime, 20.0)
+        XCTAssertEqual(dailyObject.completedWorkTime, 20.0)
     }
 
     func testUserIsNotAtWorkYet() {
         let leftHome = Event(kind: .leaveHome, time: Date(timeIntervalSince1970: 0.0))
         dailyObject.add(leftHome)
-        XCTAssertEqual(dailyObject.isAtWork, false)
+
+        let freshUser = RealmManager.shared.saveInitialUser()
+        let calc = UserHoursCalculator(user: freshUser, dailyObject: dailyObject, weeklyObject: nil, previousWeek: nil)
+        XCTAssertEqual(calc.isAtWork, false)
     }
 
     func testUserIsAtWorkSimpleCase() {
@@ -147,12 +150,19 @@ class DailyObjectTests: XCTestCase {
         let arriveWork = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 10.0))
         dailyObject.add(leftHome)
         dailyObject.add(arriveWork)
-        XCTAssertEqual(dailyObject.isAtWork, true)
+
+        let freshUser = RealmManager.shared.saveInitialUser()
+        let calc = UserHoursCalculator(user: freshUser, dailyObject: dailyObject, weeklyObject: nil, previousWeek: nil)
+        XCTAssertEqual(calc.isAtWork, true)
     }
 
     func testUserIsAtWorkIfOnlyArrive() {
         let arriveWork = Event(kind: .arriveWork, time: Date(timeIntervalSince1970: 0.0))
         dailyObject.add(arriveWork)
-        XCTAssertEqual(dailyObject.isAtWork, true)
+
+        let freshUser = RealmManager.shared.saveInitialUser()
+        let calc = UserHoursCalculator(user: freshUser, dailyObject: dailyObject, weeklyObject: nil, previousWeek: nil)
+
+        XCTAssertEqual(calc.isAtWork, true)
     }
 }
