@@ -13,8 +13,8 @@ struct CountDown: CountdownData {
         return calculator.getUserTimeLeftToday
     }
 
-    var totalHoursForToday: TimeInterval {
-        return calculator.usersDefaultWorkDayLength
+    var percentOfWorkRemaining: Int {
+        return calculator.percentOfWorkRemaining
     }
 
     var timeLeftInWeek: TimeInterval {

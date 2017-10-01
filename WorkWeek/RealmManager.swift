@@ -242,4 +242,8 @@ class UserHoursCalculator {
         return workHoursPerWeek - weeklyObject.totalWorkTime
     }
 
+    var percentOfWorkRemaining: Int {
+        return Int((getUserTimeLeftToday / usersDefaultWorkDayLength) * 100 )
+    }
+
 }

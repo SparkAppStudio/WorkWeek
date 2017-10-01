@@ -11,7 +11,7 @@ protocol CountdownViewDelegate: class {
 
 protocol CountdownData {
     var timeLeftInDay: TimeInterval { get }
-    var totalHoursForToday: TimeInterval { get }
+    var percentOfWorkRemaining: Int { get }
     var timeLeftInWeek: TimeInterval { get }
 }
 
@@ -115,8 +115,7 @@ final class CountdownViewController: UIViewController {
         countdownDisplay.text = hourMinuteFormatter.string(from: data.timeLeftInDay)
         let weekHours = hoursFormatter.string(from: data.timeLeftInWeek)!
         weekTimeDisplay.text = "\(weekHours) work hours left in the week"
-        let percentOfWorkRemaining = data.timeLeftInDay / data.totalHoursForToday
-        percentLeft.text = "\(percentOfWorkRemaining) % left"
+        percentLeft.text = "\(data.percentOfWorkRemaining) % left"
     }
 
     var blinkEnabled = false
