@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>WorkWeek needs to access your location for calculating your work hours. Work Week may not be running when you arrive at work, which is why we need Always Authorization. </string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>WorkWeek needs to access your location for calculating your work hours. Work Week may not be running when you arrive at work, which is why we need Always Authorization. </string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>CFBundleDevelopmentRegion</key>

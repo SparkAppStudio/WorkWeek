@@ -34,7 +34,7 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
             showOnboarding()
         }
 
-        RealmManager.shared.saveInitialUser()
+        RealmManager.shared.fetchOrCreateUser()
     }
 
     func showOnboarding() {
@@ -62,6 +62,10 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
 #if DEBUG
 
     extension AppCoordinator: SettingsCoordinatorDelegate, UserGettable {
+
+        var vcForPresentation: UIViewController {
+            return navigationController
+        }
 
         func showSettings() {
 

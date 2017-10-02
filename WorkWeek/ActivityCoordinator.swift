@@ -1,16 +1,28 @@
 //
-//  ActivityCoordinator.swift
-//  WorkWeek
-//
-//  Created by Douglas Hewitt on 7/10/17.
 //  Copyright © 2017 Spark App Studio. All rights reserved.
 //
 
 import UIKit
 import CoreLocation
 
+struct CountDown: CountdownData {
 
-class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate, UserGettable {
+    var calculator: UserHoursCalculator { return RealmManager.shared.getUserCalculator }
+
+    var timeLeftInDay: TimeInterval {
+        return calculator.getUserTimeLeftToday
+    }
+
+    var percentOfWorkRemaining: Int {
+        return calculator.percentOfWorkRemaining
+    }
+
+    var timeLeftInWeek: TimeInterval {
+        return calculator.getUserTimeLeftInWeek()
+    }
+}
+
+class ActivityCoordinator: SettingsCoordinatorDelegate {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
@@ -29,23 +41,16 @@ class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate
         Log.log()
 
         let activityVC = ActivityPageViewController.instantiate()
-        activityVC.activityDelegate = self
+        activityVC.orderedViewControllers = configOrderedViewControllers()
         activityVC.locationManager = locationManager
         navigationController.isNavigationBarHidden = true
 
         if animated {
             navigationController.viewControllers.insert(activityVC, at: 0)
             navigationController.popWithFadeAnimation()
-
         } else {
             navigationController.setViewControllers([activityVC], animated: false)
         }
-    }
-
-    // MARK: ActivityPageViewDelegate
-
-    func pageDidTapSettings() {
-        showSettings()
     }
 
     func showSettings() {
@@ -65,5 +70,50 @@ class ActivityCoordinator: SettingsCoordinatorDelegate, ActivityPageViewDelegate
 
     func settingsFinished(with coordinator: SettingsCoordinator) {
         childCoordinators.remove(coordinator)
+    }
+
+    func configOrderedViewControllers() -> [UIViewController] {
+        let userCaluclator = RealmManager.shared.getUserCalculator
+
+        if !userCaluclator.hasDataForThisWeek {
+            // User has no data for This week...
+
+            var missingDataVCs: [UIViewController] = []
+            let coach = NoDataCoachViewController(nibName: nil, bundle: nil)
+            missingDataVCs.append(coach)
+            if userCaluclator.hasDataForPreviousWeek {
+                let weeklyVC = WeeklyCollectionViewController.instantiate()
+                weeklyVC.title = "Weekly Report"
+                let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
+                missingDataVCs.append(navWeeklyVC)
+            }
+            return missingDataVCs
+        }
+
+        // The usuall case of use has real data for this week and last week.
+        let countdownVC = CountdownViewController.instantiate()
+        countdownVC.data = CountDown()
+        countdownVC.delegate = self
+        let navCountdownVC = UINavigationController(rootViewController: countdownVC)
+
+        let dailyVC = DailyCollectionViewController.instantiate()
+        let navDailyVC = UINavigationController(rootViewController: dailyVC)
+
+        let weeklyVC = WeeklyCollectionViewController.instantiate()
+        let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
+
+        return [navCountdownVC, navDailyVC, navWeeklyVC]
+    }
+}
+
+extension ActivityCoordinator: UserGettable {
+    var vcForPresentation: UIViewController {
+        return navigationController
+    }
+}
+
+extension ActivityCoordinator: CountdownViewDelegate {
+    func countdownPageDidTapSettings() {
+        showSettings()
     }
 }

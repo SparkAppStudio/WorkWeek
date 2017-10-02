@@ -36,6 +36,8 @@ class WeeklyCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Weekly Report"
+
         collectionView?.alwaysBounceVertical = true
 
         let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout

@@ -10,6 +10,7 @@
 		520855671F38144A00409642 /* DailyObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520855661F38144A00409642 /* DailyObjectTests.swift */; };
 		5208F3AC1EDE4C22008F82CC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5208F3AA1EDE4C22008F82CC /* Fabric.framework */; };
 		5208F3AD1EDE4C22008F82CC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */; };
+		520B78731F72BB01004093CA /* NoDataCoachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B78721F72BB01004093CA /* NoDataCoachViewController.swift */; };
 		521806751F40CD170079AFD4 /* DailyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521806741F40CD170079AFD4 /* DailyObject.swift */; };
 		521806771F40CD2B0079AFD4 /* WeeklyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521806761F40CD2B0079AFD4 /* WeeklyObject.swift */; };
 		521806791F40CDC80079AFD4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521806781F40CDC80079AFD4 /* Event.swift */; };
@@ -79,6 +80,7 @@
 		520855661F38144A00409642 /* DailyObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyObjectTests.swift; sourceTree = "<group>"; };
 		5208F3AA1EDE4C22008F82CC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		5208F3AB1EDE4C22008F82CC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		520B78721F72BB01004093CA /* NoDataCoachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataCoachViewController.swift; sourceTree = "<group>"; };
 		521806741F40CD170079AFD4 /* DailyObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyObject.swift; sourceTree = "<group>"; };
 		521806761F40CD2B0079AFD4 /* WeeklyObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyObject.swift; sourceTree = "<group>"; };
 		521806781F40CDC80079AFD4 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */,
 				D1102CE61F00BA4E006A0E2F /* DailyCollectionView */,
 				D1C481931F082F48008AAF12 /* WeeklyCollectionView */,
+				520B78721F72BB01004093CA /* NoDataCoachViewController.swift */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				521806791F40CDC80079AFD4 /* Event.swift in Sources */,
 				C3A879B11F4BD7F700132FBA /* Design.swift in Sources */,
 				523ADD221F3B5083005D2830 /* CustomOperators.swift in Sources */,
+				520B78731F72BB01004093CA /* NoDataCoachViewController.swift in Sources */,
 				5294A1351F4D3A5500DC186A /* TwoLabelButton.swift in Sources */,
 				521806751F40CD170079AFD4 /* DailyObject.swift in Sources */,
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,

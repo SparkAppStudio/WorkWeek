@@ -24,6 +24,17 @@ class User: Object {
         static let thursday  = Weekdays(rawValue: 1 << 4)
         static let friday    = Weekdays(rawValue: 1 << 5)
         static let saturday  = Weekdays(rawValue: 1 << 6)
+
+        var numberSelected: Int {
+            return  (self.contains(.sunday)   ? 1 : 0 ) +
+                    (self.contains(.monday)   ? 1 : 0 ) +
+                    (self.contains(.tuesday)  ? 1 : 0 ) +
+                    (self.contains(.wednesday) ? 1 : 0 ) +
+                    (self.contains(.thursday)  ? 1 : 0 ) +
+                    (self.contains(.friday)   ? 1 : 0 ) +
+                    (self.contains(.saturday) ? 1 : 0 )
+        }
+
     }
 
     enum NotificationChoice: Int {
@@ -73,4 +84,5 @@ class User: Object {
             weekdaysStorage = newValue.rawValue
         }
     }
+
 }

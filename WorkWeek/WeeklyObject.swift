@@ -6,29 +6,28 @@ import Foundation
 import RealmSwift
 
 class WeeklyObject: Object {
+
     @objc dynamic var weekAndTheYear: String?
     let dailyObjects = List<DailyObject>()
+
     var totalWorkTime: TimeInterval {
         return dailyObjects.reduce(0.0) { (sum, daily) in
-            return sum + daily.workTime
+            return sum + daily.completedWorkTime
         }
     }
-    var weekInterval: String {
+
+    var weekInterval: (Date, Date)? {
         if let begin = dailyObjects.first?.date, let end = dailyObjects.last?.date {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = DateFormatter.Style.short
-            let beginString = dateFormatter.string(from: begin)
-            let endString = dateFormatter.string(from: end)
-            return beginString + " - " + endString
+            return (begin, end)
         } else {
             Log.log(.error,
                     "Error formatting WeekInterval. first: \(dailyObjects.first.debugDescription)"
                         +
                 " second: \(dailyObjects.last.debugDescription)")
-            return "..."
+            return nil
         }
-
     }
+
     override static func primaryKey() -> String? {
         return #keyPath(WeeklyObject.weekAndTheYear)
     }
