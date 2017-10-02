@@ -36,6 +36,8 @@ class DailyCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Daily Activity"
+
         collectionView?.alwaysBounceVertical = true
         configureNotificationObservers()
 

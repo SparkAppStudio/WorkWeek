@@ -91,18 +91,15 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
         }
 
         // The usuall case of use has real data for this week and last week.
-
         let countdownVC = CountdownViewController.instantiate()
         countdownVC.data = CountDown()
-        countdownVC.title = "Count Down"
-        let navCountdownVC = UINavigationController(rootViewController: countdownVC)
         countdownVC.delegate = self
+        let navCountdownVC = UINavigationController(rootViewController: countdownVC)
 
         let dailyVC = DailyCollectionViewController.instantiate()
-        dailyVC.title = "Daily Activity"
         let navDailyVC = UINavigationController(rootViewController: dailyVC)
+
         let weeklyVC = WeeklyCollectionViewController.instantiate()
-        weeklyVC.title = "Weekly Report"
         let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
 
         return [navCountdownVC, navDailyVC, navWeeklyVC]

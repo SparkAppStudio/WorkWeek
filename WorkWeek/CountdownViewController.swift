@@ -63,6 +63,9 @@ final class CountdownViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        title = "Count Down"
+
         runTimer()
         tick(timer)
 
