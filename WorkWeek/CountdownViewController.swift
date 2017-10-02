@@ -85,28 +85,10 @@ final class CountdownViewController: UIViewController {
     }()
 
     @objc func tick(_ timer: Timer) {
-        blink()
         countdownDisplay.text = hourMinuteFormatter.string(from: data.timeLeftInDay)
         let weekHours = hoursFormatter.string(from: data.timeLeftInWeek)!
         weekTimeDisplay.text = "\(weekHours) work hours left in the week"
         percentLeft.text = "\(data.percentOfWorkRemaining) % left"
-    }
-
-    var blinkEnabled = false
-    lazy var blinkView: UIView = {
-        let view = UIView(frame: CGRect(x: 10, y: 100, width: 50, height: 50))
-        self.view.addSubview(view)
-        return view
-    }()
-
-    func blink() {
-        if blinkEnabled {
-            blinkView.backgroundColor = .clear
-            blinkEnabled = false
-        } else {
-            blinkView.backgroundColor = .red
-            blinkEnabled = true
-        }
     }
 }
 
