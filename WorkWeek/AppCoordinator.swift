@@ -34,7 +34,7 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
             showOnboarding()
         }
 
-        RealmManager.shared.saveInitialUser()
+        RealmManager.shared.fetchOrCreateUser()
     }
 
     func showOnboarding() {

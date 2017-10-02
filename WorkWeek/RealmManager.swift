@@ -28,7 +28,7 @@ class RealmManager {
     }()
 
     var getUserCalculator: UserHoursCalculator {
-        let user = realm.objects(User.self).first ?? saveInitialUser()
+        let user = realm.objects(User.self).first ?? fetchOrCreateUser()
         let dailyObject = queryDailyObject()
         let weeklyObject = queryWeeklyObject()
         let previous = previousWeeklyObject()
@@ -139,7 +139,7 @@ class RealmManager {
     /// Saves a base user, to realm. The user object has sane defaults.
     /// Calling this again, if a user exists, has no effect.
     @discardableResult
-    func saveInitialUser() -> User {
+    func fetchOrCreateUser() -> User {
 
         func userExists() -> Bool {
             return realm.objects(User.self).count > 0

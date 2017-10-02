@@ -12,7 +12,7 @@ protocol UserGettable {
 
 extension UserGettable {
     func getUserFromRealm() -> User? {
-        RealmManager.shared.saveInitialUser()
+        RealmManager.shared.fetchOrCreateUser()
         return RealmManager.shared.queryAllObjects(ofType: User.self).first
     }
 
