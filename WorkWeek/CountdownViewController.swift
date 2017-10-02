@@ -15,35 +15,6 @@ protocol CountdownData {
     var timeLeftInWeek: TimeInterval { get }
 }
 
-//struct FakeDataForTesting: CountdownData {
-//    var timeLeftInDay: TimeInterval {
-//        // 5 hours, 37 Minutes, 10 seconds
-//        let hours: TimeInterval = 5 * 60 * 60
-//        let minutes: TimeInterval = 37 * 60
-//        return hours + minutes + 10
-//    }
-//    var timeLeftInWeek: TimeInterval {
-//         // 15 hours, 27 min, 10 sec
-//        let hours: TimeInterval = 15 * 60 * 60
-//        let minutes: TimeInterval = 27 * 60
-//        return hours + minutes + 10
-//    }
-//}
-
-//    let timeLeftInDay: TimeInterval
-//    let timeLeftInWeek: TimeInterval
-//
-//    let targetTime: TimeInterval
-//
-//    let sundayHours: TimeInterval
-//    let mondayHours: TimeInterval
-//    let tuesdayHours: TimeInterval
-//    let wednesdayHours: TimeInterval
-//    let thursdayHours: TimeInterval
-//    let fridayHours: TimeInterval
-//    let saturdayHours: TimeInterval
-
-
 final class CountdownViewController: UIViewController {
 
     // MARK: IBOutlets
