@@ -50,7 +50,7 @@ class User: Object {
     @objc dynamic var weekdaysStorage: Int = {
         var week = Weekdays()
         week.insert(.monday)
-        week.insert(.tuesday)   // 000000000_0110
+        week.insert(.tuesday)
         week.insert(.wednesday)
         week.insert(.thursday)
         week.insert(.friday)

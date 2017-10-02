@@ -18,16 +18,10 @@ final class PushNotificationManager: NSObject {
     func userHasArrivedAtWork() {
         let workTimeLeft = calculator.getUserTimeLeftToday
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: workTimeLeft, repeats: false)
-        Log.log(.debug, "User Arrived At Work")
-        let formatter = DateFormatter()
-        Log.log(.debug, "Next Trigger Date \(formatter.string(from: trigger.nextTriggerDate() ?? Date.distantPast))")
-        Log.log(.debug, "Building Message")
         let content = buildMessage()
-        Log.log(.debug, "Message: \(content)")
         let req = UNNotificationRequest(identifier: "ArrivedAtWork", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
-        Log.log("Arrived Work. Notification scheduled for: \(String(describing: trigger.nextTriggerDate()))")
     }
 
     func buildMessage() -> UNNotificationContent {
