@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -47,10 +46,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKr-PA-O4q">
-                                <rect key="frame" x="74.5" y="507" width="225" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="QiE-Op-hsl"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="28" width="57" height="30"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
                                     <action selector="didTapSettings:" destination="Kgw-xI-26n" eventType="touchUpInside" id="kS2-8G-oqg"/>
@@ -62,6 +58,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iay-aC-BGs">
+                                <rect key="frame" x="0.0" y="296" width="375" height="371"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="uSR-YL-dT7">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uSR-YL-dT7" id="xFB-R1-z83">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -69,22 +79,26 @@
                             <constraint firstItem="Lsg-XJ-UMj" firstAttribute="top" secondItem="bj0-eQ-AFc" secondAttribute="bottom" constant="76" id="O8P-mQ-B8g"/>
                             <constraint firstItem="Lsg-XJ-UMj" firstAttribute="leading" secondItem="mzw-b3-UWr" secondAttribute="leadingMargin" id="U1B-r1-E1q"/>
                             <constraint firstItem="Lrk-oJ-XxV" firstAttribute="top" secondItem="Lsg-XJ-UMj" secondAttribute="bottom" constant="35.5" id="cpE-8P-mhL"/>
-                            <constraint firstItem="JKr-PA-O4q" firstAttribute="centerX" secondItem="mzw-b3-UWr" secondAttribute="centerX" id="ke1-cW-Jpj"/>
-                            <constraint firstItem="AWV-1G-jAM" firstAttribute="top" secondItem="JKr-PA-O4q" secondAttribute="bottom" constant="120" id="mKL-3R-fWI"/>
-                            <constraint firstItem="JKr-PA-O4q" firstAttribute="width" secondItem="mzw-b3-UWr" secondAttribute="width" multiplier="0.6" id="mvT-tm-5gq"/>
+                            <constraint firstAttribute="trailing" secondItem="Iay-aC-BGs" secondAttribute="trailing" id="gSF-Ub-fdw"/>
+                            <constraint firstItem="Iay-aC-BGs" firstAttribute="top" secondItem="Lrk-oJ-XxV" secondAttribute="bottom" constant="27" id="hUB-HS-row"/>
+                            <constraint firstItem="AWV-1G-jAM" firstAttribute="top" secondItem="Iay-aC-BGs" secondAttribute="bottom" id="iMX-iH-OAT"/>
+                            <constraint firstItem="JKr-PA-O4q" firstAttribute="top" secondItem="bj0-eQ-AFc" secondAttribute="bottom" constant="8" id="jDH-aC-Mx3"/>
+                            <constraint firstItem="Iay-aC-BGs" firstAttribute="leading" secondItem="mzw-b3-UWr" secondAttribute="leading" id="nsA-3Y-53n"/>
                             <constraint firstItem="Lrk-oJ-XxV" firstAttribute="centerX" secondItem="mzw-b3-UWr" secondAttribute="centerX" id="rI8-Eu-rWt"/>
+                            <constraint firstItem="JKr-PA-O4q" firstAttribute="leading" secondItem="mzw-b3-UWr" secondAttribute="leading" constant="16" id="sAg-Gb-K17"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lsg-XJ-UMj" secondAttribute="trailing" id="zyt-lg-cgy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="countdownDisplay" destination="6dg-OT-A9e" id="B4J-L5-GuL"/>
                         <outlet property="percentLeft" destination="sKQ-Ik-2ue" id="dXB-vN-DbY"/>
+                        <outlet property="tableView" destination="Iay-aC-BGs" id="3n1-lc-UYd"/>
                         <outlet property="weekTimeDisplay" destination="Lrk-oJ-XxV" id="KyT-7l-Z9v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ao-Gt-MTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-182" y="477"/>
+            <point key="canvasLocation" x="-183.19999999999999" y="476.31184407796104"/>
         </scene>
         <!--Daily Collection View Controller-->
         <scene sceneID="j4e-pC-ArS">

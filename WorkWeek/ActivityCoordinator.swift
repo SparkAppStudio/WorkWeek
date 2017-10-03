@@ -22,7 +22,7 @@ struct CountDown: CountdownData {
     }
 }
 
-class ActivityCoordinator: SettingsCoordinatorDelegate {
+class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationControllerDelegate {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
@@ -32,9 +32,10 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
 
     init(with navController: UINavigationController,
          manager: CLLocationManager) {
-
         self.navigationController = navController
         self.locationManager = manager
+        super.init()
+        self.navigationController.delegate = self
     }
 
     func start(animated: Bool) {
@@ -43,7 +44,7 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
         let countdownVC = CountdownViewController.instantiate()
         countdownVC.data = CountDown()
         countdownVC.delegate = self
-        navigationController.isNavigationBarHidden = true
+        countdownVC.selectionDelegate = self
 
         if animated {
             navigationController.viewControllers.insert(countdownVC, at: 0)
@@ -71,6 +72,22 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
     func settingsFinished(with coordinator: SettingsCoordinator) {
         childCoordinators.remove(coordinator)
     }
+
+    func showWeeklyViewController(for week: String) {
+        let weeklyVC = UIViewController(nibName: nil, bundle: nil)
+        weeklyVC.view.backgroundColor = .white
+        weeklyVC.title = week
+        navigationController.pushViewController(weeklyVC, animated: true)
+    }
+
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is CountdownViewController {
+            navigationController.isNavigationBarHidden = true
+        } else {
+            navigationController.isNavigationBarHidden = false
+        }
+    }
+
 }
 
 extension ActivityCoordinator: UserGettable {
@@ -82,5 +99,11 @@ extension ActivityCoordinator: UserGettable {
 extension ActivityCoordinator: CountdownViewDelegate {
     func countdownPageDidTapSettings() {
         showSettings()
+    }
+}
+
+extension ActivityCoordinator: WeeklySelectionDelegate {
+    func selectedWeek(_ week: String) {
+        showWeeklyViewController(for: week)
     }
 }

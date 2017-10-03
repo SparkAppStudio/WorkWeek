@@ -21,6 +21,7 @@ final class CountdownViewController: UIViewController {
     @IBOutlet weak var countdownDisplay: UILabel!
     @IBOutlet weak var percentLeft: UILabel!
     @IBOutlet weak var weekTimeDisplay: UILabel!
+    @IBOutlet weak var tableView: UITableView!
 
     // MARK: IBActions
     @IBAction func didTapSettings(_ sender: UIButton) {
@@ -28,13 +29,17 @@ final class CountdownViewController: UIViewController {
     }
 
     weak var delegate: CountdownViewDelegate?
+    weak var selectionDelegate: WeeklySelectionDelegate?
     var data: CountdownData!
+    var dataSource = CountDownTableViewDSD()
 
     var timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        dataSource.delegate = selectionDelegate
+        tableView.dataSource = dataSource
+        tableView.delegate = dataSource
         title = "Count Down"
 
         runTimer()
@@ -93,3 +98,31 @@ final class CountdownViewController: UIViewController {
 }
 
 extension CountdownViewController: ActivityStoryboard { }
+
+
+protocol WeeklySelectionDelegate: class {
+    func selectedWeek(_ week: String)
+}
+
+class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
+
+    // TODO: - Will change this to weekly related array
+    var array = ["1", "2", "3"]
+    weak var delegate: WeeklySelectionDelegate?
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return array.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = array[indexPath.row]
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.selectedWeek(array[indexPath.row])
+    }
+
+}
+
