@@ -22,7 +22,7 @@ struct CountDown: CountdownData {
     }
 }
 
-class ActivityCoordinator: SettingsCoordinatorDelegate {
+class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationControllerDelegate {
 
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
@@ -32,24 +32,25 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
 
     init(with navController: UINavigationController,
          manager: CLLocationManager) {
-
         self.navigationController = navController
         self.locationManager = manager
+        super.init()
+        self.navigationController.delegate = self
     }
 
     func start(animated: Bool) {
         Log.log()
 
-        let activityVC = ActivityPageViewController.instantiate()
-        activityVC.orderedViewControllers = configOrderedViewControllers()
-        activityVC.locationManager = locationManager
-        navigationController.isNavigationBarHidden = true
+        let countdownVC = CountdownViewController.instantiate()
+        countdownVC.data = CountDown()
+        countdownVC.delegate = self
+        countdownVC.selectionDelegate = self
 
         if animated {
-            navigationController.viewControllers.insert(activityVC, at: 0)
+            navigationController.viewControllers.insert(countdownVC, at: 0)
             navigationController.popWithFadeAnimation()
         } else {
-            navigationController.setViewControllers([activityVC], animated: false)
+            navigationController.setViewControllers([countdownVC], animated: false)
         }
     }
 
@@ -72,38 +73,21 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
         childCoordinators.remove(coordinator)
     }
 
-    func configOrderedViewControllers() -> [UIViewController] {
-        let userCaluclator = RealmManager.shared.getUserCalculator
-
-        if !userCaluclator.hasDataForThisWeek {
-            // User has no data for This week...
-
-            var missingDataVCs: [UIViewController] = []
-            let coach = NoDataCoachViewController(nibName: nil, bundle: nil)
-            missingDataVCs.append(coach)
-            if userCaluclator.hasDataForPreviousWeek {
-                let weeklyVC = WeeklyCollectionViewController.instantiate()
-                weeklyVC.title = "Weekly Report"
-                let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
-                missingDataVCs.append(navWeeklyVC)
-            }
-            return missingDataVCs
-        }
-
-        // The usuall case of use has real data for this week and last week.
-        let countdownVC = CountdownViewController.instantiate()
-        countdownVC.data = CountDown()
-        countdownVC.delegate = self
-        let navCountdownVC = UINavigationController(rootViewController: countdownVC)
-
-        let dailyVC = DailyCollectionViewController.instantiate()
-        let navDailyVC = UINavigationController(rootViewController: dailyVC)
-
-        let weeklyVC = WeeklyCollectionViewController.instantiate()
-        let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
-
-        return [navCountdownVC, navDailyVC, navWeeklyVC]
+    func showWeeklyViewController(for week: String) {
+        let weeklyVC = UIViewController(nibName: nil, bundle: nil)
+        weeklyVC.view.backgroundColor = .white
+        weeklyVC.title = week
+        navigationController.pushViewController(weeklyVC, animated: true)
     }
+
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is CountdownViewController {
+            navigationController.isNavigationBarHidden = true
+        } else {
+            navigationController.isNavigationBarHidden = false
+        }
+    }
+
 }
 
 extension ActivityCoordinator: UserGettable {
@@ -115,5 +99,11 @@ extension ActivityCoordinator: UserGettable {
 extension ActivityCoordinator: CountdownViewDelegate {
     func countdownPageDidTapSettings() {
         showSettings()
+    }
+}
+
+extension ActivityCoordinator: WeeklySelectionDelegate {
+    func selectedWeek(_ week: String) {
+        showWeeklyViewController(for: week)
     }
 }
