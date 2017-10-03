@@ -40,16 +40,16 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
     func start(animated: Bool) {
         Log.log()
 
-        let activityVC = ActivityPageViewController.instantiate()
-        activityVC.orderedViewControllers = configOrderedViewControllers()
-        activityVC.locationManager = locationManager
+        let countdownVC = CountdownViewController.instantiate()
+        countdownVC.data = CountDown()
+        countdownVC.delegate = self
         navigationController.isNavigationBarHidden = true
 
         if animated {
-            navigationController.viewControllers.insert(activityVC, at: 0)
+            navigationController.viewControllers.insert(countdownVC, at: 0)
             navigationController.popWithFadeAnimation()
         } else {
-            navigationController.setViewControllers([activityVC], animated: false)
+            navigationController.setViewControllers([countdownVC], animated: false)
         }
     }
 
@@ -70,39 +70,6 @@ class ActivityCoordinator: SettingsCoordinatorDelegate {
 
     func settingsFinished(with coordinator: SettingsCoordinator) {
         childCoordinators.remove(coordinator)
-    }
-
-    func configOrderedViewControllers() -> [UIViewController] {
-        let userCaluclator = RealmManager.shared.getUserCalculator
-
-        if !userCaluclator.hasDataForThisWeek {
-            // User has no data for This week...
-
-            var missingDataVCs: [UIViewController] = []
-            let coach = NoDataCoachViewController(nibName: nil, bundle: nil)
-            missingDataVCs.append(coach)
-            if userCaluclator.hasDataForPreviousWeek {
-                let weeklyVC = WeeklyCollectionViewController.instantiate()
-                weeklyVC.title = "Weekly Report"
-                let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
-                missingDataVCs.append(navWeeklyVC)
-            }
-            return missingDataVCs
-        }
-
-        // The usuall case of use has real data for this week and last week.
-        let countdownVC = CountdownViewController.instantiate()
-        countdownVC.data = CountDown()
-        countdownVC.delegate = self
-        let navCountdownVC = UINavigationController(rootViewController: countdownVC)
-
-        let dailyVC = DailyCollectionViewController.instantiate()
-        let navDailyVC = UINavigationController(rootViewController: dailyVC)
-
-        let weeklyVC = WeeklyCollectionViewController.instantiate()
-        let navWeeklyVC = UINavigationController(rootViewController: weeklyVC)
-
-        return [navCountdownVC, navDailyVC, navWeeklyVC]
     }
 }
 
