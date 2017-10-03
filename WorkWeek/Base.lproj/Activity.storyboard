@@ -86,6 +86,7 @@
                             <constraint firstItem="Iay-aC-BGs" firstAttribute="leading" secondItem="mzw-b3-UWr" secondAttribute="leading" id="nsA-3Y-53n"/>
                             <constraint firstItem="Lrk-oJ-XxV" firstAttribute="centerX" secondItem="mzw-b3-UWr" secondAttribute="centerX" id="rI8-Eu-rWt"/>
                             <constraint firstItem="JKr-PA-O4q" firstAttribute="leading" secondItem="mzw-b3-UWr" secondAttribute="leading" constant="16" id="sAg-Gb-K17"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JKr-PA-O4q" secondAttribute="trailing" constant="8" id="tow-KH-12u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lsg-XJ-UMj" secondAttribute="trailing" id="zyt-lg-cgy"/>
                         </constraints>
                     </view>
@@ -146,7 +147,6 @@
                                                 <constraint firstItem="p54-Eq-TJU" firstAttribute="top" secondItem="Qz9-vB-AVx" secondAttribute="top" constant="8" id="HzX-HS-S4Q"/>
                                                 <constraint firstAttribute="trailing" secondItem="gFA-Om-sEA" secondAttribute="trailing" id="O96-Oa-o6s"/>
                                                 <constraint firstAttribute="trailing" secondItem="p54-Eq-TJU" secondAttribute="trailing" constant="8" id="Ukz-zK-MHn"/>
-                                                <constraint firstItem="p54-Eq-TJU" firstAttribute="centerX" secondItem="Qz9-vB-AVx" secondAttribute="centerX" id="XgG-Eg-yuP"/>
                                                 <constraint firstItem="gFA-Om-sEA" firstAttribute="top" secondItem="Qz9-vB-AVx" secondAttribute="top" id="akJ-f7-gzG"/>
                                                 <constraint firstItem="cft-Ne-bob" firstAttribute="leading" secondItem="Qz9-vB-AVx" secondAttribute="leading" id="iWY-x5-hp4"/>
                                                 <constraint firstItem="cft-Ne-bob" firstAttribute="top" secondItem="gFA-Om-sEA" secondAttribute="bottom" constant="8" id="jmq-da-z1I"/>
