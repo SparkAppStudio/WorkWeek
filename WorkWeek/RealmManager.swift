@@ -231,6 +231,10 @@ class UserHoursCalculator {
     }
 
     var percentOfWorkRemaining: Int {
+        //Avoid Divide by zero "Double value cannot be converted to Int because it is either infinite or NaN"
+        if usersDefaultWorkDayLength <= 0.0 {
+            return 0
+        }
         return Int((getUserTimeLeftToday / usersDefaultWorkDayLength) * 100 )
     }
 
