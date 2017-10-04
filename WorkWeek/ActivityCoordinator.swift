@@ -73,10 +73,10 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
         childCoordinators.remove(coordinator)
     }
 
-    func showWeeklyViewController(for week: String) {
+    func showWeeklyViewController(for week: WeeklyObject) {
         let weeklyVC = UIViewController(nibName: nil, bundle: nil)
         weeklyVC.view.backgroundColor = .white
-        weeklyVC.title = week
+        weeklyVC.title = "\(week.totalWorkTime)"
         navigationController.pushViewController(weeklyVC, animated: true)
     }
 
@@ -103,7 +103,7 @@ extension ActivityCoordinator: CountdownViewDelegate {
 }
 
 extension ActivityCoordinator: WeeklySelectionDelegate {
-    func selectedWeek(_ week: String) {
+    func selectedWeek(_ week: WeeklyObject) {
         showWeeklyViewController(for: week)
     }
 }
