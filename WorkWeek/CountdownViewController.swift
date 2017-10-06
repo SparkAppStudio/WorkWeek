@@ -37,6 +37,9 @@ final class CountdownViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+
         dataSource.delegate = selectionDelegate
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
@@ -123,6 +126,5 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.selectedWeek(array[indexPath.row])
     }
-
 }
 

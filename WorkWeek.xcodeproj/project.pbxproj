@@ -57,11 +57,9 @@
 		C30897961F7DC65B0064BF40 /* MXPagerView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C308978F1F7DC6450064BF40 /* MXPagerView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C30897971F7DC65B0064BF40 /* MXParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C308978E1F7DC6450064BF40 /* MXParallaxHeader.framework */; };
 		C30897981F7DC65B0064BF40 /* MXParallaxHeader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C308978E1F7DC6450064BF40 /* MXParallaxHeader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C30940791F7DB6E200447E65 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30940781F7DB6E200447E65 /* HistoryTableViewController.swift */; };
-		C309407B1F7DB7D200447E65 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309407A1F7DB7D200447E65 /* HistoryTableViewCell.swift */; };
+		C309407B1F7DB7D200447E65 /* CountdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309407A1F7DB7D200447E65 /* CountdownTableViewCell.swift */; };
 		C309407D1F7DBB9C00447E65 /* ActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */; };
-		C309407F1F7DBD2300447E65 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C309407E1F7DBD2300447E65 /* HistoryCell.xib */; };
-		C33DFB8A1F7DAD0C00F00D94 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33DFB891F7DAD0C00F00D94 /* ActivityViewController.swift */; };
+		C33DFB8A1F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */; };
 		C362A4071EE34EA200AB9830 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C362A4061EE34EA200AB9830 /* Onboarding.storyboard */; };
 		C362A4091EE3517800AB9830 /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */; };
 		C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */; };
@@ -157,11 +155,9 @@
 		C308978D1F7DC6450064BF40 /* HMSegmentedControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HMSegmentedControl.framework; path = Carthage/Build/iOS/HMSegmentedControl.framework; sourceTree = "<group>"; };
 		C308978E1F7DC6450064BF40 /* MXParallaxHeader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXParallaxHeader.framework; path = Carthage/Build/iOS/MXParallaxHeader.framework; sourceTree = "<group>"; };
 		C308978F1F7DC6450064BF40 /* MXPagerView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXPagerView.framework; path = Carthage/Build/iOS/MXPagerView.framework; sourceTree = "<group>"; };
-		C30940781F7DB6E200447E65 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
-		C309407A1F7DB7D200447E65 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		C309407A1F7DB7D200447E65 /* CountdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTableViewCell.swift; sourceTree = "<group>"; };
 		C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityHeaderView.xib; sourceTree = "<group>"; };
-		C309407E1F7DBD2300447E65 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
-		C33DFB891F7DAD0C00F00D94 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyOverviewViewController.swift; sourceTree = "<group>"; };
 		C362A4061EE34EA200AB9830 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
 		C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
@@ -389,12 +385,9 @@
 			children = (
 				C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */,
 				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
-				C33DFB891F7DAD0C00F00D94 /* ActivityViewController.swift */,
+				C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */,
 				C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */,
-				C30940781F7DB6E200447E65 /* HistoryTableViewController.swift */,
-				C309407E1F7DBD2300447E65 /* HistoryCell.xib */,
-				C309407A1F7DB7D200447E65 /* HistoryTableViewCell.swift */,
-				D1CA47061EE35528003628FF /* ActivityPageViewController.swift */,
+				C309407A1F7DB7D200447E65 /* CountdownTableViewCell.swift */,
 				5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */,
 				D1102CE61F00BA4E006A0E2F /* DailyCollectionView */,
 				D1C481931F082F48008AAF12 /* WeeklyCollectionView */,
@@ -500,7 +493,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5287CA401EDCF91E00E71CE8 /* LaunchScreen.storyboard in Resources */,
-				C309407F1F7DBD2300447E65 /* HistoryCell.xib in Resources */,
 				C362A4071EE34EA200AB9830 /* Onboarding.storyboard in Resources */,
 				C309407D1F7DBB9C00447E65 /* ActivityHeaderView.xib in Resources */,
 				5287CA3D1EDCF91E00E71CE8 /* Assets.xcassets in Resources */,
@@ -587,7 +579,7 @@
 			files = (
 				D1102CEA1F00C085006A0E2F /* AppConstants.swift in Sources */,
 				C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */,
-				C33DFB8A1F7DAD0C00F00D94 /* ActivityViewController.swift in Sources */,
+				C33DFB8A1F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift in Sources */,
 				C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */,
 				C3C760A81F085AAA00F5C773 /* NavigationController+Extensions.swift in Sources */,
 				524392FC1F148C4100EEFEA3 /* User.swift in Sources */,
@@ -595,7 +587,6 @@
 				52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */,
 				D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */,
 				52802FE41F2853CA009A519B /* PushNotificationManager.swift in Sources */,
-				C30940791F7DB6E200447E65 /* HistoryTableViewController.swift in Sources */,
 				52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */,
 				D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */,
 				D1B21F941EF521870023D427 /* RealmManager.swift in Sources */,
@@ -611,7 +602,7 @@
 				521AF7FB1F21902900C8F707 /* UserDefaults+Extensions.swift in Sources */,
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
 				52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */,
-				C309407B1F7DB7D200447E65 /* HistoryTableViewCell.swift in Sources */,
+				C309407B1F7DB7D200447E65 /* CountdownTableViewCell.swift in Sources */,
 				5232AC6C1F466EA700B72E2F /* GradientBackgroundView.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
 				521806791F40CDC80079AFD4 /* Event.swift in Sources */,

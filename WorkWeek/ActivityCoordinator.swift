@@ -41,7 +41,6 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
     func start(animated: Bool) {
         Log.log()
 
-        let activityVC = ActivityViewController()
         navigationController.isNavigationBarHidden = true
 
         let countdownVC = CountdownViewController.instantiate()
@@ -77,9 +76,7 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
     }
 
     func showWeeklyViewController(for week: String) {
-        let weeklyVC = UIViewController(nibName: nil, bundle: nil)
-        weeklyVC.view.backgroundColor = .white
-        weeklyVC.title = week
+        let weeklyVC = WeeklyOverviewViewController(nibName: nil, bundle: nil)
         navigationController.pushViewController(weeklyVC, animated: true)
     }
 

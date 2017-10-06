@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryTableViewCell: UITableViewCell {
+class CountdownTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
