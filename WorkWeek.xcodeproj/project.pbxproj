@@ -74,10 +74,7 @@
 		D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */; };
 		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
-		D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */; };
-		D1C481971F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C481961F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift */; };
 		D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */; };
-		D1CA47051EE354FC003628FF /* WeeklyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47041EE354FC003628FF /* WeeklyCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,10 +169,7 @@
 		D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
 		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
-		D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionViewCell.swift; sourceTree = "<group>"; };
-		D1C481961F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionHeaderView.swift; sourceTree = "<group>"; };
 		D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewController.swift; sourceTree = "<group>"; };
-		D1CA47041EE354FC003628FF /* WeeklyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,16 +364,6 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
-		D1C481931F082F48008AAF12 /* WeeklyCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				D1CA47041EE354FC003628FF /* WeeklyCollectionViewController.swift */,
-				D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */,
-				D1C481961F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift */,
-			);
-			name = WeeklyCollectionView;
-			sourceTree = "<group>";
-		};
 		D1CA47011EE34D9F003628FF /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,7 +374,6 @@
 				C309407A1F7DB7D200447E65 /* CountdownTableViewCell.swift */,
 				5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */,
 				D1102CE61F00BA4E006A0E2F /* DailyCollectionView */,
-				D1C481931F082F48008AAF12 /* WeeklyCollectionView */,
 				520B78721F72BB01004093CA /* NoDataCoachViewController.swift */,
 			);
 			name = Activity;
@@ -585,7 +568,6 @@
 				524392FC1F148C4100EEFEA3 /* User.swift in Sources */,
 				521806771F40CD2B0079AFD4 /* WeeklyObject.swift in Sources */,
 				52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */,
-				D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */,
 				52802FE41F2853CA009A519B /* PushNotificationManager.swift in Sources */,
 				52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */,
 				D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */,
@@ -597,7 +579,6 @@
 				C3DEA7271F14850E001F2696 /* ActivityCoordinator.swift in Sources */,
 				526E50721EF62DD50066F043 /* Analytics.swift in Sources */,
 				D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */,
-				D1CA47051EE354FC003628FF /* WeeklyCollectionViewController.swift in Sources */,
 				52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */,
 				521AF7FB1F21902900C8F707 /* UserDefaults+Extensions.swift in Sources */,
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
@@ -613,7 +594,6 @@
 				521806751F40CD170079AFD4 /* DailyObject.swift in Sources */,
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,
 				525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */,
-				D1C481971F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift in Sources */,
 				5272B78C1F12A62200F003FD /* MapVCDelegate.swift in Sources */,
 				D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */,
 				C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */,
