@@ -3,38 +3,81 @@
 import UIKit
 import PlaygroundSupport
 
-let aView = CounterView(frame: CGRect(x: 0, y: 0, width: 230, height: 230))
+let aView = CounterView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
 
 PlaygroundPage.current.liveView = aView
 
 
 @IBDesignable class CounterView: UIView {
-    private struct Constants {
-        static let numberOfGlasses = 8
-        static let lineWidth: CGFloat = 5.0
-        static let arcWidth: CGFloat = 76
 
-        static var halfOfLineWidth: CGFloat {
-            return lineWidth / 2
-        }
+    let arcWidth: CGFloat = 24.0
+    let counterWidth: CGFloat = 24.0
+    
+    @IBInspectable var arcColor: UIColor = UIColor.lightGray
+    @IBInspectable var counterColor: UIColor = UIColor.blue
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = UIColor.darkGray
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        backgroundColor = UIColor(white: 0.8, alpha: 1.0)
     }
 
-    @IBInspectable var counter: Int = 5
-    @IBInspectable var outlineColor: UIColor = UIColor.blue
-    @IBInspectable var counterColor: UIColor = UIColor.orange
-
     override func draw(_ rect: CGRect) {
+
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-        let radius: CGFloat = max(bounds.width, bounds.height)
+        let radius: CGFloat = max(bounds.width, bounds.height) / 2
 
-        let startAngle: CGFloat = 3 * .pi / 4
-        let endAngle: CGFloat = .pi / 4
+        backgroundArcPath(center: center, radius: radius)
+        let counterEnd: CGFloat = 5 * .pi / 6
+        counterPath(center: center, radius: radius, endAngle: counterEnd)
+    }
 
-        let path = UIBezierPath(arcCenter: center, radius: radius/2 - Constants.arcWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+    func backgroundArcPath(center: CGPoint, radius: CGFloat) {
+        let startAngle: CGFloat = 0
+        let endAngle: CGFloat = 2 * .pi
 
-        path.lineWidth = Constants.arcWidth
+        let path = UIBezierPath(arcCenter: center, radius: radius - arcWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+
+        //shadow not working
+        let layer: CAShapeLayer = CAShapeLayer()
+        layer.frame = bounds
+        layer.path = path.cgPath
+        layer.shadowRadius = 2
+        layer.shadowOpacity = 0.1
+
+        layer.shadowColor = UIColor.blue.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1)
+        
+        path.lineWidth = arcWidth
+        arcColor.setStroke()
+        path.stroke()
+    }
+
+    func counterPath(center: CGPoint, radius: CGFloat, endAngle: CGFloat) {
+        let startAngle: CGFloat = 3 * .pi / 2
+
+        let path = UIBezierPath(arcCenter: center, radius: radius - counterWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+
+        path.lineWidth = counterWidth
         counterColor.setStroke()
         path.stroke()
+        let endPoint = CGPoint(x: path.currentPoint.x - 20, y: path.currentPoint.y - 20)
+
+        let aView = UIView(frame: CGRect(origin: endPoint, size: CGSize(width: 50, height: 50)))
+        aView.backgroundColor = UIColor.blue
+        aView.makeCircle()
+        self.addSubview(aView)
+    }
+
+}
+
+extension UIView {
+    func makeCircle() {
+        self.layer.cornerRadius = self.frame.size.width / 2
+        self.clipsToBounds = true
     }
 }
 //: [Next](@next)
