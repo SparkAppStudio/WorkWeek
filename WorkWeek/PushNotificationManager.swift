@@ -13,15 +13,15 @@ final class PushNotificationManager: NSObject {
         center.delegate = self
     }
 
-    func userHasArrivedAtWork() {
-        let workTimeLeft = RealmManager.shared.getUserTimeLeft()
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: workTimeLeft, repeats: false)
+    lazy var calculator = RealmManager.shared.getUserCalculator
 
+    func userHasArrivedAtWork() {
+        let workTimeLeft = calculator.getUserTimeLeftToday
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: workTimeLeft, repeats: false)
         let content = buildMessage()
         let req = UNNotificationRequest(identifier: "ArrivedAtWork", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
-        Log.log("Arrived Work. Notification scheduled for: \(String(describing: trigger.nextTriggerDate()))")
     }
 
     func buildMessage() -> UNNotificationContent {

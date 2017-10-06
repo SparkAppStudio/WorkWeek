@@ -13,7 +13,7 @@ extension NotificationCenter {
 
         self.addObserver(observer,
                          selector: aSelector,
-                         name: NSNotification.Name(rawValue: aName.rawValue),
+                         name: Notification.Name(rawValue: aName.rawValue),
                          object: anObject)
     }
 }
@@ -36,6 +36,8 @@ class DailyCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Daily Activity"
+
         collectionView?.alwaysBounceVertical = true
         configureNotificationObservers()
 

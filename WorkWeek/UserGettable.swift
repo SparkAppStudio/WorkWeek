@@ -5,14 +5,14 @@
 import UIKit
 
 protocol UserGettable {
-    var navigationController: UINavigationController { get }
+    var vcForPresentation: UIViewController { get }
     func getUserFromRealm() -> User?
     func showErrorAlert()
 }
 
 extension UserGettable {
     func getUserFromRealm() -> User? {
-        RealmManager.shared.saveInitialUser()
+        RealmManager.shared.fetchOrCreateUser()
         return RealmManager.shared.queryAllObjects(ofType: User.self).first
     }
 
@@ -25,6 +25,6 @@ extension UserGettable {
         }
 
         alert.addAction(ok)
-        navigationController.present(alert, animated: true, completion: nil)
+        vcForPresentation.present(alert, animated: true, completion: nil)
     }
 }

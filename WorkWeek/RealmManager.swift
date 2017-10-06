@@ -27,8 +27,18 @@ class RealmManager {
         fatalError("Realm Could not get created.. Nothing to see here")
     }()
 
+    var getUserCalculator: UserHoursCalculator {
+        let user = realm.objects(User.self).first ?? fetchOrCreateUser()
+        let dailyObject = queryDailyObject()
+        let weeklyObject = queryWeeklyObject()
+        let previous = previousWeeklyObject()
+
+        return UserHoursCalculator(user: user, dailyObject: dailyObject, weeklyObject: weeklyObject, previousWeek: previous)
+    }
+
     // MARK: - Query Operations
-    func queryDailyObject(for date: Date) -> DailyObject? {
+
+    func queryDailyObject(for date: Date = Date()) -> DailyObject? {
         let key = dailyPrimaryKeyBased(on: date)
         let dailyObject = realm.object(ofType: DailyObject.self, forPrimaryKey: key)
         return dailyObject
@@ -37,6 +47,23 @@ class RealmManager {
     func queryAllDailyObjects() {
         let allDailyObject = realm.objects(DailyObject.self)
         Log.log(allDailyObject.debugDescription)
+    }
+
+    func queryWeeklyObject(for date: Date = Date()) -> WeeklyObject? {
+        let key = weeklyPrimaryKeyBased(on: date)
+        let weeklyObject = realm.object(ofType: WeeklyObject.self, forPrimaryKey: key)
+        return weeklyObject
+    }
+
+    func previousWeeklyObject(fromDate startDate: Date = Date()) -> WeeklyObject? {
+        let todayComps = Calendar.current.dateComponents([.weekOfYear, .weekday], from: startDate)
+        let lastWeek = Calendar.current.nextDate(after: Date.distantPast,
+                                                 matching: todayComps,
+                                                 matchingPolicy: .nextTime,
+                                                 repeatedTimePolicy: .first,
+                                                 direction: .backward)
+        guard let lastWeekDate = lastWeek else { return nil }
+        return queryWeeklyObject(for: lastWeekDate)
     }
 
     func queryAllObjects<T: Object>(ofType type: T.Type) -> [T] {
@@ -95,12 +122,11 @@ class RealmManager {
         }
     }
 
-
     func dailyPrimaryKeyBased(on date: Date) -> String {
         return RealmManager.dateFormatter.string(from: date)
     }
 
-    func weeklyPrimaryKeyBased(on date: Date ) -> String {
+    func weeklyPrimaryKeyBased(on date: Date) -> String {
         let cal = Calendar.current
         let dateComponents = cal.dateComponents(in: .current, from: date)
         guard let week = dateComponents.weekOfYear else { return ""}
@@ -112,13 +138,14 @@ class RealmManager {
 
     /// Saves a base user, to realm. The user object has sane defaults.
     /// Calling this again, if a user exists, has no effect.
-    func saveInitialUser() {
+    @discardableResult
+    func fetchOrCreateUser() -> User {
 
         func userExists() -> Bool {
             return realm.objects(User.self).count > 0
         }
 
-        guard !userExists() else { return }
+        guard !userExists() else { return realm.objects(User.self).first! }
 
         let user = User()
         do {
@@ -128,6 +155,7 @@ class RealmManager {
         } catch {
             Log.log(.error, "Failed to save initial User. \(error.localizedDescription)")
         }
+        return user
     }
 
     func update(user: User, with weekdays: User.Weekdays) {
@@ -142,20 +170,6 @@ class RealmManager {
         unhandledErrorWrite( user.notificationChoice =  choice)
     }
 
-    func getUserTimeLeft() -> TimeInterval {
-        let today = Date()
-        let timeSoFar = queryDailyObject(for: today)?.workTime ?? 0.0
-        return usersDefaultWorkDayLength() - timeSoFar
-    }
-
-    func usersDefaultWorkDayLength() -> TimeInterval {
-        guard let user = realm.objects(User.self).first else {
-            saveInitialUser()
-            return User.defaultWorkDayLength * 60.0 * 60.0 // convert hours to seconds
-        }
-        return user.hoursInWorkDay * 60.0 * 60.0 // convert hours to seconds
-    }
-
     func unhandledErrorWrite(_ action: @autoclosure () -> Void ) {
         do {
             try realm.write {
@@ -164,6 +178,64 @@ class RealmManager {
         } catch {
             Log.log(.error, "Failed Write. \(error.localizedDescription)")
         }
+    }
+}
+
+class UserHoursCalculator {
+    let user: User
+    let dailyObject: DailyObject?
+    let weeklyObject: WeeklyObject?
+    let previousWeek: WeeklyObject?
+
+    init(user: User, dailyObject: DailyObject?, weeklyObject: WeeklyObject?, previousWeek: WeeklyObject?) {
+        self.user = user
+        self.dailyObject = dailyObject
+        self.weeklyObject = weeklyObject
+        self.previousWeek = previousWeek
+    }
+
+    var hasDataForThisWeek: Bool {
+        return weeklyObject != nil
+    }
+
+    var hasDataForToday: Bool {
+        return dailyObject != nil
+    }
+
+    var hasDataForPreviousWeek: Bool {
+        return previousWeek != nil
+    }
+
+    var timeSoFarToday: TimeInterval {
+        guard let dailyObject = dailyObject else { return 0.0 }
+        let priorDurations = dailyObject.completedWorkTime
+        return priorDurations
+    }
+
+    var getUserTimeLeftToday: TimeInterval {
+        return usersDefaultWorkDayLength - timeSoFarToday
+    }
+
+    var usersDefaultWorkDayLength: TimeInterval {
+        return user.hoursInWorkDay * 60.0 * 60.0 // convert hours to seconds
+    }
+
+    func getUserTimeLeftInWeek() -> TimeInterval {
+        guard let weeklyObject = weeklyObject else {
+            // No weekly object?
+            return 0.0
+        }
+        let workHoursPerWeek = user.hoursInWorkDay * Double(user.weekdays.numberSelected)
+        let workHoursInSeconds = workHoursPerWeek * 60 * 60
+        return workHoursInSeconds - weeklyObject.totalWorkTime
+    }
+
+    var percentOfWorkRemaining: Int {
+        //Avoid Divide by zero "Double value cannot be converted to Int because it is either infinite or NaN"
+        if usersDefaultWorkDayLength <= 0.0 {
+            return 0
+        }
+        return Int((getUserTimeLeftToday / usersDefaultWorkDayLength) * 100 )
     }
 
 }

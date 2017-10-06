@@ -17,7 +17,7 @@ extension NotificationCenter {
     }
 
     func post(name: CheckInEvent, object: Any? = nil) {
-        let name = NSNotification.Name(name.rawValue)
+        let name = Notification.Name(name.rawValue)
         post(name: name, object: object)
     }
 }
