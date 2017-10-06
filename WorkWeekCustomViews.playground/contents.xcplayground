@@ -10,5 +10,6 @@
         <page name='OutlineButton'/>
         <page name='Blue Onboarding Button'/>
         <page name='ButtonWithPressAnimation'/>
+        <page name='Bezier Circle'/>
     </pages>
 </playground>
