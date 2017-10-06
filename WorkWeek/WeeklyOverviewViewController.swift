@@ -21,8 +21,6 @@ class WeeklyOverviewViewController: MXSegmentedPagerController {
             addpage(day, controller: DailyCollectionViewController.instantiate())
         }
 
-
-
         let nib = UINib(nibName: "ActivityHeaderView", bundle: nil)
         let headerView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView // swiftlint:disable:this force_cast
 
