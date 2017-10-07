@@ -57,6 +57,10 @@
 		D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */; };
 		D1102CEA1F00C085006A0E2F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE91F00C085006A0E2F /* AppConstants.swift */; };
 		D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */; };
+		D16696A01F888A7400D4813E /* HMSegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D166969F1F888A7400D4813E /* HMSegmentedControl.framework */; };
+		D16696A41F888A9000D4813E /* MXSegmentedPager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16696A11F888A9000D4813E /* MXSegmentedPager.framework */; };
+		D16696A51F888A9000D4813E /* MXParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16696A21F888A9000D4813E /* MXParallaxHeader.framework */; };
+		D16696A61F888A9000D4813E /* MXPagerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16696A31F888A9000D4813E /* MXPagerView.framework */; };
 		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
 		D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */; };
@@ -131,6 +135,10 @@
 		D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionHeaderView.swift; sourceTree = "<group>"; };
 		D1102CE91F00C085006A0E2F /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
+		D166969F1F888A7400D4813E /* HMSegmentedControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HMSegmentedControl.framework; path = Carthage/Build/iOS/HMSegmentedControl.framework; sourceTree = "<group>"; };
+		D16696A11F888A9000D4813E /* MXSegmentedPager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXSegmentedPager.framework; path = Carthage/Build/iOS/MXSegmentedPager.framework; sourceTree = "<group>"; };
+		D16696A21F888A9000D4813E /* MXParallaxHeader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXParallaxHeader.framework; path = Carthage/Build/iOS/MXParallaxHeader.framework; sourceTree = "<group>"; };
+		D16696A31F888A9000D4813E /* MXPagerView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXPagerView.framework; path = Carthage/Build/iOS/MXPagerView.framework; sourceTree = "<group>"; };
 		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -150,6 +158,10 @@
 				5208F3AC1EDE4C22008F82CC /* Fabric.framework in Frameworks */,
 				52510E941EFCD03E006F5C97 /* MapKit.framework in Frameworks */,
 				52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */,
+				D16696A01F888A7400D4813E /* HMSegmentedControl.framework in Frameworks */,
+				D16696A41F888A9000D4813E /* MXSegmentedPager.framework in Frameworks */,
+				D16696A51F888A9000D4813E /* MXParallaxHeader.framework in Frameworks */,
+				D16696A61F888A9000D4813E /* MXPagerView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +250,10 @@
 		5287CA481EDCFA9100E71CE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D16696A31F888A9000D4813E /* MXPagerView.framework */,
+				D16696A21F888A9000D4813E /* MXParallaxHeader.framework */,
+				D16696A11F888A9000D4813E /* MXSegmentedPager.framework */,
+				D166969F1F888A7400D4813E /* HMSegmentedControl.framework */,
 				52510E931EFCD03E006F5C97 /* MapKit.framework */,
 				52223FAA1EE1299B0014F4A9 /* Reusable.framework */,
 				5208F3AA1EDE4C22008F82CC /* Fabric.framework */,
@@ -506,6 +522,10 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Reusable.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/HMSegmentedControl.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MXPagerView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MXParallaxHeader.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MXSegmentedPager.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
