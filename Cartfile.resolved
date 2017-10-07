@@ -1,2 +1,6 @@
 github "alisoftware/reusable" "4.0.1"
-github "realm/realm-cocoa" "v2.9.0"
+github "maxep/HMSegmentedControl" "7c97e5501100b5389398ea6f2e57ae9785287b9e"
+github "maxep/MXPagerView" "0.2.1"
+github "maxep/MXParallaxHeader" "0.6.1"
+github "maxep/MXSegmentedPager" "3.3.0"
+github "realm/realm-cocoa" "v2.10.2"
