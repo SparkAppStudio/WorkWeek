@@ -121,6 +121,7 @@
 		52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHoursPickerDataSource.swift; sourceTree = "<group>"; };
 		52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		52E1AD8D1F8A871B00CA3694 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 		52E1FFDF1F3813A80091C1CB /* WorkWeekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkWeekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E1FFE31F3813A80091C1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C362A4061EE34EA200AB9830 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
@@ -242,6 +243,7 @@
 				5218067B1F40CF610079AFD4 /* 3rdPartyWrappers */,
 				5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */,
 				5287CA411EDCF91E00E71CE8 /* Info.plist */,
+				52E1AD8D1F8A871B00CA3694 /* Warnings.xcconfig */,
 				5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */,
 			);
 			path = WorkWeek;
@@ -736,6 +738,7 @@
 		};
 		5287CA451EDCF91E00E71CE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52E1AD8D1F8A871B00CA3694 /* Warnings.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -774,6 +777,7 @@
 		};
 		52E1FFE61F3813A80091C1CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52E1AD8D1F8A871B00CA3694 /* Warnings.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
