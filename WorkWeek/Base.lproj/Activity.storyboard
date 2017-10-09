@@ -78,13 +78,29 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="uSR-YL-dT7">
-                                        <rect key="frame" x="0.0" y="330" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountDownCell" rowHeight="62" id="uSR-YL-dT7" customClass="CountDownTableViewCell" customModule="WorkWeek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="330" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uSR-YL-dT7" id="xFB-R1-z83">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4x-w5-Ta1">
+                                                    <rect key="frame" x="0.0" y="40.5" width="375" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="y4x-w5-Ta1" secondAttribute="trailing" id="HAo-qw-Rd1"/>
+                                                <constraint firstAttribute="bottom" secondItem="y4x-w5-Ta1" secondAttribute="bottom" id="QfB-XP-dWA"/>
+                                                <constraint firstItem="y4x-w5-Ta1" firstAttribute="leading" secondItem="xFB-R1-z83" secondAttribute="leading" id="sHn-wA-40w"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="totalHoursLabel" destination="y4x-w5-Ta1" id="6RJ-gK-Ltj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

@@ -107,28 +107,53 @@ final class CountdownViewController: UIViewController {
 extension CountdownViewController: ActivityStoryboard { }
 
 protocol WeeklySelectionDelegate: class {
-    func selectedWeek(_ week: String)
+    func selectedWeek(_ week: WeeklyObject)
 }
 
 class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
 
-    // TODO: - Will change this to weekly related array
-    var array = ["1", "2", "3"]
+    lazy var results: [WeeklyObject] = {
+        let returned = RealmManager.shared.queryAllObjects(ofType: WeeklyObject.self)
+        return Array(returned.reversed())
+    }()
+
     weak var delegate: WeeklySelectionDelegate?
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return results.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = array[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountDownCell", for: indexPath) as? CountDownTableViewCell else {
+            assertionFailure("Should always succeed")
+            return UITableViewCell()
+        }
+        cell.configureCell(results[indexPath.row])
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.selectedWeek(array[indexPath.row])
+        delegate?.selectedWeek(results[indexPath.row])
     }
 
+}
+
+class CountDownTableViewCell: UITableViewCell {
+    lazy var hoursFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour]
+        return formatter
+    }()
+
+    @IBOutlet weak var totalHoursLabel: UILabel!
+
+    func configureCell(_ weeklyObject: WeeklyObject) {
+        let totalTimeInterval = weeklyObject.totalWorkTime
+        guard let formattedString = hoursFormatter.string(from: totalTimeInterval) else {
+            assertionFailure("Failed to get hours with given time interval")
+            return
+        }
+        totalHoursLabel.text = formattedString
+    }
 }
 
