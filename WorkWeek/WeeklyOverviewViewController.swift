@@ -1,8 +1,4 @@
 //
-//  TodayViewController.swift
-//  WorkWeek
-//
-//  Created by Douglas Hewitt on 9/28/17.
 //  Copyright © 2017 Spark App Studio. All rights reserved.
 //
 
@@ -12,14 +8,28 @@ import MXSegmentedPager
 
 class WeeklyOverviewViewController: MXSegmentedPagerController {
 
-    var controllersArray = [(String, UIViewController)]()
-    var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    lazy var controllersArray: [(title: String, controller: UIViewController)] = {
+        var array: [(title: String, controller: UIViewController)] = []
+        let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+        func addpage(_ title: String, controller: UIViewController) {
+            self.addChildViewController(controller)
+            controller.didMove(toParentViewController: self)
+            array.append((title, controller))
+        }
 
         for day in daysOfWeek {
             addpage(day, controller: DailyCollectionViewController.instantiate())
         }
+
+        return array
+    }()
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+
 
         let nib = UINib(nibName: "ActivityHeaderView", bundle: nil)
         let headerView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView // swiftlint:disable:this force_cast
@@ -31,11 +41,7 @@ class WeeklyOverviewViewController: MXSegmentedPagerController {
         segmentedPager.parallaxHeader.minimumHeight = 0
     }
 
-    func addpage(_ title: String, controller: UIViewController) {
-        self.addChildViewController(controller)
-        controller.didMove(toParentViewController: self)
-        controllersArray.append((title, controller))
-    }
+
 
     // MARK: MXSegmentedPagerDelegate
 
@@ -57,11 +63,11 @@ class WeeklyOverviewViewController: MXSegmentedPagerController {
     }
 
     override func segmentedPager(_ segmentedPager: MXSegmentedPager, titleForSectionAt index: Int) -> String {
-        return controllersArray[index].0 //0 is first item in tuple which is a string
+        return controllersArray[index].title
     }
 
     override func segmentedPager(_ segmentedPager: MXSegmentedPager, viewControllerForPageAt index: Int) -> UIViewController {
 
-        return controllersArray[index].1 //1 is the second item in tuple which is uiviewcontroller
+        return controllersArray[index].controller
     }
 }
