@@ -5,6 +5,12 @@
 import UIKit
 import Reusable
 
+#if DEBUG
+protocol DebugMenuShowing: class {
+    func showDebugMenu()
+}
+#endif
+
 protocol CountdownViewDelegate: class {
     func countdownPageDidTapSettings()
 }
@@ -60,6 +66,7 @@ final class CountdownViewController: UIViewController {
     }
 
     #if DEBUG
+    weak var debugDelegate: DebugMenuShowing?
     // We are willing to become first responder to get shake motion
     override var canBecomeFirstResponder: Bool {
             return true
@@ -68,7 +75,7 @@ final class CountdownViewController: UIViewController {
     // Enable detection of shake motion
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            self.navigationController?.presentDevSettingsAlertController()
+            debugDelegate?.showDebugMenu()
         }
     }
     #endif
@@ -101,7 +108,6 @@ final class CountdownViewController: UIViewController {
 }
 
 extension CountdownViewController: ActivityStoryboard { }
-
 
 protocol WeeklySelectionDelegate: class {
     func selectedWeek(_ week: String)

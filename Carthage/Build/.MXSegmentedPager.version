@@ -1,0 +1,18 @@
+{
+  "iOS" : [
+    {
+      "hash" : "a9564e046ee38d455cd97efb600c8dda6af534cd99a21c01f3f9aa59e4ab5341",
+      "name" : "MXSegmentedPager"
+    }
+  ],
+  "commitish" : "3.3.0",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "Mac" : [
+
+  ]
+}

@@ -47,6 +47,9 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
         countdownVC.data = CountDown()
         countdownVC.delegate = self
         countdownVC.selectionDelegate = self
+        #if DEBUG
+            countdownVC.debugDelegate = self
+        #endif
 
         if animated {
             navigationController.viewControllers.insert(countdownVC, at: 0)
@@ -105,5 +108,11 @@ extension ActivityCoordinator: CountdownViewDelegate {
 extension ActivityCoordinator: WeeklySelectionDelegate {
     func selectedWeek(_ week: String) {
         showWeeklyViewController(for: week)
+    }
+}
+
+extension ActivityCoordinator: DebugMenuShowing {
+    func showDebugMenu() {
+        navigationController.presentDevSettingsAlertController()
     }
 }
