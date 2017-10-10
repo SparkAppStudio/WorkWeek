@@ -2,11 +2,11 @@
   "commitish" : "v2.10.2",
   "iOS" : [
     {
-      "hash" : "91e68618e97929824feb651d7fbf4315e52513af80154c49dea9007fb003d953",
+      "hash" : "af06489b7a3e40d2c21aeee6e5fa13a87cb699b04c5127a41247e05ab0fa1bea",
       "name" : "RealmSwift"
     },
     {
-      "hash" : "3f0a58d53b4cbcbd6d16bc61c877674cc41cc689150ea3a5a0aff066afb38adc",
+      "hash" : "23342f31b67460ae41bacee2c60160f33b8acf412f7a8cfba1a48238de647105",
       "name" : "Realm"
     }
   ]
