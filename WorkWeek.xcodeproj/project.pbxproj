@@ -42,6 +42,7 @@
 		5287CA4E1EDCFB8400E71CE8 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */; };
 		5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */; };
 		5294A1351F4D3A5500DC186A /* TwoLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */; };
+		52A3754A1F906C2100523431 /* CountdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A375491F906C2100523431 /* CountdownTableViewCell.swift */; };
 		52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */; };
 		52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */; };
 		52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */; };
@@ -119,6 +120,7 @@
 		5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursPickerViewController.swift; sourceTree = "<group>"; };
 		5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoLabelButton.swift; sourceTree = "<group>"; };
+		52A375491F906C2100523431 /* CountdownTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTableViewCell.swift; sourceTree = "<group>"; };
 		52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHoursPickerDataSource.swift; sourceTree = "<group>"; };
 		52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 		D1CA47011EE34D9F003628FF /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				52A375491F906C2100523431 /* CountdownTableViewCell.swift */,
 				C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */,
 				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
 				C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */,
@@ -572,6 +575,7 @@
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,
 				525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */,
 				5272B78C1F12A62200F003FD /* MapVCDelegate.swift in Sources */,
+				52A3754A1F906C2100523431 /* CountdownTableViewCell.swift in Sources */,
 				D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */,
 				C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */,
 				5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */,
