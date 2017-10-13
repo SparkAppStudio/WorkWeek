@@ -111,8 +111,10 @@ extension ActivityCoordinator: WeeklySelectionDelegate {
     }
 }
 
+#if DEBUG
 extension ActivityCoordinator: DebugMenuShowing {
     func showDebugMenu() {
         navigationController.presentDevSettingsAlertController()
     }
 }
+#endif
