@@ -45,12 +45,13 @@
 		52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */; };
 		52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */; };
 		52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */; };
-		C309407B1F7DB7D200447E65 /* CountdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309407A1F7DB7D200447E65 /* CountdownTableViewCell.swift */; };
+		C309407B1F7DB7D200447E65 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C309407D1F7DBB9C00447E65 /* ActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */; };
 		C33DFB8A1F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */; };
 		C362A4071EE34EA200AB9830 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C362A4061EE34EA200AB9830 /* Onboarding.storyboard */; };
 		C362A4091EE3517800AB9830 /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */; };
 		C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */; };
+		C36487ED1F903CE100899118 /* TransparentHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */; };
 		C3A879B11F4BD7F700132FBA /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A879B01F4BD7F700132FBA /* Design.swift */; };
 		C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */; };
 		C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0C4531EE3CC930000D097 /* PageManager.swift */; };
@@ -123,11 +124,12 @@
 		52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		52E1FFDF1F3813A80091C1CB /* WorkWeekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkWeekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E1FFE31F3813A80091C1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityHeaderView.xib; sourceTree = "<group>"; };
+		C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityHeaderView.xib; sourceTree = "<group>"; };
 		C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyOverviewViewController.swift; sourceTree = "<group>"; };
 		C362A4061EE34EA200AB9830 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
 		C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentHeaderTableView.swift; sourceTree = "<group>"; };
 		C3A879B01F4BD7F700132FBA /* Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardProtocols.swift; sourceTree = "<group>"; };
 		C3B0C4531EE3CC930000D097 /* PageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageManager.swift; sourceTree = "<group>"; };
@@ -339,9 +341,9 @@
 			children = (
 				C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */,
 				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
+				C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */,
 				C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */,
 				C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */,
-				C309407A1F7DB7D200447E65 /* CountdownTableViewCell.swift */,
 				5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */,
 				D1102CE61F00BA4E006A0E2F /* DailyCollectionView */,
 				520B78721F72BB01004093CA /* NoDataCoachViewController.swift */,
@@ -546,6 +548,7 @@
 				52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */,
 				D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */,
 				D1B21F941EF521870023D427 /* RealmManager.swift in Sources */,
+				C36487ED1F903CE100899118 /* TransparentHeaderTableView.swift in Sources */,
 				D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */,
 				52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */,
 				5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */,
@@ -557,7 +560,7 @@
 				521AF7FB1F21902900C8F707 /* UserDefaults+Extensions.swift in Sources */,
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
 				52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */,
-				C309407B1F7DB7D200447E65 /* CountdownTableViewCell.swift in Sources */,
+				C309407B1F7DB7D200447E65 /* (null) in Sources */,
 				5232AC6C1F466EA700B72E2F /* GradientBackgroundView.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
 				521806791F40CDC80079AFD4 /* Event.swift in Sources */,
