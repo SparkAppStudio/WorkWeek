@@ -27,7 +27,7 @@ final class CountdownViewController: UIViewController {
     @IBOutlet weak var countdownDisplay: UILabel!
     @IBOutlet weak var percentLeft: UILabel!
     @IBOutlet weak var weekTimeDisplay: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: TransparentHeaderTableView!
 
     // MARK: IBActions
     @IBAction func didTapSettings(_ sender: UIButton) {
