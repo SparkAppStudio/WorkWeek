@@ -90,6 +90,7 @@ class HoursPickerViewController: UIViewController, SettingsStoryboard {
     func setInitialPickerSelection() {
         let index = pickerDataSource.pickerData.index(of: user.hoursInWorkDay) ??
                         WorkDayHoursPickerDataSource.default8HourIndex
+        pickerValue = user.hoursInWorkDay
         picker.selectRow(index, inComponent: 0, animated: false)
     }
 }
