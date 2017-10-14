@@ -27,7 +27,7 @@ final class CountdownViewController: UIViewController {
     @IBOutlet weak var countdownDisplay: UILabel!
     @IBOutlet weak var percentLeft: UILabel!
     @IBOutlet weak var weekTimeDisplay: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: TransparentHeaderTableView!
 
     // MARK: IBActions
     @IBAction func didTapSettings(_ sender: UIButton) {
@@ -43,6 +43,9 @@ final class CountdownViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+
         dataSource.delegate = selectionDelegate
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
@@ -123,12 +126,12 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = array[indexPath.row]
+        cell.textLabel?.textColor = UIColor.white
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.selectedWeek(array[indexPath.row])
     }
-
 }
 

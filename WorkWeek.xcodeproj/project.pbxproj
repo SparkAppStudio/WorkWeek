@@ -42,12 +42,17 @@
 		5287CA4E1EDCFB8400E71CE8 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */; };
 		5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */; };
 		5294A1351F4D3A5500DC186A /* TwoLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */; };
+		52A3754A1F906C2100523431 /* CountdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A375491F906C2100523431 /* CountdownTableViewCell.swift */; };
 		52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */; };
 		52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */; };
 		52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */; };
+		C309407B1F7DB7D200447E65 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		C309407D1F7DBB9C00447E65 /* ActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */; };
+		C33DFB8A1F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */; };
 		C362A4071EE34EA200AB9830 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C362A4061EE34EA200AB9830 /* Onboarding.storyboard */; };
 		C362A4091EE3517800AB9830 /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */; };
 		C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */; };
+		C36487ED1F903CE100899118 /* TransparentHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */; };
 		C3A879B11F4BD7F700132FBA /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A879B01F4BD7F700132FBA /* Design.swift */; };
 		C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */; };
 		C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0C4531EE3CC930000D097 /* PageManager.swift */; };
@@ -63,10 +68,7 @@
 		D16696A61F888A9000D4813E /* MXPagerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16696A31F888A9000D4813E /* MXPagerView.framework */; };
 		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
-		D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */; };
-		D1C481971F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C481961F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift */; };
 		D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */; };
-		D1CA47051EE354FC003628FF /* WeeklyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47041EE354FC003628FF /* WeeklyCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,14 +120,19 @@
 		5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursPickerViewController.swift; sourceTree = "<group>"; };
 		5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoLabelButton.swift; sourceTree = "<group>"; };
+		52A375491F906C2100523431 /* CountdownTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTableViewCell.swift; sourceTree = "<group>"; };
 		52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHoursPickerDataSource.swift; sourceTree = "<group>"; };
 		52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		52E1AD8D1F8A871B00CA3694 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 		52E1FFDF1F3813A80091C1CB /* WorkWeekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkWeekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E1FFE31F3813A80091C1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityHeaderView.xib; sourceTree = "<group>"; };
+		C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyOverviewViewController.swift; sourceTree = "<group>"; };
 		C362A4061EE34EA200AB9830 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
 		C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentHeaderTableView.swift; sourceTree = "<group>"; };
 		C3A879B01F4BD7F700132FBA /* Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardProtocols.swift; sourceTree = "<group>"; };
 		C3B0C4531EE3CC930000D097 /* PageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageManager.swift; sourceTree = "<group>"; };
@@ -141,10 +148,7 @@
 		D16696A31F888A9000D4813E /* MXPagerView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXPagerView.framework; path = Carthage/Build/iOS/MXPagerView.framework; sourceTree = "<group>"; };
 		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
-		D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionViewCell.swift; sourceTree = "<group>"; };
-		D1C481961F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionHeaderView.swift; sourceTree = "<group>"; };
 		D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewController.swift; sourceTree = "<group>"; };
-		D1CA47041EE354FC003628FF /* WeeklyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +246,7 @@
 				5218067B1F40CF610079AFD4 /* 3rdPartyWrappers */,
 				5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */,
 				5287CA411EDCF91E00E71CE8 /* Info.plist */,
+				52E1AD8D1F8A871B00CA3694 /* Warnings.xcconfig */,
 				5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */,
 			);
 			path = WorkWeek;
@@ -335,24 +340,17 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
-		D1C481931F082F48008AAF12 /* WeeklyCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				D1CA47041EE354FC003628FF /* WeeklyCollectionViewController.swift */,
-				D1C481911F082F41008AAF12 /* WeeklyCollectionViewCell.swift */,
-				D1C481961F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift */,
-			);
-			name = WeeklyCollectionView;
-			sourceTree = "<group>";
-		};
 		D1CA47011EE34D9F003628FF /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				52A375491F906C2100523431 /* CountdownTableViewCell.swift */,
 				C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */,
 				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
+				C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */,
+				C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */,
+				C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */,
 				5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */,
 				D1102CE61F00BA4E006A0E2F /* DailyCollectionView */,
-				D1C481931F082F48008AAF12 /* WeeklyCollectionView */,
 				520B78721F72BB01004093CA /* NoDataCoachViewController.swift */,
 			);
 			name = Activity;
@@ -456,6 +454,7 @@
 			files = (
 				5287CA401EDCF91E00E71CE8 /* LaunchScreen.storyboard in Resources */,
 				C362A4071EE34EA200AB9830 /* Onboarding.storyboard in Resources */,
+				C309407D1F7DBB9C00447E65 /* ActivityHeaderView.xib in Resources */,
 				5287CA3D1EDCF91E00E71CE8 /* Assets.xcassets in Resources */,
 				5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */,
 				526799121EE349A500F41E01 /* Settings.storyboard in Resources */,
@@ -544,16 +543,17 @@
 			files = (
 				D1102CEA1F00C085006A0E2F /* AppConstants.swift in Sources */,
 				C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */,
+				C33DFB8A1F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift in Sources */,
 				C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */,
 				C3C760A81F085AAA00F5C773 /* NavigationController+Extensions.swift in Sources */,
 				524392FC1F148C4100EEFEA3 /* User.swift in Sources */,
 				521806771F40CD2B0079AFD4 /* WeeklyObject.swift in Sources */,
 				52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */,
-				D1C481921F082F41008AAF12 /* WeeklyCollectionViewCell.swift in Sources */,
 				52802FE41F2853CA009A519B /* PushNotificationManager.swift in Sources */,
 				52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */,
 				D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */,
 				D1B21F941EF521870023D427 /* RealmManager.swift in Sources */,
+				C36487ED1F903CE100899118 /* TransparentHeaderTableView.swift in Sources */,
 				D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */,
 				52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */,
 				5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */,
@@ -561,11 +561,11 @@
 				C3DEA7271F14850E001F2696 /* ActivityCoordinator.swift in Sources */,
 				526E50721EF62DD50066F043 /* Analytics.swift in Sources */,
 				D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */,
-				D1CA47051EE354FC003628FF /* WeeklyCollectionViewController.swift in Sources */,
 				52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */,
 				521AF7FB1F21902900C8F707 /* UserDefaults+Extensions.swift in Sources */,
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
 				52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */,
+				C309407B1F7DB7D200447E65 /* (null) in Sources */,
 				5232AC6C1F466EA700B72E2F /* GradientBackgroundView.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
 				521806791F40CDC80079AFD4 /* Event.swift in Sources */,
@@ -576,8 +576,8 @@
 				521806751F40CD170079AFD4 /* DailyObject.swift in Sources */,
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,
 				525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */,
-				D1C481971F0832EA008AAF12 /* WeeklyCollectionHeaderView.swift in Sources */,
 				5272B78C1F12A62200F003FD /* MapVCDelegate.swift in Sources */,
+				52A3754A1F906C2100523431 /* CountdownTableViewCell.swift in Sources */,
 				D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */,
 				C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */,
 				5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */,
@@ -736,6 +736,7 @@
 		};
 		5287CA451EDCF91E00E71CE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52E1AD8D1F8A871B00CA3694 /* Warnings.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -774,6 +775,7 @@
 		};
 		52E1FFE61F3813A80091C1CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52E1AD8D1F8A871B00CA3694 /* Warnings.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
