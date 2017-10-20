@@ -118,10 +118,9 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountDownCell", for: indexPath) as? CountDownTableViewCell else {
-            assertionFailure("Should always succeed")
-            return UITableViewCell()
-        }
+        // swiftlint:disable force_cast
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CountDownCell", for: indexPath) as! CountDownTableViewCell
+        // swiftlint:enable force_cast
         cell.configureCell(results[indexPath.row])
         return cell
     }
