@@ -119,7 +119,7 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CountDownTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configureCell(results[indexPath.row])
+        cell.configure(with: results[indexPath.row])
         return cell
     }
 
@@ -138,7 +138,7 @@ class CountDownTableViewCell: UITableViewCell, Reusable {
 
     @IBOutlet weak var totalHoursLabel: UILabel!
 
-    func configureCell(_ weeklyObject: WeeklyObject) {
+    func configure(with weeklyObject: WeeklyObject) {
         let totalTimeInterval = weeklyObject.totalWorkTime
         guard let formattedString = hoursFormatter.string(from: totalTimeInterval) else {
             assertionFailure("Failed to get hours with given time interval")
