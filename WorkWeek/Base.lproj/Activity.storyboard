@@ -78,7 +78,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountDownCell" rowHeight="62" id="uSR-YL-dT7" customClass="CountDownTableViewCell" customModule="WorkWeek" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountDownTableViewCell" rowHeight="62" id="uSR-YL-dT7" customClass="CountDownTableViewCell" customModule="WorkWeek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="330" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uSR-YL-dT7" id="xFB-R1-z83">

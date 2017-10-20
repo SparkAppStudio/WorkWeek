@@ -118,9 +118,7 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CountDownCell", for: indexPath) as! CountDownTableViewCell
-        // swiftlint:enable force_cast
+        let cell: CountDownTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.configureCell(results[indexPath.row])
         return cell
     }
@@ -131,7 +129,7 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
 
 }
 
-class CountDownTableViewCell: UITableViewCell {
+class CountDownTableViewCell: UITableViewCell, Reusable {
     lazy var hoursFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour]
