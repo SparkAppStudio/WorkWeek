@@ -29,16 +29,13 @@ final class CountdownViewController: UIViewController {
     }
 
     weak var delegate: CountdownViewDelegate?
-    weak var selectionDelegate: WeeklySelectionDelegate?
     var headerData: CountdownData!
-    var tableViewData: (UITableViewDataSource & UITableViewDelegate & WeeklySelectionDelegateHolder)!
-
+    var tableViewData: (UITableViewDataSource & UITableViewDelegate)!
 
     var timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableViewData.delegate = selectionDelegate
         tableView.dataSource = tableViewData
         tableView.delegate = tableViewData
         title = "Count Down"
@@ -100,25 +97,15 @@ final class CountdownViewController: UIViewController {
 
 extension CountdownViewController: ActivityStoryboard { }
 
-
-protocol WeeklySelectionDelegate: class {
-    // TODO: Replace with closure
-    func selectedWeek(_ week: WeeklyObject)
-}
-
-protocol WeeklySelectionDelegateHolder {
-    var delegate: WeeklySelectionDelegate? { get set }
-}
-
-class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource, WeeklySelectionDelegateHolder {
+class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     var results: [WeeklyObject]
+    var action: ((WeeklyObject) -> Void)
 
-    init(with weeklyObjects: [WeeklyObject]) {
+    init(with weeklyObjects: [WeeklyObject], action: @escaping ((WeeklyObject) -> Void)) {
         self.results = weeklyObjects.reversed()
+        self.action = action
     }
-
-    weak var delegate: WeeklySelectionDelegate?
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
@@ -131,7 +118,7 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.selectedWeek(results[indexPath.row])
+        action(results[indexPath.row])
     }
 
 }

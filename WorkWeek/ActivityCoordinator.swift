@@ -45,9 +45,8 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
         countdownVC.headerData = CountDownHeaderData()
         countdownVC.delegate = self
         let weeks = RealmManager.shared.queryAllObjects(ofType: WeeklyObject.self)
-        let countDownTableViewDSD = CountDownTableViewDSD(with: weeks)
+        let countDownTableViewDSD = CountDownTableViewDSD(with: weeks, action: selectedWeek)
         countdownVC.tableViewData = countDownTableViewDSD
-        countdownVC.selectionDelegate = self
 
         if animated {
             navigationController.viewControllers.insert(countdownVC, at: 0)
@@ -105,7 +104,7 @@ extension ActivityCoordinator: CountdownViewDelegate {
     }
 }
 
-extension ActivityCoordinator: WeeklySelectionDelegate {
+extension ActivityCoordinator {
     func selectedWeek(_ week: WeeklyObject) {
         showWeeklyViewController(for: week)
     }
