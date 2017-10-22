@@ -35,20 +35,17 @@ final class CountdownViewController: UIViewController {
     }
 
     weak var delegate: CountdownViewDelegate?
-    weak var selectionDelegate: WeeklySelectionDelegate?
-    var data: CountdownData!
-    var dataSource = CountDownTableViewDSD()
+    var headerData: CountdownData!
+    var tableViewData: (UITableViewDataSource & UITableViewDelegate)!
 
     var timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.dataSource = tableViewData
+        tableView.delegate = tableViewData
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
 
-        dataSource.delegate = selectionDelegate
-        tableView.dataSource = dataSource
-        tableView.delegate = dataSource
         title = "Count Down"
 
         runTimer()
@@ -100,38 +97,57 @@ final class CountdownViewController: UIViewController {
     }()
 
     @objc func tick(_ timer: Timer) {
-        countdownDisplay.text = hourMinuteFormatter.string(from: data.timeLeftInDay)
-        let weekHours = hoursFormatter.string(from: data.timeLeftInWeek)!
+        countdownDisplay.text = hourMinuteFormatter.string(from: headerData.timeLeftInDay)
+        let weekHours = hoursFormatter.string(from: headerData.timeLeftInWeek)!
         weekTimeDisplay.text = "\(weekHours) work hours left in the week"
-        percentLeft.text = "\(data.percentOfWorkRemaining) % left"
+        percentLeft.text = "\(headerData.percentOfWorkRemaining) % left"
     }
 }
 
 extension CountdownViewController: ActivityStoryboard { }
 
-protocol WeeklySelectionDelegate: class {
-    func selectedWeek(_ week: String)
-}
-
 class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
 
-    // TODO: - Will change this to weekly related array
-    var array = ["1", "2", "3"]
-    weak var delegate: WeeklySelectionDelegate?
+    var results: [WeeklyObject]
+    var action: ((WeeklyObject) -> Void)
+
+    init(with weeklyObjects: [WeeklyObject], action: @escaping ((WeeklyObject) -> Void)) {
+        self.results = weeklyObjects.reversed()
+        self.action = action
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return results.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = array[indexPath.row]
+        cell.textLabel?.text = results[indexPath.row].weekAndTheYear
         cell.textLabel?.textColor = UIColor.white
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.selectedWeek(array[indexPath.row])
+        action(results[indexPath.row])
+    }
+}
+
+class CountDownTableViewCell: UITableViewCell, Reusable {
+    lazy var hoursFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour]
+        return formatter
+    }()
+
+    @IBOutlet weak var totalHoursLabel: UILabel!
+
+    func configure(with weeklyObject: WeeklyObject) {
+        let totalTimeInterval = weeklyObject.totalWorkTime
+        guard let formattedString = hoursFormatter.string(from: totalTimeInterval) else {
+            assertionFailure("Failed to get hours with given time interval")
+            return
+        }
+        totalHoursLabel.text = formattedString
     }
 }
 

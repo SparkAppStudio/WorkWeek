@@ -5,7 +5,7 @@
 import UIKit
 import CoreLocation
 
-struct CountDown: CountdownData {
+struct CountDownHeaderData: CountdownData {
 
     var calculator: UserHoursCalculator { return RealmManager.shared.getUserCalculator }
 
@@ -44,9 +44,11 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
         navigationController.isNavigationBarHidden = true
 
         let countdownVC = CountdownViewController.instantiate()
-        countdownVC.data = CountDown()
+        countdownVC.headerData = CountDownHeaderData()
         countdownVC.delegate = self
-        countdownVC.selectionDelegate = self
+        let weeks = RealmManager.shared.queryAllObjects(ofType: WeeklyObject.self)
+        countdownVC.tableViewData = CountDownTableViewDSD(with: weeks,
+                                                          action: showWeeklyViewController)
         #if DEBUG
             countdownVC.debugDelegate = self
         #endif
@@ -78,7 +80,7 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
         childCoordinators.remove(coordinator)
     }
 
-    func showWeeklyViewController(for week: String) {
+    func showWeeklyViewController(for week: WeeklyObject) {
         let weeklyVC = WeeklyOverviewViewController(nibName: nil, bundle: nil)
         navigationController.pushViewController(weeklyVC, animated: true)
     }
@@ -105,11 +107,6 @@ extension ActivityCoordinator: CountdownViewDelegate {
     }
 }
 
-extension ActivityCoordinator: WeeklySelectionDelegate {
-    func selectedWeek(_ week: String) {
-        showWeeklyViewController(for: week)
-    }
-}
 
 #if DEBUG
 extension ActivityCoordinator: DebugMenuShowing {

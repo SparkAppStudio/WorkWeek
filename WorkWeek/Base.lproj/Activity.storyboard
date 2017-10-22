@@ -101,6 +101,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="dxA-dX-CUn" secondAttribute="bottom" id="sKX-8l-3wY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="totalHoursLabel" destination="y4x-w5-Ta1" id="6RJ-gK-Ltj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
