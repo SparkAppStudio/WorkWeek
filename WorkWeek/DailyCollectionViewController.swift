@@ -45,7 +45,7 @@ class DailyCollectionViewController: UICollectionViewController {
         let width = UIScreen.main.bounds.width
 
         // was showing as full bleed on the, small phone, added some padding around the edges, kept the same ratio
-        flowLayout?.itemSize = CGSize(width: width, height: (256.0 / 375.0) * width)
+        flowLayout?.itemSize = CGSize(width: width, height: (275.0 / 375.0) * width)
 
         // make it so the bottom cell can scroll to be above the dots...
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30.0, right: 0)

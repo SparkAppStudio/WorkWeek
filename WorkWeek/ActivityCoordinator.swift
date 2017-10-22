@@ -41,12 +41,17 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
     func start(animated: Bool) {
         Log.log()
 
+        navigationController.isNavigationBarHidden = true
+
         let countdownVC = CountdownViewController.instantiate()
         countdownVC.headerData = CountDownHeaderData()
         countdownVC.delegate = self
         let weeks = RealmManager.shared.queryAllObjects(ofType: WeeklyObject.self)
         let countDownTableViewDSD = CountDownTableViewDSD(with: weeks, action: selectedWeek)
         countdownVC.tableViewData = countDownTableViewDSD
+        #if DEBUG
+            countdownVC.debugDelegate = self
+        #endif
 
         if animated {
             navigationController.viewControllers.insert(countdownVC, at: 0)
@@ -76,9 +81,7 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
     }
 
     func showWeeklyViewController(for week: WeeklyObject) {
-        let weeklyVC = UIViewController(nibName: nil, bundle: nil)
-        weeklyVC.view.backgroundColor = .white
-        weeklyVC.title = "\(week.totalWorkTime)"
+        let weeklyVC = WeeklyOverviewViewController(nibName: nil, bundle: nil)
         navigationController.pushViewController(weeklyVC, animated: true)
     }
 
@@ -109,3 +112,11 @@ extension ActivityCoordinator {
         showWeeklyViewController(for: week)
     }
 }
+
+#if DEBUG
+extension ActivityCoordinator: DebugMenuShowing {
+    func showDebugMenu() {
+        navigationController.presentDevSettingsAlertController()
+    }
+}
+#endif

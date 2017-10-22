@@ -5,6 +5,12 @@
 import UIKit
 import Reusable
 
+#if DEBUG
+protocol DebugMenuShowing: class {
+    func showDebugMenu()
+}
+#endif
+
 protocol CountdownViewDelegate: class {
     func countdownPageDidTapSettings()
 }
@@ -21,7 +27,7 @@ final class CountdownViewController: UIViewController {
     @IBOutlet weak var countdownDisplay: UILabel!
     @IBOutlet weak var percentLeft: UILabel!
     @IBOutlet weak var weekTimeDisplay: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: TransparentHeaderTableView!
 
     // MARK: IBActions
     @IBAction func didTapSettings(_ sender: UIButton) {
@@ -38,6 +44,8 @@ final class CountdownViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = tableViewData
         tableView.delegate = tableViewData
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+
         title = "Count Down"
 
         runTimer()
@@ -55,6 +63,7 @@ final class CountdownViewController: UIViewController {
     }
 
     #if DEBUG
+    weak var debugDelegate: DebugMenuShowing?
     // We are willing to become first responder to get shake motion
     override var canBecomeFirstResponder: Bool {
             return true
@@ -63,7 +72,7 @@ final class CountdownViewController: UIViewController {
     // Enable detection of shake motion
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            self.navigationController?.presentDevSettingsAlertController()
+            debugDelegate?.showDebugMenu()
         }
     }
     #endif
@@ -112,15 +121,15 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: CountDownTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configure(with: results[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = results[indexPath.row].weekAndTheYear
+        cell.textLabel?.textColor = UIColor.white
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         action(results[indexPath.row])
     }
-
 }
 
 class CountDownTableViewCell: UITableViewCell, Reusable {
