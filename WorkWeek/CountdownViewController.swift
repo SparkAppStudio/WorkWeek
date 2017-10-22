@@ -30,16 +30,17 @@ final class CountdownViewController: UIViewController {
 
     weak var delegate: CountdownViewDelegate?
     weak var selectionDelegate: WeeklySelectionDelegate?
-    var data: CountdownData!
-    var dataSource = CountDownTableViewDSD()
+    var headerData: CountdownData!
+    var tableViewData: (UITableViewDataSource & UITableViewDelegate & WeeklySelectionDelegateHolder)!
+
 
     var timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource.delegate = selectionDelegate
-        tableView.dataSource = dataSource
-        tableView.delegate = dataSource
+        tableViewData.delegate = selectionDelegate
+        tableView.dataSource = tableViewData
+        tableView.delegate = tableViewData
         title = "Count Down"
 
         runTimer()
@@ -90,10 +91,10 @@ final class CountdownViewController: UIViewController {
     }()
 
     @objc func tick(_ timer: Timer) {
-        countdownDisplay.text = hourMinuteFormatter.string(from: data.timeLeftInDay)
-        let weekHours = hoursFormatter.string(from: data.timeLeftInWeek)!
+        countdownDisplay.text = hourMinuteFormatter.string(from: headerData.timeLeftInDay)
+        let weekHours = hoursFormatter.string(from: headerData.timeLeftInWeek)!
         weekTimeDisplay.text = "\(weekHours) work hours left in the week"
-        percentLeft.text = "\(data.percentOfWorkRemaining) % left"
+        percentLeft.text = "\(headerData.percentOfWorkRemaining) % left"
     }
 }
 
@@ -101,15 +102,21 @@ extension CountdownViewController: ActivityStoryboard { }
 
 
 protocol WeeklySelectionDelegate: class {
+    // TODO: Replace with closure
     func selectedWeek(_ week: WeeklyObject)
 }
 
-class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
+protocol WeeklySelectionDelegateHolder {
+    var delegate: WeeklySelectionDelegate? { get set }
+}
 
-    lazy var results: [WeeklyObject] = {
-        let returned = RealmManager.shared.queryAllObjects(ofType: WeeklyObject.self)
-        return Array(returned.reversed())
-    }()
+class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource, WeeklySelectionDelegateHolder {
+
+    var results: [WeeklyObject]
+
+    init(with weeklyObjects: [WeeklyObject]) {
+        self.results = weeklyObjects.reversed()
+    }
 
     weak var delegate: WeeklySelectionDelegate?
 
