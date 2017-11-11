@@ -73,7 +73,7 @@ class OutlineButton: UIButton {
 import PlaygroundSupport
 
 let responder = Responder()
-let backgroundColor = UIColor(red:0.24, green:0.51, blue:0.97, alpha:1)
+let backgroundColor = UIColor(red: 0.24, green: 0.51, blue: 0.97, alpha: 1)
 let backgroundRect = CGRect(x: 0, y: 0, width: 400, height: 400)
 let backgroundView = UIView(frame: backgroundRect)
 backgroundView.backgroundColor = backgroundColor

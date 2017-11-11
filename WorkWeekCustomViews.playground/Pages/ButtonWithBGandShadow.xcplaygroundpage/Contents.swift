@@ -3,8 +3,8 @@
 import UIKit
 import PlaygroundSupport
 
-let mainBlue = UIColor(red:0.24, green:0.51, blue:0.97, alpha:1)
-let mainGreen = UIColor(red:0.21, green:0.93, blue:0.31, alpha:1)
+let mainBlue = UIColor(red: 0.24, green: 0.51, blue: 0.97, alpha: 1)
+let mainGreen = UIColor(red: 0.21, green: 0.93, blue: 0.31, alpha: 1)
 
 class ButtonWithBGandShadow: UIButton {
 

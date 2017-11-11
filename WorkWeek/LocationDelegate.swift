@@ -50,7 +50,7 @@ final class LocationDelegate: NSObject, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        guard let typedRegion = RegionId(rawValue:region.identifier) else {
+        guard let typedRegion = RegionId(rawValue: region.identifier) else {
             Log.log(.error, "Could not create a typed region from \(region.identifier)")
             return
         }

@@ -4,10 +4,10 @@ import UIKit
 import PlaygroundSupport
 
 struct Colors {
-    static let background = UIColor(red:0.21, green:0.2, blue:0.22, alpha:1)
+    static let background = UIColor(red: 0.21, green: 0.2, blue: 0.22, alpha: 1)
     static let dark = UIColor.darkGray
-    static let green = UIColor(red:0.21, green:0.93, blue:0.84, alpha:1)
-    static let blue = UIColor(red:0.24, green:0.51, blue:0.97, alpha:1)
+    static let green = UIColor(red: 0.21, green: 0.93, blue: 0.84, alpha: 1)
+    static let blue = UIColor(red: 0.24, green: 0.51, blue: 0.97, alpha: 1)
 }
 
 public class SparkButton: UIButton {
@@ -39,7 +39,7 @@ public class SparkButton: UIButton {
         let topRect = CGRect(x: insetRect.origin.x, y: insetRect.origin.y + 4, width: insetRect.width, height: insetRect.height - 6)
         let top = UIBezierPath(roundedRect: topRect, cornerRadius: 12)
 
-        context.setShadow(offset: CGSize(width:0, height: 2), blur: 4, color: UIColor.black.cgColor)
+        context.setShadow(offset: CGSize(width: 0, height: 2), blur: 4, color: UIColor.black.cgColor)
         top.fill()
     }
 
@@ -86,7 +86,7 @@ public class SparkButton: UIButton {
 let responder = Responder()
 
 let button = SparkButton(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-button.addTarget(responder, action:#selector(Responder.buttonTapped(_:)), for: .touchUpInside)
+button.addTarget(responder, action: #selector(Responder.buttonTapped(_:)), for: .touchUpInside)
 button.sizeToFit()
 
 PlaygroundPage.current.liveView = button
