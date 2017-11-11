@@ -67,6 +67,10 @@
 		D16696A61F888A9000D4813E /* MXPagerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16696A31F888A9000D4813E /* MXPagerView.framework */; };
 		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
+		D1C0468B1FB77FC900DADF3B /* CountdownTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C046891FB77FC900DADF3B /* CountdownTVC.swift */; };
+		D1C0468C1FB77FC900DADF3B /* CountdownTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C046891FB77FC900DADF3B /* CountdownTVC.swift */; };
+		D1C0468D1FB77FC900DADF3B /* CountdownTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C0468A1FB77FC900DADF3B /* CountdownTVC.xib */; };
+		D1C0468E1FB77FC900DADF3B /* CountdownTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C0468A1FB77FC900DADF3B /* CountdownTVC.xib */; };
 		D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +150,8 @@
 		D16696A31F888A9000D4813E /* MXPagerView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXPagerView.framework; path = Carthage/Build/iOS/MXPagerView.framework; sourceTree = "<group>"; };
 		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
+		D1C046891FB77FC900DADF3B /* CountdownTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTVC.swift; sourceTree = "<group>"; };
+		D1C0468A1FB77FC900DADF3B /* CountdownTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownTVC.xib; sourceTree = "<group>"; };
 		D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -338,9 +344,19 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		D1C0468F1FB77FD700DADF3B /* NewCountdownTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D1C046891FB77FC900DADF3B /* CountdownTVC.swift */,
+				D1C0468A1FB77FC900DADF3B /* CountdownTVC.xib */,
+			);
+			name = NewCountdownTableViewCell;
+			sourceTree = "<group>";
+		};
 		D1CA47011EE34D9F003628FF /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				D1C0468F1FB77FD700DADF3B /* NewCountdownTableViewCell */,
 				52A375491F906C2100523431 /* CountdownTableViewCell.swift */,
 				C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */,
 				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
@@ -453,6 +469,7 @@
 				C362A4071EE34EA200AB9830 /* Onboarding.storyboard in Resources */,
 				C309407D1F7DBB9C00447E65 /* ActivityHeaderView.xib in Resources */,
 				5287CA3D1EDCF91E00E71CE8 /* Assets.xcassets in Resources */,
+				D1C0468D1FB77FC900DADF3B /* CountdownTVC.xib in Resources */,
 				5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */,
 				526799121EE349A500F41E01 /* Settings.storyboard in Resources */,
 			);
@@ -462,6 +479,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1C0468E1FB77FC900DADF3B /* CountdownTVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +581,7 @@
 				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
 				52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */,
 				C309407B1F7DB7D200447E65 /* (null) in Sources */,
+				D1C0468B1FB77FC900DADF3B /* CountdownTVC.swift in Sources */,
 				5232AC6C1F466EA700B72E2F /* GradientBackgroundView.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
 				521806791F40CDC80079AFD4 /* Event.swift in Sources */,
@@ -590,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				520855671F38144A00409642 /* DailyObjectTests.swift in Sources */,
+				D1C0468C1FB77FC900DADF3B /* CountdownTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

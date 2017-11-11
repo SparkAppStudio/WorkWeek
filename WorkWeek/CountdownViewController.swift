@@ -23,6 +23,9 @@ protocol CountdownData {
 
 final class CountdownViewController: UIViewController {
 
+    // MARK: Variables
+    private var countdownTVCIdentifier = "CountdownTVC"
+
     // MARK: IBOutlets
     @IBOutlet weak var countdownDisplay: UILabel!
     @IBOutlet weak var percentLeft: UILabel!
@@ -45,6 +48,7 @@ final class CountdownViewController: UIViewController {
         tableView.dataSource = tableViewData
         tableView.delegate = tableViewData
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        registerNib()
 
         title = "Count Down"
 
@@ -102,12 +106,19 @@ final class CountdownViewController: UIViewController {
         weekTimeDisplay.text = "\(weekHours) work hours left in the week"
         percentLeft.text = "\(headerData.percentOfWorkRemaining) % left"
     }
+
+    private func registerNib() {
+        let nib = UINib(nibName: "CountdownTVC", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: countdownTVCIdentifier)
+    }
 }
 
 extension CountdownViewController: ActivityStoryboard { }
 
 class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
 
+    // MARK: Variables
+    private var countdownTVCIdentifier = "CountdownTVC"
     var results: [WeeklyObject]
     var action: ((WeeklyObject) -> Void)
 
@@ -121,14 +132,21 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: CountdownTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.textLabel?.text = results[indexPath.row].weekAndTheYear
-        cell.textLabel?.textColor = UIColor.white
+//        let cell: CountdownTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+//        cell.textLabel?.text = results[indexPath.row].weekAndTheYear
+//        cell.textLabel?.textColor = UIColor.white
+//        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: countdownTVCIdentifier,
+                                                 for: indexPath) as! CountdownTVC // swiftlint:disable:this force_cast
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         action(results[indexPath.row])
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
     }
 }
 
