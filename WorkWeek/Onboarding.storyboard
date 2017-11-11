@@ -29,23 +29,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Screen" translatesAutoresizingMaskIntoConstraints="NO" id="qPt-0y-Uku">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Launch Screen" translatesAutoresizingMaskIntoConstraints="NO" id="qPt-0y-Uku">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qh8-u0-BB0">
-                                <rect key="frame" x="16" y="50" width="343" height="601"/>
+                                <rect key="frame" x="16" y="60" width="343" height="591"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCC-7G-UAk">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="57.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="47.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XA7-rW-ASV">
-                                        <rect key="frame" x="0.0" y="57.5" width="343" height="426.5"/>
+                                        <rect key="frame" x="0.0" y="47.5" width="343" height="426.5"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkh-Qu-5ZS">
-                                        <rect key="frame" x="0.0" y="484" width="343" height="117"/>
+                                        <rect key="frame" x="0.0" y="474" width="343" height="117"/>
                                         <string key="text">Work week is the best way to understand your work habits and lead you to develop better work life balance.
 
 Know when your shift is ending, ensure you charge clients the right ammount, or automate punching in and out the clock for hourly jobs.</string>
@@ -58,10 +58,9 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                         </subviews>
                         <constraints>
                             <constraint firstItem="qPt-0y-Uku" firstAttribute="top" secondItem="0nQ-kd-cTF" secondAttribute="top" id="Bjy-Pg-cry"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="qPt-0y-Uku" secondAttribute="bottom" id="FuC-Xz-LNF"/>
                             <constraint firstItem="F6Y-b1-FbL" firstAttribute="top" secondItem="qh8-u0-BB0" secondAttribute="bottom" constant="16" id="TSE-vF-ftM"/>
                             <constraint firstAttribute="trailing" secondItem="qPt-0y-Uku" secondAttribute="trailing" id="WSe-cs-HSO"/>
-                            <constraint firstItem="qh8-u0-BB0" firstAttribute="top" secondItem="q2b-fd-LrA" secondAttribute="bottom" constant="30" id="fUu-cS-vF9"/>
+                            <constraint firstItem="qh8-u0-BB0" firstAttribute="top" secondItem="q2b-fd-LrA" secondAttribute="bottom" constant="40" id="fUu-cS-vF9"/>
                             <constraint firstItem="qPt-0y-Uku" firstAttribute="leading" secondItem="0nQ-kd-cTF" secondAttribute="leading" id="fuF-tT-dbj"/>
                             <constraint firstItem="qh8-u0-BB0" firstAttribute="leading" secondItem="0nQ-kd-cTF" secondAttribute="leadingMargin" id="rnH-Bv-YIh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qh8-u0-BB0" secondAttribute="trailing" id="rzl-ef-zpO"/>
