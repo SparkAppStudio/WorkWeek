@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="roa-CS-hLv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="roa-CS-hLv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,7 +57,7 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="qPt-0y-Uku" firstAttribute="top" secondItem="0nQ-kd-cTF" secondAttribute="topMargin" id="Bjy-Pg-cry"/>
+                            <constraint firstItem="qPt-0y-Uku" firstAttribute="top" secondItem="0nQ-kd-cTF" secondAttribute="top" id="Bjy-Pg-cry"/>
                             <constraint firstAttribute="bottomMargin" secondItem="qPt-0y-Uku" secondAttribute="bottom" id="FuC-Xz-LNF"/>
                             <constraint firstItem="F6Y-b1-FbL" firstAttribute="top" secondItem="qh8-u0-BB0" secondAttribute="bottom" constant="16" id="TSE-vF-ftM"/>
                             <constraint firstAttribute="trailing" secondItem="qPt-0y-Uku" secondAttribute="trailing" id="WSe-cs-HSO"/>
@@ -89,19 +88,19 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                                 <rect key="frame" x="16" y="24" width="343" height="643"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCh-Sg-HA8">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="97.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="71"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zXh-HO-S8T">
-                                                <rect key="frame" x="0.0" y="0.0" width="254" height="97.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="71"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Automatic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="onl-hf-pnA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="254" height="43"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="43"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Using your iPhone, work week knows when you arrive at the office and when you leave. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-YT-EpJ">
-                                                        <rect key="frame" x="0.0" y="47" width="254" height="50.5"/>
+                                                        <rect key="frame" x="0.0" y="47" width="0.0" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -109,12 +108,12 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                                                 </subviews>
                                             </stackView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="xLU-Jl-SHW">
-                                                <rect key="frame" x="254" y="0.0" width="89" height="97.5"/>
+                                                <rect key="frame" x="-16" y="0.0" width="0.0" height="71"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLN-eM-QS3">
-                                        <rect key="frame" x="0.0" y="247.5" width="343" height="120"/>
+                                        <rect key="frame" x="0.0" y="241" width="343" height="120"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="iphone" translatesAutoresizingMaskIntoConstraints="NO" id="FQO-fQ-T8t">
                                                 <rect key="frame" x="0.0" y="0.0" width="68" height="120"/>
@@ -123,13 +122,13 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                                                 <rect key="frame" x="68" y="0.0" width="275" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Private" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9g8-U8-VnQ">
-                                                        <rect key="frame" x="155" y="0.0" width="120" height="43"/>
+                                                        <rect key="frame" x="157.5" y="0.0" width="117.5" height="43"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Your data never leaves your phone so you can rest assured  no one but yourself knows when you get to work." textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-TF-1oT">
-                                                        <rect key="frame" x="2.5" y="43" width="272.5" height="77"/>
+                                                        <rect key="frame" x="-84" y="43" width="0.0" height="77"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
