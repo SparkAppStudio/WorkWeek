@@ -30,46 +30,63 @@ PlaygroundPage.current.liveView = aView
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         let radius: CGFloat = max(bounds.width, bounds.height) / 2
 
-        backgroundArcPath(center: center, radius: radius)
-        let counterEnd: CGFloat = 5 * .pi / 6
-        counterPath(center: center, radius: radius, endAngle: counterEnd)
+        let context = UIGraphicsGetCurrentContext()!
+
+
+        backgroundArcPath(context: context, center: center, radius: radius)
+        counterPath(center: center, radius: radius, endPercentage: 0.5)
     }
 
-    func backgroundArcPath(center: CGPoint, radius: CGFloat) {
+    func backgroundArcPath(context: CGContext, center: CGPoint, radius: CGFloat) {
         let startAngle: CGFloat = 0
         let endAngle: CGFloat = 2 * .pi
 
         let path = UIBezierPath(arcCenter: center, radius: radius - arcWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
 
-        //shadow not working
-        let layer: CAShapeLayer = CAShapeLayer()
-        layer.frame = bounds
-        layer.path = path.cgPath
-        layer.shadowRadius = 2
-        layer.shadowOpacity = 0.1
-
-        layer.shadowColor = UIColor.blue.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 1)
-        
         path.lineWidth = arcWidth
+
+        context.setShadow(offset: CGSize(width: 0, height: 2), blur: 4)
+
         arcColor.setStroke()
         path.stroke()
+
+        context.setShadow(offset: CGSize.zero, blur: 0, color: nil)
     }
 
-    func counterPath(center: CGPoint, radius: CGFloat, endAngle: CGFloat) {
+    /// Set the End of the counter
+    ///
+    /// - Parameters:
+    ///   - center: center of the ring
+    ///   - radius: radius of the ring
+    ///   - endPercentage: where the ring ends in percentage, from 0.0 to 1, with offset so the ring starts at north position.
+    func counterPath(center: CGPoint, radius: CGFloat, endPercentage: CGFloat) {
+        assert(abs(endPercentage) <= 1)
+
+        let rotationConstant: CGFloat = 0.25
+
         let startAngle: CGFloat = 3 * .pi / 2
+
+        var end = endPercentage
+        if end == 1 {
+            end = 0.9999
+        }
+        let endAngle: CGFloat = (end - rotationConstant) * 2 * .pi
+
+
 
         let path = UIBezierPath(arcCenter: center, radius: radius - counterWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
 
         path.lineWidth = counterWidth
         counterColor.setStroke()
         path.stroke()
-        let endPoint = CGPoint(x: path.currentPoint.x - 20, y: path.currentPoint.y - 20)
+        let endPoint = CGPoint(x: path.currentPoint.x - counterWidth/2, y: path.currentPoint.y - counterWidth/2)
 
-        let aView = UIView(frame: CGRect(origin: endPoint, size: CGSize(width: 50, height: 50)))
-        aView.backgroundColor = UIColor.blue
-        aView.makeCircle()
-        self.addSubview(aView)
+        guard endPercentage >= 0.02 else {return} //only add nub when line is long enough
+
+        let nubView = UIView(frame: CGRect(origin: endPoint, size: CGSize(width: counterWidth, height: counterWidth)))
+        nubView.backgroundColor = counterColor
+        nubView.makeCircle()
+        self.addSubview(nubView)
     }
 
 }
