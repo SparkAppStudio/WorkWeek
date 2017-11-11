@@ -23,6 +23,4 @@ class CountdownTVC: UITableViewCell {
         super.awakeFromNib()
         
     }
-
-
 }

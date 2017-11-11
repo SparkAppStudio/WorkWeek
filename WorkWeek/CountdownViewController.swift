@@ -132,10 +132,6 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell: CountdownTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-//        cell.textLabel?.text = results[indexPath.row].weekAndTheYear
-//        cell.textLabel?.textColor = UIColor.white
-//        return cell
         let cell = tableView.dequeueReusableCell(withIdentifier: countdownTVCIdentifier,
                                                  for: indexPath) as! CountdownTVC // swiftlint:disable:this force_cast
         return cell
