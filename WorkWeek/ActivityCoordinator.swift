@@ -13,7 +13,7 @@ struct CountDownHeaderData: CountdownData {
         return calculator.userTimeLeftToday
     }
 
-    var percentOfWorkRemaining: Int {
+    var percentOfWorkRemaining: Double {
         return calculator.percentOfWorkRemaining
     }
 

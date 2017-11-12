@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,37 +23,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGJ-PB-OEI">
-                                <rect key="frame" x="0.0" y="20" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="390.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5hN-BQ-2hN">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyL-p9-nkA" customClass="CountdownRingView" customModule="WorkWeek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="330.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HH:MM:SS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFm-kW-Mhx">
-                                                <rect key="frame" x="114.5" y="0.0" width="146" height="178.5"/>
+                                                <rect key="frame" x="114.5" y="148" width="146" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" red="0.21176470589999999" green="0.92549019610000005" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="until home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Mk-A8s">
-                                                <rect key="frame" x="147.5" y="198.5" width="80.5" height="20.5"/>
+                                                <rect key="frame" x="147.5" y="184" width="80.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyO-48-vPa">
-                                                <rect key="frame" x="166.5" y="239" width="42.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 work hours left in the week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xH-mL-DWh">
-                                                <rect key="frame" x="77.5" y="279.5" width="220" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" red="0.21176470589999999" green="0.92549019610000005" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Jhy-Mk-A8s" firstAttribute="top" secondItem="NFm-kW-Mhx" secondAttribute="bottom" id="8Wf-Md-I2O"/>
+                                            <constraint firstItem="NFm-kW-Mhx" firstAttribute="centerY" secondItem="yyL-p9-nkA" secondAttribute="centerY" id="LBQ-Em-DD1"/>
+                                            <constraint firstItem="NFm-kW-Mhx" firstAttribute="centerX" secondItem="yyL-p9-nkA" secondAttribute="centerX" id="LPR-Sg-BcR"/>
+                                            <constraint firstItem="Jhy-Mk-A8s" firstAttribute="centerX" secondItem="yyL-p9-nkA" secondAttribute="centerX" id="lH1-Fp-GOv"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 work hours left in the week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xH-mL-DWh">
+                                        <rect key="frame" x="0.0" y="330.5" width="375" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Bg0-ic-Ije"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.92549019610000005" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htC-Ag-fFY">
                                         <rect key="frame" x="20" y="20" width="57" height="30"/>
                                         <state key="normal" title="Settings">
@@ -65,26 +70,29 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="5hN-BQ-2hN" firstAttribute="leading" secondItem="yGJ-PB-OEI" secondAttribute="leading" id="0dd-r6-n5M"/>
+                                    <constraint firstItem="yyL-p9-nkA" firstAttribute="top" secondItem="yGJ-PB-OEI" secondAttribute="top" id="3QU-DQ-v38"/>
+                                    <constraint firstItem="7xH-mL-DWh" firstAttribute="top" secondItem="yyL-p9-nkA" secondAttribute="bottom" id="AQF-bF-TM4"/>
                                     <constraint firstItem="htC-Ag-fFY" firstAttribute="leading" secondItem="yGJ-PB-OEI" secondAttribute="leading" constant="20" id="B3b-To-qhE"/>
-                                    <constraint firstAttribute="trailing" secondItem="5hN-BQ-2hN" secondAttribute="trailing" id="EpB-42-bh0"/>
+                                    <constraint firstAttribute="trailing" secondItem="7xH-mL-DWh" secondAttribute="trailing" id="DuG-kW-dMG"/>
                                     <constraint firstItem="htC-Ag-fFY" firstAttribute="top" secondItem="yGJ-PB-OEI" secondAttribute="top" constant="20" id="POB-4l-B1G"/>
-                                    <constraint firstItem="5hN-BQ-2hN" firstAttribute="top" secondItem="yGJ-PB-OEI" secondAttribute="top" id="ZIE-i1-3y7"/>
-                                    <constraint firstAttribute="bottom" secondItem="5hN-BQ-2hN" secondAttribute="bottom" id="ms2-IU-hrq"/>
-                                    <constraint firstAttribute="height" constant="300" id="yk8-48-7xR"/>
+                                    <constraint firstAttribute="width" secondItem="yGJ-PB-OEI" secondAttribute="height" multiplier="0.96" id="RC8-ip-Azr"/>
+                                    <constraint firstItem="yyL-p9-nkA" firstAttribute="leading" secondItem="yGJ-PB-OEI" secondAttribute="leading" id="bik-bg-iod"/>
+                                    <constraint firstAttribute="bottom" secondItem="7xH-mL-DWh" secondAttribute="bottom" id="hjN-Tw-Ecf"/>
+                                    <constraint firstAttribute="trailing" secondItem="yyL-p9-nkA" secondAttribute="trailing" id="vTI-1d-aTi"/>
+                                    <constraint firstItem="7xH-mL-DWh" firstAttribute="leading" secondItem="yGJ-PB-OEI" secondAttribute="leading" id="wu9-0T-qCn"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iay-aC-BGs" customClass="TransparentHeaderTableView" customModule="WorkWeek" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Wpg-gw-rBa" userLabel="HeaderView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="302"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="391"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountdownTableViewCell" rowHeight="150" id="uSR-YL-dT7" customClass="CountdownTableViewCell" customModule="WorkWeek" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="330" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="419" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uSR-YL-dT7" id="xFB-R1-z83">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -101,9 +109,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="dxA-dX-CUn" secondAttribute="bottom" id="sKX-8l-3wY"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="totalHoursLabel" destination="y4x-w5-Ta1" id="6RJ-gK-Ltj"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -114,16 +119,17 @@
                             <constraint firstItem="yGJ-PB-OEI" firstAttribute="leading" secondItem="mzw-b3-UWr" secondAttribute="leading" id="5zG-dd-gWW"/>
                             <constraint firstAttribute="trailing" secondItem="yGJ-PB-OEI" secondAttribute="trailing" id="BaH-Rx-gmv"/>
                             <constraint firstItem="Iay-aC-BGs" firstAttribute="top" secondItem="bj0-eQ-AFc" secondAttribute="bottom" id="V9b-yI-cXD"/>
+                            <constraint firstItem="yGJ-PB-OEI" firstAttribute="width" secondItem="mzw-b3-UWr" secondAttribute="width" id="bJg-DE-uCz"/>
                             <constraint firstAttribute="trailing" secondItem="Iay-aC-BGs" secondAttribute="trailing" id="gSF-Ub-fdw"/>
                             <constraint firstItem="AWV-1G-jAM" firstAttribute="top" secondItem="Iay-aC-BGs" secondAttribute="bottom" id="iMX-iH-OAT"/>
                             <constraint firstItem="Iay-aC-BGs" firstAttribute="leading" secondItem="mzw-b3-UWr" secondAttribute="leading" id="nsA-3Y-53n"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="countdownDisplay" destination="NFm-kW-Mhx" id="2HG-9l-YdB"/>
-                        <outlet property="percentLeft" destination="uyO-48-vPa" id="PFC-tv-ooK"/>
+                        <outlet property="countdownTimeLabel" destination="NFm-kW-Mhx" id="2HG-9l-YdB"/>
+                        <outlet property="countdownView" destination="yyL-p9-nkA" id="8yh-ga-5Rk"/>
                         <outlet property="tableView" destination="Iay-aC-BGs" id="3n1-lc-UYd"/>
-                        <outlet property="weekTimeDisplay" destination="7xH-mL-DWh" id="fnM-bB-fOB"/>
+                        <outlet property="weekCountdownTimeLabel" destination="7xH-mL-DWh" id="fnM-bB-fOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ao-Gt-MTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,7 +162,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="event time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gg-km-J6F">
-                                            <rect key="frame" x="267" y="61" width="80" height="21"/>
+                                            <rect key="frame" x="275" y="61" width="80" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>

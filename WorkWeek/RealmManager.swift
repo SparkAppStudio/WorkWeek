@@ -230,13 +230,8 @@ class UserHoursCalculator {
         return workHoursInSeconds - weeklyObject.totalWorkTime
     }
 
-    var percentOfWorkRemaining: Int {
-        //Avoid Divide by zero "Double value cannot be converted to Int because it is either infinite or NaN"
-        if usersDefaultWorkDayLength <= 0.0 {
-            return 0
-        }
-        return Int((userTimeLeftToday / usersDefaultWorkDayLength) * 100 )
-    }
+    var percentOfWorkRemaining: Double {
+        return userTimeLeftToday / usersDefaultWorkDayLength
 
     var notificationChoice: User.NotificationChoice {
         return user.notificationChoice

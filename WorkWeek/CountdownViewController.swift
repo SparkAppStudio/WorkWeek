@@ -17,7 +17,7 @@ protocol CountdownViewDelegate: class {
 
 protocol CountdownData {
     var timeLeftInDay: TimeInterval { get }
-    var percentOfWorkRemaining: Int { get }
+    var percentOfWorkRemaining: Double { get }
     var timeLeftInWeek: TimeInterval { get }
 }
 
@@ -27,10 +27,11 @@ final class CountdownViewController: UIViewController {
     private var countdownTVCIdentifier = "CountdownTVCCell"
 
     // MARK: IBOutlets
-    @IBOutlet weak var countdownDisplay: UILabel!
-    @IBOutlet weak var percentLeft: UILabel!
-    @IBOutlet weak var weekTimeDisplay: UILabel!
+    @IBOutlet weak var countdownView: CountdownRingView!
+    @IBOutlet weak var countdownTimeLabel: UILabel!
+    @IBOutlet weak var weekCountdownTimeLabel: UILabel!
     @IBOutlet weak var tableView: TransparentHeaderTableView!
+
 
     // MARK: IBActions
     @IBAction func didTapSettings(_ sender: UIButton) {
@@ -86,7 +87,7 @@ final class CountdownViewController: UIViewController {
     #endif
 
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 10,
+        timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
                                      selector: (#selector(CountdownViewController.tick(_:))),
                                      userInfo: nil, repeats: true)
@@ -94,7 +95,8 @@ final class CountdownViewController: UIViewController {
 
     lazy var hourMinuteFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute]
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = .pad
         return formatter
     }()
 
@@ -105,10 +107,10 @@ final class CountdownViewController: UIViewController {
     }()
 
     @objc func tick(_ timer: Timer) {
-        countdownDisplay.text = hourMinuteFormatter.string(from: headerData.timeLeftInDay)
+        countdownTimeLabel.text = hourMinuteFormatter.string(from: headerData.timeLeftInDay)
         let weekHours = hoursFormatter.string(from: headerData.timeLeftInWeek)!
-        weekTimeDisplay.text = "\(weekHours) work hours left in the week"
-        percentLeft.text = "\(headerData.percentOfWorkRemaining) % left"
+        weekCountdownTimeLabel.text = "\(weekHours) work hours left in the week"
+        countdownView.endPercentage = CGFloat(headerData.percentOfWorkRemaining)
     }
 
     private func registerNib() {

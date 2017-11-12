@@ -1,40 +1,37 @@
-//: [Previous](@previous)
+//
+//  CountdownRingView.swift
+//  WorkWeek
+//
+//  Created by Douglas Hewitt on 11/11/17.
+//  Copyright © 2017 Spark App Studio. All rights reserved.
+//
 
 import UIKit
-import PlaygroundSupport
 
-let aView = CounterView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-
-PlaygroundPage.current.liveView = aView
-
-
-@IBDesignable class CounterView: UIView {
+@IBDesignable class CountdownRingView: UIView {
 
     let arcWidth: CGFloat = 24.0
     let counterWidth: CGFloat = 24.0
 
-    @IBInspectable var arcColor: UIColor = UIColor.lightGray
-    @IBInspectable var counterColor: UIColor = UIColor.blue
+    var endPercentage: CGFloat = 0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor.darkGray
-    }
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        backgroundColor = UIColor(white: 0.8, alpha: 1.0)
-    }
+    @IBInspectable var arcColor: UIColor = UIColor.darkContent()
+    @IBInspectable var counterColor: UIColor = UIColor.homeGreen()
 
     override func draw(_ rect: CGRect) {
 
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-        let radius: CGFloat = max(bounds.width, bounds.height) / 2
+        let radius: CGFloat = min(bounds.width, bounds.height) / 2
 
         let context = UIGraphicsGetCurrentContext()!
 
 
         backgroundArcPath(context: context, center: center, radius: radius)
-        counterPath(center: center, radius: radius, endPercentage: 0.1)
+        counterPath(center: center, radius: radius, endPercentage: endPercentage)
     }
 
     func backgroundArcPath(context: CGContext, center: CGPoint, radius: CGFloat) {
@@ -50,6 +47,7 @@ PlaygroundPage.current.liveView = aView
         arcColor.setStroke()
         path.stroke()
 
+        //reset context if someone else uses it for future drawing
         context.setShadow(offset: CGSize.zero, blur: 0, color: nil)
     }
 
@@ -60,22 +58,36 @@ PlaygroundPage.current.liveView = aView
     ///   - radius: radius of the ring
     ///   - endPercentage: where the ring ends in percentage, from 0.0 to 1, with offset so the ring starts at north position.
     func counterPath(center: CGPoint, radius: CGFloat, endPercentage: CGFloat) {
-        assert(abs(endPercentage) <= 1)
+
+        var cleanEndPercentage: CGFloat = 0.0
+
+        if endPercentage < 0 {
+            cleanEndPercentage = 0
+        } else {
+            cleanEndPercentage = endPercentage
+        }
+
+        assert(cleanEndPercentage <= 1)
 
         let rotationConstant: CGFloat = 0.25
 
         let startAngle: CGFloat = 3 * .pi / 2
 
-        var end = endPercentage
+        var end = cleanEndPercentage
         if end == 1 {
             end = 0.9999
         }
         let endAngle: CGFloat = (end - rotationConstant) * 2 * .pi
-        let path = UIBezierPath(arcCenter: center, radius: radius - counterWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+
+        let path = UIBezierPath(arcCenter: center,
+                                radius: radius - counterWidth/2,
+                                startAngle: startAngle,
+                                endAngle: endAngle,
+                                clockwise: true)
+
         path.lineWidth = counterWidth
         path.lineCapStyle = .round
         counterColor.setStroke()
         path.stroke()
     }
 }
-//: [Next](@next)

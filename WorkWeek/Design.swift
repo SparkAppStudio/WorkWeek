@@ -37,3 +37,10 @@ extension UIColor {
         return UIColor(displayP3Red: 74/255, green: 74/255, blue: 74/255, alpha: 1)
     }
 }
+
+extension UIView {
+    func makeCircle() {
+        self.layer.cornerRadius = self.frame.size.width / 2
+        self.clipsToBounds = true
+    }
+}
