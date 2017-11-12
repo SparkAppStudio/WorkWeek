@@ -22,7 +22,7 @@ class CountdownTVCCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func configure(_ weekDaysWorkingPercentage:WeekDaysWorkingPercent) {
+    func configure(_ weekDaysWorkingPercentage: WeekDaysWorkingPercent) {
         sundayView.percentage = weekDaysWorkingPercentage.sundayPercent
         mondayView.percentage = weekDaysWorkingPercentage.mondayPercent
         tuesdayView.percentage = weekDaysWorkingPercentage.tuesdayPercent

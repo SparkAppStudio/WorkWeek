@@ -53,11 +53,11 @@ class WeeklyObject: Object {
 
     var weekDaysWorkingPercentage: WeekDaysWorkingPercent {
         let daysIntervals = weekDaysWorkingHours.daysIntervals
-        var weekDaysWorkingPercentage = WeekDaysWorkingPercent()
-        guard let biggest = daysIntervals.max() else { return weekDaysWorkingPercentage }
+        guard let biggest = daysIntervals.max() else {
+            return WeekDaysWorkingPercent.create(with: [0,0,0,0,0,0,0])
+        }
         let daysPercents = daysIntervals.map { $0 / Double(biggest)}
-        weekDaysWorkingPercentage.setPercents(values: daysPercents)
-        return weekDaysWorkingPercentage
+        return WeekDaysWorkingPercent.create(with: daysPercents)
     }
 
     override static func primaryKey() -> String? {
@@ -87,22 +87,24 @@ struct WeekDaysWorkingHours {
 
 struct WeekDaysWorkingPercent {
 
-    var sundayPercent: Double = 0
-    var mondayPercent: Double = 0
-    var tuesdayPercent: Double = 0
-    var wednesdayPercent: Double = 0
-    var thursdayPercent: Double = 0
-    var fridayPercent: Double = 0
-    var saturdayPercent: Double = 0
+    let sundayPercent: Double
+    let mondayPercent: Double
+    let tuesdayPercent: Double
+    let wednesdayPercent: Double
+    let thursdayPercent: Double
+    let fridayPercent: Double
+    let saturdayPercent: Double
 
-    mutating func setPercents(values: [Double]) {
-        sundayPercent = values[0]
-        mondayPercent = values[1]
-        tuesdayPercent = values[2]
-        wednesdayPercent = values[3]
-        thursdayPercent = values[4]
-        fridayPercent = values[5]
-        saturdayPercent = values[6]
+    static func create(with values: [Double]) -> WeekDaysWorkingPercent {
+        return WeekDaysWorkingPercent(
+            sundayPercent: values[0],
+            mondayPercent: values[1],
+            tuesdayPercent: values[2],
+            wednesdayPercent: values[3],
+            thursdayPercent: values[4],
+            fridayPercent: values[5],
+            saturdayPercent: values[6]
+        )
     }
 }
 
