@@ -50,33 +50,18 @@ class WeeklyGraphCell: UITableViewCell {
 
 class WeeklyGraphViewModel {
 
-    var sundayPercent: Double = 0
-    var mondayPercent: Double = 0
-    var tuesdayPercent: Double = 0
-    var wednesdayPercent: Double = 0
-    var thursdayPercent: Double = 0
-    var fridayPercent: Double = 0
-    var saturdayPercent: Double = 0
-    var timeFrameText: String = ""
-    var hoursText: String = ""
+    let sundayPercent: Double
+    let mondayPercent: Double
+    let tuesdayPercent: Double
+    let wednesdayPercent: Double
+    let thursdayPercent: Double
+    let fridayPercent: Double
+    let saturdayPercent: Double
+    let timeFrameText: String
+    let hoursText: String
 
     init(_ weeklyObject: WeeklyObject) {
-        setupPercentData(weeklyObject.weekDaysWorkingPercentage)
-        if let hourString = weeklyObject.totalWorkTime.convert(preserving: [.hour]) {
-            if let hourInt = Int(hourString) {
-                if hourInt < 2 {
-                    hoursText = "\(hourInt) hour"
-                } else {
-                    hoursText = "\(hourInt) hours"
-                }
-            }
-        }
-        if let weekAndTheYear = weeklyObject.weekAndTheYear {
-            timeFrameText = weekAndTheYear
-        }
-    }
-
-    func setupPercentData(_ weekDaysWorkingPercentage: WeekDaysWorkingPercent) {
+        let weekDaysWorkingPercentage = weeklyObject.weekDaysWorkingPercentage
         sundayPercent = weekDaysWorkingPercentage.sundayPercent
         mondayPercent = weekDaysWorkingPercentage.mondayPercent
         tuesdayPercent = weekDaysWorkingPercentage.tuesdayPercent
@@ -84,6 +69,13 @@ class WeeklyGraphViewModel {
         thursdayPercent = weekDaysWorkingPercentage.thursdayPercent
         fridayPercent = weekDaysWorkingPercentage.fridayPercent
         saturdayPercent = weekDaysWorkingPercentage.saturdayPercent
+        let hourString = weeklyObject.totalWorkTime.convert(preserving: [.hour]) ?? ""
+        if let hourInt = Int(hourString) {
+            hoursText = "\(hourInt) \(hourInt < 2 ? "hour": "hours")"
+        } else {
+            hoursText = ""
+        }
+        timeFrameText = weeklyObject.weekAndTheYear ?? ""
     }
 
 }
