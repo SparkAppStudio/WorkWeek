@@ -3,12 +3,12 @@ import UIKit
 import PlaygroundSupport
 
 struct Colors {
-    static let background = UIColor(red:0.21, green:0.2, blue:0.22, alpha:1)
+    static let background = UIColor(red: 0.21, green: 0.2, blue: 0.22, alpha: 1)
     static let dark = UIColor.darkGray
-    static let green = UIColor(red:0.21, green:0.93, blue:0.84, alpha:1)
-    static let blue = UIColor(red:0.24, green:0.51, blue:0.97, alpha:1)
-    static let gradientLeft = UIColor(red:0.22, green:0.89, blue:0.51, alpha:1)
-    static let gradientRight = UIColor(red:0.23, green:0.84, blue:0.83, alpha:1)
+    static let green = UIColor(red: 0.21, green: 0.93, blue: 0.84, alpha: 1)
+    static let blue = UIColor(red: 0.24, green: 0.51, blue: 0.97, alpha: 1)
+    static let gradientLeft = UIColor(red: 0.22, green: 0.89, blue: 0.51, alpha: 1)
+    static let gradientRight = UIColor(red: 0.23, green: 0.84, blue: 0.83, alpha: 1)
 }
 
 public class BlueButton: UIButton {
@@ -43,7 +43,7 @@ public class BlueButton: UIButton {
         let topRect = CGRect(x: insetRect.origin.x, y: insetRect.origin.y + 4, width: insetRect.width, height: insetRect.height - 6)
         let top = UIBezierPath(roundedRect: topRect, cornerRadius: 12)
 
-        context.setShadow(offset: CGSize(width:0, height: 2), blur: 4, color: UIColor.black.cgColor)
+        context.setShadow(offset: CGSize(width: 0, height: 2), blur: 4, color: UIColor.black.cgColor)
         top.fill()
     }
 
@@ -89,8 +89,8 @@ class GradientBackgroundView: UIView {
         backgroundColor = .red
         let grad = CAGradientLayer()
         grad.colors = [
-            UIColor(red:0.21, green:0.93, blue:0.84, alpha:1).cgColor,
-            UIColor(red:0.24, green:0.51, blue:0.97, alpha:1).cgColor]
+            UIColor(red: 0.21, green: 0.93, blue: 0.84, alpha: 1).cgColor,
+            UIColor(red: 0.24, green: 0.51, blue: 0.97, alpha: 1).cgColor]
         grad.locations = [0, 1]
         layer.addSublayer(grad)
         grad.bounds = layer.bounds

@@ -1,18 +1,18 @@
 {
-  "iOS" : [
-    {
-      "hash" : "a2f13dcadb2b598305bf851fc00f359c5653c92859c20f8f921504ec9160888e",
-      "name" : "MXParallaxHeader"
-    }
+  "Mac" : [
+
   ],
-  "commitish" : "0.6.1",
   "watchOS" : [
 
   ],
   "tvOS" : [
 
   ],
-  "Mac" : [
-
+  "commitish" : "0.6.1",
+  "iOS" : [
+    {
+      "name" : "MXParallaxHeader",
+      "hash" : "a2f13dcadb2b598305bf851fc00f359c5653c92859c20f8f921504ec9160888e"
+    }
   ]
 }

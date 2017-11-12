@@ -39,6 +39,10 @@ import UIKit
         counterPath(center: center, radius: radius, endPercentage: endPercentage)
     }
 
+    func updateCounterPath() {
+
+    }
+
     func backgroundArcPath(context: CGContext, center: CGPoint, radius: CGFloat) {
         let startAngle: CGFloat = 0
         let endAngle: CGFloat = 2 * .pi
@@ -79,6 +83,7 @@ import UIKit
         let path = UIBezierPath(arcCenter: center, radius: radius - counterWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
 
         path.lineWidth = counterWidth
+        
         counterColor.setStroke()
         path.stroke()
         let endPoint = CGPoint(x: path.currentPoint.x - counterWidth/2, y: path.currentPoint.y - counterWidth/2)
