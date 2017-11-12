@@ -71,7 +71,11 @@ PlaygroundPage.current.liveView = aView
             end = 0.9999
         }
         let endAngle: CGFloat = (end - rotationConstant) * 2 * .pi
-        let path = UIBezierPath(arcCenter: center, radius: radius - counterWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        let path = UIBezierPath(arcCenter: center,
+                                radius: radius - counterWidth/2,
+                                startAngle: startAngle,
+                                endAngle: endAngle,
+                                clockwise: true)
         path.lineWidth = counterWidth
         path.lineCapStyle = .round
         counterColor.setStroke()

@@ -233,7 +233,7 @@ class UserHoursCalculator {
     var percentOfWorkRemaining: Double {
         return userTimeLeftToday / usersDefaultWorkDayLength
     }
-    
+
     var notificationChoice: User.NotificationChoice {
         return user.notificationChoice
     }

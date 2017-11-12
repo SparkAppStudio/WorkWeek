@@ -54,7 +54,7 @@ class WeeklyObject: Object {
     var weekDaysWorkingPercentage: WeekDaysWorkingPercent {
         let daysIntervals = weekDaysWorkingHours.daysIntervals
         guard let biggest = daysIntervals.max() else {
-            return WeekDaysWorkingPercent.create(with: [0,0,0,0,0,0,0])
+            return WeekDaysWorkingPercent.create(with: [0, 0, 0, 0, 0, 0, 0])
         }
         let daysPercents = daysIntervals.map { $0 / Double(biggest)}
         return WeekDaysWorkingPercent.create(with: daysPercents)
