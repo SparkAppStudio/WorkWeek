@@ -8,6 +8,7 @@ class CountdownTVCCell: UITableViewCell {
 
     // MARK: - IBs
 
+    @IBOutlet weak var cellBackgroundView: UIView!
     @IBOutlet weak var timeFrameLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var sundayView: ProgressStripeView!
@@ -23,6 +24,7 @@ class CountdownTVCCell: UITableViewCell {
     }
 
     func configure(_ weekDaysWorkingPercentage: WeekDaysWorkingPercent) {
+        setCornerRadius()
         sundayView.percentage = weekDaysWorkingPercentage.sundayPercent
         mondayView.percentage = weekDaysWorkingPercentage.mondayPercent
         tuesdayView.percentage = weekDaysWorkingPercentage.tuesdayPercent
@@ -30,5 +32,11 @@ class CountdownTVCCell: UITableViewCell {
         thursdayView.percentage = weekDaysWorkingPercentage.thursdayPercent
         fridayView.percentage = weekDaysWorkingPercentage.fridayPercent
         saturdayView.percentage = weekDaysWorkingPercentage.saturdayPercent
+        
+    }
+
+    func setCornerRadius() {
+        cellBackgroundView.layer.cornerRadius = 8
+        cellBackgroundView.clipsToBounds = true
     }
 }
