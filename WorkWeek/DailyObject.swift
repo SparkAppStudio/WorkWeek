@@ -49,6 +49,13 @@ class DailyObject: Object {
         return validWorkingDurations.reduce(0) { $0 + $1.interval }
     }
 
+    var weekDay: Int? {
+        let cal = Calendar.current
+        guard let date = date else { return nil }
+        let dateComp = cal.dateComponents(in: .current, from: date)
+        return dateComp.weekday
+    }
+
     private var validWorkingDurations: [Pair] {
 
         func discardLeadingLeaves(_ list: [Event]) -> [Event] {

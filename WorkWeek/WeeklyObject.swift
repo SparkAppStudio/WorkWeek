@@ -28,7 +28,81 @@ class WeeklyObject: Object {
         }
     }
 
+    var weekDaysWorkingHours: WeekDaysWorkingHours {
+        var weekDaysWorkingHours = WeekDaysWorkingHours()
+        for day in dailyObjects {
+            guard let weekDay = day.weekDay else { continue }
+            if weekDay == 1 {
+                weekDaysWorkingHours.sundayIntervals = day.completedWorkTime
+            } else if weekDay == 2 {
+                weekDaysWorkingHours.mondayIntervals = day.completedWorkTime
+            } else if weekDay == 3 {
+                weekDaysWorkingHours.tuesdayIntervals = day.completedWorkTime
+            } else if weekDay == 4 {
+                weekDaysWorkingHours.wednesdayInterval = day.completedWorkTime
+            } else if weekDay == 5 {
+                weekDaysWorkingHours.thursdayInterval = day.completedWorkTime
+            } else if weekDay == 6 {
+                weekDaysWorkingHours.fridayInterval = day.completedWorkTime
+            } else if weekDay == 7 {
+                weekDaysWorkingHours.saturdayInterval = day.completedWorkTime
+            }
+        }
+        return weekDaysWorkingHours
+    }
+
+    var weekDaysWorkingPercentage: WeekDaysWorkingPercent {
+        let daysIntervals = weekDaysWorkingHours.daysIntervals
+        var weekDaysWorkingPercentage = WeekDaysWorkingPercent()
+        guard let biggest = daysIntervals.max() else { return weekDaysWorkingPercentage }
+        let daysPercents = daysIntervals.map { $0 / Double(biggest)}
+        weekDaysWorkingPercentage.setPercents(values: daysPercents)
+        return weekDaysWorkingPercentage
+    }
+
     override static func primaryKey() -> String? {
         return #keyPath(WeeklyObject.weekAndTheYear)
     }
 }
+
+struct WeekDaysWorkingHours {
+    var sundayIntervals: TimeInterval = 0
+    var mondayIntervals: TimeInterval = 0
+    var tuesdayIntervals: TimeInterval = 0
+    var wednesdayInterval: TimeInterval = 0
+    var thursdayInterval: TimeInterval = 0
+    var fridayInterval: TimeInterval = 0
+    var saturdayInterval: TimeInterval = 0
+    var daysIntervals: [TimeInterval] {
+        return [sundayIntervals,
+                mondayIntervals,
+                tuesdayIntervals,
+                wednesdayInterval,
+                thursdayInterval,
+                fridayInterval,
+                saturdayInterval
+        ]
+    }
+}
+
+struct WeekDaysWorkingPercent {
+
+    var sundayPercent: Double = 0
+    var mondayPercent: Double = 0
+    var tuesdayPercent: Double = 0
+    var wednesdayPercent: Double = 0
+    var thursdayPercent: Double = 0
+    var fridayPercent: Double = 0
+    var saturdayPercent: Double = 0
+
+    mutating func setPercents(values: [Double]) {
+        sundayPercent = values[0]
+        mondayPercent = values[1]
+        tuesdayPercent = values[2]
+        wednesdayPercent = values[3]
+        thursdayPercent = values[4]
+        fridayPercent = values[5]
+        saturdayPercent = values[6]
+    }
+}
+

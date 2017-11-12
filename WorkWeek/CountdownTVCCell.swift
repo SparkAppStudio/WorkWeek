@@ -25,14 +25,12 @@ class CountdownTVCCell: UITableViewCell {
     }
 
     func configure(_ weeklyObject: WeeklyObject) {
-        for (index, day) in weeklyObject.dailyObjects.enumerated() {
-            // given a data, i need to figure out days
-            let cal = Calendar.current
-            let dateComp = cal.dateComponents(in: .current, from: day.date!)
-            print(dateComp.weekday)
-
-
-        }
-        mondayView.percentage = 0.9
+        sundayView.percentage = weeklyObject.weekDaysWorkingPercentage.sundayPercent
+        mondayView.percentage = weeklyObject.weekDaysWorkingPercentage.mondayPercent
+        tuesdayView.percentage = weeklyObject.weekDaysWorkingPercentage.tuesdayPercent
+        wednesdayView.percentage = weeklyObject.weekDaysWorkingPercentage.wednesdayPercent
+        thursdayView.percentage = weeklyObject.weekDaysWorkingPercentage.thursdayPercent
+        fridayView.percentage = weeklyObject.weekDaysWorkingPercentage.fridayPercent
+        saturdayView.percentage = weeklyObject.weekDaysWorkingPercentage.saturdayPercent
     }
 }
