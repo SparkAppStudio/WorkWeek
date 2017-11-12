@@ -4,7 +4,7 @@
 
 import UIKit
 
-class CountdownTVCCell: UITableViewCell {
+class WeeklyGraphCell: UITableViewCell {
 
     // MARK: - IBs
 
@@ -20,8 +20,12 @@ class CountdownTVCCell: UITableViewCell {
     @IBOutlet weak var fridayView: ProgressStripeView!
     @IBOutlet weak var saturdayView: ProgressStripeView!
 
+    func configure(_ weekObject: WeeklyObject) {
 
-    func configure(_ weekDaysWorkingPercentage: WeekDaysWorkingPercent) {
+        setupUI(weekObject.weekDaysWorkingPercentage)
+    }
+
+    func setupUI(_ weekDaysWorkingPercentage: WeekDaysWorkingPercent) {
         setCornerRadius()
         setShadow()
         sundayView.percentage = weekDaysWorkingPercentage.sundayPercent
@@ -46,3 +50,4 @@ class CountdownTVCCell: UITableViewCell {
         shadownView.layer.shadowOffset = CGSize(width: 0, height: 2)
     }
 }
+
