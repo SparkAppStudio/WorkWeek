@@ -68,7 +68,6 @@
 		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
 		D1C003CC1FB7C5230045139F /* ProgressStripeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */; };
-		D1C003CD1FB7C5230045139F /* ProgressStripeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */; };
 		D1C0468B1FB77FC900DADF3B /* CountdownTVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C046891FB77FC900DADF3B /* CountdownTVCCell.swift */; };
 		D1C0468D1FB77FC900DADF3B /* CountdownTVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C0468A1FB77FC900DADF3B /* CountdownTVCCell.xib */; };
 		D1C0468E1FB77FC900DADF3B /* CountdownTVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C0468A1FB77FC900DADF3B /* CountdownTVCCell.xib */; };
@@ -613,7 +612,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				520855671F38144A00409642 /* DailyObjectTests.swift in Sources */,
-				D1C003CD1FB7C5230045139F /* ProgressStripeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
