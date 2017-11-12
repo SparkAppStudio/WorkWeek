@@ -12,7 +12,7 @@ PlaygroundPage.current.liveView = aView
 
     let arcWidth: CGFloat = 24.0
     let counterWidth: CGFloat = 24.0
-    
+
     @IBInspectable var arcColor: UIColor = UIColor.lightGray
     @IBInspectable var counterColor: UIColor = UIColor.blue
 
@@ -71,9 +71,7 @@ PlaygroundPage.current.liveView = aView
             end = 0.9999
         }
         let endAngle: CGFloat = (end - rotationConstant) * 2 * .pi
-        
         let path = UIBezierPath(arcCenter: center, radius: radius - counterWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-
         path.lineWidth = counterWidth
         path.lineCapStyle = .round
         counterColor.setStroke()
