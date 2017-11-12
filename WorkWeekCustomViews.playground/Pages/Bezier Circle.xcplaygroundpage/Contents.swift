@@ -34,7 +34,7 @@ PlaygroundPage.current.liveView = aView
 
 
         backgroundArcPath(context: context, center: center, radius: radius)
-        counterPath(center: center, radius: radius, endPercentage: 0.5)
+        counterPath(center: center, radius: radius, endPercentage: 0.1)
     }
 
     func backgroundArcPath(context: CGContext, center: CGPoint, radius: CGFloat) {
@@ -71,30 +71,13 @@ PlaygroundPage.current.liveView = aView
             end = 0.9999
         }
         let endAngle: CGFloat = (end - rotationConstant) * 2 * .pi
-
-
-
+        
         let path = UIBezierPath(arcCenter: center, radius: radius - counterWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
 
         path.lineWidth = counterWidth
+        path.lineCapStyle = .round
         counterColor.setStroke()
         path.stroke()
-        let endPoint = CGPoint(x: path.currentPoint.x - counterWidth/2, y: path.currentPoint.y - counterWidth/2)
-
-        guard endPercentage >= 0.02 else {return} //only add nub when line is long enough
-
-        let nubView = UIView(frame: CGRect(origin: endPoint, size: CGSize(width: counterWidth, height: counterWidth)))
-        nubView.backgroundColor = counterColor
-        nubView.makeCircle()
-        self.addSubview(nubView)
-    }
-
-}
-
-extension UIView {
-    func makeCircle() {
-        self.layer.cornerRadius = self.frame.size.width / 2
-        self.clipsToBounds = true
     }
 }
 //: [Next](@next)
