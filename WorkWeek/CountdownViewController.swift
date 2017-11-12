@@ -87,7 +87,7 @@ final class CountdownViewController: UIViewController {
     #endif
 
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 10,
+        timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
                                      selector: (#selector(CountdownViewController.tick(_:))),
                                      userInfo: nil, repeats: true)
@@ -95,7 +95,7 @@ final class CountdownViewController: UIViewController {
 
     lazy var hourMinuteFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute]
+        formatter.allowedUnits = [.hour, .minute, .second]
         formatter.zeroFormattingBehavior = .pad
         return formatter
     }()
