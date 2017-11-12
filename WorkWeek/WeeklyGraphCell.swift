@@ -20,21 +20,18 @@ class WeeklyGraphCell: UITableViewCell {
     @IBOutlet weak var fridayView: ProgressStripeView!
     @IBOutlet weak var saturdayView: ProgressStripeView!
 
-    func configure(_ weekObject: WeeklyObject) {
-
-        setupUI(weekObject.weekDaysWorkingPercentage)
-    }
-
-    func setupUI(_ weekDaysWorkingPercentage: WeekDaysWorkingPercent) {
+    func configure(_ weeklyGraphViewModel: WeeklyGraphViewModel) {
         setCornerRadius()
         setShadow()
-        sundayView.percentage = weekDaysWorkingPercentage.sundayPercent
-        mondayView.percentage = weekDaysWorkingPercentage.mondayPercent
-        tuesdayView.percentage = weekDaysWorkingPercentage.tuesdayPercent
-        wednesdayView.percentage = weekDaysWorkingPercentage.wednesdayPercent
-        thursdayView.percentage = weekDaysWorkingPercentage.thursdayPercent
-        fridayView.percentage = weekDaysWorkingPercentage.fridayPercent
-        saturdayView.percentage = weekDaysWorkingPercentage.saturdayPercent
+        sundayView.percentage = weeklyGraphViewModel.sundayPercent
+        mondayView.percentage = weeklyGraphViewModel.mondayPercent
+        tuesdayView.percentage = weeklyGraphViewModel.tuesdayPercent
+        wednesdayView.percentage = weeklyGraphViewModel.wednesdayPercent
+        thursdayView.percentage = weeklyGraphViewModel.thursdayPercent
+        fridayView.percentage = weeklyGraphViewModel.fridayPercent
+        saturdayView.percentage = weeklyGraphViewModel.saturdayPercent
+        timeFrameLabel.text = weeklyGraphViewModel.timeFrameText
+        hoursLabel.text = weeklyGraphViewModel.hoursText
     }
 
     private func setCornerRadius() {
@@ -49,5 +46,37 @@ class WeeklyGraphCell: UITableViewCell {
         shadownView.layer.shadowColor = UIColor.black.cgColor
         shadownView.layer.shadowOffset = CGSize(width: 0, height: 2)
     }
+}
+
+class WeeklyGraphViewModel {
+
+    let sundayPercent: Double
+    let mondayPercent: Double
+    let tuesdayPercent: Double
+    let wednesdayPercent: Double
+    let thursdayPercent: Double
+    let fridayPercent: Double
+    let saturdayPercent: Double
+    let timeFrameText: String
+    let hoursText: String
+
+    init(_ weeklyObject: WeeklyObject) {
+        let weekDaysWorkingPercentage = weeklyObject.weekDaysWorkingPercentage
+        sundayPercent = weekDaysWorkingPercentage.sundayPercent
+        mondayPercent = weekDaysWorkingPercentage.mondayPercent
+        tuesdayPercent = weekDaysWorkingPercentage.tuesdayPercent
+        wednesdayPercent = weekDaysWorkingPercentage.wednesdayPercent
+        thursdayPercent = weekDaysWorkingPercentage.thursdayPercent
+        fridayPercent = weekDaysWorkingPercentage.fridayPercent
+        saturdayPercent = weekDaysWorkingPercentage.saturdayPercent
+        let hourString = weeklyObject.totalWorkTime.convert(preserving: [.hour]) ?? ""
+        if let hourInt = Int(hourString) {
+            hoursText = "\(hourInt) \(hourInt < 2 ? "hour": "hours")"
+        } else {
+            hoursText = ""
+        }
+        timeFrameText = weeklyObject.weekAndTheYear ?? ""
+    }
+
 }
 

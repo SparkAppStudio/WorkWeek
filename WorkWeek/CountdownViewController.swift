@@ -140,7 +140,8 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: countdownTVCIdentifier,
                                                  for: indexPath) as! WeeklyGraphCell // swiftlint:disable:this force_cast
-        cell.configure(results[indexPath.row])
+        let viewModel = WeeklyGraphViewModel(results[indexPath.row])
+        cell.configure(viewModel)
         return cell
     }
 
