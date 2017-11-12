@@ -22,13 +22,13 @@ class CountdownTVCCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func configure(_ weeklyObject: WeeklyObject) {
-        sundayView.percentage = weeklyObject.weekDaysWorkingPercentage.sundayPercent
-        mondayView.percentage = weeklyObject.weekDaysWorkingPercentage.mondayPercent
-        tuesdayView.percentage = weeklyObject.weekDaysWorkingPercentage.tuesdayPercent
-        wednesdayView.percentage = weeklyObject.weekDaysWorkingPercentage.wednesdayPercent
-        thursdayView.percentage = weeklyObject.weekDaysWorkingPercentage.thursdayPercent
-        fridayView.percentage = weeklyObject.weekDaysWorkingPercentage.fridayPercent
-        saturdayView.percentage = weeklyObject.weekDaysWorkingPercentage.saturdayPercent
+    func configure(_ weekDaysWorkingPercentage:WeekDaysWorkingPercent) {
+        sundayView.percentage = weekDaysWorkingPercentage.sundayPercent
+        mondayView.percentage = weekDaysWorkingPercentage.mondayPercent
+        tuesdayView.percentage = weekDaysWorkingPercentage.tuesdayPercent
+        wednesdayView.percentage = weekDaysWorkingPercentage.wednesdayPercent
+        thursdayView.percentage = weekDaysWorkingPercentage.thursdayPercent
+        fridayView.percentage = weekDaysWorkingPercentage.fridayPercent
+        saturdayView.percentage = weekDaysWorkingPercentage.saturdayPercent
     }
 }

@@ -138,7 +138,7 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: countdownTVCIdentifier,
                                                  for: indexPath) as! CountdownTVCCell // swiftlint:disable:this force_cast
-        cell.configure(results[indexPath.row])
+        cell.configure(results[indexPath.row].weekDaysWorkingPercentage)
         return cell
     }
 
