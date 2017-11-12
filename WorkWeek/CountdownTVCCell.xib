@@ -13,40 +13,40 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CountdownTVC" rowHeight="289" id="KGk-i7-Jjw" customClass="CountdownTVC" customModule="WorkWeek" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="428" height="289"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CountdownTVCCell" rowHeight="294" id="KGk-i7-Jjw" customClass="CountdownTVCCell" customModule="WorkWeek" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="453" height="294"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="428" height="288.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="453" height="293.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45j-w4-3iS" userLabel="BackgroundView">
-                        <rect key="frame" x="20" y="11" width="388" height="267"/>
+                        <rect key="frame" x="20" y="11" width="413" height="272"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeFrameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="176-by-Yag">
-                                <rect key="frame" x="130.5" y="8" width="127.5" height="20.5"/>
+                                <rect key="frame" x="143" y="8" width="127.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HoursLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vh4-jf-RvA">
-                                <rect key="frame" x="148" y="237.5" width="92.5" height="21.5"/>
+                                <rect key="frame" x="160.5" y="242.5" width="92.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.11099479347467422" green="0.51025307178497314" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gDf-J4-o7k">
-                                <rect key="frame" x="33" y="67" width="323" height="133.5"/>
+                                <rect key="frame" x="35" y="68.5" width="344" height="136"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BMm-CD-AcV">
-                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="133.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="47.5" height="136"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ji-ff-MBL">
-                                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="122.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ji-ff-MBL" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="136"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPw-6K-XmJ">
-                                                <rect key="frame" x="0.0" y="122.5" width="44.5" height="11"/>
+                                                <rect key="frame" x="0.0" y="136" width="47.5" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -54,14 +54,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bjt-3l-elE">
-                                        <rect key="frame" x="46.5" y="0.0" width="44.5" height="133.5"/>
+                                        <rect key="frame" x="49.5" y="0.0" width="47.5" height="136"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="job-sY-f7A">
-                                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="122.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="job-sY-f7A" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="136"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iD4-yQ-LdY">
-                                                <rect key="frame" x="0.0" y="122.5" width="44.5" height="11"/>
+                                                <rect key="frame" x="0.0" y="136" width="47.5" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -69,14 +69,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8fw-iP-KbW">
-                                        <rect key="frame" x="93" y="0.0" width="44.5" height="133.5"/>
+                                        <rect key="frame" x="99" y="0.0" width="47.5" height="136"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YU1-VL-XXc">
-                                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="122.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YU1-VL-XXc" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="136"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2F-2D-woq">
-                                                <rect key="frame" x="0.0" y="122.5" width="44.5" height="11"/>
+                                                <rect key="frame" x="0.0" y="136" width="47.5" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -84,14 +84,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6OT-Al-6eA">
-                                        <rect key="frame" x="139.5" y="0.0" width="44" height="133.5"/>
+                                        <rect key="frame" x="148.5" y="0.0" width="47" height="136"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7OU-sC-1de">
-                                                <rect key="frame" x="0.0" y="0.0" width="44" height="122.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7OU-sC-1de" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="47" height="136"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZH-jr-3Cv">
-                                                <rect key="frame" x="0.0" y="122.5" width="44" height="11"/>
+                                                <rect key="frame" x="0.0" y="136" width="47" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -99,14 +99,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gJR-Vf-4MF">
-                                        <rect key="frame" x="185.5" y="0.0" width="44.5" height="133.5"/>
+                                        <rect key="frame" x="197.5" y="0.0" width="47.5" height="136"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDe-DW-q6s">
-                                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="122.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDe-DW-q6s" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="136"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHH-bs-deb">
-                                                <rect key="frame" x="0.0" y="122.5" width="44.5" height="11"/>
+                                                <rect key="frame" x="0.0" y="136" width="47.5" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -114,14 +114,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rOL-Jn-YeN">
-                                        <rect key="frame" x="232" y="0.0" width="44.5" height="133.5"/>
+                                        <rect key="frame" x="247" y="0.0" width="47.5" height="136"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biF-ui-4bd">
-                                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="122.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biF-ui-4bd" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="136"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDn-jn-j0E">
-                                                <rect key="frame" x="0.0" y="122.5" width="44.5" height="11"/>
+                                                <rect key="frame" x="0.0" y="136" width="47.5" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -129,14 +129,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vsE-ob-FTy">
-                                        <rect key="frame" x="278.5" y="0.0" width="44.5" height="133.5"/>
+                                        <rect key="frame" x="296.5" y="0.0" width="47.5" height="136"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8c7-nM-0Wf">
-                                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="122.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8c7-nM-0Wf" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="136"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPg-Og-hiQ">
-                                                <rect key="frame" x="0.0" y="122.5" width="44.5" height="11"/>
+                                                <rect key="frame" x="0.0" y="136" width="47.5" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -178,7 +178,7 @@
                 <outlet property="tuesdayView" destination="YU1-VL-XXc" id="W1J-OI-Q90"/>
                 <outlet property="wednesdayView" destination="7OU-sC-1de" id="5wM-TT-qbJ"/>
             </connections>
-            <point key="canvasLocation" x="58" y="48.5"/>
+            <point key="canvasLocation" x="70.5" y="46"/>
         </tableViewCell>
     </objects>
 </document>
