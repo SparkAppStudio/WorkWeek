@@ -70,7 +70,6 @@
 		D1C003CC1FB7C5230045139F /* ProgressStripeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */; };
 		D1C003CD1FB7C5230045139F /* ProgressStripeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */; };
 		D1C0468B1FB77FC900DADF3B /* CountdownTVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C046891FB77FC900DADF3B /* CountdownTVCCell.swift */; };
-		D1C0468C1FB77FC900DADF3B /* CountdownTVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C046891FB77FC900DADF3B /* CountdownTVCCell.swift */; };
 		D1C0468D1FB77FC900DADF3B /* CountdownTVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C0468A1FB77FC900DADF3B /* CountdownTVCCell.xib */; };
 		D1C0468E1FB77FC900DADF3B /* CountdownTVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C0468A1FB77FC900DADF3B /* CountdownTVCCell.xib */; };
 		D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */; };
@@ -615,7 +614,6 @@
 			files = (
 				520855671F38144A00409642 /* DailyObjectTests.swift in Sources */,
 				D1C003CD1FB7C5230045139F /* ProgressStripeView.swift in Sources */,
-				D1C0468C1FB77FC900DADF3B /* CountdownTVCCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
