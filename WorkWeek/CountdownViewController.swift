@@ -24,7 +24,7 @@ protocol CountdownData {
 final class CountdownViewController: UIViewController {
 
     // MARK: Variables
-    private var countdownTVCIdentifier = "CountdownTVCCell"
+    private var countdownTVCIdentifier = "WeeklyGraphCell"
 
     // MARK: IBOutlets
     @IBOutlet weak var countdownView: CountdownRingView!
@@ -114,7 +114,7 @@ final class CountdownViewController: UIViewController {
     }
 
     private func registerNib() {
-        let nib = UINib(nibName: "CountdownTVCCell", bundle: nil)
+        let nib = UINib(nibName: "WeeklyGraphCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: countdownTVCIdentifier)
     }
 }
@@ -124,7 +124,7 @@ extension CountdownViewController: ActivityStoryboard { }
 class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Variables
-    private var countdownTVCIdentifier = "CountdownTVCCell"
+    private var countdownTVCIdentifier = "WeeklyGraphCell"
     var results: [WeeklyObject]
     var action: ((WeeklyObject) -> Void)
 
@@ -139,8 +139,8 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: countdownTVCIdentifier,
-                                                 for: indexPath) as! CountdownTVCCell // swiftlint:disable:this force_cast
-        cell.configure(results[indexPath.row].weekDaysWorkingPercentage)
+                                                 for: indexPath) as! WeeklyGraphCell // swiftlint:disable:this force_cast
+        cell.configure(results[indexPath.row])
         return cell
     }
 
