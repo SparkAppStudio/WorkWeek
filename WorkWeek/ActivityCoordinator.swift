@@ -10,7 +10,7 @@ struct CountDownHeaderData: CountdownData {
     var calculator: UserHoursCalculator { return RealmManager.shared.getUserCalculator }
 
     var timeLeftInDay: TimeInterval {
-        return calculator.getUserTimeLeftToday
+        return calculator.userTimeLeftToday
     }
 
     var percentOfWorkRemaining: Double {
@@ -18,7 +18,7 @@ struct CountDownHeaderData: CountdownData {
     }
 
     var timeLeftInWeek: TimeInterval {
-        return calculator.getUserTimeLeftInWeek()
+        return calculator.userTimeLeftInWeek
     }
 }
 

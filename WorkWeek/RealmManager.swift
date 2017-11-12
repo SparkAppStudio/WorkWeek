@@ -182,10 +182,10 @@ class RealmManager {
 }
 
 class UserHoursCalculator {
-    let user: User
-    let dailyObject: DailyObject?
-    let weeklyObject: WeeklyObject?
-    let previousWeek: WeeklyObject?
+    private let user: User
+    private let dailyObject: DailyObject?
+    private let weeklyObject: WeeklyObject?
+    private let previousWeek: WeeklyObject?
 
     init(user: User, dailyObject: DailyObject?, weeklyObject: WeeklyObject?, previousWeek: WeeklyObject?) {
         self.user = user
@@ -212,7 +212,7 @@ class UserHoursCalculator {
         return priorDurations
     }
 
-    var getUserTimeLeftToday: TimeInterval {
+    var userTimeLeftToday: TimeInterval {
         return usersDefaultWorkDayLength - timeSoFarToday
     }
 
@@ -220,7 +220,7 @@ class UserHoursCalculator {
         return user.hoursInWorkDay * 60.0 * 60.0 // convert hours to seconds
     }
 
-    func getUserTimeLeftInWeek() -> TimeInterval {
+    var userTimeLeftInWeek: TimeInterval {
         guard let weeklyObject = weeklyObject else {
             // No weekly object?
             return 0.0
@@ -231,7 +231,10 @@ class UserHoursCalculator {
     }
 
     var percentOfWorkRemaining: Double {
-        return getUserTimeLeftToday / usersDefaultWorkDayLength
+        return userTimeLeftToday / usersDefaultWorkDayLength
+
+    var notificationChoice: User.NotificationChoice {
+        return user.notificationChoice
     }
 
 }

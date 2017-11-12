@@ -5,23 +5,56 @@
 import Foundation
 import UserNotifications
 
+protocol SparkNotificationCenter {
+    var delegate: UNUserNotificationCenterDelegate? { get set }
+    func add(_ request: UNNotificationRequest, withCompletionHandler completionHandler: ((Error?) -> Swift.Void)?)
+    func getPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Swift.Void)
+    func removeAllPendingNotificationRequests()
+}
+
+extension UNUserNotificationCenter: SparkNotificationCenter { }
+
 final class PushNotificationManager: NSObject {
 
-    override init() {
+    let center: SparkNotificationCenter
+    let calculator: UserHoursCalculator
+
+    init(center: UNUserNotificationCenter = UNUserNotificationCenter.current(),
+         calculator: UserHoursCalculator = RealmManager.shared.getUserCalculator
+        ) {
+        self.center = center
+        self.calculator = calculator
         super.init()
-        let center = UNUserNotificationCenter.current()
         center.delegate = self
     }
 
-    lazy var calculator = RealmManager.shared.getUserCalculator
-
     func userHasArrivedAtWork() {
-        let workTimeLeft = calculator.getUserTimeLeftToday
+        switch calculator.notificationChoice {
+        case .none:
+            return
+        case .daily:
+            prepareDailyNotification()
+        case .weekly:
+            prepareWeeklyNotification()
+        }
+    }
+
+    func prepareDailyNotification() {
+        let workTimeLeft = calculator.userTimeLeftToday
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: workTimeLeft, repeats: false)
         let content = buildMessage()
         let req = UNNotificationRequest(identifier: "ArrivedAtWork", content: content, trigger: trigger)
 
-        UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
+        center.add(req, withCompletionHandler: nil)
+    }
+
+    func prepareWeeklyNotification() {
+        let workTimeLeft = calculator.userTimeLeftInWeek
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: workTimeLeft, repeats: false)
+        let content = buildMessage()
+        let req = UNNotificationRequest(identifier: "ArrivedAtWork", content: content, trigger: trigger)
+
+        center.add(req, withCompletionHandler: nil)
     }
 
     func buildMessage() -> UNNotificationContent {
