@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,24 +27,30 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5hN-BQ-2hN">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HH:MM:SS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFm-kW-Mhx">
-                                                <rect key="frame" x="114.5" y="0.0" width="146" height="178.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="until home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Mk-A8s">
-                                                <rect key="frame" x="147.5" y="198.5" width="80.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyO-48-vPa">
-                                                <rect key="frame" x="166.5" y="239" width="42.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyL-p9-nkA" customClass="CountdownRingView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="67.5" y="0.0" width="240" height="259.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HH:MM:SS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFm-kW-Mhx">
+                                                        <rect key="frame" x="46.5" y="112" width="146" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="until home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Mk-A8s">
+                                                        <rect key="frame" x="79.5" y="148" width="80.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="Jhy-Mk-A8s" firstAttribute="top" secondItem="NFm-kW-Mhx" secondAttribute="bottom" id="8Wf-Md-I2O"/>
+                                                    <constraint firstItem="NFm-kW-Mhx" firstAttribute="centerY" secondItem="yyL-p9-nkA" secondAttribute="centerY" id="LBQ-Em-DD1"/>
+                                                    <constraint firstItem="NFm-kW-Mhx" firstAttribute="centerX" secondItem="yyL-p9-nkA" secondAttribute="centerX" id="LPR-Sg-BcR"/>
+                                                    <constraint firstItem="Jhy-Mk-A8s" firstAttribute="centerX" secondItem="yyL-p9-nkA" secondAttribute="centerX" id="lH1-Fp-GOv"/>
+                                                </constraints>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 work hours left in the week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xH-mL-DWh">
                                                 <rect key="frame" x="77.5" y="279.5" width="220" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -118,10 +123,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="countdownDisplay" destination="NFm-kW-Mhx" id="2HG-9l-YdB"/>
-                        <outlet property="percentLeft" destination="uyO-48-vPa" id="PFC-tv-ooK"/>
+                        <outlet property="countdownTimeLabel" destination="NFm-kW-Mhx" id="2HG-9l-YdB"/>
+                        <outlet property="countdownView" destination="yyL-p9-nkA" id="8yh-ga-5Rk"/>
                         <outlet property="tableView" destination="Iay-aC-BGs" id="3n1-lc-UYd"/>
-                        <outlet property="weekTimeDisplay" destination="7xH-mL-DWh" id="fnM-bB-fOB"/>
+                        <outlet property="weekCountdownTimeLabel" destination="7xH-mL-DWh" id="fnM-bB-fOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ao-Gt-MTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,7 +159,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="event time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gg-km-J6F">
-                                            <rect key="frame" x="283" y="61" width="80" height="21"/>
+                                            <rect key="frame" x="275" y="61" width="80" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>

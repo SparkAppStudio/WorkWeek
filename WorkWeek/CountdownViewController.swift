@@ -24,9 +24,9 @@ protocol CountdownData {
 final class CountdownViewController: UIViewController {
 
     // MARK: IBOutlets
-    @IBOutlet weak var countdownDisplay: UILabel!
-    @IBOutlet weak var percentLeft: UILabel!
-    @IBOutlet weak var weekTimeDisplay: UILabel!
+    @IBOutlet weak var countdownView: CountdownRingView!
+    @IBOutlet weak var countdownTimeLabel: UILabel!
+    @IBOutlet weak var weekCountdownTimeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: IBActions
@@ -100,10 +100,10 @@ final class CountdownViewController: UIViewController {
     }()
 
     @objc func tick(_ timer: Timer) {
-        countdownDisplay.text = hourMinuteFormatter.string(from: data.timeLeftInDay)
+        countdownTimeLabel.text = hourMinuteFormatter.string(from: data.timeLeftInDay)
         let weekHours = hoursFormatter.string(from: data.timeLeftInWeek)!
-        weekTimeDisplay.text = "\(weekHours) work hours left in the week"
-        percentLeft.text = "\(data.percentOfWorkRemaining) % left"
+        weekCountdownTimeLabel.text = "\(weekHours) work hours left in the week"
+        countdownView.endPercentage = data.percentOfWorkRemaining
     }
 }
 
