@@ -4,9 +4,7 @@
 
 import UIKit
 
-
 class CountdownTVCCell: UITableViewCell {
-
 
     // MARK: - IBs
 
