@@ -20,12 +20,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="453" height="194.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-My-Let" userLabel="shadowView">
+                        <rect key="frame" x="23" y="14" width="407" height="167"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45j-w4-3iS" userLabel="BackgroundView">
                         <rect key="frame" x="20" y="11" width="413" height="173"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeFrameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="176-by-Yag">
-                                <rect key="frame" x="143" y="8" width="127.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="153.5" y="8" width="107.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -163,7 +167,11 @@
                     <constraint firstItem="45j-w4-3iS" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="6U6-Qx-m0T"/>
                     <constraint firstItem="45j-w4-3iS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="P00-Ls-QWj"/>
                     <constraint firstItem="45j-w4-3iS" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Qmy-vS-5Lm"/>
+                    <constraint firstItem="dQ1-My-Let" firstAttribute="leading" secondItem="45j-w4-3iS" secondAttribute="leading" constant="3" id="Rx6-Er-yz8"/>
+                    <constraint firstItem="dQ1-My-Let" firstAttribute="top" secondItem="45j-w4-3iS" secondAttribute="top" constant="3" id="mQV-w6-XPw"/>
                     <constraint firstItem="45j-w4-3iS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="pdQ-DL-jke"/>
+                    <constraint firstItem="dQ1-My-Let" firstAttribute="bottom" secondItem="45j-w4-3iS" secondAttribute="bottom" constant="-3" id="ucr-Dt-upu"/>
+                    <constraint firstItem="dQ1-My-Let" firstAttribute="trailing" secondItem="45j-w4-3iS" secondAttribute="trailing" constant="-3" id="ul2-M7-eED"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -174,6 +182,7 @@
                 <outlet property="hoursLabel" destination="Vh4-jf-RvA" id="lg7-fz-Ysy"/>
                 <outlet property="mondayView" destination="job-sY-f7A" id="fXt-Ao-7Y6"/>
                 <outlet property="saturdayView" destination="8c7-nM-0Wf" id="eMS-ig-gyW"/>
+                <outlet property="shadownView" destination="dQ1-My-Let" id="JwB-Xg-eV3"/>
                 <outlet property="sundayView" destination="5Ji-ff-MBL" id="yF5-QP-lz0"/>
                 <outlet property="thursdayView" destination="SDe-DW-q6s" id="w4q-09-Ndt"/>
                 <outlet property="timeFrameLabel" destination="176-by-Yag" id="zWL-b8-zCW"/>

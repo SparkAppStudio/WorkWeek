@@ -8,6 +8,7 @@ class CountdownTVCCell: UITableViewCell {
 
     // MARK: - IBs
 
+    @IBOutlet weak var shadownView: UIView!
     @IBOutlet weak var cellBackgroundView: UIView!
     @IBOutlet weak var timeFrameLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
@@ -19,12 +20,10 @@ class CountdownTVCCell: UITableViewCell {
     @IBOutlet weak var fridayView: ProgressStripeView!
     @IBOutlet weak var saturdayView: ProgressStripeView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
     func configure(_ weekDaysWorkingPercentage: WeekDaysWorkingPercent) {
         setCornerRadius()
+        setShadow()
         sundayView.percentage = weekDaysWorkingPercentage.sundayPercent
         mondayView.percentage = weekDaysWorkingPercentage.mondayPercent
         tuesdayView.percentage = weekDaysWorkingPercentage.tuesdayPercent
@@ -32,11 +31,18 @@ class CountdownTVCCell: UITableViewCell {
         thursdayView.percentage = weekDaysWorkingPercentage.thursdayPercent
         fridayView.percentage = weekDaysWorkingPercentage.fridayPercent
         saturdayView.percentage = weekDaysWorkingPercentage.saturdayPercent
-        
     }
 
-    func setCornerRadius() {
+    private func setCornerRadius() {
         cellBackgroundView.layer.cornerRadius = 8
         cellBackgroundView.clipsToBounds = true
+    }
+
+    private func setShadow() {
+        shadownView.layer.masksToBounds = false
+        shadownView.layer.shadowOpacity = 0.8
+        shadownView.layer.shadowRadius = 3
+        shadownView.layer.shadowColor = UIColor.black.cgColor
+        shadownView.layer.shadowOffset = CGSize(width: 0, height: 2)
     }
 }
