@@ -96,6 +96,7 @@ final class CountdownViewController: UIViewController {
     lazy var hourMinuteFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
+        formatter.zeroFormattingBehavior = .pad
         return formatter
     }()
 
