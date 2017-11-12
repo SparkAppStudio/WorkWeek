@@ -7,6 +7,7 @@ import UIKit
 class ProgressStripeView: UIView {
 
     public var percentage: Double?
+    private var color = UIColor(red: 54/255, green: 236/255, blue: 80/255, alpha: 1)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,7 +22,7 @@ class ProgressStripeView: UIView {
         super.draw(rect)
         guard let percent = percentage else { return }
         let context = UIGraphicsGetCurrentContext()!
-        let fillColor = UIColor.purple.cgColor
+        let fillColor = color.cgColor
         context.setFillColor(fillColor)
         let progressHeight = CGFloat(percent) * rect.height
         let div = rect.divided(atDistance: progressHeight, from: CGRectEdge.maxYEdge)
