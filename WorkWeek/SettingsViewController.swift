@@ -34,7 +34,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var sunday: UIButton!
 
     @IBOutlet weak var targetHoursButton: TwoLabelButton!
-    @IBOutlet weak var notificationsSegment: UISegmentedControl!
+    @IBOutlet weak var notificationsSegment: SegmentedControl!
 
     var user: User!
 
@@ -96,9 +96,8 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     }
 
     // MARK: Members
-
     func configureNotificationsSegment(with choice: User.NotificationChoice) {
-        notificationsSegment.setSelected(choice)
+        notificationsSegment.controller.setSelected(choice)
     }
 
     func updateUserHours(hours: String) {

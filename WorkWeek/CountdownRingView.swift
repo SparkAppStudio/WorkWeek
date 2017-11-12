@@ -47,6 +47,7 @@ import UIKit
         arcColor.setStroke()
         path.stroke()
 
+        //reset context if someone else uses it for future drawing
         context.setShadow(offset: CGSize.zero, blur: 0, color: nil)
     }
 
@@ -57,13 +58,22 @@ import UIKit
     ///   - radius: radius of the ring
     ///   - endPercentage: where the ring ends in percentage, from 0.0 to 1, with offset so the ring starts at north position.
     func counterPath(center: CGPoint, radius: CGFloat, endPercentage: CGFloat) {
-        assert(abs(endPercentage) <= 1)
+
+        var cleanEndPercentage: CGFloat = 0.0
+
+        if endPercentage < 0 {
+            cleanEndPercentage = 0
+        } else {
+            cleanEndPercentage = endPercentage
+        }
+
+        assert(cleanEndPercentage <= 1)
 
         let rotationConstant: CGFloat = 0.25
 
         let startAngle: CGFloat = 3 * .pi / 2
 
-        var end = endPercentage
+        var end = cleanEndPercentage
         if end == 1 {
             end = 0.9999
         }
