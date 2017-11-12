@@ -13,34 +13,25 @@ import UIKit
     let arcWidth: CGFloat = 24.0
     let counterWidth: CGFloat = 24.0
 
-    var endPercentage: CGFloat = 0
-
-    @IBInspectable var arcColor: UIColor = UIColor.lightGray
-    @IBInspectable var counterColor: UIColor = UIColor.blue
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor.darkGray
+    var endPercentage: CGFloat = 0 {
+        didSet {
+            setNeedsDisplay()
+        }
     }
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        backgroundColor = UIColor(white: 0.8, alpha: 1.0)
-    }
+
+    @IBInspectable var arcColor: UIColor = UIColor.darkContent()
+    @IBInspectable var counterColor: UIColor = UIColor.homeGreen()
 
     override func draw(_ rect: CGRect) {
 
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-        let radius: CGFloat = max(bounds.width, bounds.height) / 2
+        let radius: CGFloat = min(bounds.width, bounds.height) / 2
 
         let context = UIGraphicsGetCurrentContext()!
 
 
         backgroundArcPath(context: context, center: center, radius: radius)
         counterPath(center: center, radius: radius, endPercentage: endPercentage)
-    }
-
-    func updateCounterPath() {
-
     }
 
     func backgroundArcPath(context: CGContext, center: CGPoint, radius: CGFloat) {
@@ -78,22 +69,15 @@ import UIKit
         }
         let endAngle: CGFloat = (end - rotationConstant) * 2 * .pi
 
-
-
-        let path = UIBezierPath(arcCenter: center, radius: radius - counterWidth/2, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        let path = UIBezierPath(arcCenter: center,
+                                radius: radius - counterWidth/2,
+                                startAngle: startAngle,
+                                endAngle: endAngle,
+                                clockwise: true)
 
         path.lineWidth = counterWidth
-        
+        path.lineCapStyle = .round
         counterColor.setStroke()
         path.stroke()
-        let endPoint = CGPoint(x: path.currentPoint.x - counterWidth/2, y: path.currentPoint.y - counterWidth/2)
-
-        guard endPercentage >= 0.02 else {return} //only add nub when line is long enough
-
-        let nubView = UIView(frame: CGRect(origin: endPoint, size: CGSize(width: counterWidth, height: counterWidth)))
-        nubView.backgroundColor = counterColor
-        nubView.makeCircle()
-        self.addSubview(nubView)
     }
-
 }
