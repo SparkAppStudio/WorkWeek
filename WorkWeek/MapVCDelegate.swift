@@ -38,15 +38,31 @@ protocol MapVCDelegate: class {
 extension MapVCDelegate {
 
     func save(viewController: UIViewController, type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
-        let region: CLRegion
+        let region: CLCircularRegion
         switch type {
         case .home:
             region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.home.rawValue)
+            startTrackingHome(region: region)
         case .work:
             region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.work.rawValue)
+            startTrackingWork(region: region)
         }
         locationManager.startMonitoring(for: region)
         viewController.dismiss(animated: true, completion: nil)
+    }
+
+    private func startTrackingWork(region: CLCircularRegion) {
+        guard let currentLocation = locationManager.location else {return}
+        if region.contains(currentLocation.coordinate) {
+            NotificationCenterManager.shared.postArriveWorkNotification()
+        }
+    }
+
+    private func startTrackingHome(region: CLCircularRegion) {
+        guard let currentLocation = locationManager.location else {return}
+        if region.contains(currentLocation.coordinate) {
+            NotificationCenterManager.shared.postArriveHomeNotification()
+        }
     }
 
     func cancel(viewController: UIViewController) {
