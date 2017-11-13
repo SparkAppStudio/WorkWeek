@@ -72,6 +72,10 @@ extension CGContext {
         setShadow(offset: CGSize(width: 0, height: 2), blur: 4)
     }
 
+    //reset context if someone else uses it for future drawing
+    func clearShadow() {
+        setShadow(offset: CGSize.zero, blur: 0, color: nil)
+    }
 }
 
 extension UIBezierPath {

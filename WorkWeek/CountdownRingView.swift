@@ -46,9 +46,8 @@ import UIKit
 
         arcColor.setStroke()
         path.stroke()
-
-        //reset context if someone else uses it for future drawing
-        context.setShadow(offset: CGSize.zero, blur: 0, color: nil)
+        
+        context.clearShadow()
     }
 
     /// Set the End of the counter
