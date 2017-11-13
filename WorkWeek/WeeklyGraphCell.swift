@@ -23,19 +23,48 @@ class WeeklyGraphCell: UITableViewCell {
         drawSparkRect(graphStackView.frame, color: UIColor.darkContent(), xInset: -20, yInset: -20, cornerRadius: 12)
     }
 
-    func configure(_ weekObject: WeeklyObject) {
+    func configure(_ weeklyGraphViewModel: WeeklyGraphViewModel) {
+        sundayView.percentage = weeklyGraphViewModel.sundayPercent
+        mondayView.percentage = weeklyGraphViewModel.mondayPercent
+        tuesdayView.percentage = weeklyGraphViewModel.tuesdayPercent
+        wednesdayView.percentage = weeklyGraphViewModel.wednesdayPercent
+        thursdayView.percentage = weeklyGraphViewModel.thursdayPercent
+        fridayView.percentage = weeklyGraphViewModel.fridayPercent
+        saturdayView.percentage = weeklyGraphViewModel.saturdayPercent
+        timeFrameLabel.text = weeklyGraphViewModel.timeFrameText
+        hoursLabel.text = weeklyGraphViewModel.hoursText
+    }
+}
 
-        setupUI(weekObject.weekDaysWorkingPercentage)
+class WeeklyGraphViewModel {
+
+    let sundayPercent: Double
+    let mondayPercent: Double
+    let tuesdayPercent: Double
+    let wednesdayPercent: Double
+    let thursdayPercent: Double
+    let fridayPercent: Double
+    let saturdayPercent: Double
+    let timeFrameText: String
+    let hoursText: String
+
+    init(_ weeklyObject: WeeklyObject) {
+        let weekDaysWorkingPercentage = weeklyObject.weekDaysWorkingPercentage
+        sundayPercent = weekDaysWorkingPercentage.sundayPercent
+        mondayPercent = weekDaysWorkingPercentage.mondayPercent
+        tuesdayPercent = weekDaysWorkingPercentage.tuesdayPercent
+        wednesdayPercent = weekDaysWorkingPercentage.wednesdayPercent
+        thursdayPercent = weekDaysWorkingPercentage.thursdayPercent
+        fridayPercent = weekDaysWorkingPercentage.fridayPercent
+        saturdayPercent = weekDaysWorkingPercentage.saturdayPercent
+        let hourString = weeklyObject.totalWorkTime.convert(preserving: [.hour]) ?? ""
+        if let hourInt = Int(hourString) {
+            hoursText = "\(hourInt) \(hourInt < 2 ? "hour": "hours")"
+        } else {
+            hoursText = ""
+        }
+        timeFrameText = weeklyObject.weekAndTheYear ?? ""
     }
 
-    func setupUI(_ weekDaysWorkingPercentage: WeekDaysWorkingPercent) {
-        sundayView.percentage = weekDaysWorkingPercentage.sundayPercent
-        mondayView.percentage = weekDaysWorkingPercentage.mondayPercent
-        tuesdayView.percentage = weekDaysWorkingPercentage.tuesdayPercent
-        wednesdayView.percentage = weekDaysWorkingPercentage.wednesdayPercent
-        thursdayView.percentage = weekDaysWorkingPercentage.thursdayPercent
-        fridayView.percentage = weekDaysWorkingPercentage.fridayPercent
-        saturdayView.percentage = weekDaysWorkingPercentage.saturdayPercent
-    }
 }
 
