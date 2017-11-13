@@ -85,4 +85,9 @@ class User: Object {
         }
     }
 
+
+    var workDayTimeInterval: TimeInterval {
+        return hoursInWorkDay * 60 * 60
+    }
+
 }
