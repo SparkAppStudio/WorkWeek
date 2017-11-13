@@ -146,12 +146,20 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGC-hI-w1f" customClass="GraphTargetLine" customModule="WorkWeek" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="47" width="453" height="80"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="uGC-hI-w1f" firstAttribute="bottom" secondItem="5Ji-ff-MBL" secondAttribute="bottom" id="5Lq-K6-b0Q"/>
+                    <constraint firstItem="uGC-hI-w1f" firstAttribute="top" secondItem="5Ji-ff-MBL" secondAttribute="top" id="BiF-jl-u36"/>
                     <constraint firstItem="ZAT-4z-wd2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="Cru-jD-SEv"/>
                     <constraint firstAttribute="trailing" secondItem="ZAT-4z-wd2" secondAttribute="trailing" constant="44" id="Fry-De-HgA"/>
+                    <constraint firstItem="uGC-hI-w1f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NFK-rQ-AEt"/>
                     <constraint firstItem="ZAT-4z-wd2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="44" id="WX3-ip-bb6"/>
                     <constraint firstAttribute="bottom" secondItem="ZAT-4z-wd2" secondAttribute="bottom" constant="22" id="a2s-Vw-kHs"/>
+                    <constraint firstAttribute="trailing" secondItem="uGC-hI-w1f" secondAttribute="trailing" id="jea-1f-BXw"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,6 +167,7 @@
             <connections>
                 <outlet property="fridayView" destination="biF-ui-4bd" id="vDu-L9-CBX"/>
                 <outlet property="graphStackView" destination="ZAT-4z-wd2" id="VN6-EM-yTk"/>
+                <outlet property="graphTargetLine" destination="uGC-hI-w1f" id="q6q-CZ-ywG"/>
                 <outlet property="hoursLabel" destination="Vh4-jf-RvA" id="lg7-fz-Ysy"/>
                 <outlet property="mondayView" destination="job-sY-f7A" id="fXt-Ao-7Y6"/>
                 <outlet property="saturdayView" destination="8c7-nM-0Wf" id="eMS-ig-gyW"/>

@@ -8,6 +8,7 @@ class WeeklyGraphCell: UITableViewCell {
 
     // MARK: - IBs
 
+    @IBOutlet weak var graphTargetLine: GraphTargetLine!
     @IBOutlet weak var graphStackView: UIStackView!
     @IBOutlet weak var timeFrameLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
@@ -33,11 +34,13 @@ class WeeklyGraphCell: UITableViewCell {
         saturdayView.percentage = weeklyGraphViewModel.saturdayPercent
         timeFrameLabel.text = weeklyGraphViewModel.timeFrameText
         hoursLabel.text = weeklyGraphViewModel.hoursText
+        graphTargetLine.percentage = weeklyGraphViewModel.graphTargetPercent
     }
 }
 
 class WeeklyGraphViewModel {
 
+    let graphTargetPercent: Double
     let sundayPercent: Double
     let mondayPercent: Double
     let tuesdayPercent: Double
@@ -64,6 +67,7 @@ class WeeklyGraphViewModel {
             hoursText = ""
         }
         timeFrameText = weeklyObject.weekAndTheYear ?? ""
+        graphTargetPercent = weeklyObject.graphTargetPercentage
     }
 
 }
