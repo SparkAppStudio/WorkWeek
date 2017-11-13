@@ -42,13 +42,12 @@ import UIKit
 
         path.lineWidth = arcWidth
 
-        context.setShadow(offset: CGSize(width: 0, height: 2), blur: 4)
+        context.setSparkShadow()
 
         arcColor.setStroke()
         path.stroke()
-
-        //reset context if someone else uses it for future drawing
-        context.setShadow(offset: CGSize.zero, blur: 0, color: nil)
+        
+        context.clearShadow()
     }
 
     /// Set the End of the counter

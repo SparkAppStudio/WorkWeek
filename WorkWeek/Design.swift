@@ -43,4 +43,43 @@ extension UIView {
         self.layer.cornerRadius = self.frame.size.width / 2
         self.clipsToBounds = true
     }
+
+    func drawSparkRect(_ rect: CGRect, color: UIColor) {
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        context.setSparkShadow()
+        UIBezierPath.getDefaultRoundedRectPath(rect: rect).fill()
+    }
+
+    func drawSparkRect(_ rect: CGRect, color: UIColor, xInset: CGFloat, yInset: CGFloat, cornerRadius: CGFloat) {
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        context.setSparkShadow()
+        let path = UIBezierPath(roundedRect: rect.insetBy(dx: xInset, dy: yInset), cornerRadius: cornerRadius)
+        path.fill()
+    }
+}
+
+extension UISegmentedControl {
+    func styleSparksegmentedController(tint: UIColor) {
+        tintColor = tint
+//        layer.borderWidth = 3
+    }
+}
+
+extension CGContext {
+    func setSparkShadow() {
+        setShadow(offset: CGSize(width: 0, height: 2), blur: 4)
+    }
+
+    //reset context if someone else uses it for future drawing
+    func clearShadow() {
+        setShadow(offset: CGSize.zero, blur: 0, color: nil)
+    }
+}
+
+extension UIBezierPath {
+    static func getDefaultRoundedRectPath(rect: CGRect) -> UIBezierPath {
+        return UIBezierPath(roundedRect: rect.insetBy(dx: 6, dy: 6), cornerRadius: 12)
+    }
 }

@@ -63,6 +63,18 @@ class WeeklyObject: Object {
         return WeekDaysWorkingPercent.create(with: daysPercents)
     }
 
+    var graphTargetPercentage: Double {
+        let daysIntervals = weekDaysWorkingHours.daysIntervals
+        let userWorkInterval = RealmManager.shared.fetchOrCreateUser().workDayTimeInterval
+        let max = daysIntervals.max() ?? userWorkInterval
+
+        if max <= userWorkInterval {
+            return 1.0
+        } else {
+            return userWorkInterval / max
+        }
+    }
+
     override static func primaryKey() -> String? {
         return #keyPath(WeeklyObject.weekAndTheYear)
     }
