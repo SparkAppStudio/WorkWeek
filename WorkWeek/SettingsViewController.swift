@@ -34,7 +34,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var sunday: UIButton!
 
     @IBOutlet weak var targetHoursButton: TwoLabelButton!
-    @IBOutlet weak var notificationsSegment: SegmentedControl!
+    @IBOutlet weak var notificationsSegment: SegmentedControlView!
 
     var user: User!
 

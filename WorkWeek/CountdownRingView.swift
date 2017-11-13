@@ -42,7 +42,7 @@ import UIKit
 
         path.lineWidth = arcWidth
 
-        context.setShadow(offset: CGSize(width: 0, height: 2), blur: 4)
+        context.setSparkShadow()
 
         arcColor.setStroke()
         path.stroke()
