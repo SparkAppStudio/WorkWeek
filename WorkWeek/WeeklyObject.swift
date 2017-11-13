@@ -56,7 +56,10 @@ class WeeklyObject: Object {
         guard let biggest = daysIntervals.max() else {
             return WeekDaysWorkingPercent.create(with: [0, 0, 0, 0, 0, 0, 0])
         }
-        let daysPercents = daysIntervals.map { $0 / Double(biggest)}
+        let userWorkDayHours = RealmManager.shared.fetchOrCreateUser().workDayTimeInterval
+        let options = [biggest, userWorkDayHours]
+        let maxInterval = options.max() ?? userWorkDayHours
+        let daysPercents = daysIntervals.map { $0 / Double(maxInterval)}
         return WeekDaysWorkingPercent.create(with: daysPercents)
     }
 
