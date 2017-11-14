@@ -26,16 +26,16 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="390.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyL-p9-nkA" customClass="CountdownRingView" customModule="WorkWeek" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="330.5"/>
+                                        <rect key="frame" x="36" y="0.0" width="303" height="330.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HH:MM:SS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFm-kW-Mhx">
-                                                <rect key="frame" x="114.5" y="148" width="146" height="36"/>
+                                                <rect key="frame" x="78.5" y="148" width="146" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.92549019610000005" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="until home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Mk-A8s">
-                                                <rect key="frame" x="147.5" y="184" width="80.5" height="20.5"/>
+                                                <rect key="frame" x="111.5" y="184" width="80.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.92549019610000005" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -58,8 +58,13 @@
                                         <color key="textColor" red="0.21176470589999999" green="0.92549019610000005" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htC-Ag-fFY">
-                                        <rect key="frame" x="20" y="20" width="57" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htC-Ag-fFY" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="96" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="96" id="SpV-O6-ikI"/>
+                                            <constraint firstAttribute="height" constant="42" id="Vd3-4l-hft"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <state key="normal" title="Settings">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -72,13 +77,13 @@
                                 <constraints>
                                     <constraint firstItem="yyL-p9-nkA" firstAttribute="top" secondItem="yGJ-PB-OEI" secondAttribute="top" id="3QU-DQ-v38"/>
                                     <constraint firstItem="7xH-mL-DWh" firstAttribute="top" secondItem="yyL-p9-nkA" secondAttribute="bottom" id="AQF-bF-TM4"/>
-                                    <constraint firstItem="htC-Ag-fFY" firstAttribute="leading" secondItem="yGJ-PB-OEI" secondAttribute="leading" constant="20" id="B3b-To-qhE"/>
+                                    <constraint firstItem="htC-Ag-fFY" firstAttribute="leading" secondItem="yGJ-PB-OEI" secondAttribute="leading" constant="8" id="B3b-To-qhE"/>
                                     <constraint firstAttribute="trailing" secondItem="7xH-mL-DWh" secondAttribute="trailing" id="DuG-kW-dMG"/>
-                                    <constraint firstItem="htC-Ag-fFY" firstAttribute="top" secondItem="yGJ-PB-OEI" secondAttribute="top" constant="20" id="POB-4l-B1G"/>
+                                    <constraint firstItem="htC-Ag-fFY" firstAttribute="top" secondItem="yGJ-PB-OEI" secondAttribute="top" constant="8" id="POB-4l-B1G"/>
                                     <constraint firstAttribute="width" secondItem="yGJ-PB-OEI" secondAttribute="height" multiplier="0.96" id="RC8-ip-Azr"/>
-                                    <constraint firstItem="yyL-p9-nkA" firstAttribute="leading" secondItem="yGJ-PB-OEI" secondAttribute="leading" id="bik-bg-iod"/>
+                                    <constraint firstItem="yyL-p9-nkA" firstAttribute="leading" secondItem="yGJ-PB-OEI" secondAttribute="leading" constant="36" id="bik-bg-iod"/>
                                     <constraint firstAttribute="bottom" secondItem="7xH-mL-DWh" secondAttribute="bottom" id="hjN-Tw-Ecf"/>
-                                    <constraint firstAttribute="trailing" secondItem="yyL-p9-nkA" secondAttribute="trailing" id="vTI-1d-aTi"/>
+                                    <constraint firstAttribute="trailing" secondItem="yyL-p9-nkA" secondAttribute="trailing" constant="36" id="vTI-1d-aTi"/>
                                     <constraint firstItem="7xH-mL-DWh" firstAttribute="leading" secondItem="yGJ-PB-OEI" secondAttribute="leading" id="wu9-0T-qCn"/>
                                 </constraints>
                             </view>

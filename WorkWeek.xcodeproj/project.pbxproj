@@ -46,7 +46,6 @@
 		52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */; };
 		52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */; };
 		C309407B1F7DB7D200447E65 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		C309407D1F7DBB9C00447E65 /* ActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */; };
 		C33DFB8A1F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */; };
 		C34D00101FB833180067698C /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D000F1FB833180067698C /* SegmentedControlView.swift */; };
 		C362A4071EE34EA200AB9830 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C362A4061EE34EA200AB9830 /* Onboarding.storyboard */; };
@@ -57,6 +56,8 @@
 		C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */; };
 		C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0C4531EE3CC930000D097 /* PageManager.swift */; };
 		C3C760A81F085AAA00F5C773 /* NavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */; };
+		C3D2F8101FBA7E150098458C /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2F80F1FBA7E150098458C /* ThemeButton.swift */; };
+		C3D2F8121FBA95480098458C /* WeeklyGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3D2F8111FBA95480098458C /* WeeklyGraphView.xib */; };
 		C3DEA7271F14850E001F2696 /* ActivityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */; };
 		C3FC4D3D1FB7C7C3000BB303 /* CountdownRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */; };
 		D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */; };
@@ -130,7 +131,6 @@
 		52E1AD8D1F8A871B00CA3694 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 		52E1FFDF1F3813A80091C1CB /* WorkWeekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkWeekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E1FFE31F3813A80091C1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityHeaderView.xib; sourceTree = "<group>"; };
 		C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyOverviewViewController.swift; sourceTree = "<group>"; };
 		C34D000F1FB833180067698C /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		C362A4061EE34EA200AB9830 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
@@ -141,6 +141,8 @@
 		C3B0C4511EE377180000D097 /* StoryboardProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardProtocols.swift; sourceTree = "<group>"; };
 		C3B0C4531EE3CC930000D097 /* PageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageManager.swift; sourceTree = "<group>"; };
 		C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		C3D2F80F1FBA7E150098458C /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
+		C3D2F8111FBA95480098458C /* WeeklyGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeeklyGraphView.xib; sourceTree = "<group>"; };
 		C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCoordinator.swift; sourceTree = "<group>"; };
 		C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownRingView.swift; sourceTree = "<group>"; };
 		D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				526799111EE349A500F41E01 /* Settings.storyboard */,
 				526799131EE3555600F41E01 /* SettingsViewController.swift */,
 				C34D000F1FB833180067698C /* SegmentedControlView.swift */,
+				C3D2F80F1FBA7E150098458C /* ThemeButton.swift */,
 				52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */,
 				52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */,
 				52510E911EFCCAEC006F5C97 /* SettingsMapViewController.swift */,
@@ -365,11 +368,11 @@
 				D1C0468F1FB77FD700DADF3B /* NewCountdownTableViewCell */,
 				52A375491F906C2100523431 /* CountdownTableViewCell.swift */,
 				C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */,
+				C3D2F8111FBA95480098458C /* WeeklyGraphView.xib */,
 				C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */,
 				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
 				C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */,
 				C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */,
-				C309407C1F7DBB9C00447E65 /* ActivityHeaderView.xib */,
 				5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */,
 				D1102CE61F00BA4E006A0E2F /* DailyCollectionView */,
 			);
@@ -474,10 +477,10 @@
 			files = (
 				5287CA401EDCF91E00E71CE8 /* LaunchScreen.storyboard in Resources */,
 				C362A4071EE34EA200AB9830 /* Onboarding.storyboard in Resources */,
-				C309407D1F7DBB9C00447E65 /* ActivityHeaderView.xib in Resources */,
 				5287CA3D1EDCF91E00E71CE8 /* Assets.xcassets in Resources */,
 				D1C0468D1FB77FC900DADF3B /* WeeklyGraphCell.xib in Resources */,
 				5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */,
+				C3D2F8121FBA95480098458C /* WeeklyGraphView.xib in Resources */,
 				526799121EE349A500F41E01 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,6 +584,7 @@
 				5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */,
 				52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */,
 				C3DEA7271F14850E001F2696 /* ActivityCoordinator.swift in Sources */,
+				C3D2F8101FBA7E150098458C /* ThemeButton.swift in Sources */,
 				526E50721EF62DD50066F043 /* Analytics.swift in Sources */,
 				D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */,
 				52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */,
