@@ -36,6 +36,18 @@ extension UIColor {
     static func darkGrayText() -> UIColor {
         return UIColor(displayP3Red: 74/255, green: 74/255, blue: 74/255, alpha: 1)
     }
+
+    static func themeBackground() -> UIColor {
+        return UIColor.darkBackground()
+    }
+
+    static func themeContent() -> UIColor {
+        return UIColor.darkContent()
+    }
+
+    static func themeText() -> UIColor {
+        return UIColor.white
+    }
 }
 
 extension UIView {
@@ -78,8 +90,38 @@ extension CGContext {
     }
 }
 
+extension CGRect {
+    func getRoundedCorner() -> CGFloat {
+        let smaller = min(self.width, self.height)
+        return smaller/8
+    }
+}
+
 extension UIBezierPath {
     static func getDefaultRoundedRectPath(rect: CGRect) -> UIBezierPath {
-        return UIBezierPath(roundedRect: rect.insetBy(dx: 6, dy: 6), cornerRadius: 12)
+
+        return UIBezierPath(roundedRect: rect.insetBy(dx: 6, dy: 6), cornerRadius: rect.getRoundedCorner())
+    }
+}
+
+extension UIViewController {
+    func setTheme() {
+        view.backgroundColor = UIColor.themeBackground()
+        navigationController?.setThemeNavBar()
+    }
+}
+
+extension UINavigationController {
+    func setThemeNavBar() {
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.themeText()]
+        navigationBar.titleTextAttributes = textAttributes
+        navigationBar.tintColor = UIColor.themeText()
+        setTransparentNavBar()
+    }
+
+    func setTransparentNavBar() {
+        navigationBar.isTranslucent = true
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
     }
 }
