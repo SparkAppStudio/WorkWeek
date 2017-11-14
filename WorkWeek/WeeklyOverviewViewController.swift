@@ -28,14 +28,14 @@ class WeeklyOverviewViewController: MXSegmentedPagerController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTheme()
 
-
-        let nib = UINib(nibName: "ActivityHeaderView", bundle: nil)
+        let nib = UINib(nibName: "WeeklyGraphView", bundle: nil)
         let headerView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView // swiftlint:disable:this force_cast
 
         // Parallax Header
         segmentedPager.parallaxHeader.view = headerView
-        segmentedPager.parallaxHeader.mode = MXParallaxHeaderMode.fill
+        segmentedPager.parallaxHeader.mode = MXParallaxHeaderMode.center
         segmentedPager.parallaxHeader.height = 400
         segmentedPager.parallaxHeader.minimumHeight = 0
     }

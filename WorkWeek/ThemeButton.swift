@@ -4,12 +4,11 @@
 
 import UIKit
 
-@IBDesignable class SegmentedControlView: UIView {
-
-    @IBOutlet weak var controller: UISegmentedControl!
+@IBDesignable class ThemeButton: UIButton {
 
     override func draw(_ rect: CGRect) {
-        controller.styleSparksegmentedController(tint: UIColor.workBlue())
+        backgroundColor = UIColor.clear
+        setTitleColor(UIColor.themeText(), for: .normal)
         drawSparkRect(rect, color: UIColor.themeContent())
     }
 }

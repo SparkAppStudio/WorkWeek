@@ -5,7 +5,7 @@
 import UIKit
 
 @IBDesignable
-final class TwoLabelButton: UIButton {
+final class TwoLabelButton: ThemeButton {
 
     var rightTitle: String {
         get { return right.text ?? "" }
@@ -26,12 +26,14 @@ final class TwoLabelButton: UIButton {
     private let right: UILabel = {
         let r = UILabel(frame: .zero)
         r.textAlignment = .center
+        r.textColor = UIColor.themeText()
         return r
     }()
 
     private let left: UILabel = {
         let l = UILabel(frame: .zero)
         l.textAlignment = .left
+        l.textColor = UIColor.themeText()
         return l
     }()
 

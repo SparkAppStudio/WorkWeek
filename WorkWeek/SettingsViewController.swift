@@ -20,6 +20,8 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     weak var delegate: SettingsMainProtocol?
 
+    @IBOutlet weak var workDaysLabel: UILabel!
+    @IBOutlet weak var notificationsLabel: UILabel!
     @IBOutlet var mainStackViewContentWidth: NSLayoutConstraint!
 
     @IBOutlet weak var work: UIButton!
@@ -45,9 +47,10 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         assert(user != nil, "Error! User object shoudl be provided to the VC by the coordinator")
         super.viewDidLoad()
         title = "Settings"
+        setTheme()
+        workDaysLabel.textColor = UIColor.themeText()
+        notificationsLabel.textColor = UIColor.themeText()
         setMainContentStackViewEqualToPhoneWidth()
-        configureStyle(of: work, home)
-        configureStyle(of: monday, tuesday, wednesday, thursday, friday, saturday, sunday)
 
         configureSelectedButtons(with: user.weekdays)
         configureNotificationsSegment(with: user.notificationChoice)
@@ -63,13 +66,6 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     func setMainContentStackViewEqualToPhoneWidth() {
         mainStackViewContentWidth.constant = UIScreen.main.bounds.width - padding * 2
     }
-
-    func configureStyle(of buttons: UIButton...) {
-        for button in buttons {
-            button.configureForDefaultStyle()
-        }
-    }
-
 
     // MARK: Actions
 
@@ -165,14 +161,10 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         RealmManager.shared.update(user: user, with: updated)
     }
 
-}
-
-extension UIButton {
-    func configureForDefaultStyle() {
-        layer.cornerRadius = 10.0
-        backgroundColor = .gray
-        setTitleColor(.white, for: .normal)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
+
 }
 
 extension UISegmentedControl {

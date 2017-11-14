@@ -20,11 +20,12 @@ class WeeklyGraphCell: UITableViewCell {
     @IBOutlet weak var saturdayView: ProgressStripeView!
 
     override func draw(_ rect: CGRect) {
-        drawSparkRect(graphStackView.frame, color: UIColor.darkContent(), xInset: -20, yInset: -20, cornerRadius: 12)
+        drawSparkRect(graphStackView.frame, color: UIColor.darkContent(), xInset: -20, yInset: -20, cornerRadius: rect.getRoundedCorner())
     }
 
     func configure(_ weekObject: WeeklyObject) {
-
+            timeFrameLabel.text = weekObject.weekAndTheYear
+        hoursLabel.text = "\(Int(weekObject.totalWorkTime)) hours so far"
         setupUI(weekObject.weekDaysWorkingPercentage)
     }
 
