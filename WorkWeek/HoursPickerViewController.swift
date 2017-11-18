@@ -84,7 +84,7 @@ class HoursPickerViewController: UIViewController, SettingsStoryboard {
     }
 
     func updateUserWithSelectedHours() {
-        RealmManager.shared.updateHours(for: user, with: pickerValue)
+        DataStore.shared.updateHours(for: user, with: pickerValue)
     }
 
     func setInitialPickerSelection() {

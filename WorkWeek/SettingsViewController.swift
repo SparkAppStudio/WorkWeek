@@ -101,7 +101,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     }
 
     @IBAction func didTapNotifications(_ segment: UISegmentedControl) {
-        RealmManager.shared.updateNotificationsChoice(for: user, with: segment.choice)
+        DataStore.shared.updateNotificationsChoice(for: user, with: segment.choice)
     }
 
     func configureSelectedButtons(with days: User.Weekdays) {
@@ -158,7 +158,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
             updated.remove(.saturday)
         }
 
-        RealmManager.shared.update(user: user, with: updated)
+        DataStore.shared.update(user: user, with: updated)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

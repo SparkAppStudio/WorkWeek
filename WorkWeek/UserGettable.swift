@@ -12,8 +12,8 @@ protocol UserGettable {
 
 extension UserGettable {
     func getUserFromRealm() -> User? {
-        RealmManager.shared.fetchOrCreateUser()
-        return RealmManager.shared.queryAllObjects(ofType: User.self).first
+        DataStore.shared.fetchOrCreateUser()
+        return DataStore.shared.queryAllObjects(ofType: User.self).first
     }
 
     func showErrorAlert() {
