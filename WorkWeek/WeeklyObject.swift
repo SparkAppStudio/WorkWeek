@@ -9,7 +9,6 @@ class WeeklyObject: Object {
 
     @objc dynamic var weekAndTheYear: String?
     let dailyObjects = List<DailyObject>()
-
     var totalWorkTime: TimeInterval {
         return dailyObjects.reduce(0.0) { (sum, daily) in
             return sum + daily.completedWorkTime
