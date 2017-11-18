@@ -9,20 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeeklyGraphView" customModule="WorkWeek" customModuleProvider="target">
-            <connections>
-                <outlet property="fridayView" destination="laQ-nk-k81" id="EB0-DE-gH9"/>
-                <outlet property="graphStackView" destination="Mp1-Dh-xiG" id="IEu-wI-j96"/>
-                <outlet property="mondayView" destination="55e-LQ-WsH" id="cyx-ag-RHl"/>
-                <outlet property="saturdayView" destination="AFn-4z-SKs" id="5Us-wa-ROC"/>
-                <outlet property="sundayView" destination="HSe-AE-sgN" id="0kA-bI-rB1"/>
-                <outlet property="thursdayView" destination="Qda-g3-b74" id="hOh-VG-UIL"/>
-                <outlet property="tuesdayView" destination="iaK-63-WEI" id="CI2-1N-2jp"/>
-                <outlet property="wednesdayView" destination="K0M-hd-AXd" id="76r-la-dt0"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WeeklyGraphCell" customModule="WorkWeek" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WeeklyGraphView" customModule="WorkWeek" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -136,16 +125,42 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3MM-LC-yar" customClass="GraphTargetLine" customModule="WorkWeek" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="384"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="3MM-LC-yar" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3EN-1X-bW1"/>
+                <constraint firstItem="3MM-LC-yar" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="5fi-bi-wDg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Mp1-Dh-xiG" secondAttribute="bottom" id="8gm-CH-eyc"/>
                 <constraint firstAttribute="trailing" secondItem="Mp1-Dh-xiG" secondAttribute="trailing" id="TAh-i6-rHI"/>
                 <constraint firstItem="Mp1-Dh-xiG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="UZS-lw-57l"/>
                 <constraint firstItem="Mp1-Dh-xiG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="WaM-Fu-Ubd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3MM-LC-yar" secondAttribute="trailing" id="abs-qn-hOZ"/>
+                <constraint firstItem="3MM-LC-yar" firstAttribute="bottom" secondItem="HSe-AE-sgN" secondAttribute="bottom" id="spm-mT-1g8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="fridayView" destination="laQ-nk-k81" id="WLq-D9-M08"/>
+                <outlet property="graphStackView" destination="Mp1-Dh-xiG" id="gyt-ye-jNu"/>
+                <outlet property="graphTargetLine" destination="3MM-LC-yar" id="BOZ-Qt-JYa"/>
+                <outlet property="mondayView" destination="55e-LQ-WsH" id="BdK-yY-Pae"/>
+                <outlet property="saturdayView" destination="AFn-4z-SKs" id="UcM-a1-TOl"/>
+                <outlet property="sundayView" destination="HSe-AE-sgN" id="iXo-5K-nkG"/>
+                <outlet property="thursdayView" destination="Qda-g3-b74" id="f3J-w1-9Cp"/>
+                <outlet property="tuesdayView" destination="iaK-63-WEI" id="INN-s8-HLS"/>
+                <outlet property="wednesdayView" destination="K0M-hd-AXd" id="RId-iy-Shm"/>
+                <outletCollection property="dayLabels" destination="a8h-RZ-AcG" collectionClass="NSMutableArray" id="RRn-K4-JnO"/>
+                <outletCollection property="dayLabels" destination="Ga9-gV-0rr" collectionClass="NSMutableArray" id="PQH-4q-xcH"/>
+                <outletCollection property="dayLabels" destination="zN5-Wo-eou" collectionClass="NSMutableArray" id="eQP-mq-MXr"/>
+                <outletCollection property="dayLabels" destination="Wci-51-gH7" collectionClass="NSMutableArray" id="pYJ-hx-Zpb"/>
+                <outletCollection property="dayLabels" destination="Kyb-Sk-pcL" collectionClass="NSMutableArray" id="8os-rO-Kfh"/>
+                <outletCollection property="dayLabels" destination="fe4-Uv-1Ra" collectionClass="NSMutableArray" id="cC2-6E-QUF"/>
+                <outletCollection property="dayLabels" destination="IBk-Ad-H9B" collectionClass="NSMutableArray" id="2jc-ZU-AnG"/>
+            </connections>
         </view>
     </objects>
 </document>

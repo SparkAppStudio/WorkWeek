@@ -6,6 +6,7 @@ import UIKit
 
 class WeeklyGraphView: UIView {
 
+    @IBOutlet var dayLabels: [UILabel]!
     @IBOutlet weak var graphTargetLine: GraphTargetLine!
     @IBOutlet weak var graphStackView: UIStackView!
     @IBOutlet weak var sundayView: ProgressStripeView!
@@ -16,11 +17,17 @@ class WeeklyGraphView: UIView {
     @IBOutlet weak var fridayView: ProgressStripeView!
     @IBOutlet weak var saturdayView: ProgressStripeView!
 
-    override func draw(_ rect: CGRect) {
-        drawSparkRect(graphStackView.frame, color: UIColor.darkContent(), xInset: -20, yInset: -20, cornerRadius: rect.getRoundedCorner())
-    }
+//    override func draw(_ rect: CGRect) {
+//        drawSparkRect(graphStackView.frame, color: UIColor.darkContent(), xInset: -20, yInset: -20, cornerRadius: rect.getRoundedCorner())
+//    }
 
-    func configure(_ weeklyGraphViewModel: WeeklyGraphViewModel) {
+    func configure(_ weeklyGraphViewModel: 
+        WeeklyGraphViewModel) {
+        backgroundColor = UIColor.themeBackground()
+        for label in dayLabels {
+            label.textColor = UIColor.themeText()
+        }
+
         sundayView.percentage = weeklyGraphViewModel.sundayPercent
         mondayView.percentage = weeklyGraphViewModel.mondayPercent
         tuesdayView.percentage = weeklyGraphViewModel.tuesdayPercent

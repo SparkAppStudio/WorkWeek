@@ -22,12 +22,13 @@ class GraphTargetLine: UIView {
 
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()!
-        context.setLineWidth(3)
+        context.setLineWidth(1)
         context.setStrokeColor(UIColor.white.cgColor)
         let myHeight = rect.height
         let lineHeight = myHeight * (1.0 - CGFloat(percentage))
         context.move(to: CGPoint(x: 0, y: lineHeight))
         context.addLine(to: CGPoint(x: rect.width, y: lineHeight))
+        context.setSparkShadow()
         context.strokePath()
     }
 }

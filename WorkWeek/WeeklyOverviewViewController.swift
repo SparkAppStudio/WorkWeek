@@ -32,11 +32,11 @@ class WeeklyOverviewViewController: MXSegmentedPagerController {
         super.viewDidLoad()
         setTheme()
 
-//        let nib = UINib(nibName: "WeeklyGraphView", bundle: nil)
-//        let headerView = nib.instantiate(withOwner: WeeklyGraphView.self, options: nil)[0]
+        let nib = UINib(nibName: "WeeklyGraphView", bundle: nil)
+        let headerView = nib.instantiate(withOwner: WeeklyGraphView.self, options: nil)[0] as? WeeklyGraphView
+        let viewModel = WeeklyGraphViewModel.init(weekObject)
 
-//        headerView.setupUI(weekObject.weekDaysWorkingPercentage)
-        let headerView = UIView()
+        headerView?.configure(viewModel)
 
         // Parallax Header
         segmentedPager.parallaxHeader.view = headerView

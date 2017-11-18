@@ -10,11 +10,11 @@ class ProgressStripeView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
     }
 
     override func draw(_ rect: CGRect) {

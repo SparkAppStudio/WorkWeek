@@ -9,7 +9,8 @@ import Reusable
 @IBDesignable class CountdownTableViewCell: UITableViewCell, Reusable {
 
     // MARK: - IBs
-
+    @IBOutlet var dayLabels: [UILabel]!
+    
     @IBOutlet weak var timeFrameLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
 
@@ -31,6 +32,11 @@ import Reusable
         backgroundColor = UIColor.clear
         timeFrameLabel.text = viewModel.timeFrameText
         hoursLabel.text = viewModel.hoursText
+        timeFrameLabel.textColor = UIColor.themeText()
+        hoursLabel.textColor = UIColor.workBlue()
+        for label in dayLabels {
+            label.textColor = UIColor.themeText()
+        }
 
         sundayView.percentage = viewModel.sundayPercent
         mondayView.percentage = viewModel.mondayPercent
