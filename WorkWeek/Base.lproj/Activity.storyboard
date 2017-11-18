@@ -96,7 +96,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountdownTableViewCell" rowHeight="150" id="uSR-YL-dT7" customClass="CountdownTableViewCell" customModule="WorkWeek" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CountdownTableViewCell" rowHeight="150" id="uSR-YL-dT7" customClass="CountdownTableViewCell" customModule="WorkWeek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="419" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uSR-YL-dT7" id="xFB-R1-z83">
@@ -269,6 +269,7 @@
                     <connections>
                         <outlet property="countdownTimeLabel" destination="NFm-kW-Mhx" id="2HG-9l-YdB"/>
                         <outlet property="countdownView" destination="yyL-p9-nkA" id="8yh-ga-5Rk"/>
+                        <outlet property="ringTrailingConstraint" destination="vTI-1d-aTi" id="2rH-Ai-MEl"/>
                         <outlet property="tableView" destination="Iay-aC-BGs" id="3n1-lc-UYd"/>
                         <outlet property="weekCountdownTimeLabel" destination="7xH-mL-DWh" id="fnM-bB-fOB"/>
                     </connections>

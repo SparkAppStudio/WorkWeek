@@ -27,6 +27,8 @@ final class CountdownViewController: UIViewController {
     private var countdownTVCIdentifier = "WeeklyGraphCell"
 
     // MARK: IBOutlets
+
+    @IBOutlet var ringTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var countdownView: CountdownRingView!
     @IBOutlet weak var countdownTimeLabel: UILabel!
     @IBOutlet weak var weekCountdownTimeLabel: UILabel!
@@ -120,7 +122,17 @@ final class CountdownViewController: UIViewController {
     }
 }
 
+extension CountdownViewController: MarginProvider {
+    var margin: CGFloat {
+        return ringTrailingConstraint.constant
+    }
+}
+
 extension CountdownViewController: ActivityStoryboard { }
+
+protocol MarginProvider: class {
+    var margin: CGFloat { get }
+}
 
 class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
 
@@ -128,10 +140,13 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     private var countdownTVCIdentifier = "CountdownTableViewCell"
     var results: [WeeklyObject]
     var action: ((WeeklyObject) -> Void)
+    weak var marginProvider: MarginProvider?
 
-    init(with weeklyObjects: [WeeklyObject], action: @escaping ((WeeklyObject) -> Void)) {
+
+    init(with weeklyObjects: [WeeklyObject], marginProvider: MarginProvider, action: @escaping ((WeeklyObject) -> Void)) {
         self.results = weeklyObjects.reversed()
         self.action = action
+        self.marginProvider = marginProvider
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -141,7 +156,9 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: countdownTVCIdentifier,
                                                  for: indexPath) as! CountdownTableViewCell // swiftlint:disable:this force_cast
+
         cell.configure(results[indexPath.row])
+        cell.margin = marginProvider?.margin ?? 36
         return cell
     }
 

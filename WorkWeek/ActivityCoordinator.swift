@@ -48,6 +48,7 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
         countdownVC.delegate = self
         let weeks = RealmManager.shared.queryAllObjects(ofType: WeeklyObject.self)
         countdownVC.tableViewData = CountDownTableViewDSD(with: weeks,
+                                                          marginProvider: countdownVC,
                                                           action: showWeeklyViewController)
         #if DEBUG
             countdownVC.debugDelegate = self
