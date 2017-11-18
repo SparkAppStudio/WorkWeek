@@ -114,8 +114,9 @@ final class CountdownViewController: UIViewController {
     }
 
     private func registerNib() {
-        let nib = UINib(nibName: "WeeklyGraphCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: countdownTVCIdentifier)
+//        let nib = UINib(nibName: "WeeklyGraphCell", bundle: nil)
+//        tableView.register(nib, forCellReuseIdentifier: countdownTVCIdentifier)
+        tableView.register(CountdownTableViewCell.self, forCellReuseIdentifier: countdownTVCIdentifier)
     }
 }
 
@@ -124,7 +125,7 @@ extension CountdownViewController: ActivityStoryboard { }
 class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Variables
-    private var countdownTVCIdentifier = "WeeklyGraphCell"
+    private var countdownTVCIdentifier = "CountdownTableViewCell"
     var results: [WeeklyObject]
     var action: ((WeeklyObject) -> Void)
 
@@ -139,7 +140,7 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: countdownTVCIdentifier,
-                                                 for: indexPath) as! WeeklyGraphCell // swiftlint:disable:this force_cast
+                                                 for: indexPath) as! CountdownTableViewCell // swiftlint:disable:this force_cast
         cell.configure(results[indexPath.row])
         return cell
     }
@@ -150,25 +151,6 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
-    }
-}
-
-class CountDownTableViewCell: UITableViewCell, Reusable {
-    lazy var hoursFormatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour]
-        return formatter
-    }()
-
-    @IBOutlet weak var totalHoursLabel: UILabel!
-
-    func configure(with weeklyObject: WeeklyObject) {
-        let totalTimeInterval = weeklyObject.totalWorkTime
-        guard let formattedString = hoursFormatter.string(from: totalTimeInterval) else {
-            assertionFailure("Failed to get hours with given time interval")
-            return
-        }
-        totalHoursLabel.text = formattedString
     }
 }
 

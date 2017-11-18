@@ -82,6 +82,7 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
 
     func showWeeklyViewController(for week: WeeklyObject) {
         let weeklyVC = WeeklyOverviewViewController(nibName: nil, bundle: nil)
+        weeklyVC.weekObject = week
         navigationController.pushViewController(weeklyVC, animated: true)
     }
 

@@ -58,6 +58,7 @@
 		C3C760A81F085AAA00F5C773 /* NavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */; };
 		C3D2F8101FBA7E150098458C /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2F80F1FBA7E150098458C /* ThemeButton.swift */; };
 		C3D2F8121FBA95480098458C /* WeeklyGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3D2F8111FBA95480098458C /* WeeklyGraphView.xib */; };
+		C3D2F8141FBA99FD0098458C /* WeeklyGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2F8131FBA99FD0098458C /* WeeklyGraphView.swift */; };
 		C3DEA7271F14850E001F2696 /* ActivityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */; };
 		C3FC4D3D1FB7C7C3000BB303 /* CountdownRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */; };
 		D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */; };
@@ -71,8 +72,6 @@
 		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
 		D1C003CC1FB7C5230045139F /* ProgressStripeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */; };
-		D1C0468B1FB77FC900DADF3B /* WeeklyGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C046891FB77FC900DADF3B /* WeeklyGraphCell.swift */; };
-		D1C0468D1FB77FC900DADF3B /* WeeklyGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C0468A1FB77FC900DADF3B /* WeeklyGraphCell.xib */; };
 		D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +142,7 @@
 		C3C760A71F085AAA00F5C773 /* NavigationController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		C3D2F80F1FBA7E150098458C /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
 		C3D2F8111FBA95480098458C /* WeeklyGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeeklyGraphView.xib; sourceTree = "<group>"; };
+		C3D2F8131FBA99FD0098458C /* WeeklyGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyGraphView.swift; sourceTree = "<group>"; };
 		C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCoordinator.swift; sourceTree = "<group>"; };
 		C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownRingView.swift; sourceTree = "<group>"; };
 		D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -156,8 +156,6 @@
 		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStripeView.swift; sourceTree = "<group>"; };
-		D1C046891FB77FC900DADF3B /* WeeklyGraphCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyGraphCell.swift; sourceTree = "<group>"; };
-		D1C0468A1FB77FC900DADF3B /* WeeklyGraphCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeeklyGraphCell.xib; sourceTree = "<group>"; };
 		D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -353,27 +351,18 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
-		D1C0468F1FB77FD700DADF3B /* NewCountdownTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				D1C046891FB77FC900DADF3B /* WeeklyGraphCell.swift */,
-				D1C0468A1FB77FC900DADF3B /* WeeklyGraphCell.xib */,
-			);
-			name = NewCountdownTableViewCell;
-			sourceTree = "<group>";
-		};
 		D1CA47011EE34D9F003628FF /* Activity */ = {
 			isa = PBXGroup;
 			children = (
-				D1C0468F1FB77FD700DADF3B /* NewCountdownTableViewCell */,
-				52A375491F906C2100523431 /* CountdownTableViewCell.swift */,
 				C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */,
 				C3D2F8111FBA95480098458C /* WeeklyGraphView.xib */,
+				C3D2F8131FBA99FD0098458C /* WeeklyGraphView.swift */,
 				C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */,
 				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
 				C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */,
 				C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */,
 				5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */,
+				52A375491F906C2100523431 /* CountdownTableViewCell.swift */,
 				D1102CE61F00BA4E006A0E2F /* DailyCollectionView */,
 			);
 			name = Activity;
@@ -478,7 +467,6 @@
 				5287CA401EDCF91E00E71CE8 /* LaunchScreen.storyboard in Resources */,
 				C362A4071EE34EA200AB9830 /* Onboarding.storyboard in Resources */,
 				5287CA3D1EDCF91E00E71CE8 /* Assets.xcassets in Resources */,
-				D1C0468D1FB77FC900DADF3B /* WeeklyGraphCell.xib in Resources */,
 				5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */,
 				C3D2F8121FBA95480098458C /* WeeklyGraphView.xib in Resources */,
 				526799121EE349A500F41E01 /* Settings.storyboard in Resources */,
@@ -593,7 +581,6 @@
 				C3FC4D3D1FB7C7C3000BB303 /* CountdownRingView.swift in Sources */,
 				52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */,
 				C309407B1F7DB7D200447E65 /* (null) in Sources */,
-				D1C0468B1FB77FC900DADF3B /* WeeklyGraphCell.swift in Sources */,
 				5232AC6C1F466EA700B72E2F /* GradientBackgroundView.swift in Sources */,
 				526E50761EF6CE3C0066F043 /* CrashReporting.swift in Sources */,
 				521806791F40CDC80079AFD4 /* Event.swift in Sources */,
@@ -611,6 +598,7 @@
 				5277676C1F4DCA3D00062125 /* UserGettable.swift in Sources */,
 				526799141EE3555600F41E01 /* SettingsViewController.swift in Sources */,
 				D1C003CC1FB7C5230045139F /* ProgressStripeView.swift in Sources */,
+				C3D2F8141FBA99FD0098458C /* WeeklyGraphView.swift in Sources */,
 				C362A4091EE3517800AB9830 /* OnboardPageViewController.swift in Sources */,
 				526E50741EF6CDBC0066F043 /* Dictionary+Extensions.swift in Sources */,
 				D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */,

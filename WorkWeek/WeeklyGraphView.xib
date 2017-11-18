@@ -9,9 +9,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeeklyGraphView" customModule="WorkWeek" customModuleProvider="target">
+            <connections>
+                <outlet property="fridayView" destination="laQ-nk-k81" id="EB0-DE-gH9"/>
+                <outlet property="graphStackView" destination="Mp1-Dh-xiG" id="IEu-wI-j96"/>
+                <outlet property="mondayView" destination="55e-LQ-WsH" id="cyx-ag-RHl"/>
+                <outlet property="saturdayView" destination="AFn-4z-SKs" id="5Us-wa-ROC"/>
+                <outlet property="sundayView" destination="HSe-AE-sgN" id="0kA-bI-rB1"/>
+                <outlet property="thursdayView" destination="Qda-g3-b74" id="hOh-VG-UIL"/>
+                <outlet property="tuesdayView" destination="iaK-63-WEI" id="CI2-1N-2jp"/>
+                <outlet property="wednesdayView" destination="K0M-hd-AXd" id="76r-la-dt0"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WeeklyGraphCell" customModule="WorkWeek" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>

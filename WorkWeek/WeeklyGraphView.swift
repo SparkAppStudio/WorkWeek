@@ -4,13 +4,9 @@
 
 import UIKit
 
-class WeeklyGraphCell: UITableViewCell {
-
-    // MARK: - IBs
+class WeeklyGraphView: UIView {
 
     @IBOutlet weak var graphStackView: UIStackView!
-    @IBOutlet weak var timeFrameLabel: UILabel!
-    @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var sundayView: ProgressStripeView!
     @IBOutlet weak var mondayView: ProgressStripeView!
     @IBOutlet weak var tuesdayView: ProgressStripeView!
@@ -23,12 +19,6 @@ class WeeklyGraphCell: UITableViewCell {
         drawSparkRect(graphStackView.frame, color: UIColor.darkContent(), xInset: -20, yInset: -20, cornerRadius: rect.getRoundedCorner())
     }
 
-    func configure(_ weekObject: WeeklyObject) {
-            timeFrameLabel.text = weekObject.weekAndTheYear
-        hoursLabel.text = "\(Int(weekObject.totalWorkTime)) hours so far"
-        setupUI(weekObject.weekDaysWorkingPercentage)
-    }
-
     func setupUI(_ weekDaysWorkingPercentage: WeekDaysWorkingPercent) {
         sundayView.percentage = weekDaysWorkingPercentage.sundayPercent
         mondayView.percentage = weekDaysWorkingPercentage.mondayPercent
@@ -38,5 +28,6 @@ class WeeklyGraphCell: UITableViewCell {
         fridayView.percentage = weekDaysWorkingPercentage.fridayPercent
         saturdayView.percentage = weekDaysWorkingPercentage.saturdayPercent
     }
-}
 
+
+}
