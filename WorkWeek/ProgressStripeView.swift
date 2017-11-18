@@ -25,7 +25,7 @@ class ProgressStripeView: UIView {
         let div = rect.divided(atDistance: progressHeight, from: CGRectEdge.maxYEdge)
 
         context.clip(to: div.slice)
-
+        context.setSparkShadow()
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let colors: NSArray = [UIColor.dailyGraphGreen().cgColor, UIColor.workBlue().cgColor]
         guard let gradient = CGGradient(colorsSpace: colorSpace,
