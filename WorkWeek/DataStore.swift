@@ -5,7 +5,7 @@
 import Foundation
 import RealmSwift
 
-class RealmManager {
+class DataStore {
 
     static var dateFormatter: DateFormatter = {
         let fmt = DateFormatter()
@@ -14,7 +14,7 @@ class RealmManager {
         return fmt
     }()
 
-    static let shared = RealmManager()
+    static let shared = DataStore()
 
     private var realm: Realm = {
         do {
@@ -123,7 +123,7 @@ class RealmManager {
     }
 
     func dailyPrimaryKeyBased(on date: Date) -> String {
-        return RealmManager.dateFormatter.string(from: date)
+        return DataStore.dateFormatter.string(from: date)
     }
 
     func weeklyPrimaryKeyBased(on date: Date) -> String {

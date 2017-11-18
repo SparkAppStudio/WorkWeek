@@ -67,7 +67,7 @@
 		D16696A41F888A9000D4813E /* MXSegmentedPager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16696A11F888A9000D4813E /* MXSegmentedPager.framework */; };
 		D16696A51F888A9000D4813E /* MXParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16696A21F888A9000D4813E /* MXParallaxHeader.framework */; };
 		D16696A61F888A9000D4813E /* MXPagerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16696A31F888A9000D4813E /* MXPagerView.framework */; };
-		D1B21F941EF521870023D427 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* RealmManager.swift */; };
+		D1B21F941EF521870023D427 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* DataStore.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
 		D1C003CC1FB7C5230045139F /* ProgressStripeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */; };
 		D1C0468B1FB77FC900DADF3B /* WeeklyGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C046891FB77FC900DADF3B /* WeeklyGraphCell.swift */; };
@@ -151,7 +151,7 @@
 		D16696A11F888A9000D4813E /* MXSegmentedPager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXSegmentedPager.framework; path = Carthage/Build/iOS/MXSegmentedPager.framework; sourceTree = "<group>"; };
 		D16696A21F888A9000D4813E /* MXParallaxHeader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXParallaxHeader.framework; path = Carthage/Build/iOS/MXParallaxHeader.framework; sourceTree = "<group>"; };
 		D16696A31F888A9000D4813E /* MXPagerView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXPagerView.framework; path = Carthage/Build/iOS/MXPagerView.framework; sourceTree = "<group>"; };
-		D1B21F931EF521870023D427 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		D1B21F931EF521870023D427 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStripeView.swift; sourceTree = "<group>"; };
 		D1C046891FB77FC900DADF3B /* WeeklyGraphCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyGraphCell.swift; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				52802FE71F285C89009A519B /* LocationDelegate.swift */,
-				D1B21F931EF521870023D427 /* RealmManager.swift */,
+				D1B21F931EF521870023D427 /* DataStore.swift */,
 				D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */,
 				52802FE31F2853CA009A519B /* PushNotificationManager.swift */,
 			);
@@ -574,7 +574,7 @@
 				52802FE41F2853CA009A519B /* PushNotificationManager.swift in Sources */,
 				52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */,
 				D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */,
-				D1B21F941EF521870023D427 /* RealmManager.swift in Sources */,
+				D1B21F941EF521870023D427 /* DataStore.swift in Sources */,
 				C36487ED1F903CE100899118 /* TransparentHeaderTableView.swift in Sources */,
 				D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */,
 				52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */,
