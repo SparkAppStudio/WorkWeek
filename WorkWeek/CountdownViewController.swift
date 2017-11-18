@@ -24,7 +24,6 @@ protocol CountdownData {
 final class CountdownViewController: UIViewController {
 
     // MARK: Variables
-    private var countdownTVCIdentifier = "WeeklyGraphCell"
 
     // MARK: IBOutlets
 
