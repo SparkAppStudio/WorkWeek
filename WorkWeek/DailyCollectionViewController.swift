@@ -76,7 +76,7 @@ class DailyCollectionViewController: UICollectionViewController {
 extension DailyCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dailyObject = RealmManager.shared.queryDailyObject(for: Date())
+        dailyObject = DataStore.shared.queryDailyObject(for: Date())
         return events.count
     }
 

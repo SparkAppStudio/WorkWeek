@@ -20,7 +20,7 @@ final class PushNotificationManager: NSObject {
     let calculator: UserHoursCalculator
 
     init(center: UNUserNotificationCenter = UNUserNotificationCenter.current(),
-         calculator: UserHoursCalculator = RealmManager.shared.getUserCalculator
+         calculator: UserHoursCalculator = DataStore.shared.getUserCalculator
         ) {
         self.center = center
         self.calculator = calculator
