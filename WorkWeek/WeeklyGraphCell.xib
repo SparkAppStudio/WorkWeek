@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="WeeklyGraphCell" rowHeight="180" id="KGk-i7-Jjw" customClass="WeeklyGraphCell" customModule="WorkWeek" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="453" height="195"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="453" height="194.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZAT-4z-wd2">
+                        <rect key="frame" x="44" y="22" width="365" height="150.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="TimeFrameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="176-by-Yag">
+                                <rect key="frame" x="0.0" y="0.0" width="365" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gDf-J4-o7k">
+                                <rect key="frame" x="0.0" y="25" width="365" height="96"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BMm-CD-AcV">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="96"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ji-ff-MBL" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPw-6K-XmJ">
+                                                <rect key="frame" x="0.0" y="85" width="35" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bjt-3l-elE">
+                                        <rect key="frame" x="55" y="0.0" width="35" height="96"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="job-sY-f7A" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iD4-yQ-LdY">
+                                                <rect key="frame" x="0.0" y="85" width="35" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8fw-iP-KbW">
+                                        <rect key="frame" x="110" y="0.0" width="35" height="96"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YU1-VL-XXc" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2F-2D-woq">
+                                                <rect key="frame" x="0.0" y="85" width="35" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6OT-Al-6eA">
+                                        <rect key="frame" x="165" y="0.0" width="35" height="96"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7OU-sC-1de" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZH-jr-3Cv">
+                                                <rect key="frame" x="0.0" y="85" width="35" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gJR-Vf-4MF">
+                                        <rect key="frame" x="220" y="0.0" width="35" height="96"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDe-DW-q6s" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHH-bs-deb">
+                                                <rect key="frame" x="0.0" y="85" width="35" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rOL-Jn-YeN">
+                                        <rect key="frame" x="275" y="0.0" width="35" height="96"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biF-ui-4bd" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDn-jn-j0E">
+                                                <rect key="frame" x="0.0" y="85" width="35" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vsE-ob-FTy">
+                                        <rect key="frame" x="330" y="0.0" width="35" height="96"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8c7-nM-0Wf" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPg-Og-hiQ">
+                                                <rect key="frame" x="0.0" y="85" width="35" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="HoursLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vh4-jf-RvA">
+                                <rect key="frame" x="0.0" y="129" width="365" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.11099479347467422" green="0.51025307178497314" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGC-hI-w1f" customClass="GraphTargetLine" customModule="WorkWeek" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="47" width="453" height="80"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uGC-hI-w1f" firstAttribute="bottom" secondItem="5Ji-ff-MBL" secondAttribute="bottom" id="5Lq-K6-b0Q"/>
+                    <constraint firstItem="uGC-hI-w1f" firstAttribute="top" secondItem="5Ji-ff-MBL" secondAttribute="top" id="BiF-jl-u36"/>
+                    <constraint firstItem="ZAT-4z-wd2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="Cru-jD-SEv"/>
+                    <constraint firstAttribute="trailing" secondItem="ZAT-4z-wd2" secondAttribute="trailing" constant="44" id="Fry-De-HgA"/>
+                    <constraint firstItem="uGC-hI-w1f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NFK-rQ-AEt"/>
+                    <constraint firstItem="ZAT-4z-wd2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="44" id="WX3-ip-bb6"/>
+                    <constraint firstAttribute="bottom" secondItem="ZAT-4z-wd2" secondAttribute="bottom" constant="22" id="a2s-Vw-kHs"/>
+                    <constraint firstAttribute="trailing" secondItem="uGC-hI-w1f" secondAttribute="trailing" id="jea-1f-BXw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="fridayView" destination="biF-ui-4bd" id="vDu-L9-CBX"/>
+                <outlet property="graphStackView" destination="ZAT-4z-wd2" id="VN6-EM-yTk"/>
+                <outlet property="graphTargetLine" destination="uGC-hI-w1f" id="q6q-CZ-ywG"/>
+                <outlet property="hoursLabel" destination="Vh4-jf-RvA" id="lg7-fz-Ysy"/>
+                <outlet property="mondayView" destination="job-sY-f7A" id="fXt-Ao-7Y6"/>
+                <outlet property="saturdayView" destination="8c7-nM-0Wf" id="eMS-ig-gyW"/>
+                <outlet property="sundayView" destination="5Ji-ff-MBL" id="yF5-QP-lz0"/>
+                <outlet property="thursdayView" destination="SDe-DW-q6s" id="w4q-09-Ndt"/>
+                <outlet property="timeFrameLabel" destination="176-by-Yag" id="zWL-b8-zCW"/>
+                <outlet property="tuesdayView" destination="YU1-VL-XXc" id="W1J-OI-Q90"/>
+                <outlet property="wednesdayView" destination="7OU-sC-1de" id="5wM-TT-qbJ"/>
+            </connections>
+            <point key="canvasLocation" x="70.5" y="-3.5"/>
+        </tableViewCell>
+    </objects>
+</document>

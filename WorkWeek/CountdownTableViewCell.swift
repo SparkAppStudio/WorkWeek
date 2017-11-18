@@ -13,6 +13,7 @@ import Reusable
     @IBOutlet weak var timeFrameLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
 
+    @IBOutlet weak var graphTargetLine: GraphTargetLine!
     @IBOutlet weak var graphStackView: UIStackView!
     @IBOutlet weak var sundayView: ProgressStripeView!
     @IBOutlet weak var mondayView: ProgressStripeView!
@@ -26,27 +27,23 @@ import Reusable
         drawSparkRect(rect, color: UIColor.darkContent(), xInset: margin, yInset: margin/2, cornerRadius: rect.getRoundedCorner())
     }
 
-    func configure(_ weekObject: WeeklyObject) {
+    func configure(_ viewModel: WeeklyGraphViewModel) {
         backgroundColor = UIColor.clear
-        timeFrameLabel.text = weekObject.weekAndTheYear
-        hoursLabel.text = "\(Int(weekObject.totalWorkTime)) hours so far"
-        setupUI(weekObject.weekDaysWorkingPercentage)
-    }
+        timeFrameLabel.text = viewModel.timeFrameText
+        hoursLabel.text = viewModel.hoursText
 
-    func setupUI(_ weekDaysWorkingPercentage: WeekDaysWorkingPercent) {
-        sundayView.percentage = weekDaysWorkingPercentage.sundayPercent
-        mondayView.percentage = weekDaysWorkingPercentage.mondayPercent
-        tuesdayView.percentage = weekDaysWorkingPercentage.tuesdayPercent
-        wednesdayView.percentage = weekDaysWorkingPercentage.wednesdayPercent
-        thursdayView.percentage = weekDaysWorkingPercentage.thursdayPercent
-        fridayView.percentage = weekDaysWorkingPercentage.fridayPercent
-        saturdayView.percentage = weekDaysWorkingPercentage.saturdayPercent
+        sundayView.percentage = viewModel.sundayPercent
+        mondayView.percentage = viewModel.mondayPercent
+        tuesdayView.percentage = viewModel.tuesdayPercent
+        wednesdayView.percentage = viewModel.wednesdayPercent
+        thursdayView.percentage = viewModel.thursdayPercent
+        fridayView.percentage = viewModel.fridayPercent
+        saturdayView.percentage = viewModel.saturdayPercent
     }
 }
 
 extension CountdownTableViewCell {
     override func prepareForInterfaceBuilder() {
-        let dummy = WeeklyObject()
-        configure(dummy)
+//        let dummy = WeeklyGraphViewModel.init
     }
 }

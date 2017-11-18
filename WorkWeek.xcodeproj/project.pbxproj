@@ -61,6 +61,7 @@
 		C3D2F8141FBA99FD0098458C /* WeeklyGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2F8131FBA99FD0098458C /* WeeklyGraphView.swift */; };
 		C3DEA7271F14850E001F2696 /* ActivityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */; };
 		C3FC4D3D1FB7C7C3000BB303 /* CountdownRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */; };
+		C3FFB77E1FBFFCC100E8AA43 /* GraphTargetLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFB77D1FBFFCC100E8AA43 /* GraphTargetLine.swift */; };
 		D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */; };
 		D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */; };
 		D1102CEA1F00C085006A0E2F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE91F00C085006A0E2F /* AppConstants.swift */; };
@@ -145,6 +146,7 @@
 		C3D2F8131FBA99FD0098458C /* WeeklyGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyGraphView.swift; sourceTree = "<group>"; };
 		C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCoordinator.swift; sourceTree = "<group>"; };
 		C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownRingView.swift; sourceTree = "<group>"; };
+		C3FFB77D1FBFFCC100E8AA43 /* GraphTargetLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphTargetLine.swift; sourceTree = "<group>"; };
 		D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionHeaderView.swift; sourceTree = "<group>"; };
 		D1102CE91F00C085006A0E2F /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				C3D2F8131FBA99FD0098458C /* WeeklyGraphView.swift */,
 				C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */,
 				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
+				C3FFB77D1FBFFCC100E8AA43 /* GraphTargetLine.swift */,
 				C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */,
 				C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */,
 				5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */,
@@ -557,6 +560,7 @@
 				C3B0C4521EE377180000D097 /* StoryboardProtocols.swift in Sources */,
 				C33DFB8A1F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift in Sources */,
 				C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */,
+				C3FFB77E1FBFFCC100E8AA43 /* GraphTargetLine.swift in Sources */,
 				C3C760A81F085AAA00F5C773 /* NavigationController+Extensions.swift in Sources */,
 				524392FC1F148C4100EEFEA3 /* User.swift in Sources */,
 				521806771F40CD2B0079AFD4 /* WeeklyObject.swift in Sources */,
