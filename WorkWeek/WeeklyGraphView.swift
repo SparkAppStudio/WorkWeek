@@ -4,14 +4,11 @@
 
 import UIKit
 
-class WeeklyGraphCell: UITableViewCell {
+class WeeklyGraphView: UIView {
 
-    // MARK: - IBs
-
+    @IBOutlet var dayLabels: [UILabel]!
     @IBOutlet weak var graphTargetLine: GraphTargetLine!
     @IBOutlet weak var graphStackView: UIStackView!
-    @IBOutlet weak var timeFrameLabel: UILabel!
-    @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var sundayView: ProgressStripeView!
     @IBOutlet weak var mondayView: ProgressStripeView!
     @IBOutlet weak var tuesdayView: ProgressStripeView!
@@ -20,11 +17,12 @@ class WeeklyGraphCell: UITableViewCell {
     @IBOutlet weak var fridayView: ProgressStripeView!
     @IBOutlet weak var saturdayView: ProgressStripeView!
 
-    override func draw(_ rect: CGRect) {
-        drawSparkRect(graphStackView.frame, color: UIColor.darkContent(), xInset: -20, yInset: -20, cornerRadius: 12)
-    }
-
     func configure(_ weeklyGraphViewModel: WeeklyGraphViewModel) {
+        backgroundColor = UIColor.themeBackground()
+        for label in dayLabels {
+            label.textColor = UIColor.themeText()
+        }
+
         sundayView.percentage = weeklyGraphViewModel.sundayPercent
         mondayView.percentage = weeklyGraphViewModel.mondayPercent
         tuesdayView.percentage = weeklyGraphViewModel.tuesdayPercent
@@ -32,8 +30,6 @@ class WeeklyGraphCell: UITableViewCell {
         thursdayView.percentage = weeklyGraphViewModel.thursdayPercent
         fridayView.percentage = weeklyGraphViewModel.fridayPercent
         saturdayView.percentage = weeklyGraphViewModel.saturdayPercent
-        timeFrameLabel.text = weeklyGraphViewModel.timeFrameText
-        hoursLabel.text = weeklyGraphViewModel.hoursText
         graphTargetLine.percentage = weeklyGraphViewModel.graphTargetPercent
     }
 }
@@ -69,6 +65,4 @@ class WeeklyGraphViewModel {
         timeFrameText = weeklyObject.weekAndTheYear ?? ""
         graphTargetPercent = weeklyObject.graphTargetPercentage
     }
-
 }
-

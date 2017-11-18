@@ -10,11 +10,11 @@ class ProgressStripeView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
     }
 
     override func draw(_ rect: CGRect) {
@@ -25,15 +25,18 @@ class ProgressStripeView: UIView {
         let div = rect.divided(atDistance: progressHeight, from: CGRectEdge.maxYEdge)
 
         context.clip(to: div.slice)
-
+        context.setSparkShadow()
+//        context.setFillColor(UIColor.workBlue().cgColor)
+//        context.fill(rect)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let colors: NSArray = [UIColor.dailyGraphGreen().cgColor, UIColor.workBlue().cgColor]
         guard let gradient = CGGradient(colorsSpace: colorSpace,
                                         colors: colors,
                                         locations: [0, 1]) else { return }
-        let startPoint = CGPoint(x: 0, y: 0)
-        let endPoint = CGPoint(x: div.slice.size.width, y: div.slice.size.height)
+        let startPoint = div.slice.origin
+        let endPoint = CGPoint(x: div.slice.origin.x, y: div.slice.size.height)
         context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
+
 
     }
 

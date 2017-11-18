@@ -8,6 +8,8 @@ import MXSegmentedPager
 
 class WeeklyOverviewViewController: MXSegmentedPagerController {
 
+    var weekObject: WeeklyObject!
+
     lazy var controllersArray: [(title: String, controller: UIViewController)] = {
         var array: [(title: String, controller: UIViewController)] = []
         let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -28,14 +30,17 @@ class WeeklyOverviewViewController: MXSegmentedPagerController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTheme()
 
+        let nib = UINib(nibName: "WeeklyGraphView", bundle: nil)
+        let headerView = nib.instantiate(withOwner: WeeklyGraphView.self, options: nil)[0] as? WeeklyGraphView
+        let viewModel = WeeklyGraphViewModel.init(weekObject)
 
-        let nib = UINib(nibName: "ActivityHeaderView", bundle: nil)
-        let headerView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView // swiftlint:disable:this force_cast
+        headerView?.configure(viewModel)
 
         // Parallax Header
         segmentedPager.parallaxHeader.view = headerView
-        segmentedPager.parallaxHeader.mode = MXParallaxHeaderMode.fill
+        segmentedPager.parallaxHeader.mode = MXParallaxHeaderMode.center
         segmentedPager.parallaxHeader.height = 400
         segmentedPager.parallaxHeader.minimumHeight = 0
     }

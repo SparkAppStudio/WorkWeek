@@ -24,9 +24,10 @@ protocol CountdownData {
 final class CountdownViewController: UIViewController {
 
     // MARK: Variables
-    private var countdownTVCIdentifier = "WeeklyGraphCell"
 
     // MARK: IBOutlets
+
+    @IBOutlet var ringTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var countdownView: CountdownRingView!
     @IBOutlet weak var countdownTimeLabel: UILabel!
     @IBOutlet weak var weekCountdownTimeLabel: UILabel!
@@ -34,6 +35,7 @@ final class CountdownViewController: UIViewController {
 
 
     // MARK: IBActions
+
     @IBAction func didTapSettings(_ sender: UIButton) {
         delegate?.countdownPageDidTapSettings()
     }
@@ -53,7 +55,6 @@ final class CountdownViewController: UIViewController {
         tableView.dataSource = tableViewData
         tableView.delegate = tableViewData
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        registerNib()
 
         title = "Count Down"
 
@@ -112,25 +113,33 @@ final class CountdownViewController: UIViewController {
         weekCountdownTimeLabel.text = "\(weekHours) work hours left in the week"
         countdownView.endPercentage = CGFloat(headerData.percentOfWorkRemaining)
     }
+}
 
-    private func registerNib() {
-        let nib = UINib(nibName: "WeeklyGraphCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: countdownTVCIdentifier)
+extension CountdownViewController: MarginProvider {
+    var margin: CGFloat {
+        return ringTrailingConstraint.constant
     }
 }
 
 extension CountdownViewController: ActivityStoryboard { }
 
+protocol MarginProvider: class {
+    var margin: CGFloat { get }
+}
+
 class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Variables
-    private var countdownTVCIdentifier = "WeeklyGraphCell"
+    private var countdownTVCIdentifier = "CountdownTableViewCell"
     var results: [WeeklyObject]
     var action: ((WeeklyObject) -> Void)
+    weak var marginProvider: MarginProvider?
 
-    init(with weeklyObjects: [WeeklyObject], action: @escaping ((WeeklyObject) -> Void)) {
+
+    init(with weeklyObjects: [WeeklyObject], marginProvider: MarginProvider, action: @escaping ((WeeklyObject) -> Void)) {
         self.results = weeklyObjects.reversed()
         self.action = action
+        self.marginProvider = marginProvider
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -139,7 +148,9 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: countdownTVCIdentifier,
-                                                 for: indexPath) as! WeeklyGraphCell // swiftlint:disable:this force_cast
+                                                 for: indexPath) as! CountdownTableViewCell // swiftlint:disable:this force_cast
+        cell.margin = marginProvider?.margin ?? 36
+
         let viewModel = WeeklyGraphViewModel(results[indexPath.row])
         cell.configure(viewModel)
         return cell
@@ -151,25 +162,6 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
-    }
-}
-
-class CountDownTableViewCell: UITableViewCell, Reusable {
-    lazy var hoursFormatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour]
-        return formatter
-    }()
-
-    @IBOutlet weak var totalHoursLabel: UILabel!
-
-    func configure(with weeklyObject: WeeklyObject) {
-        let totalTimeInterval = weeklyObject.totalWorkTime
-        guard let formattedString = hoursFormatter.string(from: totalTimeInterval) else {
-            assertionFailure("Failed to get hours with given time interval")
-            return
-        }
-        totalHoursLabel.text = formattedString
     }
 }
 
