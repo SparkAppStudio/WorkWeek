@@ -36,6 +36,7 @@ final class CountdownViewController: UIViewController {
 
 
     // MARK: IBActions
+
     @IBAction func didTapSettings(_ sender: UIButton) {
         delegate?.countdownPageDidTapSettings()
     }
@@ -55,7 +56,6 @@ final class CountdownViewController: UIViewController {
         tableView.dataSource = tableViewData
         tableView.delegate = tableViewData
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        registerNib()
 
         title = "Count Down"
 
@@ -113,12 +113,6 @@ final class CountdownViewController: UIViewController {
         let weekHours = hoursFormatter.string(from: headerData.timeLeftInWeek)!
         weekCountdownTimeLabel.text = "\(weekHours) work hours left in the week"
         countdownView.endPercentage = CGFloat(headerData.percentOfWorkRemaining)
-    }
-
-    private func registerNib() {
-//        let nib = UINib(nibName: "WeeklyGraphCell", bundle: nil)
-//        tableView.register(nib, forCellReuseIdentifier: countdownTVCIdentifier)
-        tableView.register(CountdownTableViewCell.self, forCellReuseIdentifier: countdownTVCIdentifier)
     }
 }
 
