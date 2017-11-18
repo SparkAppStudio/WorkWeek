@@ -18,14 +18,23 @@ class ProgressStripeView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-        super.draw(rect)
         guard let percent = percentage else { return }
         let context = UIGraphicsGetCurrentContext()!
-        let fillColor = UIColor.homeGreen().cgColor
-        context.setFillColor(fillColor)
+
         let progressHeight = CGFloat(percent) * rect.height
         let div = rect.divided(atDistance: progressHeight, from: CGRectEdge.maxYEdge)
-        context.fill(div.slice)
+
+        context.clip(to: div.slice)
+
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let colors: NSArray = [UIColor.dailyGraphGreen().cgColor, UIColor.workBlue().cgColor]
+        guard let gradient = CGGradient(colorsSpace: colorSpace,
+                                        colors: colors,
+                                        locations: [0, 1]) else { return }
+        let startPoint = CGPoint(x: 0, y: 0)
+        let endPoint = CGPoint(x: div.slice.size.width, y: div.slice.size.height)
+        context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
+
     }
 
 }
