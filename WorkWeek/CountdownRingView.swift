@@ -46,7 +46,7 @@ import UIKit
 
         arcColor.setStroke()
         path.stroke()
-        
+
         context.clearShadow()
     }
 

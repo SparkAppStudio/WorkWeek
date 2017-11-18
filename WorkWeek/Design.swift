@@ -118,7 +118,7 @@ extension UIViewController {
 
 extension UINavigationController {
     func setThemeNavBar() {
-        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.themeText()]
+        let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.themeText()]
         navigationBar.titleTextAttributes = textAttributes
         navigationBar.tintColor = UIColor.themeText()
         setTransparentNavBar()

@@ -10,7 +10,7 @@ import Reusable
 
     // MARK: - IBs
     @IBOutlet var dayLabels: [UILabel]!
-    
+
     @IBOutlet weak var timeFrameLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
 
