@@ -7,7 +7,7 @@ import CoreLocation
 
 struct CountDownHeaderData: CountdownData {
 
-    var calculator: UserHoursCalculator { return RealmManager.shared.getUserCalculator }
+    var calculator: UserHoursCalculator { return DataStore.shared.getUserCalculator }
 
     var timeLeftInDay: TimeInterval {
         return calculator.userTimeLeftToday
@@ -46,7 +46,7 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
         let countdownVC = CountdownViewController.instantiate()
         countdownVC.headerData = CountDownHeaderData()
         countdownVC.delegate = self
-        let weeks = RealmManager.shared.queryAllObjects(ofType: WeeklyObject.self)
+        let weeks = DataStore.shared.queryAllObjects(ofType: WeeklyObject.self)
         countdownVC.tableViewData = CountDownTableViewDSD(with: weeks,
                                                           marginProvider: countdownVC,
                                                           action: showWeeklyViewController)

@@ -42,11 +42,11 @@ extension UINavigationController {
         }
 
         let showAllRealmAction = UIAlertAction(title: "Show Realm Data", style: .default) { (_) in
-            RealmManager.shared.queryAllDailyObjects()
+            DataStore.shared.queryAllDailyObjects()
         }
 
         let removeAllRealmAction = UIAlertAction(title: "Remove Realm Data", style: .default) { (_) in
-            RealmManager.shared.removeAllObjects()
+            DataStore.shared.removeAllObjects()
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
