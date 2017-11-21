@@ -51,7 +51,6 @@ class DailyObject: Object {
             let now = Date()
             let priorDurations = validWorkingDurations.reduce(0) { $0 + $1.interval }
             // The date must exist when creating the DailyObject
-            // TODO: make self.date non-optional
             guard let date = self.date else { return 0.0 }
             guard Calendar.current.isDate(now, inSameDayAs: date) else {
                 // create a 11:59PM date on the DailyObject's date
