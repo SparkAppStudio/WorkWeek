@@ -15,6 +15,12 @@ private struct Pair {
 }
 
 class DailyObject: Object {
+
+    convenience init(date: Date) {
+        self.init()
+        self.date = date
+    }
+
     @objc dynamic var dateString: String?
     @objc dynamic var date: Date?
 
