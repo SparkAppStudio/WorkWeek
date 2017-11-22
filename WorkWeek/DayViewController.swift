@@ -86,7 +86,8 @@ extension DayViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: DayViewController.hourCellID,
             for: indexPath) as! HourTableViewCell //swiftlint:disable:this force_cast
-        cell.configure(event: eventsPerSection[indexPath.section]![indexPath.row])
+        let eventForCell = eventsPerSection[indexPath.section]![indexPath.row]
+        cell.configure(event: eventForCell)
             return cell
     }
 }
