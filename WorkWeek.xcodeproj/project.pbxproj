@@ -71,6 +71,7 @@
 		D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */; };
 		D1102CEA1F00C085006A0E2F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE91F00C085006A0E2F /* AppConstants.swift */; };
 		D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */; };
+		D14D4A001FC4AAC1001924B4 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D49FF1FC4AAC1001924B4 /* Date+Extensions.swift */; };
 		D16696A01F888A7400D4813E /* HMSegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D166969F1F888A7400D4813E /* HMSegmentedControl.framework */; };
 		D16696A41F888A9000D4813E /* MXSegmentedPager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16696A11F888A9000D4813E /* MXSegmentedPager.framework */; };
 		D16696A51F888A9000D4813E /* MXParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16696A21F888A9000D4813E /* MXParallaxHeader.framework */; };
@@ -161,6 +162,7 @@
 		D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionHeaderView.swift; sourceTree = "<group>"; };
 		D1102CE91F00C085006A0E2F /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
+		D14D49FF1FC4AAC1001924B4 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		D166969F1F888A7400D4813E /* HMSegmentedControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HMSegmentedControl.framework; path = Carthage/Build/iOS/HMSegmentedControl.framework; sourceTree = "<group>"; };
 		D16696A11F888A9000D4813E /* MXSegmentedPager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXSegmentedPager.framework; path = Carthage/Build/iOS/MXSegmentedPager.framework; sourceTree = "<group>"; };
 		D16696A21F888A9000D4813E /* MXParallaxHeader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MXParallaxHeader.framework; path = Carthage/Build/iOS/MXParallaxHeader.framework; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				521AF7FA1F21902900C8F707 /* UserDefaults+Extensions.swift */,
 				523ADD211F3B5083005D2830 /* CustomOperators.swift */,
 				D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */,
+				D14D49FF1FC4AAC1001924B4 /* Date+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				524392FC1F148C4100EEFEA3 /* User.swift in Sources */,
 				C33043E61FC4FDC9008F564E /* ThemeLabel.swift in Sources */,
 				521806771F40CD2B0079AFD4 /* WeeklyObject.swift in Sources */,
+				D14D4A001FC4AAC1001924B4 /* Date+Extensions.swift in Sources */,
 				52510E921EFCCAEC006F5C97 /* SettingsMapViewController.swift in Sources */,
 				C34D00101FB833180067698C /* SegmentedControlView.swift in Sources */,
 				52802FE41F2853CA009A519B /* PushNotificationManager.swift in Sources */,

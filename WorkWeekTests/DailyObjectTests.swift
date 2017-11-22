@@ -13,7 +13,7 @@ class DailyObjectTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        dailyObject = DailyObject()
+        dailyObject = DailyObject(date: Date())
     }
 
     override func tearDown() {

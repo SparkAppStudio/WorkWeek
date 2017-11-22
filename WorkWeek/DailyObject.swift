@@ -15,6 +15,12 @@ private struct Pair {
 }
 
 class DailyObject: Object {
+
+    convenience init(date: Date) {
+        self.init()
+        self.date = date
+    }
+
     @objc dynamic var dateString: String?
     @objc dynamic var date: Date?
 
@@ -44,6 +50,14 @@ class DailyObject: Object {
         if isAtWork, let arriveWork = events.last {
             let now = Date()
             let priorDurations = validWorkingDurations.reduce(0) { $0 + $1.interval }
+            // The date must exist when creating the DailyObject
+            guard let date = self.date else { return 0.0 }
+            guard Calendar.current.isDate(now, inSameDayAs: date) else {
+                // create a 11:59PM date on the DailyObject's date
+                let endOfDayDate = date.endOfDay
+                return priorDurations + endOfDayDate.timeIntervalSince(arriveWork.eventTime)
+            }
+            // if now is no longer the same day as the daily object, append a leave work at time 11:59
             return priorDurations + now.timeIntervalSince(arriveWork.eventTime)
         }
         return validWorkingDurations.reduce(0) { $0 + $1.interval }
