@@ -19,4 +19,12 @@ extension Date {
         }
         return endOfDayDate
     }
+
+    var startOfNextDay: Date? {
+        return Calendar.current.date(byAdding: .day, value: 1, to: self)
+    }
+
+    var previousDay: Date? {
+        return Calendar.current.date(byAdding: .day, value: -1, to: self)
+    }
 }

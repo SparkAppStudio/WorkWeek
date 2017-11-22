@@ -66,6 +66,12 @@ class DataStore {
         return queryWeeklyObject(for: lastWeekDate)
     }
 
+    func previousDailyObject(fromDate date: Date) -> DailyObject? {
+        let previousDay = date.previousDay
+        guard let previousDayDate = previousDay else { return nil }
+        return queryDailyObject(for: previousDayDate)
+    }
+
     func queryAllObjects<T: Object>(ofType type: T.Type) -> [T] {
         let allObjects = realm.objects(type)
         Log.log(allObjects.debugDescription)
@@ -84,8 +90,8 @@ class DataStore {
     }
 
     // MARK: - Update Opertions
-    func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvent) {
-        let todayDate = Date()
+    func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvent, _ date: Date?) {
+        let todayDate = date ?? Date()
 
         let todayKey = dailyPrimaryKeyBased(on: todayDate)
         let weeklyKey = weeklyPrimaryKeyBased(on: todayDate)

@@ -30,22 +30,22 @@ class NotificationCenterManager {
 
 
     func postLeaveHomeNotification() {
-        DataStore.shared.saveDataToRealm(for: .leaveHome)
+        DataStore.shared.saveDataToRealm(for: .leaveHome, nil)
         notificationCenter.post(name: .leaveHome)
     }
 
     func postArriveWorkNotification() {
-        DataStore.shared.saveDataToRealm(for: .arriveWork)
+        DataStore.shared.saveDataToRealm(for: .arriveWork, nil)
         notificationCenter.post(name: .arriveWork)
     }
 
     func postLeaveWorkNotification() {
-        DataStore.shared.saveDataToRealm(for: .leaveWork)
+        DataStore.shared.saveDataToRealm(for: .leaveWork, nil)
         notificationCenter.post(name: .leaveWork)
     }
 
     func postArriveHomeNotification() {
-        DataStore.shared.saveDataToRealm(for: .arriveHome)
+        DataStore.shared.saveDataToRealm(for: .arriveHome, nil)
         notificationCenter.post(name: .arriveHome)
     }
 }
