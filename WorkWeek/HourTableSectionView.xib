@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iEQ-jm-s4p" customClass="HourTableSectionView" customModule="WorkWeek" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIk-Vz-dTn">
+                    <rect key="frame" x="16" y="0.0" width="359" height="46"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="tIk-Vz-dTn" firstAttribute="top" secondItem="kAm-1H-HwC" secondAttribute="top" id="95k-qK-1AJ"/>
+                <constraint firstItem="kAm-1H-HwC" firstAttribute="trailing" secondItem="tIk-Vz-dTn" secondAttribute="trailing" id="Bwc-dt-VTF"/>
+                <constraint firstItem="tIk-Vz-dTn" firstAttribute="leading" secondItem="kAm-1H-HwC" secondAttribute="leading" constant="16" id="Zlj-7z-a9z"/>
+                <constraint firstItem="kAm-1H-HwC" firstAttribute="bottom" secondItem="tIk-Vz-dTn" secondAttribute="bottom" id="g36-Gq-mPb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="kAm-1H-HwC"/>
+            <connections>
+                <outlet property="hourLabel" destination="tIk-Vz-dTn" id="03J-Vc-a7L"/>
+            </connections>
+            <point key="canvasLocation" x="-663" y="-130"/>
+        </view>
+    </objects>
+</document>

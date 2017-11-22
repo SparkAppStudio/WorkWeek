@@ -21,7 +21,7 @@ class WeeklyOverviewViewController: MXSegmentedPagerController {
         }
 
         for day in daysOfWeek {
-            addpage(day, controller: DailyCollectionViewController.instantiate())
+            addpage(day, controller: DayViewController())
         }
 
         return array
