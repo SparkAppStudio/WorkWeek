@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Reusable
 
 class DayViewController: UIViewController {
 
@@ -34,7 +35,7 @@ class DayViewController: UIViewController {
 
 }
 
-extension DayViewController: UITableViewDelegate, UITableViewDataSource {
+extension DayViewController: UITableViewDelegate, UITableViewDataSource, Reusable {
     static let hourCellID = "HourTableViewCell"
     static let hourSectionID = "HourTableSectionView"
     static let hoursInDay = 24
@@ -73,8 +74,7 @@ extension DayViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: DayViewController.hourSectionID)
+        let headerView = tableView.dequeueReusableHeaderFooterView(HourTableSectionView.self)
             as! HourTableSectionView //swiftlint:disable:this force_cast
 
         headerView.configure(section: section)
@@ -84,15 +84,14 @@ extension DayViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: DayViewController.hourCellID,
-            for: indexPath) as! HourTableViewCell //swiftlint:disable:this force_cast
+            for: indexPath) as HourTableViewCell
         let eventForCell = eventsPerSection[indexPath.section]![indexPath.row]
         cell.configure(event: eventForCell)
             return cell
     }
 }
 
-class HourTableViewCell: UITableViewCell {
+class HourTableViewCell: UITableViewCell, Reusable {
 
     @IBOutlet weak var eventLabel: ThemeLabel!
 

@@ -3,8 +3,9 @@
 //
 
 import UIKit
+import Reusable
 
-class HourTableSectionView: UITableViewHeaderFooterView {
+class HourTableSectionView: UITableViewHeaderFooterView, Reusable {
     @IBOutlet weak var hourLabel: UILabel!
 
     func configure(section: Int) {
