@@ -72,12 +72,13 @@ class DailyObject: Object {
     }
 
     var completedWorkTime: TimeInterval {
+        let now = Date()
         var totalWorkTime: Double = 0.0
         let validPairsDurations = validWorkingDurations.reduce(0) { $0 + $1.interval }
         totalWorkTime += validPairsDurations
-        totalWorkTime += timeSoFar()
+        totalWorkTime += timeSoFar(nowDate: now)
         totalWorkTime += betweenBeginningOfTheDayAndLeaveWorkDuration()
-        totalWorkTime += betweenArriveWorkAndMidnightDuration()
+        totalWorkTime += betweenArriveWorkAndMidnightDuration(nowDate: now)
         return totalWorkTime
     }
 
@@ -94,8 +95,7 @@ class DailyObject: Object {
 
     // If I work pass midnight tonight, add the time interval between
     // arriveWork and midnight (11:59PM)
-    private func betweenArriveWorkAndMidnightDuration() -> TimeInterval {
-        let now = Date()
+    private func betweenArriveWorkAndMidnightDuration(nowDate: Date = Date()) -> TimeInterval {
         if isAtWork, let arriveWork = events.last {
             // if the last event of the day is arriveWork, and we already past
             // that day, we calculate the duration between arriveWork and 11:59PM
@@ -103,7 +103,7 @@ class DailyObject: Object {
             // we just add the duration between arriveWork and "now" to update
             // the count down view controller
             let endOfDayDate = unWrappedDate.endOfDay
-            let isSameDay = Calendar.current.isDate(now, inSameDayAs: unWrappedDate)
+            let isSameDay = Calendar.current.isDate(nowDate, inSameDayAs: unWrappedDate)
             return isSameDay ? 0.0 : endOfDayDate.timeIntervalSince(arriveWork.eventTime)
         } else {
             return 0.0
@@ -112,33 +112,13 @@ class DailyObject: Object {
 
     // This is where the time accumulates and updates the count down view controller data
     // for the time I am still at work
-    private func timeSoFar() -> TimeInterval {
-        let now = Date()
+    private func timeSoFar(nowDate: Date = Date()) -> TimeInterval {
         if isAtWork, let arriveWork = events.last {
-            let isSameDay = Calendar.current.isDate(now, inSameDayAs: unWrappedDate)
-            return isSameDay ? now.timeIntervalSince(arriveWork.eventTime) : 0.0
+            let isSameDay = Calendar.current.isDate(nowDate, inSameDayAs: unWrappedDate)
+            return isSameDay ? nowDate.timeIntervalSince(arriveWork.eventTime) : 0.0
         } else {
             return 0.0
         }
-    }
-
-    var oldcompletedWorkTime: TimeInterval {
-        if isAtWork, let arriveWork = events.last {
-            let now = Date()
-            let priorDurations = validWorkingDurations.reduce(0) { $0 + $1.interval }
-            // The date must exist when creating the DailyObject
-            guard Calendar.current.isDate(now, inSameDayAs: date!) else {
-                // create a 11:59PM date on the DailyObject's date
-                let endOfDayDate = date!.endOfDay
-                // Check the first event of the next day, if not arriveWork, insert arriveWork
-                // at the start of the next day
-//                insertArriveWorkOnNextDay() // probaly don't want to modify
-                return priorDurations + endOfDayDate.timeIntervalSince(arriveWork.eventTime)
-            }
-            // if now is no longer the same day as the daily object, append a leave work at time 11:59
-            return priorDurations + now.timeIntervalSince(arriveWork.eventTime)
-        }
-        return validWorkingDurations.reduce(0) { $0 + $1.interval }
     }
 
     var weekDay: Int? {
