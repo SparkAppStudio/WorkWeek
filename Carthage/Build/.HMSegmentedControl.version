@@ -1,9 +1,9 @@
 {
-  "commitish" : "7c97e5501100b5389398ea6f2e57ae9785287b9e",
+  "commitish" : "16fad4a78c9cef2db5b1f21975a67dc55b3cc402",
   "iOS" : [
     {
       "name" : "HMSegmentedControl",
-      "hash" : "5bc31b8cc153d92bee7a405c2929caf905772547d82afad1180ce7b9415f78f9"
+      "hash" : "339566d952605c598e0281c864c135e71c68e25dc1b662ee929b2ffdf0401f69"
     }
   ]
 }

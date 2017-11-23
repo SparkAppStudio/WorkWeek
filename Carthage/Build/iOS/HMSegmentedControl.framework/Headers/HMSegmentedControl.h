@@ -49,11 +49,19 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlType) {
 	HMSegmentedControlTypeTextImages
 };
 
+typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
+    HMSegmentedControlImagePositionBehindText,
+    HMSegmentedControlImagePositionLeftOfText,
+    HMSegmentedControlImagePositionRightOfText,
+    HMSegmentedControlImagePositionAboveText,
+    HMSegmentedControlImagePositionBelowText
+};
+
 @interface HMSegmentedControl : UIControl
 
-@property (nonatomic, strong) NSArray *sectionTitles;
-@property (nonatomic, strong) NSArray *sectionImages;
-@property (nonatomic, strong) NSArray *sectionSelectedImages;
+@property (nonatomic, strong) NSArray<NSString *> *sectionTitles;
+@property (nonatomic, strong) NSArray<UIImage *> *sectionImages;
+@property (nonatomic, strong) NSArray<UIImage *> *sectionSelectedImages;
 
 /**
  Provide a block to be executed when selected index is changed.
@@ -159,6 +167,20 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlType) {
 @property (nonatomic, assign) HMSegmentedControlBorderType borderType;
 
 /**
+ Specifies the image position relative to the text. Only applicable for HMSegmentedControlTypeTextImages
+ 
+ Default is `HMSegmentedControlImagePositionBehindText`
+ */
+@property (nonatomic) HMSegmentedControlImagePosition imagePosition;
+
+/**
+ Specifies the distance between the text and the image. Only applicable for HMSegmentedControlTypeTextImages
+ 
+ Default is `0,0`
+ */
+@property (nonatomic) CGFloat textImageSpacing;
+
+/**
  Specifies the border color.
  
  Default is `[UIColor blackColor]`
@@ -186,6 +208,8 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlType) {
  Default is NO. Set to YES to show a vertical divider between the segments.
  */
 @property(nonatomic, getter = isVerticalDividerEnabled) BOOL verticalDividerEnabled;
+
+@property (nonatomic, getter=shouldStretchSegmentsToScreenSize) BOOL stretchSegmentsToScreenSize;
 
 /**
  Index of the currently selected segment.
@@ -228,9 +252,9 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlType) {
  */
 @property (nonatomic) BOOL shouldAnimateUserSelection;
 
-- (id)initWithSectionTitles:(NSArray *)sectiontitles;
-- (id)initWithSectionImages:(NSArray *)sectionImages sectionSelectedImages:(NSArray *)sectionSelectedImages;
-- (instancetype)initWithSectionImages:(NSArray *)sectionImages sectionSelectedImages:(NSArray *)sectionSelectedImages titlesForSections:(NSArray *)sectiontitles;
+- (id)initWithSectionTitles:(NSArray<NSString *> *)sectiontitles;
+- (id)initWithSectionImages:(NSArray<UIImage *> *)sectionImages sectionSelectedImages:(NSArray<UIImage *> *)sectionSelectedImages;
+- (instancetype)initWithSectionImages:(NSArray<UIImage *> *)sectionImages sectionSelectedImages:(NSArray<UIImage *> *)sectionSelectedImages titlesForSections:(NSArray<NSString *> *)sectiontitles;
 - (void)setSelectedSegmentIndex:(NSUInteger)index animated:(BOOL)animated;
 - (void)setIndexChangeBlock:(IndexChangeBlock)indexChangeBlock;
 - (void)setTitleFormatter:(HMTitleFormatterBlock)titleFormatter;
