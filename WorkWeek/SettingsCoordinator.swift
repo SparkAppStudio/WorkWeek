@@ -56,7 +56,7 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
     }
 
     func configureNotificationsForUserChanges() {
-        userUpdatedToken = user.addNotificationBlock { [weak self] change in
+        userUpdatedToken = user.observe { [weak self] change in
             switch change {
             case .change(let properties):
                 if let hours = properties.first(where: { $0.name == "hoursInWorkDay" }),
