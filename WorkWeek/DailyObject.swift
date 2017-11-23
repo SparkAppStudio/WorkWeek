@@ -85,9 +85,9 @@ class DailyObject: Object {
     // If I worked past midnight last night, add the time interval between
     // beginning of the day (12:00AM) until I leaveWork
     private func betweenBeginningOfTheDayAndLeaveWorkDuration() -> TimeInterval {
-        if wasAtWork, let leftWork = events.first {
+        if wasAtWork, let leaveWork = events.first {
             let startOfDay = unWrappedDate.startOfDay
-            return leftWork.eventTime.timeIntervalSince(startOfDay)
+            return leaveWork.eventTime.timeIntervalSince(startOfDay)
         } else {
             return 0.0
         }
@@ -97,11 +97,8 @@ class DailyObject: Object {
     // arriveWork and midnight (11:59PM)
     private func betweenArriveWorkAndMidnightDuration(nowDate: Date = Date()) -> TimeInterval {
         if isAtWork, let arriveWork = events.last {
-            // if the last event of the day is arriveWork, and we already past
-            // that day, we calculate the duration between arriveWork and 11:59PM
-            // else, which means that we are at work and haven't pass midnight
-            // we just add the duration between arriveWork and "now" to update
-            // the count down view controller
+            // if the last event of the day is arriveWork, and we already work past
+            // that day, we then calculate the duration between arriveWork and 11:59PM
             let endOfDayDate = unWrappedDate.endOfDay
             let isSameDay = Calendar.current.isDate(nowDate, inSameDayAs: unWrappedDate)
             return isSameDay ? 0.0 : endOfDayDate.timeIntervalSince(arriveWork.eventTime)
@@ -111,7 +108,7 @@ class DailyObject: Object {
     }
 
     // This is where the time accumulates and updates the count down view controller data
-    // for the time I am still at work
+    // for the time that I am still at work
     private func timeSoFar(nowDate: Date = Date()) -> TimeInterval {
         if isAtWork, let arriveWork = events.last {
             let isSameDay = Calendar.current.isDate(nowDate, inSameDayAs: unWrappedDate)
