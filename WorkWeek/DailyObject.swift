@@ -16,13 +16,18 @@ private struct Pair {
 
 class DailyObject: Object {
 
-    convenience init(date: Date) {
+    convenience init(date: Date = Date()) {
         self.init()
         self.date = date
     }
 
     @objc dynamic var dateString: String?
     @objc dynamic var date: Date? // TODO: Write a migrate to make date non-optional
+
+    private var unWrappedDate: Date {
+        // TODO: Will remove this after figure out Realm data migration
+        return date!
+    }
 
     private let allEventsRaw = List<Event>()
 
@@ -60,45 +65,73 @@ class DailyObject: Object {
         return lastEvent.kind == NotificationCenter.CheckInEvent.arriveWork
     }
 
+    // if the first event of the day is leftWork
+    // and the last event of the previous day is arrive work
+    // that means I worked past midnight last night
     var wasAtWork: Bool {
-        // 2, first event of the day is arriveHome or leftWork (not arriveWork)
-        // and the last event of the previous day is arrive work
         let firstEvent = events.first
-        let previousDailyObject = DataStore.shared.previousDailyObject(fromDate: date!)
+        let previousDailyObject = DataStore.shared.previousDailyObject(fromDate: unWrappedDate)
         let lastEventOfPreviousDay = previousDailyObject?.events.last
 
-//        let isFristEventArriveHome = firstEvent?.kind == .arriveHome
-        let isFirstEventLeaveWork = firstEvent?.kind == .leaveWork
+        let isFirstEventOfTheDayLeaveWork = firstEvent?.kind == .leaveWork
         let isLastEventOfPreviousDayArriveWork = lastEventOfPreviousDay?.kind == .arriveWork
 
-        if (/*isFristEventArriveHome ||*/isFirstEventLeaveWork) && isLastEventOfPreviousDayArriveWork {
+        if isFirstEventOfTheDayLeaveWork && isLastEventOfPreviousDayArriveWork {
             return true
         }
         return false
     }
 
     var completedWorkTime: TimeInterval {
-        let now = Date()
         var totalWorkTime: Double = 0.0
-        let priorDurations = validWorkingDurations.reduce(0) { $0 + $1.interval }
-        totalWorkTime += priorDurations
-
-        if wasAtWork, let leftWork = events.first {
-            let startOfDay = date!.startOfDay
-            totalWorkTime += leftWork.eventTime.timeIntervalSince(startOfDay)
-        }
-
-        if isAtWork, let arriveWork = events.last {
-            if !Calendar.current.isDate(now, inSameDayAs: date!) {
-                let endOfDayDate = date!.endOfDay
-                totalWorkTime += endOfDayDate.timeIntervalSince(arriveWork.eventTime)
-            } else {
-                totalWorkTime += now.timeIntervalSince(arriveWork.eventTime)
-            }
-        }
+        let validPairsDurations = validWorkingDurations.reduce(0) { $0 + $1.interval }
+        totalWorkTime += validPairsDurations
+        totalWorkTime += timeSoFar()
+        totalWorkTime += betweenBeginningOfTheDayAndLeaveWorkDuration()
+        totalWorkTime += betweenArriveWorkAndMidnightDuration()
         return totalWorkTime
     }
 
+    // If I worked past midnight last night, add the time interval between
+    // beginning of the day (12:00AM) until I leaveWork
+    private func betweenBeginningOfTheDayAndLeaveWorkDuration() -> TimeInterval {
+        if wasAtWork, let leftWork = events.first {
+            let startOfDay = unWrappedDate.startOfDay
+            return leftWork.eventTime.timeIntervalSince(startOfDay)
+        } else {
+            return 0.0
+        }
+    }
+
+    // If I work pass midnight tonight, add the time interval between
+    // arriveWork and midnight (11:59PM)
+    private func betweenArriveWorkAndMidnightDuration() -> TimeInterval {
+        let now = Date()
+        if isAtWork, let arriveWork = events.last {
+            // if the last event of the day is arriveWork, and we already past
+            // that day, we calculate the duration between arriveWork and 11:59PM
+            // else, which means that we are at work and haven't pass midnight
+            // we just add the duration between arriveWork and "now" to update
+            // the count down view controller
+            let endOfDayDate = unWrappedDate.endOfDay
+            let isSameDay = Calendar.current.isDate(now, inSameDayAs: unWrappedDate)
+            return isSameDay ? 0.0 : endOfDayDate.timeIntervalSince(arriveWork.eventTime)
+        } else {
+            return 0.0
+        }
+    }
+
+    // This is where the time accumulates and updates the count down view controller data
+    // for the time I am still at work
+    private func timeSoFar() -> TimeInterval {
+        let now = Date()
+        if isAtWork, let arriveWork = events.last {
+            let isSameDay = Calendar.current.isDate(now, inSameDayAs: unWrappedDate)
+            return isSameDay ? now.timeIntervalSince(arriveWork.eventTime) : 0.0
+        } else {
+            return 0.0
+        }
+    }
 
     var oldcompletedWorkTime: TimeInterval {
         if isAtWork, let arriveWork = events.last {
