@@ -1,0 +1,96 @@
+BCSymbolMap Version: 2.0
+-[MXSegmentedPager reloadData]
+___30-[MXSegmentedPager reloadData]_block_invoke
+___copy_helper_block_
+___destroy_helper_block_
+-[MXSegmentedPager scrollToTopAnimated:]
+-[MXSegmentedPager layoutSubviews]
+-[MXSegmentedPager layoutContentView]
+-[MXSegmentedPager layoutSegmentedControl]
+-[MXSegmentedPager layoutPager]
+-[MXSegmentedPager contentView]
+-[MXSegmentedPager segmentedControl]
+-[MXSegmentedPager pager]
+-[MXSegmentedPager selectedPage]
+-[MXSegmentedPager setSegmentedControlPosition:]
+-[MXSegmentedPager setSegmentedControlEdgeInsets:]
+-[MXSegmentedPager scrollViewDidScroll:]
+-[MXSegmentedPager scrollViewDidEndDragging:willDecelerate:]
+-[MXSegmentedPager scrollView:shouldScrollWithSubView:]
+-[MXSegmentedPager scrollViewShouldScrollToTop:]
+-[MXSegmentedPager pageControlValueChanged:]
+-[MXSegmentedPager pagerView:willMoveToPage:atIndex:]
+-[MXSegmentedPager pagerView:didMoveToPage:atIndex:]
+-[MXSegmentedPager pagerView:willDisplayPage:atIndex:]
+-[MXSegmentedPager pagerView:didEndDisplayingPage:atIndex:]
+-[MXSegmentedPager numberOfPagesInPagerView:]
+-[MXSegmentedPager pagerView:viewForPageAtIndex:]
+-[MXSegmentedPager changedToIndex:]
+-[MXSegmentedPager delegate]
+-[MXSegmentedPager setDelegate:]
+-[MXSegmentedPager dataSource]
+-[MXSegmentedPager setDataSource:]
+-[MXSegmentedPager segmentedControlPosition]
+-[MXSegmentedPager segmentedControlEdgeInsets]
+-[MXSegmentedPager setContentView:]
+-[MXSegmentedPager setSegmentedControl:]
+-[MXSegmentedPager setPager:]
+-[MXSegmentedPager .cxx_destruct]
+-[MXSegmentedPager(ParallaxHeader) bounces]
+-[MXSegmentedPager(ParallaxHeader) setBounces:]
+-[MXSegmentedPager(ParallaxHeader) parallaxHeader]
+_OBJC_IVAR_$_MXSegmentedPager._count
+_OBJC_IVAR_$_MXSegmentedPager._controlHeight
+___block_descriptor_tmp
+_OBJC_IVAR_$_MXSegmentedPager._contentView
+_OBJC_IVAR_$_MXSegmentedPager._segmentedControl
+_OBJC_IVAR_$_MXSegmentedPager._pager
+_OBJC_IVAR_$_MXSegmentedPager._segmentedControlPosition
+_OBJC_IVAR_$_MXSegmentedPager._segmentedControlEdgeInsets
+_OBJC_IVAR_$_MXSegmentedPager._delegate
+_OBJC_IVAR_$_MXSegmentedPager._dataSource
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_PROTOCOL_$_UIScrollViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIScrollViewDelegate
+l_OBJC_PROTOCOL_$_MXScrollViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_MXScrollViewDelegate
+l_OBJC_PROTOCOL_$_MXPagerViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_MXPagerViewDelegate
+l_OBJC_PROTOCOL_$_MXPagerViewDataSource
+l_OBJC_LABEL_PROTOCOL_$_MXPagerViewDataSource
+Apple LLVM version 9.0.0 (clang-900.0.38)
+/Users/yupinhupro/AppStudio/WorkWeek/Carthage/Checkouts/MXSegmentedPager/MXSegmentedPager/MXSegmentedPager.m
+/Users/yupinhupro/AppStudio/WorkWeek/Carthage/Checkouts/MXSegmentedPager
+/Users/yupinhupro/AppStudio/WorkWeek/Carthage/Checkouts/MXSegmentedPager/MXSegmentedPager/MXSegmentedPager.h
+UIEdgeInsetsMake
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIGeometry.h
+CGPointMake
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+__destroy_helper_block_
+__copy_helper_block_
+__30-[MXSegmentedPager reloadData]_block_invoke
+-[MXSegmentedPagerController loadView]
+-[MXSegmentedPagerController segmentedPager]
+-[MXSegmentedPagerController pageViewControllers]
+-[MXSegmentedPagerController numberOfPagesInSegmentedPager:]
+-[MXSegmentedPagerController segmentedPager:viewForPageAtIndex:]
+-[MXSegmentedPagerController segmentedPager:viewControllerForPageAtIndex:]
+-[MXSegmentedPagerController segmentedPager:segueIdentifierForPageAtIndex:]
+-[MXSegmentedPagerController pageIndex]
+-[MXSegmentedPagerController setPageViewController:atIndex:]
+-[MXSegmentedPagerController setPageViewControllers:]
+-[MXSegmentedPagerController .cxx_destruct]
+_OBJC_IVAR_$_MXSegmentedPagerController._segmentedPager
+_OBJC_IVAR_$_MXSegmentedPagerController._pageViewControllers
+_OBJC_IVAR_$_MXSegmentedPagerController._pageIndex
+l_OBJC_PROTOCOL_$_MXPageSegueSource
+l_OBJC_LABEL_PROTOCOL_$_MXPageSegueSource
+l_OBJC_PROTOCOL_$_MXSegmentedPagerDelegate
+l_OBJC_LABEL_PROTOCOL_$_MXSegmentedPagerDelegate
+l_OBJC_PROTOCOL_$_MXSegmentedPagerDataSource
+l_OBJC_LABEL_PROTOCOL_$_MXSegmentedPagerDataSource
+l_OBJC_PROTOCOL_$_MXSegmentedPagerControllerDataSource
+l_OBJC_LABEL_PROTOCOL_$_MXSegmentedPagerControllerDataSource
+/Users/yupinhupro/AppStudio/WorkWeek/Carthage/Checkouts/MXSegmentedPager/MXSegmentedPager/MXSegmentedPagerController.m
+/Users/yupinhupro/Library/Caches/org.carthage.CarthageKit/DerivedData/9.1_9B55/MXSegmentedPager/3.3.0/Build/Intermediates.noindex/ArchiveIntermediates/MXSegmentedPager/IntermediateBuildFilesPath/MXSegmentedPager.build/Release-iphoneos/MXSegmentedPager.build/DerivedSources/MXSegmentedPager_vers.c

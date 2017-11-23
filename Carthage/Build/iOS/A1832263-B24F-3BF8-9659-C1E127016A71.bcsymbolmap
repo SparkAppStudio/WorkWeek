@@ -1,0 +1,111 @@
+BCSymbolMap Version: 2.0
+-[MXPagerView initWithCoder:]
+-[MXPagerView initWithFrame:]
+-[MXPagerView initialize]
+-[MXPagerView layoutSubviews]
+-[MXPagerView reloadData]
+-[MXPagerView showPageAtIndex:animated:]
+-[MXPagerView pageAtIndex:]
+-[MXPagerView registerNib:forPageReuseIdentifier:]
+-[MXPagerView registerClass:forPageReuseIdentifier:]
+-[MXPagerView dequeueReusablePageWithIdentifier:]
+-[MXPagerView delegate]
+-[MXPagerView setDelegate:]
+-[MXPagerView selectedPage]
+-[MXPagerView indexForSelectedPage]
+-[MXPagerView setTransitionStyle:]
+-[MXPagerView setGutterWidth:]
+-[MXPagerView loadedPages]
+-[MXPagerView progress]
+-[MXPagerView willMovePageToIndex:]
+-[MXPagerView didMovePageToIndex:]
+-[MXPagerView loadPageAtIndex:]
+___31-[MXPagerView loadPageAtIndex:]_block_invoke
+___copy_helper_block_
+___destroy_helper_block_
+-[MXPagerView unLoadHiddenPages]
+-[MXPagerView setContentOffset:animated:]
+-[MXPagerView scrollViewDidEndDecelerating:]
+-[MXPagerView scrollViewWillEndDragging:withVelocity:targetContentOffset:]
+-[MXPagerView scrollViewDidEndScrollingAnimation:]
+-[MXPagerView gestureRecognizerShouldBegin:]
+-[MXPagerView dataSource]
+-[MXPagerView setDataSource:]
+-[MXPagerView gutterWidth]
+-[MXPagerView transitionStyle]
+-[MXPagerView pages]
+-[MXPagerView setPages:]
+-[MXPagerView registration]
+-[MXPagerView setRegistration:]
+-[MXPagerView reuseQueue]
+-[MXPagerView setReuseQueue:]
+-[MXPagerView .cxx_destruct]
+-[UIView(ReuseIdentifier) initWithReuseIdentifier:]
+-[UIView(ReuseIdentifier) initWithFrame:reuseIdentifier:]
+-[UIView(ReuseIdentifier) initWithCoder:reuseIdentifier:]
+-[UIView(ReuseIdentifier) reuseIdentifier]
+-[UIView(ReuseIdentifier) prepareForReuse]
+-[MXPagerViewDelegateForwarder forwardingTargetForSelector:]
+-[MXPagerViewDelegateForwarder respondsToSelector:]
+-[MXPagerViewDelegateForwarder pagerView]
+-[MXPagerViewDelegateForwarder setPagerView:]
+-[MXPagerViewDelegateForwarder delegate]
+-[MXPagerViewDelegateForwarder setDelegate:]
+-[MXPagerViewDelegateForwarder .cxx_destruct]
+_OBJC_IVAR_$_MXPagerView._forwarder
+_OBJC_IVAR_$_MXPagerView._count
+_OBJC_IVAR_$_MXPagerView._index
+_OBJC_IVAR_$_MXPagerView._transitionStyle
+_OBJC_IVAR_$_MXPagerView._gutterWidth
+___block_descriptor_tmp
+_OBJC_IVAR_$_MXPagerView._dataSource
+_OBJC_IVAR_$_MXPagerView._pages
+_OBJC_IVAR_$_MXPagerView._registration
+_OBJC_IVAR_$_MXPagerView._reuseQueue
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_PROTOCOL_$_UIScrollViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIScrollViewDelegate
+l_OBJC_PROTOCOL_$_UIGestureRecognizerDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIGestureRecognizerDelegate
+_OBJC_IVAR_$_MXPagerViewDelegateForwarder._pagerView
+_OBJC_IVAR_$_MXPagerViewDelegateForwarder._delegate
+Apple LLVM version 9.0.0 (clang-900.0.38)
+/Users/yupinhupro/AppStudio/WorkWeek/Carthage/Checkouts/MXPagerView/MXPagerView/MXPagerView.m
+/Users/yupinhupro/AppStudio/WorkWeek/Carthage/Checkouts/MXPagerView
+/Users/yupinhupro/AppStudio/WorkWeek/Carthage/Checkouts/MXPagerView/MXPagerView/MXPagerView.h
+__destroy_helper_block_
+__copy_helper_block_
+__31-[MXPagerView loadPageAtIndex:]_block_invoke
+CGPointMake
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+__CGSizeEqualToSize
+-[MXPagerViewController loadView]
+-[MXPagerViewController pagerView]
+-[MXPagerViewController pageViewControllers]
+-[MXPagerViewController numberOfPagesInPagerView:]
+-[MXPagerViewController pagerView:viewForPageAtIndex:]
+-[MXPagerViewController pagerView:viewControllerForPageAtIndex:]
+-[MXPagerViewController pagerView:segueIdentifierForPageAtIndex:]
+-[MXPagerViewController pageIndex]
+-[MXPagerViewController setPageViewController:atIndex:]
+-[MXPagerViewController setPageViewControllers:]
+-[MXPagerViewController .cxx_destruct]
+-[MXPageSegue initWithIdentifier:source:destination:]
+-[MXPageSegue perform]
+-[MXPageSegue pageIndex]
+_OBJC_IVAR_$_MXPagerViewController._pagerView
+_OBJC_IVAR_$_MXPagerViewController._pageViewControllers
+_OBJC_IVAR_$_MXPagerViewController._pageIndex
+l_OBJC_PROTOCOL_$_MXPageSegueSource
+l_OBJC_LABEL_PROTOCOL_$_MXPageSegueSource
+l_OBJC_PROTOCOL_$_MXPagerViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_MXPagerViewDelegate
+l_OBJC_PROTOCOL_$_MXPagerViewDataSource
+l_OBJC_LABEL_PROTOCOL_$_MXPagerViewDataSource
+l_OBJC_PROTOCOL_$_MXPagerViewControllerDataSource
+l_OBJC_LABEL_PROTOCOL_$_MXPagerViewControllerDataSource
+_OBJC_IVAR_$_MXPageSegue._pageIndex
+/Users/yupinhupro/AppStudio/WorkWeek/Carthage/Checkouts/MXPagerView/MXPagerView/MXPagerViewController.m
+/Users/yupinhupro/AppStudio/WorkWeek/Carthage/Checkouts/MXPagerView/MXPagerView/MXPagerViewController.h
+/Users/yupinhupro/Library/Caches/org.carthage.CarthageKit/DerivedData/9.1_9B55/MXPagerView/0.2.1/Build/Intermediates.noindex/ArchiveIntermediates/MXPagerView/IntermediateBuildFilesPath/MXPagerView.build/Release-iphoneos/MXPagerView.build/DerivedSources/MXPagerView_vers.c

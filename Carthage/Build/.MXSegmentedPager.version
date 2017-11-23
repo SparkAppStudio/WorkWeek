@@ -1,18 +1,9 @@
 {
-  "Mac" : [
-
-  ],
-  "watchOS" : [
-
-  ],
-  "tvOS" : [
-
-  ],
   "commitish" : "3.3.0",
   "iOS" : [
     {
       "name" : "MXSegmentedPager",
-      "hash" : "a9564e046ee38d455cd97efb600c8dda6af534cd99a21c01f3f9aa59e4ab5341"
+      "hash" : "cb794a4547f1acb89a19a63ebd15d7fed956f3c25733707c4d5df17a7b49e1ca"
     }
   ]
 }
