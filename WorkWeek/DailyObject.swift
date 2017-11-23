@@ -47,17 +47,6 @@ class DailyObject: Object {
         allEventsRaw.append(event)
     }
 
-    func insertArriveWorkOnNextDay() {
-        // Check the first event of the next day, if not arriveWork, insert arriveWork
-        // at the start of the next day
-        guard let startOfNextDay = date!.startOfNextDay else { return }
-        let nextDayObject = DataStore.shared.queryDailyObject(for: startOfNextDay)
-        let firstEventOfNextDay = nextDayObject?.firstEvent
-        if nextDayObject == nil || (firstEventOfNextDay?.kind != .arriveWork) {
-            DataStore.shared.saveDataToRealm(for: .arriveWork, startOfNextDay)
-        }
-    }
-
     var isAtWork: Bool {
         guard let lastEvent = events.last else {
             return false // no events yet today, not at work

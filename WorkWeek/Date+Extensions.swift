@@ -5,10 +5,12 @@
 import Foundation
 
 extension Date {
+    // Create a new date its time is 12:00AM on that day
     var startOfDay: Date {
         return Calendar.current.startOfDay(for: self)
     }
 
+    // Create a new date its time is 11:59PM on that day
     var endOfDay: Date {
         var components = DateComponents()
         components.day = 1
@@ -20,10 +22,7 @@ extension Date {
         return endOfDayDate
     }
 
-    var startOfNextDay: Date? {
-        return Calendar.current.date(byAdding: .day, value: 1, to: self)
-    }
-
+    // Previous days date by simply decream the day by 1
     var previousDay: Date? {
         return Calendar.current.date(byAdding: .day, value: -1, to: self)
     }
