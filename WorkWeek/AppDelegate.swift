@@ -50,8 +50,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func showLocationWindow() {
         guard locationWindow == nil else { return }
         locationWindow = UIWindow(frame: UIScreen.main.bounds)
+        guard let rect = locationWindow?.bounds else {
+            assertionFailure("There must exist a UIWindow at this point")
+            return
+        }
+        let gradient = GradientBackgroundView(frame: rect)
+        locationWindow?.addSubview(gradient)
         let onboardLocationVC = OnboardLocationViewController.instantiate()
-        onboardLocationVC.view.backgroundColor = UIColor.workBlue()
         onboardLocationVC.locationManager = locationManager
         locationWindow?.rootViewController = onboardLocationVC
         locationWindow?.isHidden = false
