@@ -51,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard locationWindow == nil else { return }
         locationWindow = UIWindow(frame: UIScreen.main.bounds)
         let onboardLocationVC = OnboardLocationViewController.instantiate()
+        onboardLocationVC.view.backgroundColor = UIColor.workBlue()
         onboardLocationVC.locationManager = locationManager
         locationWindow?.rootViewController = onboardLocationVC
         locationWindow?.isHidden = false
