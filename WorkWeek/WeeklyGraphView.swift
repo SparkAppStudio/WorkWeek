@@ -65,4 +65,17 @@ class WeeklyGraphViewModel {
         timeFrameText = weeklyObject.weekAndTheYear ?? ""
         graphTargetPercent = weeklyObject.graphTargetPercentage
     }
+
+    init(_ percentArray: [Double], hoursWorked: Int) {
+        sundayPercent = percentArray[0]
+        mondayPercent = percentArray[1]
+        tuesdayPercent = percentArray[2]
+        wednesdayPercent = percentArray[3]
+        thursdayPercent = percentArray[4]
+        fridayPercent = percentArray[5]
+        saturdayPercent = percentArray[6]
+        hoursText = "\(hoursWorked) \(hoursWorked < 2 ? "hour": "hours")"
+        timeFrameText = "Time Frame"
+        graphTargetPercent = 1
+    }
 }

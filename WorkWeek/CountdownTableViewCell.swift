@@ -50,6 +50,9 @@ import Reusable
 
 extension CountdownTableViewCell {
     override func prepareForInterfaceBuilder() {
-//        let dummy = WeeklyGraphViewModel.init
+        super.prepareForInterfaceBuilder()
+        let percents = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+        let dummy = WeeklyGraphViewModel(percents, hoursWorked: 20)
+        configure(dummy)
     }
 }
