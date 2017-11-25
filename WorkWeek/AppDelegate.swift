@@ -49,7 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func showLocationWindow() {
         guard locationWindow == nil else { return }
-        locationWindow = UIWindow(frame: UIScreen.main.bounds)
+        let rect = UIScreen.main.bounds
+        locationWindow = UIWindow(frame: rect)
+        let gradient = GradientBackgroundView(frame: rect)
+        locationWindow?.addSubview(gradient)
         let onboardLocationVC = OnboardLocationViewController.instantiate()
         onboardLocationVC.locationManager = locationManager
         locationWindow?.rootViewController = onboardLocationVC
