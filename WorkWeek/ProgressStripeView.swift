@@ -31,8 +31,8 @@ class ProgressStripeView: UIView {
         guard let gradient = CGGradient(colorsSpace: colorSpace,
                                         colors: colors,
                                         locations: [0, 1]) else { return }
-        let startPoint = div.slice.origin
-        let endPoint = CGPoint(x: div.slice.origin.x, y: div.slice.size.height)
+        let startPoint = CGPoint(x: 0, y: div.remainder.height)
+        let endPoint = CGPoint(x: 0, y: rect.height)
         context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
 
 
