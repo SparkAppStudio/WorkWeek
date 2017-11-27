@@ -90,7 +90,7 @@ class DataStore {
     }
 
     // MARK: - Update Opertions
-    func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvent, _ date: Date?) {
+    func saveDataToRealm(for checkInEvent: NotificationCenter.CheckInEvent, _ date: Date? = nil) {
         let todayDate = date ?? Date()
 
         let todayKey = dailyPrimaryKeyBased(on: todayDate)
