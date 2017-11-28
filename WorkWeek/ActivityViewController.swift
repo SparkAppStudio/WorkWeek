@@ -47,7 +47,7 @@ final class ActivityViewController: UIViewController {
     var timer = Timer()
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
+        return getThemeStatusBarStyle()
     }
 
     override func viewDidLoad() {

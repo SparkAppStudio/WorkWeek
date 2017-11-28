@@ -27,6 +27,9 @@ class WeeklyOverviewViewController: MXSegmentedPagerController {
         return array
     }()
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return getThemeStatusBarStyle()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
