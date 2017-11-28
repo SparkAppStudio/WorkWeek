@@ -6,7 +6,7 @@ import UIKit
 import Reusable
 
 //TODO: use the Reusable library
-@IBDesignable class CountdownTableViewCell: UITableViewCell, Reusable {
+@IBDesignable class ActivityTableViewCell: UITableViewCell, Reusable {
 
     // MARK: - IBs
     @IBOutlet var dayLabels: [UILabel]!
@@ -48,7 +48,7 @@ import Reusable
     }
 }
 
-extension CountdownTableViewCell {
+extension ActivityTableViewCell {
     override func prepareForInterfaceBuilder() {
 //        let dummy = WeeklyGraphViewModel.init
     }
