@@ -43,22 +43,22 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
 
         navigationController.isNavigationBarHidden = true
 
-        let countdownVC = ActivityViewController.instantiate()
-        countdownVC.headerData = CountDownHeaderData()
-        countdownVC.delegate = self
+        let activityVC = ActivityViewController.instantiate()
+        activityVC.headerData = CountDownHeaderData()
+        activityVC.delegate = self
         let weeks = DataStore.shared.queryAllObjects(ofType: WeeklyObject.self)
-        countdownVC.tableViewData = ActivityTableViewDSD(with: weeks,
-                                                          marginProvider: countdownVC,
+        activityVC.tableViewData = ActivityTableViewDSD(with: weeks,
+                                                          marginProvider: activityVC,
                                                           action: showWeeklyViewController)
         #if DEBUG
-            countdownVC.debugDelegate = self
+            activityVC.debugDelegate = self
         #endif
 
         if animated {
-            navigationController.viewControllers.insert(countdownVC, at: 0)
+            navigationController.viewControllers.insert(activityVC, at: 0)
             navigationController.popWithFadeAnimation()
         } else {
-            navigationController.setViewControllers([countdownVC], animated: false)
+            navigationController.setViewControllers([activityVC], animated: false)
         }
     }
 
@@ -103,8 +103,8 @@ extension ActivityCoordinator: UserGettable {
     }
 }
 
-extension ActivityCoordinator: CountdownViewDelegate {
-    func countdownPageDidTapSettings() {
+extension ActivityCoordinator: ActivityViewDelegate {
+    func activityPageDidTapSettings() {
         showSettings()
     }
 }

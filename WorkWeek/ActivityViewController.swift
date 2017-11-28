@@ -11,8 +11,8 @@ protocol DebugMenuShowing: class {
 }
 #endif
 
-protocol CountdownViewDelegate: class {
-    func countdownPageDidTapSettings()
+protocol ActivityViewDelegate: class {
+    func activityPageDidTapSettings()
 }
 
 protocol CountdownData {
@@ -37,10 +37,10 @@ final class ActivityViewController: UIViewController {
     // MARK: IBActions
 
     @IBAction func didTapSettings(_ sender: UIButton) {
-        delegate?.countdownPageDidTapSettings()
+        delegate?.activityPageDidTapSettings()
     }
 
-    weak var delegate: CountdownViewDelegate?
+    weak var delegate: ActivityViewDelegate?
     var headerData: CountdownData!
     var tableViewData: (UITableViewDataSource & UITableViewDelegate)!
 
