@@ -43,11 +43,11 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
 
         navigationController.isNavigationBarHidden = true
 
-        let countdownVC = CountdownViewController.instantiate()
+        let countdownVC = ActivityViewController.instantiate()
         countdownVC.headerData = CountDownHeaderData()
         countdownVC.delegate = self
         let weeks = DataStore.shared.queryAllObjects(ofType: WeeklyObject.self)
-        countdownVC.tableViewData = CountDownTableViewDSD(with: weeks,
+        countdownVC.tableViewData = ActivityTableViewDSD(with: weeks,
                                                           marginProvider: countdownVC,
                                                           action: showWeeklyViewController)
         #if DEBUG
@@ -88,7 +88,7 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
     }
 
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if viewController is CountdownViewController {
+        if viewController is ActivityViewController {
             navigationController.isNavigationBarHidden = true
         } else {
             navigationController.isNavigationBarHidden = false

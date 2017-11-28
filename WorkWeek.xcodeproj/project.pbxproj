@@ -33,7 +33,7 @@
 		52802FE41F2853CA009A519B /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52802FE31F2853CA009A519B /* PushNotificationManager.swift */; };
 		52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52802FE71F285C89009A519B /* LocationDelegate.swift */; };
 		5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */; };
-		5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */; };
+		5287CA381EDCF91E00E71CE8 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CA371EDCF91E00E71CE8 /* ActivityViewController.swift */; };
 		5287CA3B1EDCF91E00E71CE8 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA391EDCF91E00E71CE8 /* Activity.storyboard */; };
 		5287CA3D1EDCF91E00E71CE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */; };
 		5287CA401EDCF91E00E71CE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */; };
@@ -41,7 +41,7 @@
 		5287CA4E1EDCFB8400E71CE8 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */; };
 		5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */; };
 		5294A1351F4D3A5500DC186A /* TwoLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */; };
-		52A3754A1F906C2100523431 /* CountdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A375491F906C2100523431 /* CountdownTableViewCell.swift */; };
+		52A3754A1F906C2100523431 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A375491F906C2100523431 /* ActivityTableViewCell.swift */; };
 		52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */; };
 		52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */; };
 		52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */; };
@@ -67,8 +67,6 @@
 		C3DEA7271F14850E001F2696 /* ActivityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */; };
 		C3FC4D3D1FB7C7C3000BB303 /* CountdownRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */; };
 		C3FFB77E1FBFFCC100E8AA43 /* GraphTargetLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFB77D1FBFFCC100E8AA43 /* GraphTargetLine.swift */; };
-		D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */; };
-		D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */; };
 		D1102CEA1F00C085006A0E2F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1102CE91F00C085006A0E2F /* AppConstants.swift */; };
 		D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */; };
 		D14D4A001FC4AAC1001924B4 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D49FF1FC4AAC1001924B4 /* Date+Extensions.swift */; };
@@ -79,7 +77,6 @@
 		D1B21F941EF521870023D427 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B21F931EF521870023D427 /* DataStore.swift */; };
 		D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */; };
 		D1C003CC1FB7C5230045139F /* ProgressStripeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */; };
-		D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +118,7 @@
 		52802FE71F285C89009A519B /* LocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 		5287CA321EDCF91E00E71CE8 /* WorkWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5287CA351EDCF91E00E71CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
+		5287CA371EDCF91E00E71CE8 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		5287CA3A1EDCF91E00E71CE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Activity.storyboard; sourceTree = "<group>"; };
 		5287CA3C1EDCF91E00E71CE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5287CA3F1EDCF91E00E71CE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -130,7 +127,7 @@
 		5287CA4A1EDCFA9200E71CE8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		5294A1321F4BE79F00DC186A /* HoursPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursPickerViewController.swift; sourceTree = "<group>"; };
 		5294A1341F4D3A5500DC186A /* TwoLabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoLabelButton.swift; sourceTree = "<group>"; };
-		52A375491F906C2100523431 /* CountdownTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTableViewCell.swift; sourceTree = "<group>"; };
+		52A375491F906C2100523431 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHoursPickerDataSource.swift; sourceTree = "<group>"; };
 		52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -158,8 +155,6 @@
 		C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCoordinator.swift; sourceTree = "<group>"; };
 		C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownRingView.swift; sourceTree = "<group>"; };
 		C3FFB77D1FBFFCC100E8AA43 /* GraphTargetLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphTargetLine.swift; sourceTree = "<group>"; };
-		D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
-		D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionHeaderView.swift; sourceTree = "<group>"; };
 		D1102CE91F00C085006A0E2F /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		D128B6D71F1335E000D2519E /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
 		D14D49FF1FC4AAC1001924B4 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -170,7 +165,6 @@
 		D1B21F931EF521870023D427 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		D1BD76511EF5CA0600894A06 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		D1C003CB1FB7C5230045139F /* ProgressStripeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStripeView.swift; sourceTree = "<group>"; };
-		D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,9 +255,7 @@
 				5277676D1F4DCB2000062125 /* Protocols */,
 				D1102CED1F038AEE006A0E2F /* Extensions */,
 				D1B21F921EF521720023D427 /* Managers */,
-				D1CA47011EE34D9F003628FF /* Activity */,
-				52E1A7291EFB91CA00FBF278 /* Settings */,
-				C3FE380B1EFDD4CD00E1D60E /* Onboarding */,
+				C39A82141FCD3C9800E2154B /* Scenes */,
 				5218067A1F40CDEB0079AFD4 /* Models */,
 				5218067B1F40CF610079AFD4 /* 3rdPartyWrappers */,
 				5287CA3E1EDCF91E00E71CE8 /* LaunchScreen.storyboard */,
@@ -318,6 +310,31 @@
 			path = WorkWeekTests;
 			sourceTree = "<group>";
 		};
+		C39A82131FCD2DAC00E2154B /* Weekly */ = {
+			isa = PBXGroup;
+			children = (
+				C3D2F8111FBA95480098458C /* WeeklyGraphView.xib */,
+				C3D2F8131FBA99FD0098458C /* WeeklyGraphView.swift */,
+				C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */,
+				C352FB751FC125910006822A /* DayViewController.swift */,
+				C33043E31FC4FC62008F564E /* HourTableSectionView.swift */,
+				C352FB771FC12AEA0006822A /* HourTableViewCell.xib */,
+				C33043E11FC4F1CF008F564E /* HourTableSectionView.xib */,
+			);
+			name = Weekly;
+			sourceTree = "<group>";
+		};
+		C39A82141FCD3C9800E2154B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C39A82131FCD2DAC00E2154B /* Weekly */,
+				D1CA47011EE34D9F003628FF /* Activity */,
+				52E1A7291EFB91CA00FBF278 /* Settings */,
+				C3FE380B1EFDD4CD00E1D60E /* Onboarding */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		C3FE380B1EFDD4CD00E1D60E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,16 +345,6 @@
 				52DC082D1EFF109800699A81 /* OnboardingCoordinator.swift */,
 			);
 			name = Onboarding;
-			sourceTree = "<group>";
-		};
-		D1102CE61F00BA4E006A0E2F /* DailyCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				D1CA47021EE354B9003628FF /* DailyCollectionViewController.swift */,
-				D1102CE41F00B4B7006A0E2F /* DailyCollectionViewCell.swift */,
-				D1102CE71F00BA93006A0E2F /* DailyCollectionHeaderView.swift */,
-			);
-			name = DailyCollectionView;
 			sourceTree = "<group>";
 		};
 		D1102CED1F038AEE006A0E2F /* Extensions */ = {
@@ -371,20 +378,12 @@
 			isa = PBXGroup;
 			children = (
 				C3DEA7261F14850E001F2696 /* ActivityCoordinator.swift */,
-				C3D2F8111FBA95480098458C /* WeeklyGraphView.xib */,
-				C3D2F8131FBA99FD0098458C /* WeeklyGraphView.swift */,
 				C3FC4D3C1FB7C7C3000BB303 /* CountdownRingView.swift */,
 				5287CA391EDCF91E00E71CE8 /* Activity.storyboard */,
 				C3FFB77D1FBFFCC100E8AA43 /* GraphTargetLine.swift */,
 				C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */,
-				C33DFB891F7DAD0C00F00D94 /* WeeklyOverviewViewController.swift */,
-				5287CA371EDCF91E00E71CE8 /* CountdownViewController.swift */,
-				52A375491F906C2100523431 /* CountdownTableViewCell.swift */,
-				C352FB751FC125910006822A /* DayViewController.swift */,
-				C33043E31FC4FC62008F564E /* HourTableSectionView.swift */,
-				C352FB771FC12AEA0006822A /* HourTableViewCell.xib */,
-				C33043E11FC4F1CF008F564E /* HourTableSectionView.xib */,
-				D1102CE61F00BA4E006A0E2F /* DailyCollectionView */,
+				5287CA371EDCF91E00E71CE8 /* ActivityViewController.swift */,
+				52A375491F906C2100523431 /* ActivityTableViewCell.swift */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -593,7 +592,6 @@
 				D128B6D81F1335E000D2519E /* TimeInterval+Extensions.swift in Sources */,
 				D1B21F941EF521870023D427 /* DataStore.swift in Sources */,
 				C36487ED1F903CE100899118 /* TransparentHeaderTableView.swift in Sources */,
-				D1102CE51F00B4B7006A0E2F /* DailyCollectionViewCell.swift in Sources */,
 				52223FA91EE123F20014F4A9 /* AppCoordinator.swift in Sources */,
 				C352FB761FC125910006822A /* DayViewController.swift in Sources */,
 				5294A1331F4BE79F00DC186A /* HoursPickerViewController.swift in Sources */,
@@ -604,7 +602,7 @@
 				D1BD76521EF5CA0600894A06 /* NotificationCenterManager.swift in Sources */,
 				52DC082E1EFF109800699A81 /* OnboardingCoordinator.swift in Sources */,
 				521AF7FB1F21902900C8F707 /* UserDefaults+Extensions.swift in Sources */,
-				5287CA381EDCF91E00E71CE8 /* CountdownViewController.swift in Sources */,
+				5287CA381EDCF91E00E71CE8 /* ActivityViewController.swift in Sources */,
 				C3FC4D3D1FB7C7C3000BB303 /* CountdownRingView.swift in Sources */,
 				52802FE81F285C89009A519B /* LocationDelegate.swift in Sources */,
 				C309407B1F7DB7D200447E65 /* (null) in Sources */,
@@ -618,8 +616,7 @@
 				527039351EF8D85B00A0B6BA /* Log.swift in Sources */,
 				525A2D391F0615AD00895246 /* CLLocationManager+Extensions.swift in Sources */,
 				5272B78C1F12A62200F003FD /* MapVCDelegate.swift in Sources */,
-				52A3754A1F906C2100523431 /* CountdownTableViewCell.swift in Sources */,
-				D1CA47031EE354B9003628FF /* DailyCollectionViewController.swift in Sources */,
+				52A3754A1F906C2100523431 /* ActivityTableViewCell.swift in Sources */,
 				C3B0C4541EE3CC930000D097 /* PageManager.swift in Sources */,
 				5287CA361EDCF91E00E71CE8 /* AppDelegate.swift in Sources */,
 				5277676C1F4DCA3D00062125 /* UserGettable.swift in Sources */,
@@ -629,7 +626,6 @@
 				C362A4091EE3517800AB9830 /* OnboardPageViewController.swift in Sources */,
 				C33043E41FC4FC62008F564E /* HourTableSectionView.swift in Sources */,
 				526E50741EF6CDBC0066F043 /* Dictionary+Extensions.swift in Sources */,
-				D1102CE81F00BA93006A0E2F /* DailyCollectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
