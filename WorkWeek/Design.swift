@@ -114,6 +114,10 @@ extension UIViewController {
         view.backgroundColor = UIColor.themeBackground()
         navigationController?.setThemeNavBar()
     }
+
+    func getThemeStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
 }
 
 extension UINavigationController {

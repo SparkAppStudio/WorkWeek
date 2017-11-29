@@ -6,13 +6,14 @@ import UIKit
 import MXSegmentedPager
 
 
-class WeeklyOverviewViewController: MXSegmentedPagerController {
+class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewDelegate {
 
     var weekObject: WeeklyObject!
+    static let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
 
     lazy var controllersArray: [(title: String, controller: UIViewController)] = {
         var array: [(title: String, controller: UIViewController)] = []
-        let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
         func addpage(_ title: String, controller: UIViewController) {
             self.addChildViewController(controller)
@@ -20,13 +21,16 @@ class WeeklyOverviewViewController: MXSegmentedPagerController {
             array.append((title, controller))
         }
 
-        for day in daysOfWeek {
+        for day in WeeklyOverviewViewController.daysOfWeek {
             addpage(day, controller: DayViewController())
         }
 
         return array
     }()
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return getThemeStatusBarStyle()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +41,20 @@ class WeeklyOverviewViewController: MXSegmentedPagerController {
         let viewModel = WeeklyGraphViewModel.init(weekObject)
 
         headerView?.configure(viewModel)
+        headerView?.delegate = self
 
         // Parallax Header
         segmentedPager.parallaxHeader.view = headerView
         segmentedPager.parallaxHeader.mode = MXParallaxHeaderMode.center
         segmentedPager.parallaxHeader.height = 400
         segmentedPager.parallaxHeader.minimumHeight = 0
+    }
+
+
+    // MARK: WeeklyGraphViewDelegate
+
+    func didTapDay(_ index: Int) {
+        segmentedPager.pager.showPage(at: index, animated: true)
     }
 
 

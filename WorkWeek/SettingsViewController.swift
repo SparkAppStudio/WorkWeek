@@ -40,6 +40,9 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     var user: User!
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return getThemeStatusBarStyle()
+    }
 
     // MARK: View Lifecycle
 
@@ -159,10 +162,6 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         }
 
         DataStore.shared.update(user: user, with: updated)
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
     }
 
 }
