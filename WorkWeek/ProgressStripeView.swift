@@ -39,3 +39,34 @@ class ProgressStripeView: UIView {
     }
 
 }
+
+protocol ProgressStripeViewDelegate: class {
+    func didTapDay(_ index: Int)
+}
+
+class TouchableProgressStripeView: ProgressStripeView {
+
+    weak var delegate: ProgressStripeViewDelegate!
+    var index: Int = 0
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        sharedInit()
+
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        sharedInit()
+    }
+
+    func sharedInit() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        self.addGestureRecognizer(tap)
+    }
+
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        delegate.didTapDay(index)
+    }
+
+}

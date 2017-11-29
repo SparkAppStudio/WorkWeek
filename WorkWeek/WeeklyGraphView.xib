@@ -21,7 +21,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="flH-Xi-Lrg">
                             <rect key="frame" x="0.0" y="0.0" width="36.5" height="400"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSe-AE-sgN" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSe-AE-sgN" customClass="TouchableProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="36.5" height="384"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -36,7 +36,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lEc-KT-q8L">
                             <rect key="frame" x="56.5" y="0.0" width="36.5" height="400"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55e-LQ-WsH" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55e-LQ-WsH" customClass="TouchableProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="36.5" height="384"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -51,7 +51,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tpz-Bl-1qd">
                             <rect key="frame" x="113" y="0.0" width="36.5" height="400"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaK-63-WEI" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaK-63-WEI" customClass="TouchableProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="36.5" height="384"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -66,7 +66,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RR6-Vf-3ae">
                             <rect key="frame" x="169.5" y="0.0" width="36" height="400"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0M-hd-AXd" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0M-hd-AXd" customClass="TouchableProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="36" height="384"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -81,7 +81,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Esq-6R-uII">
                             <rect key="frame" x="225.5" y="0.0" width="36.5" height="400"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qda-g3-b74" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qda-g3-b74" customClass="TouchableProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="36.5" height="384"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -96,7 +96,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gPm-fp-9ws">
                             <rect key="frame" x="282" y="0.0" width="36.5" height="400"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laQ-nk-k81" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laQ-nk-k81" customClass="TouchableProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="36.5" height="384"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -111,7 +111,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DuN-z7-EfG">
                             <rect key="frame" x="338.5" y="0.0" width="36.5" height="400"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFn-4z-SKs" customClass="ProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFn-4z-SKs" customClass="TouchableProgressStripeView" customModule="WorkWeek" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="36.5" height="384"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>

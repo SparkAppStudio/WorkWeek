@@ -8,19 +8,19 @@ protocol WeeklyGraphViewDelegate: class {
     func didTapDay(_ index: Int)
 }
 
-class WeeklyGraphView: UIView {
+class WeeklyGraphView: UIView, ProgressStripeViewDelegate {
 
     @IBOutlet var dayLabels: [UILabel]!
 
     @IBOutlet weak var graphTargetLine: GraphTargetLine!
     @IBOutlet weak var graphStackView: UIStackView!
-    @IBOutlet weak var sundayView: ProgressStripeView!
-    @IBOutlet weak var mondayView: ProgressStripeView!
-    @IBOutlet weak var tuesdayView: ProgressStripeView!
-    @IBOutlet weak var wednesdayView: ProgressStripeView!
-    @IBOutlet weak var thursdayView: ProgressStripeView!
-    @IBOutlet weak var fridayView: ProgressStripeView!
-    @IBOutlet weak var saturdayView: ProgressStripeView!
+    @IBOutlet weak var sundayView: TouchableProgressStripeView!
+    @IBOutlet weak var mondayView: TouchableProgressStripeView!
+    @IBOutlet weak var tuesdayView: TouchableProgressStripeView!
+    @IBOutlet weak var wednesdayView: TouchableProgressStripeView!
+    @IBOutlet weak var thursdayView: TouchableProgressStripeView!
+    @IBOutlet weak var fridayView: TouchableProgressStripeView!
+    @IBOutlet weak var saturdayView: TouchableProgressStripeView!
 
     weak var delegate: WeeklyGraphViewDelegate!
 
@@ -31,49 +31,41 @@ class WeeklyGraphView: UIView {
         }
 
         sundayView.percentage = weeklyGraphViewModel.sundayPercent
+        sundayView.index = 0
+        sundayView.delegate = self
+
         mondayView.percentage = weeklyGraphViewModel.mondayPercent
+        mondayView.index = 1
+        mondayView.delegate = self
+
         tuesdayView.percentage = weeklyGraphViewModel.tuesdayPercent
+        tuesdayView.index = 2
+        tuesdayView.delegate = self
+
         wednesdayView.percentage = weeklyGraphViewModel.wednesdayPercent
+        wednesdayView.index = 3
+        wednesdayView.delegate = self
+
         thursdayView.percentage = weeklyGraphViewModel.thursdayPercent
+        thursdayView.index = 4
+        thursdayView.delegate = self
+
         fridayView.percentage = weeklyGraphViewModel.fridayPercent
+        fridayView.index = 5
+        fridayView.delegate = self
+
         saturdayView.percentage = weeklyGraphViewModel.saturdayPercent
+        saturdayView.index = 6
+        saturdayView.delegate = self
+
         graphTargetLine.percentage = weeklyGraphViewModel.graphTargetPercent
 
-        setupTaps()
     }
 
-    private func setupTaps() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-
-        sundayView.addGestureRecognizer(tap)
-        mondayView.addGestureRecognizer(tap)
-        tuesdayView.addGestureRecognizer(tap)
-        wednesdayView.addGestureRecognizer(tap)
-        thursdayView.addGestureRecognizer(tap)
-        fridayView.addGestureRecognizer(tap)
-        saturdayView.addGestureRecognizer(tap)
-
+    func didTapDay(_ index: Int) {
+        delegate.didTapDay(index)
     }
 
-    // function which is triggered when handleTap is called
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
-
-        if sender.view!.contains(sundayView) {
-            delegate.didTapDay(0)
-        } else if sender.view!.contains(mondayView) {
-            delegate.didTapDay(1)
-        } else if sender.view!.contains(tuesdayView) {
-            delegate.didTapDay(2)
-        } else if sender.view!.contains(wednesdayView) {
-            delegate.didTapDay(3)
-        } else if sender.view!.contains(thursdayView) {
-            delegate.didTapDay(4)
-        } else if sender.view!.contains(fridayView) {
-            delegate.didTapDay(5)
-        } else if sender.view!.contains(saturdayView) {
-            delegate.didTapDay(6)
-        }
-    }
 }
 
 class WeeklyGraphViewModel {
