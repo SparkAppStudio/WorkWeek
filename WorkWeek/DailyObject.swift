@@ -24,7 +24,7 @@ class DailyObject: Object {
     @objc dynamic var dateString: String?
     @objc dynamic var date: Date? // TODO: Write a migrate to make date non-optional
 
-    private var unWrappedDate: Date {
+    var unWrappedDate: Date {
         // TODO: Will remove this after figure out Realm data migration
         return date!
     }
@@ -37,6 +37,10 @@ class DailyObject: Object {
 
     var firstEvent: Event? {
         return events.first
+    }
+
+    var lastEvent: Event? {
+        return events.last
     }
 
     override static func primaryKey() -> String? {
@@ -58,13 +62,8 @@ class DailyObject: Object {
     // and the last event of the previous day is arrive work
     // that means I worked past midnight last night
     var wasAtWork: Bool {
-        let firstEvent = events.first
-        let previousDailyObject = DataStore.shared.previousDailyObject(fromDate: unWrappedDate)
-        let lastEventOfPreviousDay = previousDailyObject?.events.last
-
         let isFirstEventOfTheDayLeaveWork = firstEvent?.kind == .leaveWork
-        let isLastEventOfPreviousDayArriveWork = lastEventOfPreviousDay?.kind == .arriveWork
-
+        let isLastEventOfPreviousDayArriveWork = DataStore.shared.isLastEventOfPreviousDayArriveWork(for: self)
         if isFirstEventOfTheDayLeaveWork && isLastEventOfPreviousDayArriveWork {
             return true
         }

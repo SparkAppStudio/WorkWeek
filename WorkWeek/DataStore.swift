@@ -78,6 +78,12 @@ class DataStore {
         return Array(allObjects)
     }
 
+    func isLastEventOfPreviousDayArriveWork(for currentDay: DailyObject) -> Bool {
+        let previousDailyObject = self.previousDailyObject(fromDate: currentDay.unWrappedDate )
+        let lastEventOfPreviousDay = previousDailyObject?.lastEvent
+        return lastEventOfPreviousDay?.kind == .arriveWork
+    }
+
     // MARK: - Delete Operations
     func removeAllObjects() {
         do {
