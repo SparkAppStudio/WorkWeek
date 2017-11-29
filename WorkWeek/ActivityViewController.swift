@@ -11,8 +11,8 @@ protocol DebugMenuShowing: class {
 }
 #endif
 
-protocol CountdownViewDelegate: class {
-    func countdownPageDidTapSettings()
+protocol ActivityViewDelegate: class {
+    func activityPageDidTapSettings()
 }
 
 protocol CountdownData {
@@ -21,7 +21,7 @@ protocol CountdownData {
     var timeLeftInWeek: TimeInterval { get }
 }
 
-final class CountdownViewController: UIViewController {
+final class ActivityViewController: UIViewController {
 
     // MARK: Variables
 
@@ -37,17 +37,17 @@ final class CountdownViewController: UIViewController {
     // MARK: IBActions
 
     @IBAction func didTapSettings(_ sender: UIButton) {
-        delegate?.countdownPageDidTapSettings()
+        delegate?.activityPageDidTapSettings()
     }
 
-    weak var delegate: CountdownViewDelegate?
+    weak var delegate: ActivityViewDelegate?
     var headerData: CountdownData!
     var tableViewData: (UITableViewDataSource & UITableViewDelegate)!
 
     var timer = Timer()
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
+        return getThemeStatusBarStyle()
     }
 
     override func viewDidLoad() {
@@ -90,7 +90,7 @@ final class CountdownViewController: UIViewController {
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
-                                     selector: (#selector(CountdownViewController.tick(_:))),
+                                     selector: (#selector(ActivityViewController.tick(_:))),
                                      userInfo: nil, repeats: true)
     }
 
@@ -115,22 +115,22 @@ final class CountdownViewController: UIViewController {
     }
 }
 
-extension CountdownViewController: MarginProvider {
+extension ActivityViewController: MarginProvider {
     var margin: CGFloat {
         return ringTrailingConstraint.constant
     }
 }
 
-extension CountdownViewController: ActivityStoryboard { }
+extension ActivityViewController: ActivityStoryboard { }
 
 protocol MarginProvider: class {
     var margin: CGFloat { get }
 }
 
-class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource {
+class ActivityTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource, Reusable {
 
     // MARK: Variables
-    private var countdownTVCIdentifier = "CountdownTableViewCell"
+//    private var countdownTVCIdentifier = "ActivityTableViewCell"
     var results: [WeeklyObject]
     var action: ((WeeklyObject) -> Void)
     weak var marginProvider: MarginProvider?
@@ -147,8 +147,7 @@ class CountDownTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: countdownTVCIdentifier,
-                                                 for: indexPath) as! CountdownTableViewCell // swiftlint:disable:this force_cast
+        let cell = tableView.dequeueReusableCell(for: indexPath) as ActivityTableViewCell
         cell.margin = marginProvider?.margin ?? 36
 
         let viewModel = WeeklyGraphViewModel(results[indexPath.row])
