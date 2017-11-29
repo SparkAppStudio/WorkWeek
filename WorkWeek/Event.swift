@@ -23,4 +23,14 @@ class Event: Object {
         self.eventTime = time
     }
 
+    var midnightToLeaveInterval: TimeInterval {
+        let startOfDay = eventTime.startOfDay
+        return eventTime.timeIntervalSince(startOfDay)
+    }
+
+    var arriveWorkToMidnightInterval: TimeInterval {
+        let endOfDay = eventTime.endOfDay
+        return endOfDay.timeIntervalSince(eventTime)
+    }
+
 }
