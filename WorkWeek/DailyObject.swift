@@ -84,7 +84,8 @@ class DailyObject: Object {
     // If I worked past midnight last night, add the time interval between
     // beginning of the day (12:00AM) until I leaveWork
     private func betweenBeginningOfTheDayAndLeaveWorkDuration() -> TimeInterval {
-        if wasAtWork, let leaveWork = events.first {
+        if wasAtWork {
+            guard let leaveWork = events.first else { return 0 }
             let startOfDay = unWrappedDate.startOfDay
             return leaveWork.eventTime.timeIntervalSince(startOfDay)
         } else {
@@ -95,9 +96,10 @@ class DailyObject: Object {
     // If I work pass midnight tonight, add the time interval between
     // arriveWork and midnight (11:59PM)
     private func betweenArriveWorkAndMidnightDuration(nowDate: Date = Date()) -> TimeInterval {
-        if isAtWork, let arriveWork = events.last {
+        if isAtWork {
             // if the last event of the day is arriveWork, and we already work past
             // that day, we then calculate the duration between arriveWork and 11:59PM
+            guard let arriveWork = events.last else { return 0 }
             let endOfDayDate = unWrappedDate.endOfDay
             let isSameDay = Calendar.current.isDate(nowDate, inSameDayAs: unWrappedDate)
             return isSameDay ? 0.0 : endOfDayDate.timeIntervalSince(arriveWork.eventTime)
