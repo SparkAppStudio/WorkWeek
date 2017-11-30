@@ -4,6 +4,7 @@
 
 import UIKit
 import MapKit
+import Contacts
 
 enum MapVCType {
     case home
@@ -24,11 +25,14 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
     }
 
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var nowAddressLabel: UILabel!
+    @IBOutlet weak var wasAddressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var centerCircleView: CenterCircleView!
 
     var locationManager: CLLocationManager!
+    var geoCoder = CLGeocoder()
 
     /// Used to ensure we only zoom the map once
     var didUpdateUserLocationOnce = false
@@ -170,7 +174,21 @@ extension SettingsMapViewController: MKMapViewDelegate {
         return renderer
     }
 
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let center = mapView.centerCoordinate
+        let location = CLLocation(latitude: center.latitude, longitude: center.longitude)
+        geoCoder.reverseGeocodeLocation(location) { (placeMarks, error) in
+            guard error == nil else { return }
+            for placeMark in placeMarks! {
+                guard let postalAddress = placeMark.postalAddress else { return }
+                let addressString = CNPostalAddressFormatter.string(from: postalAddress, style: .mailingAddress)
+                self.nowAddressLabel.text = addressString
+            }
+        }
+    }
+
 }
+
 
 class CenterCircleView: UIView {
     static var lineWidth: CGFloat = 3.0
