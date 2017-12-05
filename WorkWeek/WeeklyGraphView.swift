@@ -101,3 +101,15 @@ class WeeklyGraphViewModel {
 
     }
 }
+
+extension WeeklyGraphViewModel: CustomDebugStringConvertible {
+    var debugDescription: String {
+        return """
+        Percents:
+        s: \(sundayPercent), m: \(mondayPercent), t: \(tuesdayPercent), w: \(wednesdayPercent), t:\(thursdayPercent), f:\(fridayPercent), s: \(saturdayPercent)
+
+        Target: \(graphTargetPercent),
+        Time: \(timeFrameText), Hours: \(hoursText)
+        """
+    }
+}
