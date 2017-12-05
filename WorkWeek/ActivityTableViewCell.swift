@@ -46,6 +46,12 @@ import Reusable
         thursdayView.percentage = viewModel.thursdayPercent
         fridayView.percentage = viewModel.fridayPercent
         saturdayView.percentage = viewModel.saturdayPercent
+
+        [sundayView, mondayView, tuesdayView,
+         wednesdayView, thursdayView, fridayView,
+         saturdayView].forEach { view in
+            view?.setNeedsDisplay()
+        }
     }
 }
 
