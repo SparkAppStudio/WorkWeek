@@ -103,6 +103,7 @@ class WeeklyGraphViewModel {
 }
 
 extension WeeklyGraphViewModel: CustomDebugStringConvertible {
+    // swiftlint:disable line_length
     var debugDescription: String {
         return """
         Percents:
@@ -112,4 +113,5 @@ extension WeeklyGraphViewModel: CustomDebugStringConvertible {
         Time: \(timeFrameText), Hours: \(hoursText)
         """
     }
+    // swiftlint:enable line_length
 }
