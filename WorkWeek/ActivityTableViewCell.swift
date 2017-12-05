@@ -24,6 +24,7 @@ import Reusable
     @IBOutlet weak var fridayView: ProgressStripeView!
     @IBOutlet weak var saturdayView: ProgressStripeView!
     var margin: CGFloat!
+
     override func draw(_ rect: CGRect) {
         drawSparkRect(rect, color: UIColor.darkContent(), xInset: margin, yInset: margin/2, cornerRadius: rect.getRoundedCorner())
     }

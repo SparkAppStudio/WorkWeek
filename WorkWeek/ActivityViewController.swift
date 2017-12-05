@@ -130,7 +130,7 @@ protocol MarginProvider: class {
 class ActivityTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource, Reusable {
 
     // MARK: Variables
-//    private var countdownTVCIdentifier = "ActivityTableViewCell"
+
     var results: [WeeklyObject]
     var action: ((WeeklyObject) -> Void)
     weak var marginProvider: MarginProvider?
