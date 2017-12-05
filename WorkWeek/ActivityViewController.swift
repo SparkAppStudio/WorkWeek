@@ -61,6 +61,8 @@ final class ActivityViewController: UIViewController {
         runTimer()
         tick(timer)
 
+        registerForApplicationActiveNotifications()
+
         #if DEBUG
         // To get shake gesture
         self.becomeFirstResponder()
@@ -113,6 +115,23 @@ final class ActivityViewController: UIViewController {
         weekCountdownTimeLabel.text = "\(weekHours) work hours left in the week"
         countdownView.endPercentage = CGFloat(headerData.percentOfWorkRemaining)
     }
+}
+
+extension ActivityViewController {
+    func registerForApplicationActiveNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(update(_:)),
+                                               name: NSNotification.Name.UIApplicationDidBecomeActive,
+                                               object: nil)
+    }
+
+    @objc func update(_ notification: Notification) {
+        let firstItem = IndexPath(row: 0, section: 0)
+        if let _ = tableView?.cellForRow(at: firstItem) {
+            tableView?.reloadRows(at: [firstItem], with: .fade)
+        }
+    }
+
 }
 
 extension ActivityViewController: MarginProvider {
