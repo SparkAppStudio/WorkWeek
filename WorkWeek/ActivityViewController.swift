@@ -127,7 +127,7 @@ extension ActivityViewController {
 
     @objc func update(_ notification: Notification) {
         let firstItem = IndexPath(row: 0, section: 0)
-        if let _ = tableView?.cellForRow(at: firstItem) {
+        if tableView?.cellForRow(at: firstItem) != nil {
             tableView?.reloadRows(at: [firstItem], with: .fade)
         }
     }
