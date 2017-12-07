@@ -61,6 +61,8 @@ final class ActivityViewController: UIViewController {
         runTimer()
         tick(timer)
 
+        registerForApplicationActiveNotifications()
+
         #if DEBUG
         // To get shake gesture
         self.becomeFirstResponder()
@@ -115,6 +117,23 @@ final class ActivityViewController: UIViewController {
     }
 }
 
+extension ActivityViewController {
+    func registerForApplicationActiveNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(update(_:)),
+                                               name: NSNotification.Name.UIApplicationDidBecomeActive,
+                                               object: nil)
+    }
+
+    @objc func update(_ notification: Notification) {
+        let firstItem = IndexPath(row: 0, section: 0)
+        if tableView?.cellForRow(at: firstItem) != nil {
+            tableView?.reloadRows(at: [firstItem], with: .fade)
+        }
+    }
+
+}
+
 extension ActivityViewController: MarginProvider {
     var margin: CGFloat {
         return ringTrailingConstraint.constant
@@ -130,7 +149,7 @@ protocol MarginProvider: class {
 class ActivityTableViewDSD: NSObject, UITableViewDelegate, UITableViewDataSource, Reusable {
 
     // MARK: Variables
-//    private var countdownTVCIdentifier = "ActivityTableViewCell"
+
     var results: [WeeklyObject]
     var action: ((WeeklyObject) -> Void)
     weak var marginProvider: MarginProvider?

@@ -78,10 +78,8 @@ extension DayViewController: UITableViewDelegate, UITableViewDataSource, Reusabl
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(HourTableSectionView.self)
-            as! HourTableSectionView //swiftlint:disable:this force_cast
-        //TODO: I don't know how to make this warning go away
-        headerView.configure(section: section)
+        let headerView: HourTableSectionView? = tableView.dequeueReusableHeaderFooterView(HourTableSectionView.self)
+        headerView?.configure(section: section)
         return headerView
 
     }
