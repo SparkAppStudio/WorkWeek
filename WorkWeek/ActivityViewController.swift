@@ -46,10 +46,6 @@ final class ActivityViewController: UIViewController {
 
     var timer = Timer()
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return getThemeStatusBarStyle()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = tableViewData

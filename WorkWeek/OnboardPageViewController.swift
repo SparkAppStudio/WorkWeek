@@ -76,10 +76,6 @@ final class OnboardPageViewController: UIPageViewController, OnboardingStoryboar
         }
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent //should always be light no matter the theme
-    }
-
     func settingsPageDidTapHome() {
         onboardDelegate?.pageDidTapHome()
     }
