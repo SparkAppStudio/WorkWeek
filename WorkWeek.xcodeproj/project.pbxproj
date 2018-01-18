@@ -798,6 +798,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 68KS6FN57P;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -808,7 +810,8 @@
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=200";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sparkappstudio.workweek-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Spark - WorkWeek-Dev-AdHoc";
+				PROVISIONING_PROFILE = "3aaf26d3-94e3-46ce-b676-9e3673e97fef";
+				PROVISIONING_PROFILE_SPECIFIER = "Work Week Distribution";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
