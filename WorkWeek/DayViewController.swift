@@ -5,11 +5,23 @@
 import UIKit
 import Reusable
 
-class DayViewController: UIViewController {
+protocol DayViewControllerDelegate: class {
+    func headerDidTapLeft(_ sender: UIButton)
+    func headerDidTapRight(_ sender: UIButton)
+}
 
+class DayViewController: UIViewController, DayHeaderViewDelegate {
+
+    static let headerID = "DayHeaderView"
+
+    var dayText: String!
+    var headerView: DayHeaderView!
     var tableView: UITableView!
     var events: [Event]!
     var eventsPerSection = [Int: [Event]]()
+
+    weak var delegate: DayViewControllerDelegate!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +29,7 @@ class DayViewController: UIViewController {
             eventsPerSection[i] = findEvents()
         }
         setTheme()
+        setupHeaderView()
         setupTableView()
         // Do any additional setup after loading the view.
     }
@@ -33,6 +46,28 @@ class DayViewController: UIViewController {
         return events
     }
 
+    func setupHeaderView() {
+        let nib = UINib(nibName: DayViewController.headerID, bundle: nil)
+        headerView = nib.instantiate(withOwner: DayHeaderView.self, options: nil)[0] as? DayHeaderView
+        headerView.dayLabel.text = dayText
+        headerView.delegate = self
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(headerView)
+
+        headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        headerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: DayViewController.headerViewConstant).isActive = true
+    }
+
+    // MARK: DayHeaderView Delegate
+
+    func didTapLeft(_ sender: UIButton) {
+        delegate.headerDidTapLeft(sender)
+    }
+
+    func didTapRight(_ sender: UIButton) {
+        delegate.headerDidTapRight(sender)
+    }
 }
 
 extension DayViewController: UITableViewDelegate, UITableViewDataSource, Reusable {
@@ -40,13 +75,18 @@ extension DayViewController: UITableViewDelegate, UITableViewDataSource, Reusabl
     static let hourSectionID = "HourTableSectionView"
     static let hoursInDay = 24
 
+    static let headerViewConstant: CGFloat = 78
+
     func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.backgroundColor = UIColor.themeBackground()
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
-        view.addSubview(tableView)
+
+        tableView.contentInset = UIEdgeInsets(top: 78, left: 0, bottom: 0, right: 0)
+
+        view.insertSubview(tableView, belowSubview: headerView)
 
         let nib = UINib(nibName: DayViewController.hourCellID, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: DayViewController.hourCellID)

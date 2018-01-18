@@ -140,3 +140,13 @@ extension UINavigationController {
         navigationBar.shadowImage = UIImage()
     }
 }
+
+extension UIImage {
+    static func getLeftThemeChevron() -> UIImage {
+        return #imageLiteral(resourceName: "left-thin-chevron")
+    }
+
+    static func getRightThemeChevron() -> UIImage {
+        return #imageLiteral(resourceName: "right-thin-chevron")
+    }
+}
