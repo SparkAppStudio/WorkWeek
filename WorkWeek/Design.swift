@@ -120,6 +120,12 @@ extension UIViewController {
     }
 }
 
+extension AppDelegate {
+    func getThemeStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+}
+
 extension UINavigationController {
     func setThemeNavBar() {
         let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.themeText()]

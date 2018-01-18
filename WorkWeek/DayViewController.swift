@@ -11,10 +11,6 @@ class DayViewController: UIViewController {
     var events: [Event]!
     var eventsPerSection = [Int: [Event]]()
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return getThemeStatusBarStyle()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         for i in 0...23 {

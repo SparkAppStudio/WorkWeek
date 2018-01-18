@@ -71,10 +71,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func configureWindowAndCoordinator() {
+        UIApplication.shared.statusBarStyle = getThemeStatusBarStyle()
+        UIApplication.shared.isStatusBarHidden = false
+
         window = UIWindow(frame: UIScreen.main.bounds)
         let navigation = UINavigationController()
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
+
 
         appCoordinator = AppCoordinator(with: navigation, locationManager: locationManager)
         appCoordinator.start()

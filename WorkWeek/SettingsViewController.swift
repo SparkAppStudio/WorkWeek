@@ -40,10 +40,6 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     var user: User!
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return getThemeStatusBarStyle()
-    }
-
     // MARK: View Lifecycle
 
     override func viewDidLoad() {
