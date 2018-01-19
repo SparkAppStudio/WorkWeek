@@ -34,6 +34,16 @@ class DayViewController: UIViewController, DayHeaderViewDelegate {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.scrollToRow(at: findSelectedIndex(), at: .top, animated: false)
+    }
+
+    func findSelectedIndex() -> IndexPath {
+        let hour = Calendar.current.component(.hour, from: Date())
+        return IndexPath(row: 0, section: hour)
+    }
+
     func findEvents() -> [Event] {
 
 
@@ -83,6 +93,7 @@ extension DayViewController: UITableViewDelegate, UITableViewDataSource, Reusabl
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.allowsSelection = false
 
         tableView.contentInset = UIEdgeInsets(top: 78, left: 0, bottom: 0, right: 0)
 
