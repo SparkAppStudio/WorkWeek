@@ -58,7 +58,7 @@ class WeeklyGraphView: UIView, ProgressStripeViewDelegate {
         saturdayView.index = 6
         saturdayView.delegate = self
 
-//        graphTargetLine.percentage = weeklyGraphViewModel.graphTargetPercent
+        graphTargetLine.targetData = weeklyGraphViewModel.graphTarget
 
     }
 
@@ -70,7 +70,7 @@ class WeeklyGraphView: UIView, ProgressStripeViewDelegate {
 
 class WeeklyGraphViewModel {
 
-    let graphTargetPercent: Double
+    let graphTarget: (percent: Double, hours: String)
     let sunday: (percent: Double, hours: String)
     let monday: (percent: Double, hours: String)
     let tuesday: (percent: Double, hours: String)
@@ -110,7 +110,8 @@ class WeeklyGraphViewModel {
         hoursText = weeklyObject.totalWorkTime.convertAndFormat(preserving: [.hour])
 
         timeFrameText = weeklyObject.weekAndTheYear ?? ""
-        graphTargetPercent = weeklyObject.graphTargetPercentage
+        graphTarget.percent = weeklyObject.graphTargetPercentage
+        graphTarget.hours = weeklyObject.userWorkGoalInterval.convertAndFormatCompact(preserving: [.hour])
 
     }
 }
@@ -122,7 +123,7 @@ extension WeeklyGraphViewModel: CustomDebugStringConvertible {
         Percents:
         s: \(sunday.percent), m: \(monday.percent), t: \(tuesday.percent), w: \(wednesday.percent), t:\(thursday.percent), f:\(friday.percent), s: \(saturday.percent)
 
-        Target: \(graphTargetPercent),
+        Target: \(graphTarget.percent),
         Time: \(timeFrameText), Hours: \(hoursText)
         """
     }

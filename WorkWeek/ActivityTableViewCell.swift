@@ -52,6 +52,9 @@ import Reusable
          saturdayView].forEach { view in
             view?.setNeedsDisplay()
         }
+
+        graphTargetLine.targetData = viewModel.graphTarget
+        graphTargetLine.setNeedsDisplay()
     }
 }
 
