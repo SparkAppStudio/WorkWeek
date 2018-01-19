@@ -110,9 +110,9 @@ extension UIBezierPath {
 }
 
 extension UIViewController {
-    func setTheme() {
+    func setTheme(isNavBarTransparent: Bool) {
         view.backgroundColor = UIColor.themeBackground()
-        navigationController?.setThemeNavBar()
+        navigationController?.setThemeNavBar(isNavBarTransparent)
     }
 
     func getThemeStatusBarStyle() -> UIStatusBarStyle {
@@ -127,12 +127,15 @@ extension AppDelegate {
 }
 
 extension UINavigationController {
-    func setThemeNavBar() {
+    func setThemeNavBar(_ isTransparent: Bool) {
         let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.themeText()]
         navigationBar.titleTextAttributes = textAttributes
         navigationBar.tintColor = UIColor.themeText()
-//        setTransparentNavBar()
-        setOpaqueNavBar()
+        if isTransparent {
+            setTransparentNavBar()
+        } else {
+            setOpaqueNavBar()
+        }
     }
 
     func setOpaqueNavBar() {

@@ -46,7 +46,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         assert(user != nil, "Error! User object shoudl be provided to the VC by the coordinator")
         super.viewDidLoad()
         title = "Settings"
-        setTheme()
+        setTheme(isNavBarTransparent: true)
         workDaysLabel.textColor = UIColor.themeText()
         notificationsLabel.textColor = UIColor.themeText()
         setMainContentStackViewEqualToPhoneWidth()

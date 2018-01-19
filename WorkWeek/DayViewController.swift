@@ -28,7 +28,7 @@ class DayViewController: UIViewController, DayHeaderViewDelegate {
         for i in 0...23 {
             eventsPerSection[i] = findEvents()
         }
-        setTheme()
+        setTheme(isNavBarTransparent: false)
         setupHeaderView()
         setupTableView()
         // Do any additional setup after loading the view.

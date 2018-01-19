@@ -33,7 +33,7 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTheme()
+        setTheme(isNavBarTransparent: false)
 
         let nib = UINib(nibName: "WeeklyGraphView", bundle: nil)
         let headerView = nib.instantiate(withOwner: WeeklyGraphView.self, options: nil)[0] as? WeeklyGraphView

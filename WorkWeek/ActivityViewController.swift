@@ -48,11 +48,10 @@ final class ActivityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTheme(isNavBarTransparent: true)
         tableView.dataSource = tableViewData
         tableView.delegate = tableViewData
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
-
-        title = "Count Down"
 
         runTimer()
         tick(timer)
