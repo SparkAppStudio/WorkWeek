@@ -46,15 +46,8 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
 
         segmentedPager.parallaxHeader.view = headerView
         segmentedPager.parallaxHeader.mode = MXParallaxHeaderMode.center
-        segmentedPager.parallaxHeader.height = 400
-
-        // check for iPhone X
-        if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436 {
-            segmentedPager.parallaxHeader.minimumHeight = 88 //88 for normal size nav bar title
-
-        } else {
-            segmentedPager.parallaxHeader.minimumHeight = 0
-        }
+        segmentedPager.parallaxHeader.height = 222 // to match WeeklyGraphView xib
+        segmentedPager.parallaxHeader.minimumHeight = 0
     }
 
 

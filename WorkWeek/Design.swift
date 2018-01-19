@@ -131,7 +131,14 @@ extension UINavigationController {
         let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.themeText()]
         navigationBar.titleTextAttributes = textAttributes
         navigationBar.tintColor = UIColor.themeText()
-        setTransparentNavBar()
+//        setTransparentNavBar()
+        setOpaqueNavBar()
+    }
+
+    func setOpaqueNavBar() {
+        navigationBar.isTranslucent = false
+        navigationBar.barTintColor = UIColor.themeBackground()
+        navigationBar.shadowImage = UIImage()
     }
 
     func setTransparentNavBar() {
