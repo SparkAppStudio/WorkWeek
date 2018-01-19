@@ -6,7 +6,10 @@ import UIKit
 
 class ProgressStripeView: UIView {
 
-    public var percentage: Double?
+    public var workData: (percent: Double, hours: String)!
+
+    var pointForLabel: CGPoint!
+    var heightForLabel: CGFloat = 15
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,10 +21,9 @@ class ProgressStripeView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-        guard let percent = percentage else { return }
         let context = UIGraphicsGetCurrentContext()!
 
-        let progressHeight = CGFloat(percent) * rect.height
+        let progressHeight = CGFloat(workData.percent) * rect.height
         let div = rect.divided(atDistance: progressHeight, from: CGRectEdge.maxYEdge)
 
         context.clip(to: div.slice)
@@ -32,10 +34,9 @@ class ProgressStripeView: UIView {
                                         colors: colors,
                                         locations: [0, 1]) else { return }
         let startPoint = CGPoint(x: 0, y: div.remainder.height)
+        pointForLabel = CGPoint(x: 0, y: div.remainder.height - heightForLabel)
         let endPoint = CGPoint(x: 0, y: rect.height)
         context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
-
-
     }
 
 }
@@ -63,6 +64,18 @@ class TouchableProgressStripeView: ProgressStripeView {
     func sharedInit() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         self.addGestureRecognizer(tap)
+    }
+
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+
+        let frame = CGRect(origin: pointForLabel, size: CGSize(width: rect.width, height: heightForLabel))
+        let label = UILabel(frame: frame)
+        label.textColor = UIColor.themeText()
+        label.textAlignment = .center
+        label.font = label.font.withSize(9)
+        label.text = workData.hours
+        self.addSubview(label)
     }
 
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
