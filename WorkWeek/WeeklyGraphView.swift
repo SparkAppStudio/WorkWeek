@@ -60,6 +60,26 @@ class WeeklyGraphView: UIView, ProgressStripeViewDelegate {
 
         graphTargetLine.targetData = weeklyGraphViewModel.graphTarget
 
+        guard let today = WeeklyGraphViewModel.today else { return }
+        switch today {
+        case 1:
+            sundayView.isToday = true
+        case 2:
+            mondayView.isToday = true
+        case 3:
+            tuesdayView.isToday = true
+        case 4:
+            wednesdayView.isToday = true
+        case 5:
+            thursdayView.isToday = true
+        case 6:
+            fridayView.isToday = true
+        case 7:
+            saturdayView.isToday = true
+        default:
+            break
+        }
+
     }
 
     func didTapDay(_ index: Int) {
@@ -109,15 +129,17 @@ class WeeklyGraphViewModel {
 
         hoursText = weeklyObject.totalWorkTime.convertAndFormat(preserving: [.hour])
 
+        graphTarget.percent = weeklyObject.graphTargetPercentage
+        graphTarget.hours = weeklyObject.userWorkGoalInterval.convertAndFormatCompact(preserving: [.hour])
+
         let firstDate = weeklyObject.dailyObjects.first?.date
         let lastDate = weeklyObject.dailyObjects.last?.date
 
         weekRangeText = WeeklyGraphViewModel.formattedWeek(from: firstDate, to: lastDate)
-
-        graphTarget.percent = weeklyObject.graphTargetPercentage
-        graphTarget.hours = weeklyObject.userWorkGoalInterval.convertAndFormatCompact(preserving: [.hour])
-
     }
+
+
+    static var today: Int?
 
     static func formattedWeek(from date: Date?, to endDate: Date?) -> String {
         guard let date = date else { return "" }
@@ -126,6 +148,7 @@ class WeeklyGraphViewModel {
         let calendar = Calendar.current
 
         if calendar.compare(endDate, to: Date(), toGranularity: .day) == .orderedSame {
+            today = calendar.component(.weekday, from: endDate)
             return "Current"
         }
 

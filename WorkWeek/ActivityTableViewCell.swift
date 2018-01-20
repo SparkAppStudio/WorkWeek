@@ -55,6 +55,26 @@ import Reusable
 
         graphTargetLine.targetData = viewModel.graphTarget
         graphTargetLine.setNeedsDisplay()
+
+        guard let today = WeeklyGraphViewModel.today else { return }
+        switch today {
+        case 1:
+            sundayView.isToday = true
+        case 2:
+            mondayView.isToday = true
+        case 3:
+            tuesdayView.isToday = true
+        case 4:
+            wednesdayView.isToday = true
+        case 5:
+            thursdayView.isToday = true
+        case 6:
+            fridayView.isToday = true
+        case 7:
+            saturdayView.isToday = true
+        default:
+            break
+        }
     }
 }
 
