@@ -26,4 +26,10 @@ extension Date {
     var previousDay: Date? {
         return Calendar.current.date(byAdding: .day, value: -1, to: self)
     }
+
+    func toString(dateFormat format: String ) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
 }

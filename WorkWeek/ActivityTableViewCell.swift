@@ -30,8 +30,8 @@ import Reusable
     }
 
     func configure(_ viewModel: WeeklyGraphViewModel) {
-        backgroundColor = UIColor.clear
-        timeFrameLabel.text = viewModel.timeFrameText
+        backgroundColor = UIColor.themeBackground()
+        timeFrameLabel.text = viewModel.weekRangeText
         hoursLabel.text = viewModel.hoursText
         timeFrameLabel.textColor = UIColor.themeText()
         hoursLabel.textColor = UIColor.workBlue()

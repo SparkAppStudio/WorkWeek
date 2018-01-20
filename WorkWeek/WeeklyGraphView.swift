@@ -79,7 +79,7 @@ class WeeklyGraphViewModel {
     let friday: (percent: Double, hours: String)
     let saturday: (percent: Double, hours: String)
 
-    let timeFrameText: String
+    let weekRangeText: String
     let hoursText: String
 
     init(_ weeklyObject: WeeklyObject) {
@@ -109,11 +109,35 @@ class WeeklyGraphViewModel {
 
         hoursText = weeklyObject.totalWorkTime.convertAndFormat(preserving: [.hour])
 
-        timeFrameText = weeklyObject.weekAndTheYear ?? ""
+        let firstDate = weeklyObject.dailyObjects.first?.date
+        let lastDate = weeklyObject.dailyObjects.last?.date
+
+        weekRangeText = WeeklyGraphViewModel.formattedWeek(from: firstDate, to: lastDate)
+
         graphTarget.percent = weeklyObject.graphTargetPercentage
         graphTarget.hours = weeklyObject.userWorkGoalInterval.convertAndFormatCompact(preserving: [.hour])
 
     }
+
+    static func formattedWeek(from date: Date?, to endDate: Date?) -> String {
+        guard let date = date else { return "" }
+        guard let endDate = endDate else { return "" }
+
+        let calendar = Calendar.current
+
+        if calendar.compare(endDate, to: Date(), toGranularity: .day) == .orderedSame {
+            return "Current"
+        }
+
+        guard let weekInterval = calendar.dateInterval(of: .weekOfMonth, for: date) else { return "Unknown" }
+        let trueEnd = calendar.date(byAdding: .day, value: -1, to: weekInterval.end)!
+
+        let firstDay = weekInterval.start.toString(dateFormat: "MMM d, yyyy")
+        let lastDay = trueEnd.toString(dateFormat: "MMM d, yyyy")
+
+        return "\(firstDay) - " + "\(lastDay)"
+    }
+
 }
 
 extension WeeklyGraphViewModel: CustomDebugStringConvertible {
@@ -124,7 +148,7 @@ extension WeeklyGraphViewModel: CustomDebugStringConvertible {
         s: \(sunday.percent), m: \(monday.percent), t: \(tuesday.percent), w: \(wednesday.percent), t:\(thursday.percent), f:\(friday.percent), s: \(saturday.percent)
 
         Target: \(graphTarget.percent),
-        Time: \(timeFrameText), Hours: \(hoursText)
+        Time: \(weekRangeText), Hours: \(hoursText)
         """
     }
     // swiftlint:enable line_length

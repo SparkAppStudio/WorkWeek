@@ -143,7 +143,7 @@ class DataStore {
         let dateComponents = cal.dateComponents(in: .current, from: date)
         guard let week = dateComponents.weekOfYear else { return ""}
         guard let year = dateComponents.year else { return ""}
-        return "\(week)" + "\(year)"
+        return "\(week)" + "_\(year)"
     }
 
     // MARK: - User
