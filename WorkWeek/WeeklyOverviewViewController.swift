@@ -10,7 +10,7 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
 
     var weekObject: WeeklyObject!
     static let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-
+    var headerView: WeeklyGraphView!
 
     lazy var controllersArray: [(title: String, controller: UIViewController)] = {
         var array: [(title: String, controller: UIViewController)] = []
@@ -36,7 +36,7 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
         setTheme(isNavBarTransparent: false)
 
         let nib = UINib(nibName: "WeeklyGraphView", bundle: nil)
-        let headerView = nib.instantiate(withOwner: WeeklyGraphView.self, options: nil)[0] as? WeeklyGraphView
+        headerView = nib.instantiate(withOwner: WeeklyGraphView.self, options: nil)[0] as? WeeklyGraphView
         let viewModel = WeeklyGraphViewModel.init(weekObject)
 
         headerView?.configure(viewModel)
@@ -50,6 +50,30 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
         segmentedPager.parallaxHeader.minimumHeight = 0
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        selectDay(at: nil)
+    }
+
+    func selectDay(at index: Int?) {
+        if let index = index {
+            let label = headerView?.dayLabels[index]
+            label?.textColor = UIColor.workBlue()
+        } else {
+            let label = headerView?.dayLabels[segmentedPager.pager.indexForSelectedPage]
+            label?.textColor = UIColor.workBlue()
+        }
+    }
+
+    func deselectDay(at index: Int?) {
+        if let index = index {
+            let label = headerView?.dayLabels[index]
+            label?.textColor = UIColor.themeText()
+        } else {
+            let label = headerView?.dayLabels[segmentedPager.pager.indexForSelectedPage]
+            label?.textColor = UIColor.themeText()
+        }
+    }
 
     // MARK: MXSegmentedPagerDelegate
 
@@ -57,10 +81,11 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
         return 0
     }
 
-    override func segmentedPager(_ segmentedPager: MXSegmentedPager, didScrollWith parallaxHeader: MXParallaxHeader) {
-        if parallaxHeader.progress > 0.2 {
-            //implement pull to refresh here
+    override func segmentedPager(_ segmentedPager: MXSegmentedPager, didSelectViewWith index: Int) {
+        for i in 0...6 {
+            deselectDay(at: i)
         }
+        selectDay(at: index)
     }
 
 
@@ -97,6 +122,5 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
     func headerDidTapRight(_ sender: UIButton) {
         let nextIndex = segmentedPager.pager.indexForSelectedPage + 1
         segmentedPager.pager.showPage(at: nextIndex, animated: true)
-
     }
 }
