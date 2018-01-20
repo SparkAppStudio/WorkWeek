@@ -110,9 +110,9 @@ extension UIBezierPath {
 }
 
 extension UIViewController {
-    func setTheme() {
+    func setTheme(isNavBarTransparent: Bool) {
         view.backgroundColor = UIColor.themeBackground()
-        navigationController?.setThemeNavBar()
+        navigationController?.setThemeNavBar(isNavBarTransparent)
     }
 
     func getThemeStatusBarStyle() -> UIStatusBarStyle {
@@ -127,16 +127,36 @@ extension AppDelegate {
 }
 
 extension UINavigationController {
-    func setThemeNavBar() {
+    func setThemeNavBar(_ isTransparent: Bool) {
         let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.themeText()]
         navigationBar.titleTextAttributes = textAttributes
         navigationBar.tintColor = UIColor.themeText()
-        setTransparentNavBar()
+        if isTransparent {
+            setTransparentNavBar()
+        } else {
+            setOpaqueNavBar()
+        }
+    }
+
+    func setOpaqueNavBar() {
+        navigationBar.isTranslucent = false
+        navigationBar.barTintColor = UIColor.themeBackground()
+        navigationBar.shadowImage = UIImage()
     }
 
     func setTransparentNavBar() {
         navigationBar.isTranslucent = true
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
+    }
+}
+
+extension UIImage {
+    static func getLeftThemeChevron() -> UIImage {
+        return #imageLiteral(resourceName: "left-thin-chevron")
+    }
+
+    static func getRightThemeChevron() -> UIImage {
+        return #imageLiteral(resourceName: "right-thin-chevron")
     }
 }

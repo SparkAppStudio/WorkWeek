@@ -41,7 +41,7 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
     func start(animated: Bool) {
         Log.log()
 
-        navigationController.isNavigationBarHidden = true
+        navigationController.isNavigationBarHidden = false
 
         let activityVC = ActivityViewController.instantiate()
         activityVC.headerData = CountDownHeaderData()
@@ -88,10 +88,13 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
     }
 
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        navigationController.isNavigationBarHidden = false
+    }
+
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if viewController is ActivityViewController {
             navigationController.isNavigationBarHidden = true
-        } else {
-            navigationController.isNavigationBarHidden = false
+
         }
     }
 

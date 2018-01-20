@@ -18,4 +18,20 @@ extension TimeInterval {
         let formattedDuration = formatter.string(from: self)
         return formattedDuration
     }
+
+    func convertAndFormat(preserving units: NSCalendar.Unit) -> String {
+        let duration = convert(preserving: units) ?? ""
+        guard let durationInt = Int(duration) else {
+            return ""
+        }
+        return "\(durationInt) \(durationInt == 1 ? "hour": "hours")"
+    }
+
+    func convertAndFormatCompact(preserving units: NSCalendar.Unit) -> String {
+        let duration = convert(preserving: units) ?? ""
+        guard duration != "0", let durationInt = Int(duration) else {
+            return ""
+        }
+        return "\(durationInt) \(durationInt == 1 ? "hr": "hrs")"
+    }
 }

@@ -39,19 +39,22 @@ import Reusable
             label.textColor = UIColor.themeText()
         }
 
-        sundayView.percentage = viewModel.sundayPercent
-        mondayView.percentage = viewModel.mondayPercent
-        tuesdayView.percentage = viewModel.tuesdayPercent
-        wednesdayView.percentage = viewModel.wednesdayPercent
-        thursdayView.percentage = viewModel.thursdayPercent
-        fridayView.percentage = viewModel.fridayPercent
-        saturdayView.percentage = viewModel.saturdayPercent
+        sundayView.workData = viewModel.sunday
+        mondayView.workData = viewModel.monday
+        tuesdayView.workData = viewModel.tuesday
+        wednesdayView.workData = viewModel.wednesday
+        thursdayView.workData = viewModel.thursday
+        fridayView.workData = viewModel.friday
+        saturdayView.workData = viewModel.saturday
 
         [sundayView, mondayView, tuesdayView,
          wednesdayView, thursdayView, fridayView,
          saturdayView].forEach { view in
             view?.setNeedsDisplay()
         }
+
+        graphTargetLine.targetData = viewModel.graphTarget
+        graphTargetLine.setNeedsDisplay()
     }
 }
 

@@ -6,7 +6,7 @@ import UIKit
 import MXSegmentedPager
 
 
-class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewDelegate {
+class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewDelegate, DayViewControllerDelegate {
 
     var weekObject: WeeklyObject!
     static let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -22,7 +22,10 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
         }
 
         for day in WeeklyOverviewViewController.daysOfWeek {
-            addpage(day, controller: DayViewController())
+            let dayVC = DayViewController()
+            dayVC.dayText = day
+            dayVC.delegate = self
+            addpage(day, controller: dayVC)
         }
 
         return array
@@ -30,7 +33,7 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTheme()
+        setTheme(isNavBarTransparent: false)
 
         let nib = UINib(nibName: "WeeklyGraphView", bundle: nil)
         let headerView = nib.instantiate(withOwner: WeeklyGraphView.self, options: nil)[0] as? WeeklyGraphView
@@ -40,17 +43,11 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
         headerView?.delegate = self
 
         // Parallax Header
+
         segmentedPager.parallaxHeader.view = headerView
         segmentedPager.parallaxHeader.mode = MXParallaxHeaderMode.center
-        segmentedPager.parallaxHeader.height = 400
+        segmentedPager.parallaxHeader.height = 222 // to match WeeklyGraphView xib
         segmentedPager.parallaxHeader.minimumHeight = 0
-    }
-
-
-    // MARK: WeeklyGraphViewDelegate
-
-    func didTapDay(_ index: Int) {
-        segmentedPager.pager.showPage(at: index, animated: true)
     }
 
 
@@ -80,5 +77,26 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
     override func segmentedPager(_ segmentedPager: MXSegmentedPager, viewControllerForPageAt index: Int) -> UIViewController {
 
         return controllersArray[index].controller
+    }
+
+
+    // MARK: WeeklyGraphViewDelegate
+
+    func didTapDay(_ index: Int) {
+        segmentedPager.pager.showPage(at: index, animated: true)
+    }
+
+
+    // MARK: DayViewControllerDelegate
+
+    func headerDidTapLeft(_ sender: UIButton) {
+        let previousIndex = segmentedPager.pager.indexForSelectedPage - 1
+        segmentedPager.pager.showPage(at: previousIndex, animated: true)
+    }
+
+    func headerDidTapRight(_ sender: UIButton) {
+        let nextIndex = segmentedPager.pager.indexForSelectedPage + 1
+        segmentedPager.pager.showPage(at: nextIndex, animated: true)
+
     }
 }
