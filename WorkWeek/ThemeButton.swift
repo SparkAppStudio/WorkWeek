@@ -12,3 +12,11 @@ import UIKit
         drawSparkRect(rect, color: UIColor.themeContent())
     }
 }
+
+@IBDesignable class ThemeView: UIView {
+    override func draw(_ rect: CGRect) {
+        backgroundColor = UIColor.clear
+        drawSparkRect(rect, color: UIColor.themeContent())
+
+    }
+}

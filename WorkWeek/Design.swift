@@ -151,6 +151,12 @@ extension UINavigationController {
     }
 }
 
+extension UIBlurEffectStyle {
+    static func themed() -> UIBlurEffectStyle {
+        return .dark
+    }
+}
+
 extension UIImage {
     static func getLeftThemeChevron() -> UIImage {
         return #imageLiteral(resourceName: "left-thin-chevron")

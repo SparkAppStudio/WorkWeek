@@ -10,12 +10,13 @@ protocol HoursPickerDelegate: class {
 
 class HoursPickerViewController: UIViewController, SettingsStoryboard {
 
-    @IBOutlet var containerView: UIView!
+    @IBOutlet var containerView: ThemeView!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     var zeroHeightConstraint: NSLayoutConstraint!
 
     let pickerDataSource = WorkDayHoursPickerDataSource()
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var saveButton: UIButton!
 
     /// Who to call when we've finished our work.
     weak var delegate: HoursPickerDelegate?
@@ -54,6 +55,16 @@ class HoursPickerViewController: UIViewController, SettingsStoryboard {
         picker.dataSource = pickerDataSource
         pickerDataSource.delegate = self
         setInitialPickerSelection()
+        styleView()
+    }
+
+    func styleView() {
+        let blurEffect = UIBlurEffect(style: .themed())
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = view.bounds
+        view.insertSubview(blurView, belowSubview: containerView)
+        saveButton.setTitleColor(UIColor.themeText(), for: .normal)
+
     }
 
     func animatePickerOnScreen() {
