@@ -31,7 +31,7 @@ import UIKit
 
 
         backgroundArcPath(context: context, center: center, radius: radius)
-        counterPath(center: center, radius: radius, endPercentage: endPercentage)
+        counterPath(context: context, center: center, radius: radius, endPercentage: endPercentage)
     }
 
     func backgroundArcPath(context: CGContext, center: CGPoint, radius: CGFloat) {
@@ -56,7 +56,7 @@ import UIKit
     ///   - center: center of the ring
     ///   - radius: radius of the ring
     ///   - endPercentage: where the ring ends in percentage, from 0.0 to 1, with offset so the ring starts at north position.
-    func counterPath(center: CGPoint, radius: CGFloat, endPercentage: CGFloat) {
+    func counterPath(context: CGContext, center: CGPoint, radius: CGFloat, endPercentage: CGFloat) {
 
         var cleanEndPercentage: CGFloat = 0.0
 
@@ -88,5 +88,29 @@ import UIKit
         path.lineCapStyle = .round
         counterColor.setStroke()
         path.stroke()
+
+//        setGradient(rect: self.bounds, center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, percent: end, context: context)
+    }
+
+    func setGradient(rect: CGRect, center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, percent: CGFloat, context: CGContext) {
+
+        let gradient = CAGradientLayer()
+        gradient.frame = rect
+        gradient.colors = [UIColor.workBlue().cgColor, UIColor.homeGreen().cgColor]
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
+        context.fill(rect)
+        context.setLineWidth(counterWidth)
+        context.setLineCap(.round)
+        context.setBlendMode(.clear)
+
+        context.addArc(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+
+        context.strokePath()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        let baseLayer = CALayer()
+        baseLayer.frame = rect
+        baseLayer.contents = image?.cgImage
+        layer.addSublayer(baseLayer)
     }
 }
