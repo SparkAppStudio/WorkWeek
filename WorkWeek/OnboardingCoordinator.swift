@@ -9,8 +9,13 @@ protocol OnboardingCoordinatorDelegate: class {
     func onboardingFinished(with coordinator: OnboardingCoordinator)
 }
 
-class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate {
+class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate, UserGettable {
 
+    var vcForPresentation: UIViewController {
+        return navigationController
+    }
+
+    var currentUser: User!
     let navigationController: UINavigationController
     let locationManager: CLLocationManager
     weak var delegate: OnboardingCoordinatorDelegate?
@@ -32,6 +37,12 @@ class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate {
 
         navigationController.setViewControllers([onboardVC], animated: false)
         navigationController.isNavigationBarHidden = true
+
+        guard let user = getUserFromRealm() else {
+            showErrorAlert()
+            return
+        }
+        currentUser = user
     }
 
     func pagesAreDone() {
@@ -43,7 +54,7 @@ class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate {
         SettingsMapViewController.presentMapWith(navController: navigationController,
                                        as: .home,
                                        location: locationManager,
-                                       delegate: self)
+                                       delegate: self, user: currentUser)
     }
 
     func pageDidTapWork() {
@@ -51,6 +62,6 @@ class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate {
         SettingsMapViewController.presentMapWith(navController: navigationController,
                                        as: .work,
                                        location: locationManager,
-                                       delegate: self)
+                                       delegate: self, user: currentUser)
     }
 }

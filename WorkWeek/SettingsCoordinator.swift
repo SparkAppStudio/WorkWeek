@@ -77,14 +77,14 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         SettingsMapViewController.presentMapWith(navController: nav,
                                        as: .home,
                                        location: locationManager,
-                                       delegate: self)
+                                       delegate: self, user: user)
     }
 
     func didTapWorkMap(nav: UINavigationController) {
         SettingsMapViewController.presentMapWith(navController: nav,
                                        as: .work,
                                        location: locationManager,
-                                       delegate: self)
+                                       delegate: self, user: user)
     }
 
     func didTapSelectHours(nav: UINavigationController) {

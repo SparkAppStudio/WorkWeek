@@ -26,7 +26,7 @@ import Reusable
     var margin: CGFloat!
 
     override func draw(_ rect: CGRect) {
-        drawSparkRect(rect, color: UIColor.darkContent(), xInset: margin, yInset: margin/2, cornerRadius: rect.getRoundedCorner())
+        drawSparkRect(rect, color: UIColor.darkContent(), xInset: margin, yInset: margin/2, cornerRadius: rect.getRoundedCorner(), setShadow: true)
     }
 
     func configure(_ viewModel: WeeklyGraphViewModel) {

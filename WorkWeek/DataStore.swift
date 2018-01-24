@@ -174,6 +174,14 @@ class DataStore {
         unhandledErrorWrite( user.weekdays = weekdays)
     }
 
+    func updateHomeLocation(for user: User, with homeString: String) {
+        unhandledErrorWrite( user.homeLocation = homeString)
+    }
+
+    func updateWorkLocation(for user: User, with workString: String) {
+        unhandledErrorWrite( user.workLocation = workString)
+    }
+
     func updateHours(for user: User, with hours: Double) {
         unhandledErrorWrite( user.hoursInWorkDay = hours)
     }

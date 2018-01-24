@@ -28,7 +28,7 @@ protocol MapVCDelegate: class {
     ///   - coordinate: The coordinate, a the center of the map (probably used
     ///                 to set the center of a geofence
     ///   - radius: the radius shown by the circle in the middle of the map
-    func save(viewController: UIViewController, type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)
+    func save(viewController: UIViewController, type: MapVCType, user: User, address: String?, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)
 
     /// The Map View Controller calls this method when the user chooses not to
     /// save their work. The user probably just wants to dismiss the map.
@@ -37,16 +37,25 @@ protocol MapVCDelegate: class {
 
 extension MapVCDelegate {
 
-    func save(viewController: UIViewController, type: MapVCType, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+    func save(viewController: UIViewController, type: MapVCType, user: User, address: String?, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
         let region: CLCircularRegion
         switch type {
         case .home:
             region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.home.rawValue)
             startTrackingHome(region: region)
+
+            guard let address = address else {return}
+            DataStore.shared.updateHomeLocation(for: user, with: address)
+
         case .work:
             region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.work.rawValue)
             startTrackingWork(region: region)
+
+            guard let address = address else {return}
+
+            DataStore.shared.updateWorkLocation(for: user, with: address)
         }
+        
         locationManager.startMonitoring(for: region)
         viewController.dismiss(animated: true, completion: nil)
     }

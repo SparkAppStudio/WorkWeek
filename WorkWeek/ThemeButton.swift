@@ -20,3 +20,10 @@ import UIKit
 
     }
 }
+
+@IBDesignable class MapThemeView: UIView {
+    override func draw(_ rect: CGRect) {
+        backgroundColor = UIColor.clear
+        drawSparkRect(rect, color: UIColor.themeBackground(), xInset: 0, yInset: 0, cornerRadius: rect.getRoundedCorner(), setShadow: false)
+    }
+}

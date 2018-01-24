@@ -238,7 +238,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9X-x2-OCi">
-                                <rect key="frame" x="0.0" y="76" width="375" height="471"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="504.5"/>
                                 <connections>
                                     <outlet property="delegate" destination="hTH-DO-Zlb" id="6WY-jS-EKm"/>
                                 </connections>
@@ -248,46 +248,68 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4j-Pr-RUl" customClass="CenterCircleView" customModule="WorkWeek" customModuleProvider="target">
-                                <rect key="frame" x="125" y="249.5" width="124.5" height="124.5"/>
+                                <rect key="frame" x="125" y="266.5" width="124.5" height="124.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="K4j-Pr-RUl" secondAttribute="height" multiplier="1:1" id="u8A-Vr-oMM"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3N-ts-Nis" userLabel="MapInformationView">
-                                <rect key="frame" x="0.0" y="546" width="375" height="121"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3N-ts-Nis" userLabel="MapInformationView" customClass="MapThemeView" customModule="WorkWeek" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="556.5" width="375" height="110.5"/>
                                 <subviews>
                                     <stackView contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7YB-ll-Hbx">
-                                        <rect key="frame" x="8" y="0.0" width="359" height="113"/>
+                                        <rect key="frame" x="8" y="0.0" width="359" height="102.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eAN-DH-NJI">
-                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="113"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="eAN-DH-NJI">
+                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="102.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdt-nX-h0a">
-                                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="56.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="31.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Howard SSan Francisco CA 94105" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNA-mp-Raq">
-                                                        <rect key="frame" x="0.0" y="56.5" width="179.5" height="56.5"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2606 Bayshore Parkway Mountain View CA 94043" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CD4-ce-kho">
-                                                        <rect key="frame" x="0.0" y="113" width="179.5" height="0.0"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="6CR-Ff-taG">
+                                                        <rect key="frame" x="0.0" y="35.5" width="179.5" height="31.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DUB-ay-kDC">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="14.5"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Howard SSan Francisco CA 94105" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xNA-mp-Raq">
+                                                                <rect key="frame" x="-8" y="0.0" width="0.0" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Vqg-cQ-rVq">
+                                                        <rect key="frame" x="0.0" y="71" width="179.5" height="31.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Was" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LLc-F1-Yz0">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="14.5"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2606 Bayshore Parkway Mountain View CA 94043" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CD4-ce-kho">
+                                                                <rect key="frame" x="-8" y="0.0" width="0.0" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="VED-rO-Ljs">
-                                                <rect key="frame" x="179.5" y="0.0" width="179.5" height="113"/>
+                                                <rect key="frame" x="179.5" y="0.0" width="179.5" height="102.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNa-md-4Lr" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="61.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="56"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <state key="normal" title="Save">
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -297,7 +319,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46q-gL-XXn" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="61.5" width="179.5" height="51.5"/>
+                                                        <rect key="frame" x="0.0" y="56" width="179.5" height="46.5"/>
                                                         <state key="normal" title="Cancel">
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -310,12 +332,12 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="7YB-ll-Hbx" firstAttribute="leading" secondItem="A3N-ts-Nis" secondAttribute="leading" constant="8" id="UYe-Kg-7TZ"/>
                                     <constraint firstAttribute="trailing" secondItem="7YB-ll-Hbx" secondAttribute="trailing" constant="8" id="VXY-ge-eZ0"/>
                                     <constraint firstAttribute="bottom" secondItem="7YB-ll-Hbx" secondAttribute="bottom" constant="8" id="ZSn-g1-41I"/>
                                     <constraint firstItem="7YB-ll-Hbx" firstAttribute="top" secondItem="A3N-ts-Nis" secondAttribute="top" id="f2z-KA-N2a"/>
-                                    <constraint firstAttribute="height" constant="121" id="nxe-hB-J5B"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -324,7 +346,7 @@
                             <constraint firstItem="ckW-Wv-jHI" firstAttribute="leading" secondItem="P1D-qb-71k" secondAttribute="leading" id="7Cd-EX-xNg"/>
                             <constraint firstItem="K4j-Pr-RUl" firstAttribute="centerX" secondItem="d9X-x2-OCi" secondAttribute="centerX" id="9Pl-FB-DTJ"/>
                             <constraint firstItem="gR6-pX-AkG" firstAttribute="top" secondItem="A3N-ts-Nis" secondAttribute="bottom" id="Ghm-vd-zRr"/>
-                            <constraint firstItem="A3N-ts-Nis" firstAttribute="top" secondItem="d9X-x2-OCi" secondAttribute="bottom" constant="-1" id="VXf-VP-D5A"/>
+                            <constraint firstItem="A3N-ts-Nis" firstAttribute="top" secondItem="d9X-x2-OCi" secondAttribute="bottom" constant="-24" id="VXf-VP-D5A"/>
                             <constraint firstItem="d9X-x2-OCi" firstAttribute="top" secondItem="ckW-Wv-jHI" secondAttribute="bottom" id="b61-jf-R3j"/>
                             <constraint firstItem="ckW-Wv-jHI" firstAttribute="top" secondItem="pUf-1N-MyP" secondAttribute="bottom" id="bsE-nI-dTr"/>
                             <constraint firstAttribute="trailing" secondItem="ckW-Wv-jHI" secondAttribute="trailing" id="fvD-Sz-TWA"/>
@@ -341,8 +363,10 @@
                         <outlet property="headerLabel" destination="vdt-nX-h0a" id="MVk-rE-MSb"/>
                         <outlet property="mapView" destination="d9X-x2-OCi" id="RBP-en-FNt"/>
                         <outlet property="nowAddressLabel" destination="xNA-mp-Raq" id="J65-gd-BNO"/>
+                        <outlet property="nowLabel" destination="DUB-ay-kDC" id="fiL-H6-Ovo"/>
                         <outlet property="searchBar" destination="ckW-Wv-jHI" id="hi5-IY-abm"/>
                         <outlet property="wasAddressLabel" destination="CD4-ce-kho" id="qbd-fI-z5Y"/>
+                        <outlet property="wasLabel" destination="LLc-F1-Yz0" id="eO9-lR-hcV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0A-Iw-CjD" userLabel="First Responder" sceneMemberID="firstResponder"/>

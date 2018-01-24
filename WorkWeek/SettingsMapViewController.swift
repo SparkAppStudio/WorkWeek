@@ -16,15 +16,18 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
     static func presentMapWith(navController: UINavigationController,
                                as type: MapVCType,
                                location: CLLocationManager,
-                               delegate: MapVCDelegate) {
+                               delegate: MapVCDelegate, user: User) {
         let mapViewController = SettingsMapViewController.instantiate()
         mapViewController.locationManager = location
+        mapViewController.user = user
         mapViewController.type = type
         mapViewController.delegate = delegate
         navController.present(mapViewController, animated: true)
     }
 
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var nowLabel: UILabel!
+    @IBOutlet weak var wasLabel: UILabel!
     @IBOutlet weak var nowAddressLabel: UILabel!
     @IBOutlet weak var wasAddressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
@@ -36,7 +39,7 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
 
     /// Used to ensure we only zoom the map once
     var didUpdateUserLocationOnce = false
-
+    var user: User! //provided by coordinator
     var type = MapVCType.home
 
     weak var delegate: MapVCDelegate?
@@ -45,20 +48,15 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        assert(user != nil, "User should be provided by the Coordinator")
 
+        setTheme(isNavBarTransparent: true)
         zoomMap()
 
         searchBar.delegate = self
-        switch type {
-        case .home:
-            headerLabel.text = NSLocalizedString("Home", comment: "Settings Map Set Work Location")
-            title = NSLocalizedString("Home", comment: "Settings Map Set Work Location")
-        case .work:
-            headerLabel.text = NSLocalizedString("Work", comment: "Settings Map Set Work Location")
-            title = NSLocalizedString("Work", comment: "Settings Map Set Work Location")
-        }
 
         drawOverlays(for: type)
+        setAndThemeLabels()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -66,13 +64,37 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
         Analytics.track(.pageView(.settingsMap))
     }
 
+    func setAndThemeLabels() {
+        for label in [headerLabel, nowLabel, wasLabel, nowAddressLabel, wasAddressLabel] {
+            label?.textColor = UIColor.themeText()
+        }
+
+        searchBar.barTintColor = UIColor.themeBackground()
+        switch type {
+        case .home:
+            centerCircleView.strokeColor = UIColor.homeGreen().cgColor
+            centerCircleView.fillColor = UIColor.homeGreen().withAlphaComponent(0.1).cgColor
+            centerCircleView.setNeedsDisplay()
+            headerLabel.text = NSLocalizedString("Home", comment: "Settings Map Set Work Location")
+            title = NSLocalizedString("Home", comment: "Settings Map Set Work Location")
+            wasAddressLabel.text = user.homeLocation
+        case .work:
+            headerLabel.text = NSLocalizedString("Work", comment: "Settings Map Set Work Location")
+            title = NSLocalizedString("Work", comment: "Settings Map Set Work Location")
+            wasAddressLabel.text = user.workLocation
+        }
+    }
+
 
     // MARK: Actions
 
     @IBAction func didTapDone(_ sender: UIButton) {
+
         let center = mapView.region.center
         let radius = mapView.visibleMapRect.sizeInMeters().width / 3.0 / 2.0
         delegate?.save(viewController: self, type: type,
+                       user: user,
+                       address: nowAddressLabel.text,
                        coordinate: center,
                        radius: radius)
     }
@@ -169,8 +191,15 @@ extension SettingsMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
 
         let renderer = MKCircleRenderer(overlay: overlay)
-        renderer.fillColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.5)
-        renderer.strokeColor = .clear
+        renderer.lineWidth = 2
+        switch type {
+        case .home:
+            renderer.fillColor = UIColor.homeGreen().withAlphaComponent(0.3)
+            renderer.strokeColor = UIColor.homeGreen()
+        case .work:
+            renderer.fillColor = UIColor.workBlue().withAlphaComponent(0.3)
+            renderer.strokeColor = UIColor.workBlue()
+        }
         return renderer
     }
 
@@ -191,11 +220,11 @@ extension SettingsMapViewController: MKMapViewDelegate {
 
 
 class CenterCircleView: UIView {
-    static var lineWidth: CGFloat = 3.0
-    override func draw(_ rect: CGRect) {
+    static var lineWidth: CGFloat = 2.0
+    var strokeColor: CGColor = UIColor.workBlue().cgColor
+    var fillColor: CGColor = UIColor.workBlue().withAlphaComponent(0.1).cgColor
 
-        let strokeColor = tintColor.cgColor
-        let fillColor = strokeColor.copy(alpha: 0.5) ?? UIColor.clear.cgColor
+    override func draw(_ rect: CGRect) {
 
         let context = UIGraphicsGetCurrentContext()
 
