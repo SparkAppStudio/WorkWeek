@@ -19,7 +19,7 @@ import UIKit
         }
     }
 
-    @IBInspectable var arcColor: UIColor = UIColor.darkContent()
+    @IBInspectable var arcColor: UIColor = UIColor.themeContent()
     @IBInspectable var counterColor: UIColor = UIColor.homeGreen()
 
     override func draw(_ rect: CGRect) {
@@ -31,7 +31,7 @@ import UIKit
 
 
         backgroundArcPath(context: context, center: center, radius: radius)
-        counterPath(center: center, radius: radius, endPercentage: endPercentage)
+        counterPath(context: context, center: center, radius: radius, endPercentage: endPercentage)
     }
 
     func backgroundArcPath(context: CGContext, center: CGPoint, radius: CGFloat) {
@@ -56,7 +56,7 @@ import UIKit
     ///   - center: center of the ring
     ///   - radius: radius of the ring
     ///   - endPercentage: where the ring ends in percentage, from 0.0 to 1, with offset so the ring starts at north position.
-    func counterPath(center: CGPoint, radius: CGFloat, endPercentage: CGFloat) {
+    func counterPath(context: CGContext, center: CGPoint, radius: CGFloat, endPercentage: CGFloat) {
 
         var cleanEndPercentage: CGFloat = 0.0
 

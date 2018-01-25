@@ -143,7 +143,7 @@ class DataStore {
         let dateComponents = cal.dateComponents(in: .current, from: date)
         guard let week = dateComponents.weekOfYear else { return ""}
         guard let year = dateComponents.year else { return ""}
-        return "\(week)" + "\(year)"
+        return "\(week)" + "_\(year)"
     }
 
     // MARK: - User
@@ -172,6 +172,14 @@ class DataStore {
 
     func update(user: User, with weekdays: User.Weekdays) {
         unhandledErrorWrite( user.weekdays = weekdays)
+    }
+
+    func updateHomeLocation(for user: User, with homeString: String) {
+        unhandledErrorWrite( user.homeLocation = homeString)
+    }
+
+    func updateWorkLocation(for user: User, with workString: String) {
+        unhandledErrorWrite( user.workLocation = workString)
     }
 
     func updateHours(for user: User, with hours: Double) {

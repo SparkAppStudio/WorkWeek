@@ -7,6 +7,7 @@ import UIKit
 class ProgressStripeView: UIView {
 
     public var workData: (percent: Double, hours: String)!
+    public var isToday: Bool?
 
     var pointForLabel: CGPoint!
     var heightForLabel: CGFloat = 15
@@ -28,14 +29,20 @@ class ProgressStripeView: UIView {
 
         context.clip(to: div.slice)
         context.setSparkShadow()
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let colors: NSArray = [UIColor.dailyGraphGreen().cgColor, UIColor.workBlue().cgColor]
-        guard let gradient = CGGradient(colorsSpace: colorSpace,
-                                        colors: colors,
-                                        locations: [0, 1]) else { return }
+
         let startPoint = CGPoint(x: 0, y: div.remainder.height)
         pointForLabel = CGPoint(x: 0, y: div.remainder.height - heightForLabel)
         let endPoint = CGPoint(x: 0, y: rect.height)
+
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        var colors: NSArray = [UIColor.dailyGraphGreen().cgColor, UIColor.workBlue().cgColor]
+
+        if isToday != nil {
+             colors = [UIColor.white.cgColor, UIColor.white.cgColor]
+        }
+        guard let gradient = CGGradient(colorsSpace: colorSpace,
+                                        colors: colors,
+                                        locations: [0, 1]) else { return }
         context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
     }
 

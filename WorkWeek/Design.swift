@@ -68,10 +68,12 @@ extension UIView {
         UIBezierPath.getDefaultRoundedRectPath(rect: rect).fill()
     }
 
-    func drawSparkRect(_ rect: CGRect, color: UIColor, xInset: CGFloat, yInset: CGFloat, cornerRadius: CGFloat) {
+    func drawSparkRect(_ rect: CGRect, color: UIColor, xInset: CGFloat, yInset: CGFloat, cornerRadius: CGFloat, setShadow: Bool) {
         let context = UIGraphicsGetCurrentContext()!
         context.setFillColor(color.cgColor)
-        context.setSparkShadow()
+        if setShadow {
+            context.setSparkShadow()
+        }
         let path = UIBezierPath(roundedRect: rect.insetBy(dx: xInset, dy: yInset), cornerRadius: cornerRadius)
         path.fill()
     }
@@ -148,6 +150,12 @@ extension UINavigationController {
         navigationBar.isTranslucent = true
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
+    }
+}
+
+extension UIBlurEffectStyle {
+    static func themed() -> UIBlurEffectStyle {
+        return .dark
     }
 }
 

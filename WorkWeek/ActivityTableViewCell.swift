@@ -26,12 +26,12 @@ import Reusable
     var margin: CGFloat!
 
     override func draw(_ rect: CGRect) {
-        drawSparkRect(rect, color: UIColor.darkContent(), xInset: margin, yInset: margin/2, cornerRadius: rect.getRoundedCorner())
+        drawSparkRect(rect, color: UIColor.darkContent(), xInset: margin, yInset: margin/2, cornerRadius: rect.getRoundedCorner(), setShadow: true)
     }
 
     func configure(_ viewModel: WeeklyGraphViewModel) {
-        backgroundColor = UIColor.clear
-        timeFrameLabel.text = viewModel.timeFrameText
+        backgroundColor = UIColor.themeBackground()
+        timeFrameLabel.text = viewModel.weekRangeText
         hoursLabel.text = viewModel.hoursText
         timeFrameLabel.textColor = UIColor.themeText()
         hoursLabel.textColor = UIColor.workBlue()
@@ -55,6 +55,26 @@ import Reusable
 
         graphTargetLine.targetData = viewModel.graphTarget
         graphTargetLine.setNeedsDisplay()
+
+        guard let today = WeeklyGraphViewModel.today else { return }
+        switch today {
+        case 1:
+            sundayView.isToday = true
+        case 2:
+            mondayView.isToday = true
+        case 3:
+            tuesdayView.isToday = true
+        case 4:
+            wednesdayView.isToday = true
+        case 5:
+            thursdayView.isToday = true
+        case 6:
+            fridayView.isToday = true
+        case 7:
+            saturdayView.isToday = true
+        default:
+            break
+        }
     }
 }
 

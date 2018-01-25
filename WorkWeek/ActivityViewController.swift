@@ -4,6 +4,7 @@
 
 import UIKit
 import Reusable
+import MKRingProgressView
 
 #if DEBUG
 protocol DebugMenuShowing: class {
@@ -24,7 +25,7 @@ protocol CountdownData {
 final class ActivityViewController: UIViewController {
 
     // MARK: Variables
-
+    var ringView: MKRingProgressView!
     // MARK: IBOutlets
 
     @IBOutlet var ringTrailingConstraint: NSLayoutConstraint!
@@ -48,6 +49,13 @@ final class ActivityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ringView = MKRingProgressView(frame: countdownView.bounds)
+        ringView.startColor = UIColor.homeGreen()
+        ringView.endColor = UIColor.workBlue()
+        ringView.ringWidth = 24
+        ringView.backgroundRingColor = UIColor.themeContent()
+        countdownView.addSubview(ringView)
+
         setTheme(isNavBarTransparent: true)
         tableView.dataSource = tableViewData
         tableView.delegate = tableViewData
@@ -108,7 +116,7 @@ final class ActivityViewController: UIViewController {
         countdownTimeLabel.text = hourMinuteFormatter.string(from: headerData.timeLeftInDay)
         let weekHours = hoursFormatter.string(from: headerData.timeLeftInWeek)!
         weekCountdownTimeLabel.text = "\(weekHours) work hours left in the week"
-        countdownView.endPercentage = CGFloat(headerData.percentOfWorkRemaining)
+        ringView.progress = headerData.percentOfWorkRemaining
     }
 }
 

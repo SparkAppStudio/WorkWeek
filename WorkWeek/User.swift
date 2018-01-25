@@ -8,6 +8,9 @@ import RealmSwift
 /// Stores the users preferences can be changed in settings or during onboarding
 class User: Object {
 
+    @objc dynamic var workLocation: String? = nil
+    @objc dynamic var homeLocation: String? = nil
+
     static let defaultWorkDayLength = 8.0
 
     /// The Days on which a user could choose to be notified
