@@ -19,7 +19,7 @@ import UIKit
         }
     }
 
-    @IBInspectable var arcColor: UIColor = UIColor.darkContent()
+    @IBInspectable var arcColor: UIColor = UIColor.themeContent()
     @IBInspectable var counterColor: UIColor = UIColor.homeGreen()
 
     override func draw(_ rect: CGRect) {

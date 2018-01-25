@@ -58,7 +58,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htC-Ag-fFY" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                        <rect key="frame" x="29" y="2" width="54" height="54"/>
+                                        <rect key="frame" x="8" y="8" width="54" height="54"/>
                                         <state key="normal" image="settings">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -278,7 +278,7 @@
                     </view>
                     <connections>
                         <outlet property="countdownTimeLabel" destination="NFm-kW-Mhx" id="2HG-9l-YdB"/>
-                        <outlet property="countdownView" destination="yyL-p9-nkA" id="8yh-ga-5Rk"/>
+                        <outlet property="countdownView" destination="yyL-p9-nkA" id="zcm-Fy-Fcw"/>
                         <outlet property="ringTrailingConstraint" destination="vTI-1d-aTi" id="2rH-Ai-MEl"/>
                         <outlet property="tableView" destination="Iay-aC-BGs" id="3n1-lc-UYd"/>
                         <outlet property="weekCountdownTimeLabel" destination="7xH-mL-DWh" id="fnM-bB-fOB"/>

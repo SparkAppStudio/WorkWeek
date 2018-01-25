@@ -46,6 +46,8 @@
 		52E1A7261EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7251EFB8E1000FBF278 /* WorkHoursPickerDataSource.swift */; };
 		52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */; };
 		C309407B1F7DB7D200447E65 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		C320DC81201921DF00B071E5 /* MKRingProgressView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38D59A920191F320021D3C2 /* MKRingProgressView.framework */; };
+		C320DC82201921DF00B071E5 /* MKRingProgressView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C38D59A920191F320021D3C2 /* MKRingProgressView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C33043E21FC4F1CF008F564E /* HourTableSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C33043E11FC4F1CF008F564E /* HourTableSectionView.xib */; };
 		C33043E41FC4FC62008F564E /* HourTableSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33043E31FC4FC62008F564E /* HourTableSectionView.swift */; };
 		C33043E61FC4FDC9008F564E /* ThemeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33043E51FC4FDC9008F564E /* ThemeLabel.swift */; };
@@ -57,6 +59,7 @@
 		C362A4091EE3517800AB9830 /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */; };
 		C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */; };
 		C36487ED1F903CE100899118 /* TransparentHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */; };
+		C38D59AA20191F330021D3C2 /* MKRingProgressView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38D59A920191F320021D3C2 /* MKRingProgressView.framework */; };
 		C3A07C4C20114047004574B7 /* DayHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3A07C4B20114047004574B7 /* DayHeaderView.xib */; };
 		C3A07C5420114452004574B7 /* DayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A07C5320114452004574B7 /* DayHeaderView.swift */; };
 		C3A879B11F4BD7F700132FBA /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A879B01F4BD7F700132FBA /* Design.swift */; };
@@ -90,6 +93,20 @@
 			remoteInfo = WorkWeek;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C320DC83201921DF00B071E5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C320DC82201921DF00B071E5 /* MKRingProgressView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		520855661F38144A00409642 /* DailyObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyObjectTests.swift; sourceTree = "<group>"; };
@@ -147,6 +164,7 @@
 		C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
 		C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentHeaderTableView.swift; sourceTree = "<group>"; };
+		C38D59A920191F320021D3C2 /* MKRingProgressView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MKRingProgressView.framework; path = Carthage/Build/iOS/MKRingProgressView.framework; sourceTree = "<group>"; };
 		C3A07C4B20114047004574B7 /* DayHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayHeaderView.xib; sourceTree = "<group>"; };
 		C3A07C5320114452004574B7 /* DayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHeaderView.swift; sourceTree = "<group>"; };
 		C3A879B01F4BD7F700132FBA /* Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
@@ -180,8 +198,10 @@
 				5287CA4E1EDCFB8400E71CE8 /* RealmSwift.framework in Frameworks */,
 				5208F3AD1EDE4C22008F82CC /* Crashlytics.framework in Frameworks */,
 				5208F3AC1EDE4C22008F82CC /* Fabric.framework in Frameworks */,
+				C320DC81201921DF00B071E5 /* MKRingProgressView.framework in Frameworks */,
 				52510E941EFCD03E006F5C97 /* MapKit.framework in Frameworks */,
 				52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */,
+				C38D59AA20191F330021D3C2 /* MKRingProgressView.framework in Frameworks */,
 				D16696A01F888A7400D4813E /* HMSegmentedControl.framework in Frameworks */,
 				D16696A41F888A9000D4813E /* MXSegmentedPager.framework in Frameworks */,
 				D16696A51F888A9000D4813E /* MXParallaxHeader.framework in Frameworks */,
@@ -273,6 +293,7 @@
 		5287CA481EDCFA9100E71CE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C38D59A920191F320021D3C2 /* MKRingProgressView.framework */,
 				D16696A31F888A9000D4813E /* MXPagerView.framework */,
 				D16696A21F888A9000D4813E /* MXParallaxHeader.framework */,
 				D16696A11F888A9000D4813E /* MXSegmentedPager.framework */,
@@ -408,6 +429,7 @@
 				523511671EDDB7F00093B125 /* Swiftlint Files */,
 				5208F3A91EDE4BC9008F82CC /* Do Fabric Things */,
 				5208F3B11EDE6BB8008F82CC /* Bump Version Number for Release builds */,
+				C320DC83201921DF00B071E5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
