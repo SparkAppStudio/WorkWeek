@@ -17,7 +17,7 @@ class DayViewController: UIViewController, DayHeaderViewDelegate {
     var dayText: String!
     var headerView: DayHeaderView!
     var tableView: UITableView!
-    var events: [Event]!
+    var dayObject: DailyObject?
     var eventsPerSection = [Int: [Event]]()
 
     weak var delegate: DayViewControllerDelegate!
@@ -25,18 +25,19 @@ class DayViewController: UIViewController, DayHeaderViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in 0...23 {
-            eventsPerSection[i] = findEvents()
-        }
+
         setTheme(isNavBarTransparent: false)
         setupHeaderView()
         setupTableView()
-        // Do any additional setup after loading the view.
+
+        guard let day = dayObject else { return }
+        eventsPerSection = parse(events: day.events)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.scrollToRow(at: findSelectedIndex(), at: .top, animated: false)
+//        tableView.scrollToRow(at: findSelectedIndex(), at: .top, animated: false)
     }
 
     func findSelectedIndex() -> IndexPath {
@@ -44,16 +45,30 @@ class DayViewController: UIViewController, DayHeaderViewDelegate {
         return IndexPath(row: 0, section: hour)
     }
 
-    func findEvents() -> [Event] {
+    func parse(events: [Event]) -> [Int: [Event]] {
 
+        let calendar = Calendar.current
+        var sectionEvents = [Int: [Event]]()
+//        var eventsBuffer = [Event]()
+//        var previousHour: Int = 0
 
-        let pastDate = Date(timeIntervalSinceNow: 600)
-        let event1 = Event(kind: NotificationCenter.CheckInEvent.leaveHome, time: pastDate)
+        for event in events {
+            let hour = calendar.component(.hour, from: event.eventTime)
 
-        let event2 = Event(kind: .arriveWork, time: Date())
+//            guard hour == previousHour else {
+//                eventsBuffer.removeAll()
+//                continue
+//            }
+//            eventsBuffer.append(event)
+            guard sectionEvents[hour] != nil else {
+                sectionEvents[hour] = [Event]()
+                continue
+            }
+            sectionEvents[hour]?.append(event)
+//            previousHour = hour
+        }
 
-        let events = [event1, event2]
-        return events
+        return sectionEvents
     }
 
     func setupHeaderView() {
@@ -117,7 +132,7 @@ extension DayViewController: UITableViewDelegate, UITableViewDataSource, Reusabl
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsPerSection[section]!.count
+        return eventsPerSection[section]?.count ?? 0
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
