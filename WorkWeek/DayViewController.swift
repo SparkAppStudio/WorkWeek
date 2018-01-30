@@ -37,35 +37,27 @@ class DayViewController: UIViewController, DayHeaderViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        tableView.scrollToRow(at: findSelectedIndex(), at: .top, animated: false)
+        scrollToCurrentHour()
     }
 
-    func findSelectedIndex() -> IndexPath {
+    func scrollToCurrentHour() {
         let hour = Calendar.current.component(.hour, from: Date())
-        return IndexPath(row: 0, section: hour)
+        guard eventsPerSection[hour] != nil else { return }
+        tableView.scrollToRow(at: IndexPath(row: 0, section: hour), at: .top, animated: false)
     }
 
     func parse(events: [Event]) -> [Int: [Event]] {
 
         let calendar = Calendar.current
         var sectionEvents = [Int: [Event]]()
-//        var eventsBuffer = [Event]()
-//        var previousHour: Int = 0
 
         for event in events {
             let hour = calendar.component(.hour, from: event.eventTime)
-
-//            guard hour == previousHour else {
-//                eventsBuffer.removeAll()
-//                continue
-//            }
-//            eventsBuffer.append(event)
             guard sectionEvents[hour] != nil else {
                 sectionEvents[hour] = [Event]()
                 continue
             }
             sectionEvents[hour]?.append(event)
-//            previousHour = hour
         }
 
         return sectionEvents
@@ -149,7 +141,8 @@ extension DayViewController: UITableViewDelegate, UITableViewDataSource, Reusabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             for: indexPath) as HourTableViewCell
-        let eventForCell = eventsPerSection[indexPath.section]![indexPath.row]
+        guard let events = eventsPerSection[indexPath.section] else { return cell }
+        let eventForCell = events[indexPath.row]
         cell.configure(event: eventForCell)
             return cell
     }
