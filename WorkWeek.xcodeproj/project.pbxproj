@@ -59,7 +59,6 @@
 		C362A4091EE3517800AB9830 /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A4081EE3517800AB9830 /* OnboardPageViewController.swift */; };
 		C362A40B1EE35DD500AB9830 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362A40A1EE35DD500AB9830 /* OnboardViewController.swift */; };
 		C36487ED1F903CE100899118 /* TransparentHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36487EC1F903CE100899118 /* TransparentHeaderTableView.swift */; };
-		C38D59AA20191F330021D3C2 /* MKRingProgressView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38D59A920191F320021D3C2 /* MKRingProgressView.framework */; };
 		C3A07C4C20114047004574B7 /* DayHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3A07C4B20114047004574B7 /* DayHeaderView.xib */; };
 		C3A07C5420114452004574B7 /* DayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A07C5320114452004574B7 /* DayHeaderView.swift */; };
 		C3A879B11F4BD7F700132FBA /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A879B01F4BD7F700132FBA /* Design.swift */; };
@@ -201,7 +200,6 @@
 				C320DC81201921DF00B071E5 /* MKRingProgressView.framework in Frameworks */,
 				52510E941EFCD03E006F5C97 /* MapKit.framework in Frameworks */,
 				52223FAB1EE1299B0014F4A9 /* Reusable.framework in Frameworks */,
-				C38D59AA20191F330021D3C2 /* MKRingProgressView.framework in Frameworks */,
 				D16696A01F888A7400D4813E /* HMSegmentedControl.framework in Frameworks */,
 				D16696A41F888A9000D4813E /* MXSegmentedPager.framework in Frameworks */,
 				D16696A51F888A9000D4813E /* MXParallaxHeader.framework in Frameworks */,
@@ -465,7 +463,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Spark App Studio";
 				TargetAttributes = {
 					5287CA311EDCF91E00E71CE8 = {
