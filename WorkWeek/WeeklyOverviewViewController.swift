@@ -21,10 +21,17 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
             array.append((title, controller))
         }
 
-        for day in WeeklyOverviewViewController.daysOfWeek {
+        for (index, day) in WeeklyOverviewViewController.daysOfWeek.enumerated() {
             let dayVC = DayViewController()
             dayVC.dayText = day
             dayVC.delegate = self
+            for dayObject in weekObject.dailyObjects {
+                guard let weekDay = dayObject.weekDay else { continue }
+                if weekDay == index+1 {
+                    dayVC.dayObject = dayObject
+                }
+            }
+
             addpage(day, controller: dayVC)
         }
 

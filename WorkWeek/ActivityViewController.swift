@@ -56,13 +56,14 @@ final class ActivityViewController: UIViewController {
         ringView.backgroundRingColor = UIColor.themeContent()
         countdownView.addSubview(ringView)
 
+        updateCountdownLabels()
+
         setTheme(isNavBarTransparent: true)
         tableView.dataSource = tableViewData
         tableView.delegate = tableViewData
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
 
         runTimer()
-        tick(timer)
 
         registerForApplicationActiveNotifications()
 
@@ -75,6 +76,11 @@ final class ActivityViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Analytics.track(.pageView(.activityCountdown))
+
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(1.0)
+        ringView.progress = headerData.percentOfWorkRemaining
+        CATransaction.commit()
     }
 
     #if DEBUG
@@ -93,10 +99,11 @@ final class ActivityViewController: UIViewController {
     #endif
 
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1,
-                                     target: self,
-                                     selector: (#selector(ActivityViewController.tick(_:))),
-                                     userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
+            self.updateCountdownLabels()
+            self.ringView.progress = self.headerData.percentOfWorkRemaining
+        }
+        RunLoop.main.add(timer, forMode: .commonModes)
     }
 
     lazy var hourMinuteFormatter: DateComponentsFormatter = {
@@ -112,11 +119,10 @@ final class ActivityViewController: UIViewController {
         return formatter
     }()
 
-    @objc func tick(_ timer: Timer) {
+    func updateCountdownLabels() {
         countdownTimeLabel.text = hourMinuteFormatter.string(from: headerData.timeLeftInDay)
         let weekHours = hoursFormatter.string(from: headerData.timeLeftInWeek)!
         weekCountdownTimeLabel.text = "\(weekHours) work hours left in the week"
-        ringView.progress = headerData.percentOfWorkRemaining
     }
 }
 
