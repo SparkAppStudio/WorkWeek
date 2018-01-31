@@ -44,9 +44,9 @@
                                         <constraints>
                                             <constraint firstItem="Jhy-Mk-A8s" firstAttribute="top" secondItem="NFm-kW-Mhx" secondAttribute="bottom" id="8Wf-Md-I2O"/>
                                             <constraint firstItem="NFm-kW-Mhx" firstAttribute="centerY" secondItem="yyL-p9-nkA" secondAttribute="centerY" id="LBQ-Em-DD1"/>
-                                            <constraint firstItem="NFm-kW-Mhx" firstAttribute="leading" secondItem="yyL-p9-nkA" secondAttribute="leading" constant="36" id="TRK-mM-8L8"/>
+                                            <constraint firstItem="NFm-kW-Mhx" firstAttribute="leading" secondItem="yyL-p9-nkA" secondAttribute="leading" constant="32" id="TRK-mM-8L8"/>
                                             <constraint firstItem="Jhy-Mk-A8s" firstAttribute="centerX" secondItem="yyL-p9-nkA" secondAttribute="centerX" id="lH1-Fp-GOv"/>
-                                            <constraint firstAttribute="trailing" secondItem="NFm-kW-Mhx" secondAttribute="trailing" constant="36" id="nEe-fV-0gm"/>
+                                            <constraint firstAttribute="trailing" secondItem="NFm-kW-Mhx" secondAttribute="trailing" constant="32" id="nEe-fV-0gm"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 work hours left in the week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xH-mL-DWh">

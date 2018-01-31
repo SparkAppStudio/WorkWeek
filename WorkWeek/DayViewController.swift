@@ -42,8 +42,9 @@ class DayViewController: UIViewController, DayHeaderViewDelegate {
 
     func scrollToCurrentHour() {
         let hour = Calendar.current.component(.hour, from: Date())
-        guard eventsPerSection[hour] != nil else { return }
-        tableView.scrollToRow(at: IndexPath(row: 0, section: hour), at: .top, animated: false)
+        let path = IndexPath(row: 0, section: hour)
+        guard tableView.cellForRow(at: path) != nil else { return }
+        tableView.scrollToRow(at: path, at: .top, animated: false)
     }
 
     func parse(events: [Event]) -> [Int: [Event]] {

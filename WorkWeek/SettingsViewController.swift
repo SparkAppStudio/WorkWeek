@@ -25,7 +25,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     @IBOutlet weak var workButton: ThemeWorkButton!
     @IBOutlet weak var homeButton: ThemeHomeButton!
-    @IBOutlet weak var doneButton: ThemeButton!
+    @IBOutlet weak var doneButton: ThemeGradientButton!
 
     @IBOutlet weak var sunday: UIButton!
     @IBOutlet weak var monday: UIButton!

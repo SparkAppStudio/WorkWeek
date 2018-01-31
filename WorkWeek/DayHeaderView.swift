@@ -10,7 +10,7 @@ protocol DayHeaderViewDelegate: class {
     func didTapRight(_ sender: UIButton)
 }
 
-class DayHeaderView: UIView, Reusable {
+class DayHeaderView: ThemeGradientView, Reusable {
 
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var leftButton: UIButton!
@@ -19,11 +19,10 @@ class DayHeaderView: UIView, Reusable {
     weak var delegate: DayHeaderViewDelegate!
 
     override func draw(_ rect: CGRect) {
-        backgroundColor = UIColor.clear
+        super.draw(rect)
         dayLabel.textColor = UIColor.themeText()
         leftButton.setImage(UIImage.getLeftThemeChevron(), for: .normal)
         rightButton.setImage(UIImage.getRightThemeChevron(), for: .normal)
-        drawSparkRect(rect, color: UIColor.themeContent())
     }
 
     @IBAction func didTapLeft(_ sender: UIButton) {

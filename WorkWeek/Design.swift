@@ -86,6 +86,54 @@ extension UIView {
         UIBezierPath.getDefaultRoundedRectPath(rect: backgroundRect).fill()
     }
 
+    func drawSparkGradientBackground(_ rect: CGRect, startColor: UIColor, endColor: UIColor, xInset: CGFloat, yInset: CGFloat, cornerRadius: CGFloat) {
+
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = UIGraphicsGetCurrentContext()!
+
+        let colors: NSArray = [startColor.cgColor, endColor.cgColor]
+
+        let startPoint = CGPoint(x: 0, y: rect.height)
+        let endPoint = CGPoint(x: rect.width, y: 0)
+
+        guard let gradient = CGGradient(colorsSpace: colorSpace,
+                                        colors: colors,
+                                        locations: [0, 1]) else { return }
+        context.saveGState()
+
+        let insets = UIEdgeInsets(top: -4, left: 0, bottom: 0, right: 0)
+        let backgroundRect = UIEdgeInsetsInsetRect(rect, insets)
+
+        let clippingPath = UIBezierPath(roundedRect: backgroundRect.insetBy(dx: xInset, dy: yInset), cornerRadius: cornerRadius)
+
+        clippingPath.addClip()
+        context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
+        context.restoreGState()
+    }
+
+    func drawSparkGradientBackground(_ rect: CGRect, startColor: UIColor, endColor: UIColor) {
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = UIGraphicsGetCurrentContext()!
+
+        let colors: NSArray = [startColor.cgColor, endColor.cgColor]
+
+        let startPoint = CGPoint(x: 0, y: rect.height)
+        let endPoint = CGPoint(x: rect.width, y: 0)
+
+        guard let gradient = CGGradient(colorsSpace: colorSpace,
+                                        colors: colors,
+                                        locations: [0, 1]) else { return }
+        context.saveGState()
+
+        let insets = UIEdgeInsets(top: -4, left: 0, bottom: 0, right: 0)
+        let backgroundRect = UIEdgeInsetsInsetRect(rect, insets)
+
+        let clippingPath = UIBezierPath.getDefaultRoundedRectPath(rect: backgroundRect)
+        clippingPath.addClip()
+        context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
+        context.restoreGState()
+    }
+
     func getSparkBackground(_ rect: CGRect, color: UIColor?) -> CAShapeLayer? {
         guard let color = color else { return nil }
         let layer = CAShapeLayer()
