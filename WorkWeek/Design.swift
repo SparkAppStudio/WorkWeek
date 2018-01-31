@@ -64,8 +64,37 @@ extension UIView {
     func drawSparkRect(_ rect: CGRect, color: UIColor) {
         let context = UIGraphicsGetCurrentContext()!
         context.setFillColor(color.cgColor)
-        context.setSparkShadow()
+//        context.setSparkShadow()
         UIBezierPath.getDefaultRoundedRectPath(rect: rect).fill()
+    }
+
+    func getSparkRect(_ rect: CGRect, color: UIColor) -> CAShapeLayer {
+        let layer = CAShapeLayer()
+        layer.fillColor = color.cgColor
+        layer.frame = rect
+        layer.setSparkShadow()
+        layer.path = UIBezierPath.getDefaultRoundedRectPath(rect: rect).cgPath
+        return layer
+    }
+
+    func drawSparkBackground(_ rect: CGRect, color: UIColor?) {
+        guard let color = color else { return }
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        let insets = UIEdgeInsets(top: -4, left: 0, bottom: 0, right: 0)
+        let backgroundRect = UIEdgeInsetsInsetRect(rect, insets)
+        UIBezierPath.getDefaultRoundedRectPath(rect: backgroundRect).fill()
+    }
+
+    func getSparkBackground(_ rect: CGRect, color: UIColor?) -> CAShapeLayer? {
+        guard let color = color else { return nil }
+        let layer = CAShapeLayer()
+        layer.fillColor = color.cgColor
+        let insets = UIEdgeInsets(top: -4, left: 0, bottom: 0, right: 0)
+        let backgroundRect = UIEdgeInsetsInsetRect(rect, insets)
+        layer.frame = backgroundRect
+        layer.path = UIBezierPath.getDefaultRoundedRectPath(rect: backgroundRect).cgPath
+        return layer
     }
 
     func drawSparkRect(_ rect: CGRect, color: UIColor, xInset: CGFloat, yInset: CGFloat, cornerRadius: CGFloat, setShadow: Bool) {
@@ -86,9 +115,23 @@ extension UISegmentedControl {
     }
 }
 
+extension CALayer {
+    func setSparkShadow() {
+        shadowColor = UIColor.black.cgColor
+        shadowOpacity = CAShapeLayer.sparkShadowOpacity()
+        shadowOffset = CGSize(width: 0, height: 4)
+        shadowRadius = 4
+    }
+
+    static func sparkShadowOpacity() -> Float {
+        return 0.3333
+    }
+
+}
+
 extension CGContext {
     func setSparkShadow() {
-        setShadow(offset: CGSize(width: 0, height: 2), blur: 4)
+        setShadow(offset: CGSize(width: 0, height: 4), blur: 4)
     }
 
     //reset context if someone else uses it for future drawing

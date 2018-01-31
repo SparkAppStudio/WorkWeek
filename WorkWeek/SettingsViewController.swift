@@ -22,18 +22,18 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     @IBOutlet weak var workDaysLabel: UILabel!
     @IBOutlet weak var notificationsLabel: UILabel!
-    @IBOutlet var mainStackViewContentWidth: NSLayoutConstraint!
 
-    @IBOutlet weak var work: UIButton!
-    @IBOutlet weak var home: UIButton!
+    @IBOutlet weak var workButton: ThemeWorkButton!
+    @IBOutlet weak var homeButton: ThemeHomeButton!
+    @IBOutlet weak var doneButton: ThemeButton!
 
+    @IBOutlet weak var sunday: UIButton!
     @IBOutlet weak var monday: UIButton!
     @IBOutlet weak var tuesday: UIButton!
     @IBOutlet weak var wednesday: UIButton!
     @IBOutlet weak var thursday: UIButton!
     @IBOutlet weak var friday: UIButton!
     @IBOutlet weak var saturday: UIButton!
-    @IBOutlet weak var sunday: UIButton!
 
     @IBOutlet weak var targetHoursButton: TwoLabelButton!
     @IBOutlet weak var notificationsSegment: SegmentedControlView!
@@ -49,7 +49,6 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         setTheme(isNavBarTransparent: true)
         workDaysLabel.textColor = UIColor.themeText()
         notificationsLabel.textColor = UIColor.themeText()
-        setMainContentStackViewEqualToPhoneWidth()
 
         configureSelectedButtons(with: user.weekdays)
         configureNotificationsSegment(with: user.notificationChoice)
@@ -62,10 +61,6 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         Analytics.track(.pageView(.settingsMain))
     }
 
-    func setMainContentStackViewEqualToPhoneWidth() {
-        mainStackViewContentWidth.constant = UIScreen.main.bounds.width - padding * 2
-    }
-
     // MARK: Actions
 
     @IBAction func didTapDay(_ sender: UIButton) {
@@ -74,12 +69,12 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         saveButtonUpdates()
     }
 
-    @IBAction func homeMapPressed(_ sender: UIButton) {
-        delegate?.didTapHomeMap(nav: navigationController!)
+    @IBAction func didTapWork(_ sender: UIButton) {
+        delegate?.didTapWorkMap(nav: navigationController!)
     }
 
-    @IBAction func workMapPressed(_ sender: UIButton) {
-        delegate?.didTapWorkMap(nav: navigationController!)
+    @IBAction func didTapHome(_ sender: UIButton) {
+        delegate?.didTapHomeMap(nav: navigationController!)
     }
 
     @IBAction func didTapSelectHours(_ sender: TwoLabelButton) {
@@ -104,6 +99,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     }
 
     func configureSelectedButtons(with days: User.Weekdays) {
+
         sunday.isSelected = days.contains(.sunday)
         monday.isSelected = days.contains(.monday)
         tuesday.isSelected = days.contains(.tuesday)

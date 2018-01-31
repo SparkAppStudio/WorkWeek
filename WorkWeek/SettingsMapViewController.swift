@@ -25,6 +25,7 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
         navController.present(mapViewController, animated: true)
     }
 
+    @IBOutlet weak var saveButton: ThemeWorkButton!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var nowLabel: UILabel!
     @IBOutlet weak var wasLabel: UILabel!
@@ -72,6 +73,8 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
         searchBar.barTintColor = UIColor.themeBackground()
         switch type {
         case .home:
+            saveButton.borderColor = UIColor.homeGreen()
+            saveButton.setNeedsDisplay()
             centerCircleView.strokeColor = UIColor.homeGreen().cgColor
             centerCircleView.fillColor = UIColor.homeGreen().withAlphaComponent(0.1).cgColor
             centerCircleView.setNeedsDisplay()

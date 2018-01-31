@@ -12,218 +12,189 @@
     </dependencies>
     <scenes>
         <!--Settings View Controller-->
-        <scene sceneID="jAD-yu-VHs">
+        <scene sceneID="VGk-bP-OqP">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ttp-Yw-Jgs" customClass="SettingsViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8xK-zZ-6hH" customClass="SettingsViewController" customModule="WorkWeek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="S1r-ub-ep5"/>
-                        <viewControllerLayoutGuide type="bottom" id="PiK-PI-kuc"/>
+                        <viewControllerLayoutGuide type="top" id="3UQ-VV-mgZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="6a3-bY-Svx"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="b4d-XH-gUT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                    <view key="view" contentMode="scaleToFill" id="PaD-R0-7sX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AO2-iM-pHW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="940"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K5l-g2-ZWy">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4je-7f-bQF">
-                                        <rect key="frame" x="8" y="8" width="320" height="588"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiZ-vj-xkd" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="120" id="eua-1l-UvB"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <state key="normal" title="Work"/>
-                                                <connections>
-                                                    <action selector="workMapPressed:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="Rpi-nU-GgQ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-CC-dK1" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="130" width="320" height="120"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <state key="normal" title="Home"/>
-                                                <connections>
-                                                    <action selector="homeMapPressed:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="V0r-H9-Ph7"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEe-DW-1D6">
-                                                <rect key="frame" x="0.0" y="260" width="320" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ErR-dH-GWg">
-                                                <rect key="frame" x="0.0" y="290.5" width="320" height="39"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ST-IS-pTT" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="7ST-IS-pTT" secondAttribute="height" multiplier="1:1" id="xEs-g3-HJz"/>
-                                                        </constraints>
-                                                        <state key="normal" title="S"/>
-                                                        <connections>
-                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="bNV-G5-2LS"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoT-bP-FdR" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                        <rect key="frame" x="47" y="0.0" width="38.5" height="39"/>
-                                                        <state key="normal" title="M"/>
-                                                        <connections>
-                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="f60-5q-OHg"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nix-B9-5C7" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                        <rect key="frame" x="93.5" y="0.0" width="39" height="39"/>
-                                                        <state key="normal" title="T"/>
-                                                        <connections>
-                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="fY4-hn-zVV"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paC-XE-ryM" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                        <rect key="frame" x="140.5" y="0.0" width="39" height="39"/>
-                                                        <state key="normal" title="W"/>
-                                                        <connections>
-                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="edX-dl-Ngw"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFf-F8-CQE" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                        <rect key="frame" x="187.5" y="0.0" width="39" height="39"/>
-                                                        <state key="normal" title="T"/>
-                                                        <connections>
-                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="db4-C9-ccg"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVJ-vh-kxk" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                        <rect key="frame" x="234.5" y="0.0" width="38.5" height="39"/>
-                                                        <state key="normal" title="F"/>
-                                                        <connections>
-                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="0eI-Eg-E2b"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLW-Bv-rs8" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                                        <rect key="frame" x="281" y="0.0" width="39" height="39"/>
-                                                        <state key="normal" title="S"/>
-                                                        <connections>
-                                                            <action selector="didTapDay:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="hA0-yJ-gsz"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3tY-Z5-Thm">
-                                                <rect key="frame" x="0.0" y="339.5" width="320" height="80"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywS-EQ-Vdi" customClass="TwoLabelButton" customModule="WorkWeek" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="A1P-tj-R50"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                        <connections>
-                                                            <action selector="didTapSelectHours:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="7Ah-ad-dQI"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfa-cD-Kbz">
-                                                <rect key="frame" x="0.0" y="429.5" width="320" height="20.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIc-qb-EUD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbv-lO-aw6" customClass="SegmentedControlView" customModule="WorkWeek" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="460" width="320" height="128"/>
-                                                <subviews>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xwa-Sq-4o4">
-                                                        <rect key="frame" x="12" y="12" width="296" height="105"/>
-                                                        <segments>
-                                                            <segment title="None"/>
-                                                            <segment title="Daily"/>
-                                                            <segment title="Weekly"/>
-                                                        </segments>
-                                                        <connections>
-                                                            <action selector="controller:" destination="3Mf-Jm-dka" eventType="valueChanged" id="lfk-Q1-Tpt"/>
-                                                            <action selector="didTapNotifications:" destination="ttp-Yw-Jgs" eventType="valueChanged" id="VHe-SM-m1T"/>
-                                                        </connections>
-                                                    </segmentedControl>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="Xwa-Sq-4o4" firstAttribute="leading" secondItem="dbv-lO-aw6" secondAttribute="leading" constant="12" id="ZAI-8v-J6C"/>
-                                                    <constraint firstItem="Xwa-Sq-4o4" firstAttribute="top" secondItem="dbv-lO-aw6" secondAttribute="top" constant="12" id="cgM-nZ-Sho"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Xwa-Sq-4o4" secondAttribute="bottom" constant="12" id="sn6-GX-VTi"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Xwa-Sq-4o4" secondAttribute="trailing" constant="12" id="uDs-qS-A3G"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="controller" destination="Xwa-Sq-4o4" id="OgP-ms-eHr"/>
-                                                </connections>
-                                            </view>
-                                        </subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3V-Fe-tCp" customClass="ThemeWorkButton" customModule="WorkWeek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="120"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="jGm-7F-uyG"/>
-                                            <constraint firstItem="yiZ-vj-xkd" firstAttribute="height" secondItem="Ocd-CC-dK1" secondAttribute="height" id="tRY-xy-mRB"/>
+                                            <constraint firstAttribute="height" constant="120" id="hr9-Ve-V5p"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Work"/>
+                                        <connections>
+                                            <action selector="didTapWork:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="xBf-vr-ylb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MY-p0-Upx" customClass="ThemeHomeButton" customModule="WorkWeek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="130" width="343" height="120"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Home"/>
+                                        <connections>
+                                            <action selector="didTapHome:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="zdB-Lo-9kV"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H30-4G-6us">
+                                        <rect key="frame" x="0.0" y="260" width="343" height="29.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YaS-2i-4US">
+                                        <rect key="frame" x="0.0" y="299.5" width="343" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRi-1r-qoT" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="fRi-1r-qoT" secondAttribute="height" multiplier="1:1" id="0Ma-PB-zix"/>
+                                                </constraints>
+                                                <state key="normal" title="S"/>
+                                                <connections>
+                                                    <action selector="didTapDay:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="ufr-dH-E7p"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9L8-Pn-eCJ" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="0.0" width="42.5" height="42"/>
+                                                <state key="normal" title="M"/>
+                                                <connections>
+                                                    <action selector="didTapDay:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="qhR-N8-G8g"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-26-hS6" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="100.5" y="0.0" width="42" height="42"/>
+                                                <state key="normal" title="T"/>
+                                                <connections>
+                                                    <action selector="didTapDay:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="c6w-wQ-NqA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obZ-Yq-d3K" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="150.5" y="0.0" width="42" height="42"/>
+                                                <state key="normal" title="W"/>
+                                                <connections>
+                                                    <action selector="didTapDay:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="RHW-l1-uPH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2f-Jh-tTA" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="200.5" y="0.0" width="42" height="42"/>
+                                                <state key="normal" title="T"/>
+                                                <connections>
+                                                    <action selector="didTapDay:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="vlx-eN-fiR"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBy-wh-Kt0" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="250.5" y="0.0" width="42.5" height="42"/>
+                                                <state key="normal" title="F"/>
+                                                <connections>
+                                                    <action selector="didTapDay:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="0lt-pD-rhF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVZ-ps-TIH" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="301" y="0.0" width="42" height="42"/>
+                                                <state key="normal" title="S"/>
+                                                <connections>
+                                                    <action selector="didTapDay:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="6g0-SA-5L8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTc-jj-reW" customClass="TwoLabelButton" customModule="WorkWeek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="351.5" width="343" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="hCH-Xj-Jk1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <connections>
+                                            <action selector="didTapSelectHours:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="Zgz-IW-uY0"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9I-4c-A7P">
+                                        <rect key="frame" x="0.0" y="441.5" width="343" height="29"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBW-Yq-f84" customClass="SegmentedControlView" customModule="WorkWeek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="480.5" width="343" height="156.5"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fOr-RC-n6O">
+                                                <rect key="frame" x="12" y="12" width="319" height="29"/>
+                                                <segments>
+                                                    <segment title="None"/>
+                                                    <segment title="Daily"/>
+                                                    <segment title="Weekly"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="didTapNotifications:" destination="8xK-zZ-6hH" eventType="valueChanged" id="KGf-cc-d3C"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="fOr-RC-n6O" firstAttribute="top" secondItem="kBW-Yq-f84" secondAttribute="top" constant="12" id="27p-5y-x3Z"/>
+                                            <constraint firstItem="fOr-RC-n6O" firstAttribute="leading" secondItem="kBW-Yq-f84" secondAttribute="leading" constant="12" id="3Mj-UG-FMW"/>
+                                            <constraint firstAttribute="bottom" secondItem="fOr-RC-n6O" secondAttribute="bottom" constant="12" id="Nqf-P5-Jpm"/>
+                                            <constraint firstAttribute="trailing" secondItem="fOr-RC-n6O" secondAttribute="trailing" constant="12" id="Wzb-VV-fyV"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="controller" destination="fOr-RC-n6O" id="ljz-OS-fks"/>
+                                        </connections>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yft-Tq-6qy" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="323" width="343" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="qlU-DT-r7c"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="didTapDone:" destination="8xK-zZ-6hH" eventType="touchUpInside" id="JqH-Ed-jAD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="4je-7f-bQF" firstAttribute="leading" secondItem="AO2-iM-pHW" secondAttribute="leading" constant="8" id="3qK-yS-9Px"/>
-                                    <constraint firstAttribute="bottom" secondItem="4je-7f-bQF" secondAttribute="bottom" constant="8" id="lcB-aV-nnD"/>
-                                    <constraint firstItem="4je-7f-bQF" firstAttribute="top" secondItem="AO2-iM-pHW" secondAttribute="top" constant="8" id="qHa-UN-nhW"/>
-                                    <constraint firstAttribute="trailing" secondItem="4je-7f-bQF" secondAttribute="trailing" constant="8" id="y81-rF-yef"/>
+                                    <constraint firstItem="j3V-Fe-tCp" firstAttribute="height" secondItem="6MY-p0-Upx" secondAttribute="height" id="goS-O6-alU"/>
                                 </constraints>
-                            </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyO-eL-uCl" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                <rect key="frame" x="112" y="940" width="150" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="JUz-GJ-d1V"/>
-                                    <constraint firstAttribute="width" constant="150" id="N9Q-OW-aJF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="didTapDone:" destination="ttp-Yw-Jgs" eventType="touchUpInside" id="uzC-hW-OA5"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="AO2-iM-pHW" secondAttribute="trailing" id="R1f-Z4-udh"/>
-                            <constraint firstItem="cyO-eL-uCl" firstAttribute="centerX" secondItem="b4d-XH-gUT" secondAttribute="centerX" id="SuX-Cy-hMK"/>
-                            <constraint firstItem="AO2-iM-pHW" firstAttribute="leading" secondItem="b4d-XH-gUT" secondAttribute="leading" id="cWr-56-pIK"/>
-                            <constraint firstItem="PiK-PI-kuc" firstAttribute="top" secondItem="cyO-eL-uCl" secondAttribute="bottom" id="dos-z2-1db"/>
-                            <constraint firstItem="AO2-iM-pHW" firstAttribute="top" secondItem="b4d-XH-gUT" secondAttribute="top" id="frv-j2-8OC"/>
-                            <constraint firstItem="cyO-eL-uCl" firstAttribute="top" secondItem="AO2-iM-pHW" secondAttribute="bottom" id="y71-Vq-hZK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K5l-g2-ZWy" secondAttribute="trailing" id="JJE-zz-l6r"/>
+                            <constraint firstItem="K5l-g2-ZWy" firstAttribute="leading" secondItem="PaD-R0-7sX" secondAttribute="leadingMargin" id="UKN-He-CGd"/>
+                            <constraint firstItem="6a3-bY-Svx" firstAttribute="top" secondItem="K5l-g2-ZWy" secondAttribute="bottom" id="uNm-5T-SKh"/>
+                            <constraint firstItem="K5l-g2-ZWy" firstAttribute="top" secondItem="PaD-R0-7sX" secondAttribute="topMargin" id="zyW-pG-UJb"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="friday" destination="DVJ-vh-kxk" id="Wmv-Q9-nJO"/>
-                        <outlet property="home" destination="Ocd-CC-dK1" id="ucf-Mq-P00"/>
-                        <outlet property="mainStackViewContentWidth" destination="jGm-7F-uyG" id="AlW-68-5bY"/>
-                        <outlet property="monday" destination="DoT-bP-FdR" id="ebc-eB-xas"/>
-                        <outlet property="notificationsLabel" destination="aIc-qb-EUD" id="t9O-j4-SnN"/>
-                        <outlet property="notificationsSegment" destination="dbv-lO-aw6" id="RwP-qK-dcb"/>
-                        <outlet property="saturday" destination="fLW-Bv-rs8" id="K0u-Yk-hTN"/>
-                        <outlet property="sunday" destination="7ST-IS-pTT" id="4be-2S-tyi"/>
-                        <outlet property="targetHoursButton" destination="ywS-EQ-Vdi" id="caP-29-z8b"/>
-                        <outlet property="thursday" destination="UFf-F8-CQE" id="pSt-Mm-hVx"/>
-                        <outlet property="tuesday" destination="nix-B9-5C7" id="ewS-4w-AgW"/>
-                        <outlet property="wednesday" destination="paC-XE-ryM" id="3AJ-2Y-H92"/>
-                        <outlet property="work" destination="yiZ-vj-xkd" id="KTh-wK-R8d"/>
-                        <outlet property="workDaysLabel" destination="lEe-DW-1D6" id="ig9-5z-5Qk"/>
+                        <outlet property="doneButton" destination="Yft-Tq-6qy" id="oIf-RJ-kUf"/>
+                        <outlet property="friday" destination="gBy-wh-Kt0" id="9vZ-KY-ZUV"/>
+                        <outlet property="homeButton" destination="6MY-p0-Upx" id="Ar1-Wt-258"/>
+                        <outlet property="monday" destination="9L8-Pn-eCJ" id="xh4-xC-YNn"/>
+                        <outlet property="notificationsLabel" destination="t9I-4c-A7P" id="hcD-Cs-mIT"/>
+                        <outlet property="notificationsSegment" destination="kBW-Yq-f84" id="fkG-Bu-VMf"/>
+                        <outlet property="saturday" destination="FVZ-ps-TIH" id="yfo-kg-9dV"/>
+                        <outlet property="sunday" destination="fRi-1r-qoT" id="gpp-FG-o2G"/>
+                        <outlet property="targetHoursButton" destination="lTc-jj-reW" id="igz-ka-s4U"/>
+                        <outlet property="thursday" destination="L2f-Jh-tTA" id="E6z-zB-fCX"/>
+                        <outlet property="tuesday" destination="ILm-26-hS6" id="lnn-iz-fEb"/>
+                        <outlet property="wednesday" destination="obZ-Yq-d3K" id="CzC-Nf-ZAx"/>
+                        <outlet property="workButton" destination="j3V-Fe-tCp" id="Fey-f4-qJr"/>
+                        <outlet property="workDaysLabel" destination="H30-4G-6us" id="Ys5-fz-YRe"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GTs-Xi-bXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="3Mf-Jm-dka" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xYT-r1-6Vt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="298.39999999999998" y="232.98350824587709"/>
+            <point key="canvasLocation" x="7" y="89"/>
         </scene>
         <!--Settings Map View Controller-->
         <scene sceneID="DYo-zm-qCd">
@@ -308,7 +279,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="VED-rO-Ljs">
                                                 <rect key="frame" x="179.5" y="0.0" width="179.5" height="102.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNa-md-4Lr" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNa-md-4Lr" customClass="ThemeWorkButton" customModule="WorkWeek" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="179.5" height="56"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <state key="normal" title="Save">
@@ -364,6 +335,7 @@
                         <outlet property="mapView" destination="d9X-x2-OCi" id="RBP-en-FNt"/>
                         <outlet property="nowAddressLabel" destination="xNA-mp-Raq" id="J65-gd-BNO"/>
                         <outlet property="nowLabel" destination="DUB-ay-kDC" id="fiL-H6-Ovo"/>
+                        <outlet property="saveButton" destination="LNa-md-4Lr" id="odm-1x-fVH"/>
                         <outlet property="searchBar" destination="ckW-Wv-jHI" id="hi5-IY-abm"/>
                         <outlet property="wasAddressLabel" destination="CD4-ce-kho" id="qbd-fI-z5Y"/>
                         <outlet property="wasLabel" destination="LLc-F1-Yz0" id="eO9-lR-hcV"/>
@@ -386,17 +358,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmJ-MC-U0O" userLabel="containerView" customClass="ThemeView" customModule="WorkWeek" customModuleProvider="target">
-                                <rect key="frame" x="16" y="409" width="343" height="246"/>
+                                <rect key="frame" x="16" y="367" width="343" height="288"/>
                                 <subviews>
                                     <stackView contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-hV-bhA">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="246"/>
+                                        <rect key="frame" x="24" y="24" width="295" height="252"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHm-KM-n3b">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="216"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="295" height="216"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </pickerView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8x-qo-g2V">
-                                                <rect key="frame" x="0.0" y="216" width="343" height="30"/>
+                                                <rect key="frame" x="124" y="216" width="47" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Save"/>
                                                 <connections>
