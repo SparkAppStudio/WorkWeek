@@ -56,6 +56,12 @@ final class ActivityViewController: UIViewController {
         ringView.backgroundRingColor = UIColor.themeContent()
         countdownView.addSubview(ringView)
 
+        ringView.translatesAutoresizingMaskIntoConstraints = false
+        ringView.topAnchor.constraint(equalTo: countdownView.topAnchor).isActive = true
+        ringView.bottomAnchor.constraint(equalTo: countdownView.bottomAnchor).isActive = true
+        ringView.leadingAnchor.constraint(equalTo: countdownView.leadingAnchor).isActive = true
+        ringView.trailingAnchor.constraint(equalTo: countdownView.trailingAnchor).isActive = true
+
         updateCountdownLabels()
 
         setTheme(isNavBarTransparent: true)

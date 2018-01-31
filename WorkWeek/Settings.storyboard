@@ -23,13 +23,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K5l-g2-ZWy">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K5l-g2-ZWy">
                                 <rect key="frame" x="16" y="20" width="343" height="647"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3V-Fe-tCp" customClass="ThemeWorkButton" customModule="WorkWeek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="120"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="hr9-Ve-V5p"/>
+                                            <constraint firstAttribute="height" priority="750" constant="120" id="8wc-f4-Atk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <state key="normal" title="Work"/>
@@ -46,13 +46,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H30-4G-6us">
-                                        <rect key="frame" x="0.0" y="260" width="343" height="29.5"/>
+                                        <rect key="frame" x="130.5" y="260" width="82" height="0.0"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YaS-2i-4US">
-                                        <rect key="frame" x="0.0" y="299.5" width="343" height="42"/>
+                                        <rect key="frame" x="0.0" y="270" width="343" height="42"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRi-1r-qoT" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
@@ -107,11 +107,14 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="0U0-5v-rHi"/>
+                                        </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTc-jj-reW" customClass="TwoLabelButton" customModule="WorkWeek" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="351.5" width="343" height="80"/>
+                                        <rect key="frame" x="0.0" y="322" width="343" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="hCH-Xj-Jk1"/>
+                                            <constraint firstAttribute="height" priority="750" constant="80" id="HQv-Ei-3kn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <connections>
@@ -119,16 +122,16 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9I-4c-A7P">
-                                        <rect key="frame" x="0.0" y="441.5" width="343" height="29"/>
+                                        <rect key="frame" x="123.5" y="432" width="96.5" height="0.0"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBW-Yq-f84" customClass="SegmentedControlView" customModule="WorkWeek" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="480.5" width="343" height="156.5"/>
+                                        <rect key="frame" x="0.0" y="442" width="343" height="115"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fOr-RC-n6O">
-                                                <rect key="frame" x="12" y="12" width="319" height="29"/>
+                                                <rect key="frame" x="12" y="12" width="319" height="92"/>
                                                 <segments>
                                                     <segment title="None"/>
                                                     <segment title="Daily"/>
@@ -151,9 +154,10 @@
                                         </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yft-Tq-6qy" customClass="ThemeButton" customModule="WorkWeek" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="323" width="343" height="0.0"/>
+                                        <rect key="frame" x="91.5" y="567" width="160" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="qlU-DT-r7c"/>
+                                            <constraint firstAttribute="height" priority="750" constant="60" id="OLf-d7-6gI"/>
+                                            <constraint firstAttribute="width" constant="150" id="cUc-9r-nml"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <state key="normal" title="Done"/>
@@ -163,7 +167,12 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="YaS-2i-4US" firstAttribute="width" secondItem="K5l-g2-ZWy" secondAttribute="width" id="3pO-xX-dLr"/>
+                                    <constraint firstItem="kBW-Yq-f84" firstAttribute="width" secondItem="j3V-Fe-tCp" secondAttribute="width" id="I0I-qu-orw"/>
+                                    <constraint firstItem="6MY-p0-Upx" firstAttribute="width" secondItem="j3V-Fe-tCp" secondAttribute="width" id="NvG-6d-uZZ"/>
+                                    <constraint firstItem="lTc-jj-reW" firstAttribute="width" secondItem="j3V-Fe-tCp" secondAttribute="width" id="eNh-AM-GjD"/>
                                     <constraint firstItem="j3V-Fe-tCp" firstAttribute="height" secondItem="6MY-p0-Upx" secondAttribute="height" id="goS-O6-alU"/>
+                                    <constraint firstItem="j3V-Fe-tCp" firstAttribute="width" secondItem="K5l-g2-ZWy" secondAttribute="width" id="ock-cB-dDc"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -357,7 +366,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmJ-MC-U0O" userLabel="containerView" customClass="ThemeView" customModule="WorkWeek" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmJ-MC-U0O" userLabel="containerView" customClass="ThemeWorkView" customModule="WorkWeek" customModuleProvider="target">
                                 <rect key="frame" x="16" y="367" width="343" height="288"/>
                                 <subviews>
                                     <stackView contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-hV-bhA">

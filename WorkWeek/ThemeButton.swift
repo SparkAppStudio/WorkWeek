@@ -125,6 +125,15 @@ import UIKit
     }
 }
 
+@IBDesignable class ThemeWorkView: ThemeView {
+    var borderColor: UIColor = UIColor.workBlue()
+
+    override func draw(_ rect: CGRect) {
+        drawSparkBackground(rect, color: borderColor)
+        super.draw(rect)
+    }
+}
+
 @IBDesignable class MapThemeView: UIView {
     override func draw(_ rect: CGRect) {
         backgroundColor = UIColor.clear
