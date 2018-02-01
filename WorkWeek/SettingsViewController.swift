@@ -43,13 +43,14 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     // MARK: View Lifecycle
 
     override func viewDidLoad() {
-        assert(user != nil, "Error! User object shoudl be provided to the VC by the coordinator")
+        assert(user != nil, "Error! User object should be provided to the VC by the coordinator")
         super.viewDidLoad()
         title = "Settings"
         setTheme(isNavBarTransparent: true)
         workDaysLabel.textColor = UIColor.themeText()
         notificationsLabel.textColor = UIColor.themeText()
 
+        configureMapButtons(with: user)
         configureSelectedButtons(with: user.weekdays)
         configureNotificationsSegment(with: user.notificationChoice)
 
@@ -96,6 +97,24 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     @IBAction func didTapNotifications(_ segment: UISegmentedControl) {
         DataStore.shared.updateNotificationsChoice(for: user, with: segment.choice)
+    }
+
+    func configureMapButtons(with user: User) {
+
+        if let workAddress = user.workLocation {
+            let formattedTitle = NSMutableAttributedString()
+            formattedTitle
+                .bold("Work\n", size: 14)
+                .normal(workAddress, size: 14)
+            workButton.setAttributedTitle(formattedTitle, for: .normal)
+        }
+        if let homeAddress = user.homeLocation {
+            let formattedTitle = NSMutableAttributedString()
+            formattedTitle
+                .bold("Home\n", size: 14)
+                .normal(homeAddress, size: 14)
+            homeButton.setAttributedTitle(formattedTitle, for: .normal)
+        }
     }
 
     func configureSelectedButtons(with days: User.Weekdays) {

@@ -64,6 +64,7 @@ extension UIView {
     func drawSparkRect(_ rect: CGRect, color: UIColor) {
         let context = UIGraphicsGetCurrentContext()!
         context.setFillColor(color.cgColor)
+        // shadow handled by the button layer now
 //        context.setSparkShadow()
         UIBezierPath.getDefaultRoundedRectPath(rect: rect).fill()
     }
@@ -153,6 +154,30 @@ extension UIView {
         }
         let path = UIBezierPath(roundedRect: rect.insetBy(dx: xInset, dy: yInset), cornerRadius: cornerRadius)
         path.fill()
+    }
+}
+
+extension NSMutableAttributedString {
+    @discardableResult func bold(_ text: String, size: CGFloat) -> NSMutableAttributedString {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        
+        let attrs: [NSAttributedStringKey: Any] = [.paragraphStyle: paragraph, .font: UIFont.systemFont(ofSize: size, weight: .heavy), .foregroundColor: UIColor.themeText()]
+        let boldString = NSMutableAttributedString(string: text, attributes: attrs)
+        append(boldString)
+
+        return self
+    }
+
+    @discardableResult func normal(_ text: String, size: CGFloat) -> NSMutableAttributedString {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+
+        let attrs: [NSAttributedStringKey: Any] = [.paragraphStyle: paragraph, .font: UIFont.systemFont(ofSize: size), .foregroundColor: UIColor.themeText()]
+        let normal = NSAttributedString(string: text, attributes: attrs)
+        append(normal)
+
+        return self
     }
 }
 

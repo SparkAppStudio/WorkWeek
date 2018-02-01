@@ -57,9 +57,13 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
         segmentedPager.parallaxHeader.minimumHeight = 0
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        selectDay(at: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let day = Calendar.current.component(.weekday, from: Date())
+        let index = day-1
+
+        selectDay(at: index)
+        segmentedPager.pager.showPage(at: index, animated: true)
     }
 
     func selectDay(at index: Int?) {
