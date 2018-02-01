@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
 
     static func dailyGraphGreen() -> UIColor {
-        return UIColor.init(displayP3Red: 54/255, green: 236/255, blue: 215, alpha: 1)
+        return UIColor.init(displayP3Red: 54/255, green: 236/255, blue: 215/255, alpha: 1)
     }
 
     static func workBlue() -> UIColor {
