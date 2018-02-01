@@ -838,8 +838,8 @@
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=200";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sparkappstudio.workweek-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3aaf26d3-94e3-46ce-b676-9e3673e97fef";
-				PROVISIONING_PROFILE_SPECIFIER = "Work Week Distribution";
+				PROVISIONING_PROFILE = "9e27d86d-7f7e-4798-8eaf-2763aa0b708c";
+				PROVISIONING_PROFILE_SPECIFIER = "Spark - WorkWeek-Dev-AdHoc";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
