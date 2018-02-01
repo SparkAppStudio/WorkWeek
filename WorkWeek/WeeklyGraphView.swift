@@ -23,11 +23,16 @@ class WeeklyGraphView: UIView, ProgressStripeViewDelegate {
     @IBOutlet weak var saturdayView: TouchableProgressStripeView!
 
     weak var delegate: WeeklyGraphViewDelegate!
+    var isCurrentWeek: Bool = false
 
     func configure(_ weeklyGraphViewModel: WeeklyGraphViewModel) {
         backgroundColor = UIColor.themeBackground()
         for label in dayLabels {
             label.textColor = UIColor.themeText()
+        }
+
+        if weeklyGraphViewModel.weekRangeText == "Current" {
+            isCurrentWeek = true
         }
 
         sundayView.workData = weeklyGraphViewModel.sunday
@@ -60,7 +65,7 @@ class WeeklyGraphView: UIView, ProgressStripeViewDelegate {
 
         graphTargetLine.targetData = weeklyGraphViewModel.graphTarget
 
-        guard let today = WeeklyGraphViewModel.today else { return }
+        guard let today = WeeklyGraphViewModel.thisWeekday, isCurrentWeek == true else { return }
         switch today {
         case 1:
             sundayView.isToday = true
@@ -89,6 +94,8 @@ class WeeklyGraphView: UIView, ProgressStripeViewDelegate {
 }
 
 class WeeklyGraphViewModel {
+
+    static var thisWeekday: Int?
 
     let graphTarget: (percent: Double, hours: String)
     let sunday: (percent: Double, hours: String)
@@ -138,9 +145,6 @@ class WeeklyGraphViewModel {
         weekRangeText = WeeklyGraphViewModel.formattedWeek(from: firstDate, to: lastDate)
     }
 
-
-    static var today: Int?
-
     static func formattedWeek(from date: Date?, to endDate: Date?) -> String {
         guard let date = date else { return "" }
         guard let endDate = endDate else { return "" }
@@ -148,7 +152,7 @@ class WeeklyGraphViewModel {
         let calendar = Calendar.current
 
         if calendar.compare(endDate, to: Date(), toGranularity: .day) == .orderedSame {
-            today = calendar.component(.weekday, from: endDate)
+            thisWeekday = calendar.component(.weekday, from: endDate)
             return "Current"
         }
 

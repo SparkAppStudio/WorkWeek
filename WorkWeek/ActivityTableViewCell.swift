@@ -23,7 +23,9 @@ import Reusable
     @IBOutlet weak var thursdayView: ProgressStripeView!
     @IBOutlet weak var fridayView: ProgressStripeView!
     @IBOutlet weak var saturdayView: ProgressStripeView!
+
     var margin: CGFloat!
+    var isCurrentWeek: Bool = false
 
     override func draw(_ rect: CGRect) {
         drawSparkGradientBackground(rect, startColor: UIColor.homeGreen(), endColor: UIColor.workBlue(), xInset: margin, yInset: margin/2, cornerRadius: rect.getRoundedCorner())
@@ -33,6 +35,9 @@ import Reusable
     func configure(_ viewModel: WeeklyGraphViewModel) {
         backgroundColor = UIColor.themeBackground()
         timeFrameLabel.text = viewModel.weekRangeText
+        if viewModel.weekRangeText == "Current" {
+            isCurrentWeek = true
+        }
         hoursLabel.text = viewModel.hoursText
         timeFrameLabel.textColor = UIColor.themeText()
         hoursLabel.textColor = UIColor.workBlue()
@@ -57,7 +62,7 @@ import Reusable
         graphTargetLine.targetData = viewModel.graphTarget
         graphTargetLine.setNeedsDisplay()
 
-        guard let today = WeeklyGraphViewModel.today else { return }
+        guard let today = WeeklyGraphViewModel.thisWeekday, isCurrentWeek == true else { return }
         switch today {
         case 1:
             sundayView.isToday = true
