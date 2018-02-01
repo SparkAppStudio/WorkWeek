@@ -386,7 +386,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmJ-MC-U0O" userLabel="containerView" customClass="ThemeWorkView" customModule="WorkWeek" customModuleProvider="target">
                                 <rect key="frame" x="16" y="367" width="343" height="288"/>
                                 <subviews>
-                                    <stackView contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-hV-bhA">
+                                    <stackView contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-hV-bhA">
                                         <rect key="frame" x="24" y="24" width="295" height="252"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHm-KM-n3b">
@@ -395,7 +395,7 @@
                                             </pickerView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8x-qo-g2V">
                                                 <rect key="frame" x="124" y="216" width="47" height="36"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                 <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="didTapSave:" destination="1aG-qa-HYD" eventType="touchUpInside" id="QF4-ey-dpf"/>
