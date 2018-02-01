@@ -28,12 +28,12 @@
                                         <rect key="frame" x="36" y="0.0" width="303" height="330.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HH:MM:SS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="NFm-kW-Mhx">
-                                                <rect key="frame" x="8" y="127" width="287" height="76.5"/>
+                                                <rect key="frame" x="32" y="127" width="239" height="76.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="64"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.92549019610000005" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="until home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Mk-A8s">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Until Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Mk-A8s">
                                                 <rect key="frame" x="106.5" y="203.5" width="91" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.92549019610000005" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -278,6 +278,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countdownDescriptionLabel" destination="Jhy-Mk-A8s" id="iM0-9i-Jg7"/>
                         <outlet property="countdownTimeLabel" destination="NFm-kW-Mhx" id="2HG-9l-YdB"/>
                         <outlet property="countdownView" destination="yyL-p9-nkA" id="zcm-Fy-Fcw"/>
                         <outlet property="ringTrailingConstraint" destination="vTI-1d-aTi" id="2rH-Ai-MEl"/>

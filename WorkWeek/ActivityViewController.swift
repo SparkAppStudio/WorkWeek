@@ -31,6 +31,7 @@ final class ActivityViewController: UIViewController {
     @IBOutlet var ringTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var countdownView: CountdownRingView!
     @IBOutlet weak var countdownTimeLabel: UILabel!
+    @IBOutlet weak var countdownDescriptionLabel: UILabel!
     @IBOutlet weak var weekCountdownTimeLabel: UILabel!
     @IBOutlet weak var tableView: TransparentHeaderTableView!
 
@@ -49,20 +50,10 @@ final class ActivityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ringView = MKRingProgressView(frame: countdownView.bounds)
-        ringView.startColor = UIColor.homeGreen()
-        ringView.endColor = UIColor.workBlue()
-        ringView.ringWidth = 24
-        ringView.backgroundRingColor = UIColor.themeContent()
-        countdownView.addSubview(ringView)
 
-        ringView.translatesAutoresizingMaskIntoConstraints = false
-        ringView.topAnchor.constraint(equalTo: countdownView.topAnchor).isActive = true
-        ringView.bottomAnchor.constraint(equalTo: countdownView.bottomAnchor).isActive = true
-        ringView.leadingAnchor.constraint(equalTo: countdownView.leadingAnchor).isActive = true
-        ringView.trailingAnchor.constraint(equalTo: countdownView.trailingAnchor).isActive = true
 
         updateCountdownLabels()
+        setupRingView()
 
         setTheme(isNavBarTransparent: true)
         tableView.dataSource = tableViewData
@@ -84,9 +75,29 @@ final class ActivityViewController: UIViewController {
         Analytics.track(.pageView(.activityCountdown))
 
         CATransaction.begin()
-        CATransaction.setAnimationDuration(1.0)
+        CATransaction.setAnimationDuration(1.2)
         ringView.progress = headerData.percentOfWorkRemaining
         CATransaction.commit()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        ringView.progress = 0
+    }
+
+    func setupRingView() {
+        ringView = MKRingProgressView(frame: countdownView.bounds)
+        ringView.startColor = UIColor.homeGreen()
+        ringView.endColor = UIColor.workBlue()
+        ringView.ringWidth = 24
+        ringView.backgroundRingColor = UIColor.themeContent()
+        countdownView.addSubview(ringView)
+
+        ringView.translatesAutoresizingMaskIntoConstraints = false
+        ringView.topAnchor.constraint(equalTo: countdownView.topAnchor).isActive = true
+        ringView.bottomAnchor.constraint(equalTo: countdownView.bottomAnchor).isActive = true
+        ringView.leadingAnchor.constraint(equalTo: countdownView.leadingAnchor).isActive = true
+        ringView.trailingAnchor.constraint(equalTo: countdownView.trailingAnchor).isActive = true
     }
 
     #if DEBUG
@@ -107,7 +118,6 @@ final class ActivityViewController: UIViewController {
     func runTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
             self.updateCountdownLabels()
-            self.ringView.progress = self.headerData.percentOfWorkRemaining
         }
         RunLoop.main.add(timer, forMode: .commonModes)
     }
@@ -126,9 +136,22 @@ final class ActivityViewController: UIViewController {
     }()
 
     func updateCountdownLabels() {
-        countdownTimeLabel.text = hourMinuteFormatter.string(from: headerData.timeLeftInDay)
+
         let weekHours = hoursFormatter.string(from: headerData.timeLeftInWeek)!
-        weekCountdownTimeLabel.text = "\(weekHours) work hours left in the week"
+        weekCountdownTimeLabel.text = "\(weekHours) Work Hours Left in the Week"
+        if headerData.timeLeftInDay <= 0 {
+            countdownTimeLabel.text = hourMinuteFormatter.string(from: abs(headerData.timeLeftInDay))
+
+            countdownDescriptionLabel.text = "Overtime"
+        } else {
+            let formattedString = hourMinuteFormatter.string(from: headerData.timeLeftInDay)
+            countdownTimeLabel.text = formattedString
+            countdownDescriptionLabel.text = "Until Home"
+            //update ring every ten seconds, only when visible, and only when not animating from 0 at viewDidLoad
+            if formattedString?.last == "0" && self.viewIfLoaded?.window != nil && self.ringView.progress != 0 {
+                    self.ringView.progress = self.headerData.percentOfWorkRemaining
+            }
+        }
     }
 }
 
