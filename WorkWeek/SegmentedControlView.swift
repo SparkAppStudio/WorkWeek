@@ -10,6 +10,6 @@ import UIKit
 
     override func draw(_ rect: CGRect) {
         controller.styleSparksegmentedController(tint: UIColor.workBlue())
-        drawSparkRect(rect, color: UIColor.themeContent())
+        _ = drawSparkRect(rect, color: UIColor.themeContent())
     }
 }

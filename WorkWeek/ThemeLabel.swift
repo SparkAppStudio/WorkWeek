@@ -8,7 +8,7 @@ import UIKit
     override func draw(_ rect: CGRect) {
         backgroundColor = UIColor.clear
         textColor = UIColor.themeText()
-        drawSparkRect(rect, color: UIColor.themeContent())
+        _ = drawSparkRect(rect, color: UIColor.themeContent())
         drawText(in: rect.insetBy(dx: 12, dy: 12))
     }
 }

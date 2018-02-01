@@ -6,7 +6,7 @@ import UIKit
 
 @IBDesignable class ThemeGradientButton: ThemeButton {
     override func draw(_ rect: CGRect) {
-        drawSparkGradientBackground(rect, startColor: UIColor.homeGreen(), endColor: UIColor.workBlue())
+        _ = drawSparkGradientBackground(rect, startColor: UIColor.homeGreen(), endColor: UIColor.workBlue())
         super.draw(rect)
     }
 }
@@ -171,7 +171,7 @@ import UIKit
 @IBDesignable class ThemeView: UIView {
     override func draw(_ rect: CGRect) {
         backgroundColor = UIColor.clear
-        drawSparkRect(rect, color: UIColor.themeContent())
+        _ = drawSparkRect(rect, color: UIColor.themeContent())
 
     }
 }
@@ -187,7 +187,7 @@ import UIKit
 
 @IBDesignable class ThemeGradientView: ThemeView {
     override func draw(_ rect: CGRect) {
-        drawSparkGradientBackground(rect, startColor: UIColor.homeGreen(), endColor: UIColor.workBlue())
+        _ = drawSparkGradientBackground(rect, startColor: UIColor.homeGreen(), endColor: UIColor.workBlue())
         super.draw(rect)
     }
 }
