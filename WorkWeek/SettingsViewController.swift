@@ -111,12 +111,22 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
                 .bold("Work\n", size: 14)
                 .normal(workAddress, size: 14)
             workButton.setAttributedTitle(formattedTitle, for: .normal)
+        } else {
+            let formattedTitle = NSMutableAttributedString()
+            formattedTitle
+                .bold("Work", size: 14)
+            workButton.setAttributedTitle(formattedTitle, for: .normal)
         }
         if let homeAddress = user.homeLocation {
             let formattedTitle = NSMutableAttributedString()
             formattedTitle
                 .bold("Home\n", size: 14)
                 .normal(homeAddress, size: 14)
+            homeButton.setAttributedTitle(formattedTitle, for: .normal)
+        } else {
+            let formattedTitle = NSMutableAttributedString()
+            formattedTitle
+                .bold("Home", size: 14)
             homeButton.setAttributedTitle(formattedTitle, for: .normal)
         }
     }
