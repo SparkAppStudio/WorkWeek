@@ -11,6 +11,7 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
     var weekObject: WeeklyObject!
     static let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     var headerView: WeeklyGraphView!
+    var isCurrentWeek: Bool = false
 
     lazy var controllersArray: [(title: String, controller: UIViewController)] = {
         var array: [(title: String, controller: UIViewController)] = []
@@ -45,7 +46,9 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
         let nib = UINib(nibName: "WeeklyGraphView", bundle: nil)
         headerView = nib.instantiate(withOwner: WeeklyGraphView.self, options: nil)[0] as? WeeklyGraphView
         let viewModel = WeeklyGraphViewModel.init(weekObject)
-
+        if viewModel.weekRangeText == "Current" {
+            isCurrentWeek = true
+        }
         headerView?.configure(viewModel)
         headerView?.delegate = self
 
@@ -59,11 +62,14 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let day = Calendar.current.component(.weekday, from: Date())
-        let index = day-1
-
-        selectDay(at: index)
-        segmentedPager.pager.showPage(at: index, animated: true)
+        if isCurrentWeek {
+            let day = Calendar.current.component(.weekday, from: Date())
+            let index = day-1
+            selectDay(at: index)
+            segmentedPager.pager.showPage(at: index, animated: true)
+        } else {
+            selectDay(at: 0)
+        }
     }
 
     func selectDay(at index: Int?) {
