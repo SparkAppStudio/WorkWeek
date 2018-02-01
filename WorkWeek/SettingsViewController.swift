@@ -50,11 +50,15 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         workDaysLabel.textColor = UIColor.themeText()
         notificationsLabel.textColor = UIColor.themeText()
 
-        configureMapButtons(with: user)
         configureSelectedButtons(with: user.weekdays)
         configureNotificationsSegment(with: user.notificationChoice)
 
         targetHoursButton.rightTitle = "\(user.hoursInWorkDay)"
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureMapButtons(with: user)
     }
 
     override func viewDidAppear(_ animated: Bool) {
