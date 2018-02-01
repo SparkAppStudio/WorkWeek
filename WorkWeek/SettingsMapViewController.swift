@@ -16,10 +16,13 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
     static func presentMapWith(navController: UINavigationController,
                                as type: MapVCType,
                                location: CLLocationManager,
-                               delegate: MapVCDelegate, user: User) {
+                               delegate: MapVCDelegate,
+                               user: User,
+                               day: DailyObject?) {
         let mapViewController = SettingsMapViewController.instantiate()
         mapViewController.locationManager = location
         mapViewController.user = user
+        mapViewController.day = day
         mapViewController.type = type
         mapViewController.delegate = delegate
         navController.present(mapViewController, animated: true)
@@ -41,6 +44,7 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
     /// Used to ensure we only zoom the map once
     var didUpdateUserLocationOnce = false
     var user: User! //provided by coordinator
+    var day: DailyObject? //provided by coordinator, you won't get one from onboarding however
     var type = MapVCType.home
 
     weak var delegate: MapVCDelegate?
@@ -96,7 +100,7 @@ class SettingsMapViewController: UIViewController, SettingsStoryboard, UISearchB
         let center = mapView.region.center
         let radius = mapView.visibleMapRect.sizeInMeters().width / 3.0 / 2.0
         delegate?.save(viewController: self, type: type,
-                       user: user,
+                       user: user, day: day,
                        address: nowAddressLabel.text,
                        coordinate: center,
                        radius: radius)

@@ -51,17 +51,22 @@ class OnboardingCoordinator: OnboardPageViewDelegate, MapVCDelegate, UserGettabl
 
     func pageDidTapHome() {
         locationManager.startUpdatingLocation()
+        let day = DataStore.shared.queryDailyObject()
+
         SettingsMapViewController.presentMapWith(navController: navigationController,
                                        as: .home,
                                        location: locationManager,
-                                       delegate: self, user: currentUser)
+                                       delegate: self, user: currentUser,
+                                       day: day)
     }
 
     func pageDidTapWork() {
         locationManager.startUpdatingLocation()
+        let day = DataStore.shared.queryDailyObject()
+
         SettingsMapViewController.presentMapWith(navController: navigationController,
                                        as: .work,
                                        location: locationManager,
-                                       delegate: self, user: currentUser)
+                                       delegate: self, user: currentUser, day: day)
     }
 }

@@ -43,6 +43,7 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
         let settingsVC = SettingsViewController.instantiate()
         settingsVC.delegate = self
         settingsVC.user = self.user
+//        settingsVC.day = DataStore.shared.queryDailyObject()
         let settingsNavController = UINavigationController(rootViewController: settingsVC)
         self.settingsVC = settingsVC //save a copy for later
         return settingsNavController
@@ -74,17 +75,24 @@ class SettingsCoordinator: SettingsMainProtocol, MapVCDelegate {
 
     // TODO: Remove Navigation Parameter from these 3 calls
     func didTapHomeMap(nav: UINavigationController) {
+
+       let day = DataStore.shared.queryDailyObject()
         SettingsMapViewController.presentMapWith(navController: nav,
                                        as: .home,
                                        location: locationManager,
-                                       delegate: self, user: user)
+                                       delegate: self, user: user,
+                                       day: day)
     }
 
     func didTapWorkMap(nav: UINavigationController) {
-        SettingsMapViewController.presentMapWith(navController: nav,
+
+        let day = DataStore.shared.queryDailyObject()
+
+ SettingsMapViewController.presentMapWith(navController: nav,
                                        as: .work,
                                        location: locationManager,
-                                       delegate: self, user: user)
+                                       delegate: self, user: user,
+                                       day: day)
     }
 
     func didTapSelectHours(nav: UINavigationController) {

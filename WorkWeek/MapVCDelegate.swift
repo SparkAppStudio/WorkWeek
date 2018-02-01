@@ -28,7 +28,7 @@ protocol MapVCDelegate: class {
     ///   - coordinate: The coordinate, a the center of the map (probably used
     ///                 to set the center of a geofence
     ///   - radius: the radius shown by the circle in the middle of the map
-    func save(viewController: UIViewController, type: MapVCType, user: User, address: String?, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)
+    func save(viewController: UIViewController, type: MapVCType, user: User, day: DailyObject?, address: String?, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)
 
     /// The Map View Controller calls this method when the user chooses not to
     /// save their work. The user probably just wants to dismiss the map.
@@ -37,22 +37,21 @@ protocol MapVCDelegate: class {
 
 extension MapVCDelegate {
 
-    func save(viewController: UIViewController, type: MapVCType, user: User, address: String?, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+    func save(viewController: UIViewController, type: MapVCType, user: User, day: DailyObject?, address: String?, coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
         let region: CLCircularRegion
         switch type {
         case .home:
             region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.home.rawValue)
-            startTrackingHome(region: region)
+            startTrackingHome(region: region, day: day)
 
             guard let address = address else {return}
             DataStore.shared.updateHomeLocation(for: user, with: address)
 
         case .work:
             region = CLCircularRegion(center: coordinate, radius: radius, identifier: RegionId.work.rawValue)
-            startTrackingWork(region: region)
+            startTrackingWork(region: region, day: day)
 
             guard let address = address else {return}
-
             DataStore.shared.updateWorkLocation(for: user, with: address)
         }
         
@@ -60,17 +59,22 @@ extension MapVCDelegate {
         viewController.dismiss(animated: true, completion: nil)
     }
 
-    private func startTrackingWork(region: CLCircularRegion) {
+    private func startTrackingWork(region: CLCircularRegion, day: DailyObject?) {
         guard let currentLocation = locationManager.location else {return}
         if region.contains(currentLocation.coordinate) {
             NotificationCenterManager.shared.postArriveWorkNotification()
+        } else if let today = day, today.isAtWork {
+            NotificationCenterManager.shared.postLeaveWorkNotification()
         }
     }
 
-    private func startTrackingHome(region: CLCircularRegion) {
+    private func startTrackingHome(region: CLCircularRegion, day: DailyObject?) {
         guard let currentLocation = locationManager.location else {return}
         if region.contains(currentLocation.coordinate) {
             NotificationCenterManager.shared.postArriveHomeNotification()
+
+        } else if let today = day, today.isAtHome {
+            NotificationCenterManager.shared.postLeaveHomeNotification()
         }
     }
 

@@ -39,6 +39,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var notificationsSegment: SegmentedControlView!
 
     var user: User!
+//    var day: DailyObject!
 
     // MARK: View Lifecycle
 

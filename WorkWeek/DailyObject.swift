@@ -58,6 +58,13 @@ class DailyObject: Object {
         return lastEvent.kind == NotificationCenter.CheckInEvent.arriveWork
     }
 
+    var isAtHome: Bool {
+        guard let lastEvent = events.last else {
+            return false // no events yet today, not at home
+        }
+        return lastEvent.kind == NotificationCenter.CheckInEvent.arriveHome
+    }
+
     // if the first event of the day is leftWork
     // and the last event of the previous day is arrive work
     // that means I worked past midnight last night
