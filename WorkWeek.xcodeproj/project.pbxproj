@@ -47,7 +47,6 @@
 		52E1A7281EFB8FF000FBF278 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1A7271EFB8FF000FBF278 /* SettingsCoordinator.swift */; };
 		C309407B1F7DB7D200447E65 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C320DC81201921DF00B071E5 /* MKRingProgressView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38D59A920191F320021D3C2 /* MKRingProgressView.framework */; };
-		C320DC82201921DF00B071E5 /* MKRingProgressView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C38D59A920191F320021D3C2 /* MKRingProgressView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C33043E21FC4F1CF008F564E /* HourTableSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C33043E11FC4F1CF008F564E /* HourTableSectionView.xib */; };
 		C33043E41FC4FC62008F564E /* HourTableSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33043E31FC4FC62008F564E /* HourTableSectionView.swift */; };
 		C33043E61FC4FDC9008F564E /* ThemeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33043E51FC4FDC9008F564E /* ThemeLabel.swift */; };
@@ -100,7 +99,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C320DC82201921DF00B071E5 /* MKRingProgressView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +585,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/MXPagerView.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MXParallaxHeader.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MXSegmentedPager.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MKRingProgressView.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
