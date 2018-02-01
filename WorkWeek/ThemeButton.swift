@@ -38,9 +38,22 @@ import UIKit
         }
     }
 
+    var backgroundPath: UIBezierPath!
+
+    var shouldClearBackground: Bool = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
     override func draw(_ rect: CGRect) {
-        drawSparkGradientBackground(rect, startColor: UIColor.homeGreen(), endColor: UIColor.dailyGraphGreen())
-        super.draw(rect)
+        if shouldClearBackground == false {
+            backgroundPath = drawSparkGradientBackground(rect, startColor: UIColor.homeGreen(), endColor: UIColor.dailyGraphGreen())
+            super.draw(rect)
+        } else {
+            backgroundPath = nil
+            contentPath = nil
+        }
     }
 }
 
@@ -56,6 +69,8 @@ import UIKit
             return UIColor.themeContent()
         }
     }
+
+    var contentPath: UIBezierPath!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,7 +89,7 @@ import UIKit
 
     override func draw(_ rect: CGRect) {
         layer.setSparkShadow()
-        drawSparkRect(rect, color: contentColor)
+        contentPath = drawSparkRect(rect, color: contentColor)
     }
 
     override var isHighlighted: Bool {

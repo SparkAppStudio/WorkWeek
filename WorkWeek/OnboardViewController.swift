@@ -45,11 +45,12 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
     weak var delegate: OnboardLocationViewDelegate?
     var locationManager: CLLocationManager!
 
-    @IBOutlet weak var grantLocationButton: UIButton!
+    @IBOutlet weak var grantLocationButton: OnboardingGradientButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
+        grantLocationButton.titleLabel?.adjustsFontSizeToFitWidth = true
         NotificationCenter.default.addObserver(self,
             selector: #selector(OnboardLocationViewController.appDidBecomeActive(_:)),
             name: Notification.Name.UIApplicationDidBecomeActive,
@@ -72,7 +73,7 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
         case .authorizedAlways:
             grantLocationButton.isEnabled = false
             grantLocationButton.setTitle("Hooray! Location is Enabled", for: .normal)
-            grantLocationButton.backgroundColor = UIColor.clear
+            grantLocationButton.shouldClearBackground = true
 
             //allow user to proceed only when location access is granted
             delegate?.locationPageIsDone()
@@ -80,12 +81,12 @@ class OnboardLocationViewController: UIViewController, OnboardingStoryboard {
         case .denied, .restricted, .authorizedWhenInUse:
             grantLocationButton.isEnabled = true
             grantLocationButton.setTitle("Grant Access", for: .normal)
-            grantLocationButton.backgroundColor = #colorLiteral(red: 0.2414106429, green: 0.7961877584, blue: 0.8413593173, alpha: 1)
+            grantLocationButton.shouldClearBackground = false
 
         case .notDetermined:
             grantLocationButton.isEnabled = true
             grantLocationButton.setTitle("Grant Access", for: .normal)
-            grantLocationButton.backgroundColor = #colorLiteral(red: 0.2414106429, green: 0.7961877584, blue: 0.8413593173, alpha: 1)
+            grantLocationButton.shouldClearBackground = false
         }
     }
 
@@ -118,8 +119,8 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
     let center = UNUserNotificationCenter.current()
     let options: UNAuthorizationOptions = [.alert, .sound, .badge, .carPlay]
 
-    @IBOutlet weak var grantNotifyButton: UIButton!
-    @IBOutlet weak var denyNotifyButton: UIButton!
+    @IBOutlet weak var grantNotifyButton: OnboardingGradientButton!
+    @IBOutlet weak var denyNotifyButton: OnboardingOutlineButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,7 +160,9 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                     }
                     button.isEnabled = false
                     button.setTitle("Hooray! Notify is Enabled", for: .normal)
-                    button.backgroundColor = UIColor.clear
+                    if let button = button as? OnboardingGradientButton {
+                        button.shouldClearBackground = true
+                    }
 
                     //dismiss
                     self.delegate?.notifyPageIsDone()
@@ -171,7 +174,9 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                     }
                     button.isEnabled = true
                     button.setTitle("Grant Access", for: .normal)
-                    button.backgroundColor = #colorLiteral(red: 0.2414106429, green: 0.7961877584, blue: 0.8413593173, alpha: 1)
+                    if let button = button as? OnboardingGradientButton {
+                        button.shouldClearBackground = false
+                    }
 
                 case .notDetermined:
                     if button == self.denyNotifyButton {
@@ -180,7 +185,9 @@ class OnboardNotifyViewController: UIViewController, OnboardingStoryboard {
                     }
                     button.isEnabled = true
                     button.setTitle("Grant Access", for: .normal)
-                    button.backgroundColor = #colorLiteral(red: 0.2414106429, green: 0.7961877584, blue: 0.8413593173, alpha: 1)
+                    if let button = button as? OnboardingGradientButton {
+                        button.shouldClearBackground = false
+                    }
                 }
             }
 

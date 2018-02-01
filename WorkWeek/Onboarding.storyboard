@@ -256,7 +256,7 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noj-gz-43s" customClass="OnboardingGradientButton" customModule="WorkWeek" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noj-gz-43s" customClass="OnboardingGradientButton" customModule="WorkWeek" customModuleProvider="target">
                                 <rect key="frame" x="36" y="368" width="303" height="76"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="750" constant="76" id="F2V-Zl-fjl"/>

@@ -61,12 +61,14 @@ extension UIView {
         self.clipsToBounds = true
     }
 
-    func drawSparkRect(_ rect: CGRect, color: UIColor) {
+    func drawSparkRect(_ rect: CGRect, color: UIColor) -> UIBezierPath {
         let context = UIGraphicsGetCurrentContext()!
         context.setFillColor(color.cgColor)
         // shadow handled by the button layer now
 //        context.setSparkShadow()
-        UIBezierPath.getDefaultRoundedRectPath(rect: rect).fill()
+        let path = UIBezierPath.getDefaultRoundedRectPath(rect: rect)
+        path.fill()
+        return path
     }
 
     func getSparkRect(_ rect: CGRect, color: UIColor) -> CAShapeLayer {
@@ -112,7 +114,7 @@ extension UIView {
         context.restoreGState()
     }
 
-    func drawSparkGradientBackground(_ rect: CGRect, startColor: UIColor, endColor: UIColor) {
+    func drawSparkGradientBackground(_ rect: CGRect, startColor: UIColor, endColor: UIColor) -> UIBezierPath? {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let context = UIGraphicsGetCurrentContext()!
 
@@ -123,7 +125,7 @@ extension UIView {
 
         guard let gradient = CGGradient(colorsSpace: colorSpace,
                                         colors: colors,
-                                        locations: [0, 1]) else { return }
+                                        locations: [0, 1]) else { return nil }
         context.saveGState()
 
         let insets = UIEdgeInsets(top: -4, left: 0, bottom: 0, right: 0)
@@ -133,6 +135,7 @@ extension UIView {
         clippingPath.addClip()
         context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
         context.restoreGState()
+        return clippingPath
     }
 
     func getSparkBackground(_ rect: CGRect, color: UIColor?) -> CAShapeLayer? {
