@@ -26,7 +26,36 @@ import UIKit
     }
 }
 
+@IBDesignable class OnboardingGradientButton: ThemeButton {
+    override var textColor: UIColor {
+        get {
+            return .white
+        }
+    }
+    override var contentColor: UIColor {
+        get {
+            return .workBlue()
+        }
+    }
+
+    override func draw(_ rect: CGRect) {
+        drawSparkGradientBackground(rect, startColor: UIColor.homeGreen(), endColor: UIColor.dailyGraphGreen())
+        super.draw(rect)
+    }
+}
+
 @IBDesignable class ThemeButton: UIButton {
+
+    var textColor: UIColor {
+        get {
+            return UIColor.themeText()
+        }
+    }
+    var contentColor: UIColor {
+        get {
+            return UIColor.themeContent()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,12 +69,12 @@ import UIKit
 
     private func configureLayers() {
         backgroundColor = UIColor.clear
-        setTitleColor(UIColor.themeText(), for: .normal)
+        setTitleColor(textColor, for: .normal)
     }
 
     override func draw(_ rect: CGRect) {
         layer.setSparkShadow()
-        drawSparkRect(rect, color: UIColor.themeContent())
+        drawSparkRect(rect, color: contentColor)
     }
 
     override var isHighlighted: Bool {

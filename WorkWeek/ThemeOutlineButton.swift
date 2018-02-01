@@ -4,7 +4,43 @@
 
 import UIKit
 
-class OutlineThemeButton: UIButton {
+@IBDesignable class OnboardingOutlineButton: UIButton {
+    var color: UIColor = .white {
+        didSet {
+            setNeedsDisplay()
+            titleLabel?.textColor = color
+        }
+    }
+
+    override func draw(_ rect: CGRect) {
+        let outlinePath = UIBezierPath.getDefaultRoundedRectPath(rect: rect)
+        color.setStroke()
+        outlinePath.lineWidth = 1.0
+        outlinePath.stroke()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.titleLabel?.textColor = color.withAlphaComponent(0.6)
+        color = color.withAlphaComponent(0.6)
+        setNeedsDisplay()
+        UIView.animate(withDuration: 0.25) {
+            self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.titleLabel?.textColor = color.withAlphaComponent(1.0)
+        color = color.withAlphaComponent(1.0)
+        setNeedsDisplay()
+        UIView.animate(withDuration: 0.25) {
+            self.transform = CGAffineTransform.identity
+        }
+    }
+}
+
+@IBDesignable class ThemeOutlineButton: UIButton {
 
     var color: UIColor = UIColor.themeText() {
         didSet {

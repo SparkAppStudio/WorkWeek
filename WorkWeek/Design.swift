@@ -161,7 +161,7 @@ extension NSMutableAttributedString {
     @discardableResult func bold(_ text: String, size: CGFloat) -> NSMutableAttributedString {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
-        
+
         let attrs: [NSAttributedStringKey: Any] = [.paragraphStyle: paragraph, .font: UIFont.systemFont(ofSize: size, weight: .heavy), .foregroundColor: UIColor.themeText()]
         let boldString = NSMutableAttributedString(string: text, attributes: attrs)
         append(boldString)
