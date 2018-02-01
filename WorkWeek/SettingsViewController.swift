@@ -22,18 +22,18 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
 
     @IBOutlet weak var workDaysLabel: UILabel!
     @IBOutlet weak var notificationsLabel: UILabel!
-    @IBOutlet var mainStackViewContentWidth: NSLayoutConstraint!
 
-    @IBOutlet weak var work: UIButton!
-    @IBOutlet weak var home: UIButton!
+    @IBOutlet weak var workButton: ThemeWorkButton!
+    @IBOutlet weak var homeButton: ThemeHomeButton!
+    @IBOutlet weak var doneButton: ThemeGradientButton!
 
+    @IBOutlet weak var sunday: UIButton!
     @IBOutlet weak var monday: UIButton!
     @IBOutlet weak var tuesday: UIButton!
     @IBOutlet weak var wednesday: UIButton!
     @IBOutlet weak var thursday: UIButton!
     @IBOutlet weak var friday: UIButton!
     @IBOutlet weak var saturday: UIButton!
-    @IBOutlet weak var sunday: UIButton!
 
     @IBOutlet weak var targetHoursButton: TwoLabelButton!
     @IBOutlet weak var notificationsSegment: SegmentedControlView!
@@ -43,13 +43,12 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     // MARK: View Lifecycle
 
     override func viewDidLoad() {
-        assert(user != nil, "Error! User object shoudl be provided to the VC by the coordinator")
+        assert(user != nil, "Error! User object should be provided to the VC by the coordinator")
         super.viewDidLoad()
         title = "Settings"
         setTheme(isNavBarTransparent: true)
         workDaysLabel.textColor = UIColor.themeText()
         notificationsLabel.textColor = UIColor.themeText()
-        setMainContentStackViewEqualToPhoneWidth()
 
         configureSelectedButtons(with: user.weekdays)
         configureNotificationsSegment(with: user.notificationChoice)
@@ -57,13 +56,14 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         targetHoursButton.rightTitle = "\(user.hoursInWorkDay)"
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureMapButtons(with: user)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Analytics.track(.pageView(.settingsMain))
-    }
-
-    func setMainContentStackViewEqualToPhoneWidth() {
-        mainStackViewContentWidth.constant = UIScreen.main.bounds.width - padding * 2
     }
 
     // MARK: Actions
@@ -74,12 +74,12 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         saveButtonUpdates()
     }
 
-    @IBAction func homeMapPressed(_ sender: UIButton) {
-        delegate?.didTapHomeMap(nav: navigationController!)
+    @IBAction func didTapWork(_ sender: UIButton) {
+        delegate?.didTapWorkMap(nav: navigationController!)
     }
 
-    @IBAction func workMapPressed(_ sender: UIButton) {
-        delegate?.didTapWorkMap(nav: navigationController!)
+    @IBAction func didTapHome(_ sender: UIButton) {
+        delegate?.didTapHomeMap(nav: navigationController!)
     }
 
     @IBAction func didTapSelectHours(_ sender: TwoLabelButton) {
@@ -103,7 +103,36 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         DataStore.shared.updateNotificationsChoice(for: user, with: segment.choice)
     }
 
+    func configureMapButtons(with user: User) {
+
+        if let workAddress = user.workLocation {
+            let formattedTitle = NSMutableAttributedString()
+            formattedTitle
+                .bold("Work\n", size: 14)
+                .normal(workAddress, size: 14)
+            workButton.setAttributedTitle(formattedTitle, for: .normal)
+        } else {
+            let formattedTitle = NSMutableAttributedString()
+            formattedTitle
+                .bold("Work", size: 14)
+            workButton.setAttributedTitle(formattedTitle, for: .normal)
+        }
+        if let homeAddress = user.homeLocation {
+            let formattedTitle = NSMutableAttributedString()
+            formattedTitle
+                .bold("Home\n", size: 14)
+                .normal(homeAddress, size: 14)
+            homeButton.setAttributedTitle(formattedTitle, for: .normal)
+        } else {
+            let formattedTitle = NSMutableAttributedString()
+            formattedTitle
+                .bold("Home", size: 14)
+            homeButton.setAttributedTitle(formattedTitle, for: .normal)
+        }
+    }
+
     func configureSelectedButtons(with days: User.Weekdays) {
+
         sunday.isSelected = days.contains(.sunday)
         monday.isSelected = days.contains(.monday)
         tuesday.isSelected = days.contains(.tuesday)

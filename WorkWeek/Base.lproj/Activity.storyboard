@@ -27,7 +27,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyL-p9-nkA" customClass="CountdownRingView" customModule="WorkWeek" customModuleProvider="target">
                                         <rect key="frame" x="36" y="0.0" width="303" height="330.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HH:MM:SS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFm-kW-Mhx">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HH:MM:SS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="NFm-kW-Mhx">
                                                 <rect key="frame" x="8" y="127" width="287" height="76.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="64"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.92549019610000005" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,8 +44,9 @@
                                         <constraints>
                                             <constraint firstItem="Jhy-Mk-A8s" firstAttribute="top" secondItem="NFm-kW-Mhx" secondAttribute="bottom" id="8Wf-Md-I2O"/>
                                             <constraint firstItem="NFm-kW-Mhx" firstAttribute="centerY" secondItem="yyL-p9-nkA" secondAttribute="centerY" id="LBQ-Em-DD1"/>
-                                            <constraint firstItem="NFm-kW-Mhx" firstAttribute="centerX" secondItem="yyL-p9-nkA" secondAttribute="centerX" id="LPR-Sg-BcR"/>
+                                            <constraint firstItem="NFm-kW-Mhx" firstAttribute="leading" secondItem="yyL-p9-nkA" secondAttribute="leading" constant="32" id="TRK-mM-8L8"/>
                                             <constraint firstItem="Jhy-Mk-A8s" firstAttribute="centerX" secondItem="yyL-p9-nkA" secondAttribute="centerX" id="lH1-Fp-GOv"/>
+                                            <constraint firstAttribute="trailing" secondItem="NFm-kW-Mhx" secondAttribute="trailing" constant="32" id="nEe-fV-0gm"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 work hours left in the week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xH-mL-DWh">

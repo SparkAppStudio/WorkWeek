@@ -61,11 +61,92 @@ extension UIView {
         self.clipsToBounds = true
     }
 
-    func drawSparkRect(_ rect: CGRect, color: UIColor) {
+    func drawSparkRect(_ rect: CGRect, color: UIColor) -> UIBezierPath {
         let context = UIGraphicsGetCurrentContext()!
         context.setFillColor(color.cgColor)
-        context.setSparkShadow()
-        UIBezierPath.getDefaultRoundedRectPath(rect: rect).fill()
+        // shadow handled by the button layer now
+//        context.setSparkShadow()
+        let path = UIBezierPath.getDefaultRoundedRectPath(rect: rect)
+        path.fill()
+        return path
+    }
+
+    func getSparkRect(_ rect: CGRect, color: UIColor) -> CAShapeLayer {
+        let layer = CAShapeLayer()
+        layer.fillColor = color.cgColor
+        layer.frame = rect
+        layer.setSparkShadow()
+        layer.path = UIBezierPath.getDefaultRoundedRectPath(rect: rect).cgPath
+        return layer
+    }
+
+    func drawSparkBackground(_ rect: CGRect, color: UIColor?) {
+        guard let color = color else { return }
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        let insets = UIEdgeInsets(top: -4, left: 0, bottom: 0, right: 0)
+        let backgroundRect = UIEdgeInsetsInsetRect(rect, insets)
+        UIBezierPath.getDefaultRoundedRectPath(rect: backgroundRect).fill()
+    }
+
+    func drawSparkGradientBackground(_ rect: CGRect, startColor: UIColor, endColor: UIColor, xInset: CGFloat, yInset: CGFloat, cornerRadius: CGFloat) {
+
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = UIGraphicsGetCurrentContext()!
+
+        let colors: NSArray = [startColor.cgColor, endColor.cgColor]
+
+        let startPoint = CGPoint(x: 0, y: rect.height)
+        let endPoint = CGPoint(x: rect.width, y: 0)
+
+        guard let gradient = CGGradient(colorsSpace: colorSpace,
+                                        colors: colors,
+                                        locations: [0, 1]) else { return }
+        context.saveGState()
+
+        let insets = UIEdgeInsets(top: -4, left: 0, bottom: 0, right: 0)
+        let backgroundRect = UIEdgeInsetsInsetRect(rect, insets)
+
+        let clippingPath = UIBezierPath(roundedRect: backgroundRect.insetBy(dx: xInset, dy: yInset), cornerRadius: cornerRadius)
+
+        clippingPath.addClip()
+        context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
+        context.restoreGState()
+    }
+
+    func drawSparkGradientBackground(_ rect: CGRect, startColor: UIColor, endColor: UIColor) -> UIBezierPath? {
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = UIGraphicsGetCurrentContext()!
+
+        let colors: NSArray = [startColor.cgColor, endColor.cgColor]
+
+        let startPoint = CGPoint(x: 0, y: rect.height)
+        let endPoint = CGPoint(x: rect.width, y: 0)
+
+        guard let gradient = CGGradient(colorsSpace: colorSpace,
+                                        colors: colors,
+                                        locations: [0, 1]) else { return nil }
+        context.saveGState()
+
+        let insets = UIEdgeInsets(top: -4, left: 0, bottom: 0, right: 0)
+        let backgroundRect = UIEdgeInsetsInsetRect(rect, insets)
+
+        let clippingPath = UIBezierPath.getDefaultRoundedRectPath(rect: backgroundRect)
+        clippingPath.addClip()
+        context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
+        context.restoreGState()
+        return clippingPath
+    }
+
+    func getSparkBackground(_ rect: CGRect, color: UIColor?) -> CAShapeLayer? {
+        guard let color = color else { return nil }
+        let layer = CAShapeLayer()
+        layer.fillColor = color.cgColor
+        let insets = UIEdgeInsets(top: -4, left: 0, bottom: 0, right: 0)
+        let backgroundRect = UIEdgeInsetsInsetRect(rect, insets)
+        layer.frame = backgroundRect
+        layer.path = UIBezierPath.getDefaultRoundedRectPath(rect: backgroundRect).cgPath
+        return layer
     }
 
     func drawSparkRect(_ rect: CGRect, color: UIColor, xInset: CGFloat, yInset: CGFloat, cornerRadius: CGFloat, setShadow: Bool) {
@@ -79,6 +160,30 @@ extension UIView {
     }
 }
 
+extension NSMutableAttributedString {
+    @discardableResult func bold(_ text: String, size: CGFloat) -> NSMutableAttributedString {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+
+        let attrs: [NSAttributedStringKey: Any] = [.paragraphStyle: paragraph, .font: UIFont.systemFont(ofSize: size, weight: .heavy), .foregroundColor: UIColor.themeText()]
+        let boldString = NSMutableAttributedString(string: text, attributes: attrs)
+        append(boldString)
+
+        return self
+    }
+
+    @discardableResult func normal(_ text: String, size: CGFloat) -> NSMutableAttributedString {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+
+        let attrs: [NSAttributedStringKey: Any] = [.paragraphStyle: paragraph, .font: UIFont.systemFont(ofSize: size), .foregroundColor: UIColor.themeText()]
+        let normal = NSAttributedString(string: text, attributes: attrs)
+        append(normal)
+
+        return self
+    }
+}
+
 extension UISegmentedControl {
     func styleSparksegmentedController(tint: UIColor) {
         tintColor = tint
@@ -86,9 +191,23 @@ extension UISegmentedControl {
     }
 }
 
+extension CALayer {
+    func setSparkShadow() {
+        shadowColor = UIColor.black.cgColor
+        shadowOpacity = CAShapeLayer.sparkShadowOpacity()
+        shadowOffset = CGSize(width: 0, height: 4)
+        shadowRadius = 4
+    }
+
+    static func sparkShadowOpacity() -> Float {
+        return 0.3333
+    }
+
+}
+
 extension CGContext {
     func setSparkShadow() {
-        setShadow(offset: CGSize(width: 0, height: 2), blur: 4)
+        setShadow(offset: CGSize(width: 0, height: 4), blur: 4)
     }
 
     //reset context if someone else uses it for future drawing

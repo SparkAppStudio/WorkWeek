@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Launch Screen" translatesAutoresizingMaskIntoConstraints="NO" id="qPt-0y-Uku">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Launch Screen" translatesAutoresizingMaskIntoConstraints="NO" id="qPt-0y-Uku">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clock Ring" translatesAutoresizingMaskIntoConstraints="NO" id="OKc-Vj-QIK">
@@ -256,12 +256,12 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noj-gz-43s">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noj-gz-43s" customClass="OnboardingGradientButton" customModule="WorkWeek" customModuleProvider="target">
                                 <rect key="frame" x="36" y="368" width="303" height="76"/>
-                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="750" constant="76" id="F2V-Zl-fjl"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Grant Access">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -325,12 +325,12 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WaL-nT-FHf">
                                 <rect key="frame" x="16" y="578" width="343" height="160"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4a-So-6n4">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4a-So-6n4" customClass="OnboardingGradientButton" customModule="WorkWeek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="76"/>
-                                        <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="76" id="Qqo-vY-fFL"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="Grant Access">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -338,9 +338,9 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                                             <action selector="didTapGrantNotify:" destination="cMX-Dv-x1n" eventType="touchUpInside" id="N5Q-57-7qL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWx-8v-a5k">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWx-8v-a5k" customClass="OnboardingOutlineButton" customModule="WorkWeek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="84" width="343" height="76"/>
-                                        <color key="backgroundColor" red="0.85098039219999999" green="0.25882352939999997" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="Open the App">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -406,16 +406,12 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lHb-v8-AYC">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="lHb-v8-AYC">
                                         <rect key="frame" x="0.0" y="382" width="343" height="352"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayQ-wj-H97">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="64"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiV-qC-Uhi">
-                                                <rect key="frame" x="0.0" y="72" width="343" height="64"/>
-                                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiV-qC-Uhi" customClass="OnboardingGradientButton" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="161"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                 <state key="normal" title="Set Home">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -424,13 +420,9 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                                                     <action selector="didTapHome:" destination="fh2-1T-3ta" eventType="touchUpInside" id="T6H-cL-hz6"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pqx-RH-xLz">
-                                                <rect key="frame" x="0.0" y="144" width="343" height="64"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-vE-gPf">
-                                                <rect key="frame" x="0.0" y="216" width="343" height="64"/>
-                                                <color key="backgroundColor" red="0.21176470589999999" green="0.75686274509999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-vE-gPf" customClass="OnboardingGradientButton" customModule="WorkWeek" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="191" width="343" height="161"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                 <state key="normal" title="Set Work">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -439,11 +431,10 @@ Know when your shift is ending, ensure you charge clients the right ammount, or 
                                                     <action selector="didTapWork:" destination="fh2-1T-3ta" eventType="touchUpInside" id="9UQ-sY-NWH"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRk-s3-KVj">
-                                                <rect key="frame" x="0.0" y="288" width="343" height="64"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="qFi-vE-gPf" firstAttribute="height" secondItem="yiV-qC-Uhi" secondAttribute="height" id="Bhv-qj-htv"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
