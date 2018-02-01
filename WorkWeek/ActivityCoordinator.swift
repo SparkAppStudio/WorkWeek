@@ -47,7 +47,7 @@ class ActivityCoordinator: NSObject, SettingsCoordinatorDelegate, UINavigationCo
         activityVC.headerData = CountDownHeaderData()
         activityVC.delegate = self
         let weeks = DataStore.shared.queryAllObjects(ofType: WeeklyObject.self)
-        activityVC.tableViewData = ActivityTableViewDSD(with: weeks,
+        activityVC.tableViewDSD = ActivityTableViewDSD(with: weeks,
                                                           marginProvider: activityVC,
                                                           action: showWeeklyViewController)
         #if DEBUG

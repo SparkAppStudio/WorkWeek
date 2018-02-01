@@ -44,7 +44,7 @@ final class ActivityViewController: UIViewController {
 
     weak var delegate: ActivityViewDelegate?
     var headerData: CountdownData!
-    var tableViewData: (UITableViewDataSource & UITableViewDelegate)!
+    var tableViewDSD: ActivityTableViewDSD!
 
     var timer = Timer()
 
@@ -56,8 +56,8 @@ final class ActivityViewController: UIViewController {
         setupRingView()
 
         setTheme(isNavBarTransparent: true)
-        tableView.dataSource = tableViewData
-        tableView.delegate = tableViewData
+        tableView.dataSource = tableViewDSD
+        tableView.delegate = tableViewDSD
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
 
         runTimer()
@@ -68,6 +68,12 @@ final class ActivityViewController: UIViewController {
         // To get shake gesture
         self.becomeFirstResponder()
         #endif
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableViewDSD.results = DataStore.shared.queryAllObjects(ofType: WeeklyObject.self).reversed()
+        tableView.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
