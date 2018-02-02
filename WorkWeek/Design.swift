@@ -10,6 +10,8 @@ import UIKit
 
 extension UIColor {
 
+    static let isDarkTheme = UserDefaults.standard.bool(for: .darkTheme)
+
     static func dailyGraphGreen() -> UIColor {
         return UIColor.init(displayP3Red: 54/255, green: 236/255, blue: 215/255, alpha: 1)
     }
@@ -43,15 +45,27 @@ extension UIColor {
     }
 
     static func themeBackground() -> UIColor {
-        return UIColor.darkBackground()
+        if UIColor.isDarkTheme {
+            return UIColor.darkBackground()
+        } else {
+            return UIColor.lightBackground()
+        }
     }
 
     static func themeContent() -> UIColor {
-        return UIColor.darkContent()
+        if UIColor.isDarkTheme {
+            return UIColor.darkContent()
+        } else {
+            return UIColor.lightContent()
+        }
     }
 
     static func themeText() -> UIColor {
-        return UIColor.white
+        if UIColor.isDarkTheme {
+            return UIColor.white
+        } else {
+            return UIColor.darkGrayText()
+        }
     }
 }
 
@@ -237,13 +251,21 @@ extension UIViewController {
     }
 
     func getThemeStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
+        if UIColor.isDarkTheme {
+            return UIStatusBarStyle.lightContent
+        } else {
+            return UIStatusBarStyle.default
+        }
     }
 }
 
 extension AppDelegate {
     func getThemeStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
+        if UIColor.isDarkTheme {
+            return UIStatusBarStyle.lightContent
+        } else {
+            return UIStatusBarStyle.default
+        }
     }
 }
 
@@ -274,16 +296,28 @@ extension UINavigationController {
 
 extension UIBlurEffectStyle {
     static func themed() -> UIBlurEffectStyle {
-        return .dark
+        if UIColor.isDarkTheme {
+            return .dark
+        } else {
+            return .light
+        }
     }
 }
 
 extension UIImage {
     static func getLeftThemeChevron() -> UIImage {
-        return #imageLiteral(resourceName: "left-thin-chevron")
+        if UIColor.isDarkTheme {
+            return #imageLiteral(resourceName: "left-thin-chevron")
+        } else {
+            return #imageLiteral(resourceName: "left-thin-chevron dark")
+        }
     }
 
     static func getRightThemeChevron() -> UIImage {
-        return #imageLiteral(resourceName: "right-thin-chevron")
+        if UIColor.isDarkTheme {
+            return #imageLiteral(resourceName: "right-thin-chevron")
+        } else {
+            return #imageLiteral(resourceName: "right-thin-chevron dark")
+        }
     }
 }

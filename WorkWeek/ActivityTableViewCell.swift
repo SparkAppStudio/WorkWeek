@@ -29,7 +29,7 @@ import Reusable
 
     override func draw(_ rect: CGRect) {
         drawSparkGradientBackground(rect, startColor: UIColor.homeGreen(), endColor: UIColor.workBlue(), xInset: margin, yInset: margin/2, cornerRadius: rect.getRoundedCorner())
-        drawSparkRect(rect, color: UIColor.darkContent(), xInset: margin, yInset: margin/2, cornerRadius: rect.getRoundedCorner(), setShadow: true)
+        drawSparkRect(rect, color: UIColor.themeContent(), xInset: margin, yInset: margin/2, cornerRadius: rect.getRoundedCorner(), setShadow: true)
     }
 
     func configure(_ viewModel: WeeklyGraphViewModel) {

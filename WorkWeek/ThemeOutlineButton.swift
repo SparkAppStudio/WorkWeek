@@ -58,6 +58,7 @@ import UIKit
 //    }
 
     override func draw(_ rect: CGRect) {
+        titleLabel?.textColor = color
         let outlinePath = UIBezierPath.getDefaultRoundedRectPath(rect: rect)
         color.setStroke()
         outlinePath.lineWidth = 1.0
