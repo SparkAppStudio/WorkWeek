@@ -25,6 +25,11 @@ extension UINavigationController {
     func presentDevSettingsAlertController() {
         let alert = UIAlertController(title: "DEV SETTINGS", message: nil, preferredStyle: .actionSheet)
 
+        let toggleTheme = UIAlertAction(title: "Toggle Visual Theme", style: .default) { (_) in
+            let currentTheme = UserDefaults.standard.bool(for: .darkTheme)
+            UserDefaults.standard.set(!currentTheme, for: .darkTheme)
+        }
+
         let arriveHomeAction = UIAlertAction(title: "Arrive Home", style: .default) { (_) in
             NotificationCenterManager.shared.postArriveHomeNotification()
         }
@@ -51,6 +56,7 @@ extension UINavigationController {
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 
+        alert.addAction(toggleTheme)
         alert.addAction(arriveHomeAction)
         alert.addAction(leaveHomeAction)
         alert.addAction(arriveWorkAction)

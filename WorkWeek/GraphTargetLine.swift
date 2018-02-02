@@ -23,7 +23,7 @@ class GraphTargetLine: UIView {
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()!
         context.setLineWidth(1)
-        context.setStrokeColor(UIColor.white.cgColor)
+        context.setStrokeColor(UIColor.themeText().cgColor)
         let myHeight = rect.height
         let lineHeight = myHeight * (1.0 - CGFloat(targetData.percent))
         let startPoint = CGPoint(x: 0, y: lineHeight)

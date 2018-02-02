@@ -8,6 +8,7 @@ extension UserDefaults {
     enum Key: String {
         case hasSeenOnboarding
         case overrideShowSettingsFirst
+        case darkTheme
     }
 
     func bool(for key: Key) -> Bool {

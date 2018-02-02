@@ -42,7 +42,7 @@ class WorkDayHoursPickerDataSource: NSObject, UIPickerViewDataSource, UIPickerVi
     /// Looks at the data source, and converts the corresponding to a String
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let num = pickerData[row]
-        let attributedNum = NSAttributedString(string: "\(num)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        let attributedNum = NSAttributedString(string: "\(num)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeText()])
         return attributedNum
     }
 
