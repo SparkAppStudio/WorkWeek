@@ -249,17 +249,9 @@ extension UIViewController {
         view.backgroundColor = UIColor.themeBackground()
         navigationController?.setThemeNavBar(isNavBarTransparent)
     }
-
-    func getThemeStatusBarStyle() -> UIStatusBarStyle {
-        if UIColor.isDarkTheme {
-            return UIStatusBarStyle.lightContent
-        } else {
-            return UIStatusBarStyle.default
-        }
-    }
 }
 
-extension AppDelegate {
+extension AppCoordinator {
     func getThemeStatusBarStyle() -> UIStatusBarStyle {
         if UIColor.isDarkTheme {
             return UIStatusBarStyle.lightContent
