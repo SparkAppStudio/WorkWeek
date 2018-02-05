@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -43,19 +44,19 @@
                                 <rect key="frame" x="16" y="84" width="343" height="678"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCC-7G-UAk">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="57.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="0.0"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XA7-rW-ASV">
-                                        <rect key="frame" x="0.0" y="57.333333333333343" width="343" height="503.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="603.66666666666663"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkh-Qu-5ZS">
-                                        <rect key="frame" x="0.0" y="561" width="343" height="117"/>
-                                        <string key="text">Work week is the best way to understand your work habits and lead you to develop better work life balance.
+                                        <rect key="frame" x="0.0" y="603.66666666666663" width="343" height="74.333333333333371"/>
+                                        <string key="text"> Work week is the best way to understand your work habits and lead you to develop better work life balance.
 
-Know when your shift is ending, ensure you charge clients the right ammount, or automate punching in and out the clock for hourly jobs.</string>
+Know when your shift is ending, ensure you charge clients the right amount, or automate punching in and out the clock for hourly jobs.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
