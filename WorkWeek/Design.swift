@@ -10,8 +10,6 @@ import UIKit
 
 extension UIColor {
 
-    static let isDarkTheme = UserDefaults.standard.bool(for: .darkTheme)
-
     static func dailyGraphGreen() -> UIColor {
         return UIColor.init(displayP3Red: 54/255, green: 236/255, blue: 215/255, alpha: 1)
     }
@@ -45,7 +43,7 @@ extension UIColor {
     }
 
     static func themeBackground() -> UIColor {
-        if UIColor.isDarkTheme {
+        if AppCoordinator.isDarkTheme {
             return UIColor.darkBackground()
         } else {
             return UIColor.lightBackground()
@@ -53,7 +51,7 @@ extension UIColor {
     }
 
     static func themeContent() -> UIColor {
-        if UIColor.isDarkTheme {
+        if AppCoordinator.isDarkTheme {
             return UIColor.darkContent()
         } else {
             return UIColor.lightContent()
@@ -61,7 +59,7 @@ extension UIColor {
     }
 
     static func themeText() -> UIColor {
-        if UIColor.isDarkTheme {
+        if AppCoordinator.isDarkTheme {
             return UIColor.white
         } else {
             return UIColor.darkGrayText()
@@ -249,23 +247,36 @@ extension UIViewController {
         view.backgroundColor = UIColor.themeBackground()
         navigationController?.setThemeNavBar(isNavBarTransparent)
     }
+}
 
-    func getThemeStatusBarStyle() -> UIStatusBarStyle {
-        if UIColor.isDarkTheme {
+extension AppCoordinator {
+
+    static var isDarkTheme: Bool {
+        get {
+            return UserDefaults.standard.bool(for: .darkTheme)
+        }
+        set (newValue) {
+            UserDefaults.standard.set(newValue, for: .darkTheme)
+            UIApplication.shared.delegate?.window??.setNeedsDisplay()
+            for window in UIApplication.shared.windows {
+                window.setNeedsDisplay()
+            }
+
+
+        }
+    }
+
+    static func getThemeStatusBarStyle() -> UIStatusBarStyle {
+        if AppCoordinator.isDarkTheme {
             return UIStatusBarStyle.lightContent
         } else {
             return UIStatusBarStyle.default
         }
     }
-}
 
-extension AppDelegate {
-    func getThemeStatusBarStyle() -> UIStatusBarStyle {
-        if UIColor.isDarkTheme {
-            return UIStatusBarStyle.lightContent
-        } else {
-            return UIStatusBarStyle.default
-        }
+    static func switchThemes() {
+        AppCoordinator.isDarkTheme = !AppCoordinator.isDarkTheme
+        UIApplication.shared.statusBarStyle = getThemeStatusBarStyle()
     }
 }
 
@@ -296,7 +307,7 @@ extension UINavigationController {
 
 extension UIBlurEffectStyle {
     static func themed() -> UIBlurEffectStyle {
-        if UIColor.isDarkTheme {
+        if AppCoordinator.isDarkTheme {
             return .dark
         } else {
             return .light
@@ -306,7 +317,7 @@ extension UIBlurEffectStyle {
 
 extension UIImage {
     static func getLeftThemeChevron() -> UIImage {
-        if UIColor.isDarkTheme {
+        if AppCoordinator.isDarkTheme {
             return #imageLiteral(resourceName: "left-thin-chevron")
         } else {
             return #imageLiteral(resourceName: "left-thin-chevron dark")
@@ -314,7 +325,7 @@ extension UIImage {
     }
 
     static func getRightThemeChevron() -> UIImage {
-        if UIColor.isDarkTheme {
+        if AppCoordinator.isDarkTheme {
             return #imageLiteral(resourceName: "right-thin-chevron")
         } else {
             return #imageLiteral(resourceName: "right-thin-chevron dark")

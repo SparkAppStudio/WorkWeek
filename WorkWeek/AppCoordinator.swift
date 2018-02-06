@@ -38,6 +38,8 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
     }
 
     func showOnboarding() {
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+
         let onboardingCoordinator = OnboardingCoordinator(with: navigationController,
                                                           manger: locationManager,
                                                           delegate: self)
@@ -53,6 +55,8 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
     }
 
     func showActivity(animated: Bool) {
+        UIApplication.shared.statusBarStyle = AppCoordinator.getThemeStatusBarStyle()
+
         let activityCR = ActivityCoordinator(with: navigationController, manager: locationManager)
         childCoordinators.add(activityCR)
         activityCR.start(animated: animated)

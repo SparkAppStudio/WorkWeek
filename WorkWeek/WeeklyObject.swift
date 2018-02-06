@@ -63,7 +63,15 @@ class WeeklyObject: Object {
         let userWorkDayHours = userWorkGoalInterval
         let options = [biggest, userWorkDayHours]
         let maxInterval = options.max() ?? userWorkDayHours
-        let daysPercents = daysIntervals.map { $0 / Double(maxInterval)}
+        var daysPercents = [Double]()
+        for day in daysIntervals {
+            if day > userWorkDayHours {
+                daysPercents.append(day/userWorkDayHours)
+            } else {
+                daysPercents.append(day/maxInterval)
+            }
+        }
+//        let daysPercents = daysIntervals.map {$0 / Double(maxInterval)}
         return WeekDaysWorkingPercent.create(with: daysPercents)
     }
 
@@ -73,9 +81,9 @@ class WeeklyObject: Object {
         let max = daysIntervals.max() ?? userWorkInterval
 
         if max <= userWorkInterval {
-            return 0.6
+            return GraphTargetLine.defaultLineHeightPercentage
         } else {
-            return userWorkInterval / max
+            return (userWorkInterval / max) * GraphTargetLine.defaultLineHeightPercentage
         }
     }
 

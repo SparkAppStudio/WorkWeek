@@ -23,8 +23,11 @@ class ProgressStripeView: UIView {
 
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()!
-
-        let progressHeight = CGFloat(workData.percent) * rect.height
+        var adaptedPercent = CGFloat(workData.percent * GraphTargetLine.defaultLineHeightPercentage)
+        if adaptedPercent > 1 {
+            adaptedPercent = 1
+        }
+        let progressHeight = adaptedPercent * rect.height
         let div = rect.divided(atDistance: progressHeight, from: CGRectEdge.maxYEdge)
 
         context.clip(to: div.slice)
@@ -75,8 +78,8 @@ class TouchableProgressStripeView: ProgressStripeView {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-
-        let frame = CGRect(origin: pointForLabel, size: CGSize(width: rect.width, height: heightForLabel))
+        // extra 4 for small phones so text is not truncated
+        let frame = CGRect(origin: pointForLabel, size: CGSize(width: rect.width+4, height: heightForLabel))
         let label = UILabel(frame: frame)
         label.textColor = UIColor.themeText()
         label.textAlignment = .center

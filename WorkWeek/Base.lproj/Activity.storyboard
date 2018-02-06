@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -233,11 +234,11 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="AGf-Yd-bmr" secondAttribute="bottom" constant="28" id="0fL-dR-1p4"/>
                                                 <constraint firstAttribute="trailing" secondItem="dEQ-HJ-u8K" secondAttribute="trailing" constant="36" id="5vi-8I-Gpf"/>
+                                                <constraint firstItem="dEQ-HJ-u8K" firstAttribute="top" secondItem="7om-zY-eIN" secondAttribute="top" id="67W-1J-1mG"/>
                                                 <constraint firstItem="dEQ-HJ-u8K" firstAttribute="leading" secondItem="xFB-R1-z83" secondAttribute="leading" constant="36" id="DIB-w4-RN8"/>
-                                                <constraint firstItem="dEQ-HJ-u8K" firstAttribute="top" secondItem="AGf-Yd-bmr" secondAttribute="top" id="QAC-vz-1wk"/>
+                                                <constraint firstItem="dEQ-HJ-u8K" firstAttribute="bottom" secondItem="00P-6b-1oI" secondAttribute="bottom" id="ER4-1a-QkI"/>
                                                 <constraint firstItem="AGf-Yd-bmr" firstAttribute="top" secondItem="xFB-R1-z83" secondAttribute="top" constant="28" id="SYl-Xb-Skr"/>
                                                 <constraint firstAttribute="trailing" secondItem="AGf-Yd-bmr" secondAttribute="trailing" constant="56" id="imt-yC-hQ6"/>
-                                                <constraint firstItem="dEQ-HJ-u8K" firstAttribute="bottom" secondItem="00P-6b-1oI" secondAttribute="bottom" id="nT4-7A-bkZ"/>
                                                 <constraint firstItem="AGf-Yd-bmr" firstAttribute="leading" secondItem="xFB-R1-z83" secondAttribute="leading" constant="56" id="xxm-gP-VkR"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -282,6 +283,7 @@
                         <outlet property="countdownTimeLabel" destination="NFm-kW-Mhx" id="2HG-9l-YdB"/>
                         <outlet property="countdownView" destination="yyL-p9-nkA" id="zcm-Fy-Fcw"/>
                         <outlet property="ringTrailingConstraint" destination="vTI-1d-aTi" id="2rH-Ai-MEl"/>
+                        <outlet property="settingsButton" destination="htC-Ag-fFY" id="YVL-2g-TpD"/>
                         <outlet property="tableView" destination="Iay-aC-BGs" id="3n1-lc-UYd"/>
                         <outlet property="weekCountdownTimeLabel" destination="7xH-mL-DWh" id="fnM-bB-fOB"/>
                     </connections>
