@@ -26,8 +26,7 @@ extension UINavigationController {
         let alert = UIAlertController(title: "DEV SETTINGS", message: nil, preferredStyle: .actionSheet)
 
         let toggleTheme = UIAlertAction(title: "Toggle Visual Theme", style: .default) { (_) in
-            let currentTheme = UserDefaults.standard.bool(for: .darkTheme)
-            UserDefaults.standard.set(!currentTheme, for: .darkTheme)
+            AppCoordinator.switchThemes()
         }
 
         let arriveHomeAction = UIAlertAction(title: "Arrive Home", style: .default) { (_) in

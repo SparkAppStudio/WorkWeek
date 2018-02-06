@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -282,6 +283,7 @@
                         <outlet property="countdownTimeLabel" destination="NFm-kW-Mhx" id="2HG-9l-YdB"/>
                         <outlet property="countdownView" destination="yyL-p9-nkA" id="zcm-Fy-Fcw"/>
                         <outlet property="ringTrailingConstraint" destination="vTI-1d-aTi" id="2rH-Ai-MEl"/>
+                        <outlet property="settingsButton" destination="htC-Ag-fFY" id="YVL-2g-TpD"/>
                         <outlet property="tableView" destination="Iay-aC-BGs" id="3n1-lc-UYd"/>
                         <outlet property="weekCountdownTimeLabel" destination="7xH-mL-DWh" id="fnM-bB-fOB"/>
                     </connections>

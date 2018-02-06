@@ -55,7 +55,7 @@ class AppCoordinator: OnboardingCoordinatorDelegate {
     }
 
     func showActivity(animated: Bool) {
-        UIApplication.shared.statusBarStyle = getThemeStatusBarStyle()
+        UIApplication.shared.statusBarStyle = AppCoordinator.getThemeStatusBarStyle()
 
         let activityCR = ActivityCoordinator(with: navigationController, manager: locationManager)
         childCoordinators.add(activityCR)

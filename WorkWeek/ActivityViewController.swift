@@ -35,7 +35,8 @@ final class ActivityViewController: UIViewController {
     @IBOutlet weak var weekCountdownTimeLabel: UILabel!
     @IBOutlet weak var tableView: TransparentHeaderTableView!
 
-
+    @IBOutlet weak var settingsButton: ThemeButton!
+    
     // MARK: IBActions
 
     @IBAction func didTapSettings(_ sender: UIButton) {
@@ -51,11 +52,9 @@ final class ActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         updateCountdownLabels()
         setupRingView()
 
-        setTheme(isNavBarTransparent: true)
         tableView.dataSource = tableViewDSD
         tableView.delegate = tableViewDSD
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
@@ -72,6 +71,9 @@ final class ActivityViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setTheme(isNavBarTransparent: true)
+        ringView.backgroundRingColor = UIColor.themeContent()
+        settingsButton.setNeedsDisplay()
         tableViewDSD.results = DataStore.shared.queryAllObjects(ofType: WeeklyObject.self).reversed()
         tableView.reloadData()
     }
