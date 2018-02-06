@@ -51,6 +51,7 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         title = "Settings"
         setTheme(isNavBarTransparent: true)
         darkThemeSwitch.isOn = AppCoordinator.isDarkTheme
+        darkThemeSwitch.onTintColor = UIColor.homeGreen()
         workDaysLabel.textColor = UIColor.themeText()
         notificationsLabel.textColor = UIColor.themeText()
         darkThemeLabel.textColor = UIColor.themeText()
