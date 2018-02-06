@@ -13,8 +13,9 @@ class GraphTargetLine: UIView {
     /// the percentage is 0.6 to be consistent with design
     /// When there exist a day worked more than default user work
     /// day hours, percentage equals to defaultUserWorkHour/max
+    static let defaultLineHeightPercentage: Double = 0.6
 
-    public var targetData: (percent: Double, hours: String) = (0.6, "") {
+    public var targetData: (percent: Double, hours: String) = (GraphTargetLine.defaultLineHeightPercentage, "") {
         didSet {
             setNeedsDisplay()
         }
@@ -25,7 +26,7 @@ class GraphTargetLine: UIView {
         context.setLineWidth(1)
         context.setStrokeColor(UIColor.themeText().cgColor)
         let myHeight = rect.height
-        let lineHeight = myHeight * (1.0 - CGFloat(targetData.percent))
+        let lineHeight = myHeight - myHeight * CGFloat(targetData.percent)
         let startPoint = CGPoint(x: 0, y: lineHeight)
         let endPoint = CGPoint(x: rect.width-30, y: lineHeight)
         context.move(to: startPoint)
