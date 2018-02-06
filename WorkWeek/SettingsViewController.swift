@@ -23,6 +23,8 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBOutlet weak var workDaysLabel: UILabel!
     @IBOutlet weak var notificationsLabel: UILabel!
 
+    @IBOutlet weak var darkThemeLabel: UILabel!
+    @IBOutlet weak var darkThemeSwitch: UISwitch!
     @IBOutlet weak var workButton: ThemeWorkButton!
     @IBOutlet weak var homeButton: ThemeHomeButton!
     @IBOutlet weak var doneButton: ThemeGradientButton!
@@ -48,8 +50,10 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
         super.viewDidLoad()
         title = "Settings"
         setTheme(isNavBarTransparent: true)
+        darkThemeSwitch.isOn = AppCoordinator.isDarkTheme
         workDaysLabel.textColor = UIColor.themeText()
         notificationsLabel.textColor = UIColor.themeText()
+        darkThemeLabel.textColor = UIColor.themeText()
 
         configureSelectedButtons(with: user.weekdays)
         configureNotificationsSegment(with: user.notificationChoice)
@@ -90,6 +94,11 @@ final class SettingsViewController: UIViewController, SettingsStoryboard {
     @IBAction func didTapDone(_ sender: UIButton) {
         delegate?.didTapDone()
     }
+
+    @IBAction func darkThemeDidChange(_ sender: UISwitch) {
+        AppCoordinator.switchThemes()
+    }
+
 
     // MARK: Members
     func configureNotificationsSegment(with choice: User.NotificationChoice) {
