@@ -324,6 +324,24 @@ SWIFT_CLASS_NAMED("Object")
 @end
 
 
+/// An object which describes class-wide permissions.
+/// An instance of this object is automatically created in the Realm for class in your schema,
+/// and should not be created manually.
+SWIFT_CLASS_NAMED("ClassPermission")
+@interface RealmSwiftClassPermission : RealmSwiftObject
+/// The name of the class which these permissions apply to.
+@property (nonatomic, copy) NSString * _Nonnull name;
+/// :nodoc:
++ (NSString * _Nonnull)_realmObjectName SWIFT_WARN_UNUSED_RESULT;
+/// :nodoc:
++ (NSString * _Nonnull)primaryKey SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 /// Object interface which allows untyped getters and setters for Objects.
 /// :nodoc:
 SWIFT_CLASS("_TtC10RealmSwift13DynamicObject")
@@ -340,6 +358,16 @@ SWIFT_CLASS("_TtC10RealmSwift13DynamicObject")
 - (nonnull instancetype)initWithValue:(id _Nonnull)value OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSKeyValueObservation;
+
+SWIFT_CLASS("_TtC10RealmSwift36KeyValueObservationNotificationToken")
+@interface KeyValueObservationNotificationToken : RLMNotificationToken
+@property (nonatomic, strong) NSKeyValueObservation * _Nullable observation;
+- (nonnull instancetype)init:(NSKeyValueObservation * _Nonnull)observation OBJC_DESIGNATED_INITIALIZER;
+- (void)invalidate;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 
@@ -400,6 +428,105 @@ SWIFT_CLASS_NAMED("ObjectUtil")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class RealmSwiftPermissionRole;
+
+/// A permission which can be applied to a Realm, Class, or specific Object.
+/// Permissions are applied by adding the permission to the RealmPermission singleton
+/// object, the ClassPermission object for the desired class, or to a user-defined
+/// List<Permission> property on a specific Object instance. The meaning of each of
+/// the properties of Permission depend on what the permission is applied to, and so are
+/// left undocumented here. See <code>RealmPrivileges</code>, <code>ClassPrivileges</code>, and
+/// <code>ObjectPrivileges</code> for details about what each of the properties mean when applied to
+/// that type.
+SWIFT_CLASS_NAMED("Permission")
+@interface RealmSwiftPermission : RealmSwiftObject
+/// The Role which this Permission applies to. All users within the Role are
+/// granted the permissions specified by the fields below any
+/// objects/classes/realms which use this Permission.
+/// This property cannot be modified once set.
+@property (nonatomic, strong) RealmSwiftPermissionRole * _Nullable role;
+/// Whether the user can read the object to which this Permission is attached.
+@property (nonatomic) BOOL canRead;
+/// Whether the user can modify the object to which this Permission is attached.
+@property (nonatomic) BOOL canUpdate;
+/// Whether the user can delete the object to which this Permission is attached.
+/// This field is only applicable to Permissions attached to Objects, and not
+/// to Realms or Classes.
+@property (nonatomic) BOOL canDelete;
+/// Whether the user can add or modify Permissions for the object which this
+/// Permission is attached to.
+@property (nonatomic) BOOL canSetPermissions;
+/// Whether the user can subscribe to queries for this object type.
+/// This field is only applicable to Permissions attached to Classes, and not
+/// to Realms or Objects.
+@property (nonatomic) BOOL canQuery;
+/// Whether the user can create new objects of the type this Permission is attached to.
+/// This field is only applicable to Permissions attached to Classes, and not
+/// to Realms or Objects.
+@property (nonatomic) BOOL canCreate;
+/// Whether the user can modify the schema of the Realm which this
+/// Permission is attached to.
+/// This field is only applicable to Permissions attached to Realms, and not
+/// to Realms or Objects.
+@property (nonatomic) BOOL canModifySchema;
+/// :nodoc:
++ (NSString * _Nonnull)_realmObjectName SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// A Role within the permissions system.
+/// A Role consists of a name for the role and a list of users which are members of the role.
+/// Roles are granted privileges on Realms, Classes and Objects, and in turn grant those
+/// privileges to all users which are members of the role.
+/// A role named “everyone” is automatically created in new Realms, and all new users which
+/// connect to the Realm are automatically added to it. Any other roles you wish to use are
+/// managed as normal Realm objects.
+SWIFT_CLASS_NAMED("PermissionRole")
+@interface RealmSwiftPermissionRole : RealmSwiftObject
+/// The name of the Role
+@property (nonatomic, copy) NSString * _Nonnull name;
+/// :nodoc:
++ (NSString * _Nonnull)_realmObjectName SWIFT_WARN_UNUSED_RESULT;
+/// :nodoc:
++ (NSString * _Nonnull)primaryKey SWIFT_WARN_UNUSED_RESULT;
+/// :nodoc:
++ (NSDictionary<NSString *, NSString *> * _Nonnull)_realmColumnNames SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// A representation of a sync user within the permissions system.
+/// PermissionUser objects are created automatically for each sync user which connects to
+/// a Realm, and can also be created manually if you wish to grant permissions to a user
+/// which has not yet connected to this Realm. When creating a PermissionUser manually, you
+/// must also manually add it to the “everyone” Role.
+SWIFT_CLASS_NAMED("PermissionUser")
+@interface RealmSwiftPermissionUser : RealmSwiftObject
+/// The unique Realm Object Server user ID string identifying this user. This will
+/// have the same value as <code>SyncUser.identity</code>
+@property (nonatomic, copy) NSString * _Nonnull identity;
+/// The user’s private role. This will be initialized to a role named for the user’s
+/// identity that contains this user as its only member.
+@property (nonatomic, strong) RealmSwiftPermissionRole * _Nullable role;
+/// :nodoc:
++ (NSString * _Nonnull)_realmObjectName SWIFT_WARN_UNUSED_RESULT;
+/// :nodoc:
++ (NSString * _Nonnull)primaryKey SWIFT_WARN_UNUSED_RESULT;
+/// :nodoc:
++ (NSDictionary<NSString *, NSString *> * _Nonnull)_realmColumnNames SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 
 
@@ -426,6 +553,23 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSDictionary<N
 /// Throws an Objective-C exception if more than one logged-in user exists.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RLMSyncUser * _Nullable current;)
 + (RLMSyncUser * _Nullable)current SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+/// A singleton object which describes Realm-wide permissions.
+/// An object of this type is automatically created in the Realm for you, and more objects
+/// cannot be created manually.
+/// See <code>RealmPrivileges</code> for the meaning of permissions applied to a Realm.
+SWIFT_CLASS_NAMED("RealmPermission")
+@interface RealmSwiftRealmPermission : RealmSwiftObject
+/// :nodoc:
++ (NSString * _Nonnull)_realmObjectName SWIFT_WARN_UNUSED_RESULT;
+/// :nodoc:
++ (NSString * _Nonnull)primaryKey SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 @end
 
 SWIFT_MODULE_NAMESPACE_POP

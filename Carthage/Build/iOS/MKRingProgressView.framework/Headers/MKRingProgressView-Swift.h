@@ -186,11 +186,29 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Wnullability"
 
 SWIFT_MODULE_NAMESPACE_PUSH("MKRingProgressView")
+enum MKRingProgressViewStyle : NSInteger;
 @protocol CAAction;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC18MKRingProgressView19MKRingProgressLayer")
 @interface MKRingProgressLayer : CALayer
+/// The progress ring start color.
+@property (nonatomic) CGColorRef _Nonnull startColor;
+/// The progress ring end color.
+@property (nonatomic) CGColorRef _Nonnull endColor;
+/// The color of the background ring.
+@property (nonatomic) CGColorRef _Nullable backgroundRingColor;
+/// The width of the progress ring.
+@property (nonatomic) CGFloat ringWidth;
+/// The style of the progress line end (rounded or straight).
+@property (nonatomic) enum MKRingProgressViewStyle progressStyle;
+/// The opacity of the shadow under the progress end.
+@property (nonatomic) CGFloat endShadowOpacity;
+/// Whether or not to allow anti-aliasing for the generated image.
+@property (nonatomic) BOOL allowsAntialiasing;
+/// The scale of the generated gradient image.
+/// Use lower values for better performance and higher values for more precise gradients.
+@property (nonatomic) CGFloat gradientImageScale;
 /// The current progress shown by the view.
 /// Values less than 0.0 are clamped. Values greater than 1.0 present multiple revolutions of the progress ring.
 @property (nonatomic) CGFloat progress;
@@ -215,16 +233,29 @@ SWIFT_CLASS("_TtC18MKRingProgressView18MKRingProgressView")
 @property (nonatomic, strong) UIColor * _Nullable backgroundRingColor;
 /// The width of the progress ring. Defaults to <code>20</code>.
 @property (nonatomic) CGFloat ringWidth;
+/// The style of the progress line end. Defaults to <code>round</code>.
+@property (nonatomic) enum MKRingProgressViewStyle style;
 /// The opacity of the shadow below progress line end. Defaults to <code>1.0</code>.
 /// Values outside the [0,1] range will be clamped.
 @property (nonatomic) CGFloat shadowOpacity;
 /// The Antialiasing switch. Defaults to <code>true</code>.
 @property (nonatomic) BOOL allowsAntialiasing;
+/// The scale of the generated gradient image.
+/// Use lower values for better performance and higher values for more precise gradients.
+@property (nonatomic) CGFloat gradientImageScale;
+/// The progress. Can be any nonnegative number, every whole number corresponding to one full revolution, i.e. 1.0 -> 360°, 2.0 -> 720°, etc. Defaults to <code>0.0</code>.
+/// Progress animation duration can be adjusted using <code>CATransaction.setAnimationDuration()</code>.
+@property (nonatomic) double progress;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
 + (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, MKRingProgressViewStyle, "ProgressStyle") {
+  MKRingProgressViewStyleRound = 0,
+  MKRingProgressViewStyleSquare = 1,
+};
 
 SWIFT_MODULE_NAMESPACE_POP
 #pragma clang diagnostic pop
