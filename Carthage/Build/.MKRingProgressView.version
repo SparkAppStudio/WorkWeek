@@ -1,9 +1,9 @@
 {
-  "commitish" : "1.1.4",
+  "commitish" : "1.2",
   "iOS" : [
     {
       "name" : "MKRingProgressView",
-      "hash" : "81136606f47eb56a7528b5f0b1e3e742d604039435e3d0c3046fab47e9dffe7c"
+      "hash" : "10d829ad742c36c23e4dd7d345d7f71fdc2842348eb3ddc6137a8620e82f1f58"
     }
   ]
 }
