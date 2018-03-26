@@ -27,12 +27,12 @@ class OutlineButton: UIButton {
     }
 
     lazy private var label: UILabel = {
-        let l = UILabel(frame: CGRect.zero)
-        l.frame = self.bounds
-        l.textColor = self.color
-        l.textAlignment = .center
-        l.font = UIFont.systemFont(ofSize: 24.0)
-        return l
+        let label = UILabel(frame: CGRect.zero)
+        label.frame = self.bounds
+        label.textColor = self.color
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 24.0)
+        return label
     }()
 
     override init(frame: CGRect) {

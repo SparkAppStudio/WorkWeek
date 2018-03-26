@@ -48,12 +48,12 @@ public class BlueButton: UIButton {
     }
 
     private let label: UILabel = {
-        let l = UILabel(frame: CGRect.zero)
-        l.text = "Grant Access"
-        l.textColor = .white
-        l.textAlignment = .center
-        l.font = UIFont.boldSystemFont(ofSize: 24)
-        return l
+        let label = UILabel(frame: CGRect.zero)
+        label.text = "Grant Access"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        return label
     }()
 
     public override init(frame: CGRect) {

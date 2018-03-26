@@ -99,8 +99,8 @@ class WeeklyOverviewViewController: MXSegmentedPagerController, WeeklyGraphViewD
     }
 
     override func segmentedPager(_ segmentedPager: MXSegmentedPager, didSelectViewWith index: Int) {
-        for i in 0...6 {
-            deselectDay(at: i)
+        for day in 0...6 {
+            deselectDay(at: day)
         }
         selectDay(at: index)
     }

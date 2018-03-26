@@ -93,8 +93,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func parse(_ options: [UIApplicationLaunchOptionsKey: Any]?) -> [String: Any] {
         guard let options = options else { return [:] }
         var out: [String: Any] = [:]
-        for (k, v) in options {
-            out[k.rawValue] = v
+        for (key, value) in options {
+            out[key.rawValue] = value
         }
         return out
     }

@@ -24,19 +24,19 @@ final class TwoLabelButton: ThemeWorkButton {
     }
 
     private let right: UILabel = {
-        let r = UILabel(frame: .zero)
-        r.textAlignment = .center
-        r.textColor = UIColor.themeText()
-        r.font = UIFont.boldSystemFont(ofSize: 40)
-        return r
+        let right = UILabel(frame: .zero)
+        right.textAlignment = .center
+        right.textColor = UIColor.themeText()
+        right.font = UIFont.boldSystemFont(ofSize: 40)
+        return right
     }()
 
     private let left: UILabel = {
-        let l = UILabel(frame: .zero)
-        l.textAlignment = .left
-        l.textColor = UIColor.themeText()
-        l.font = UIFont.boldSystemFont(ofSize: 18)
-        return l
+        let left = UILabel(frame: .zero)
+        left.textAlignment = .left
+        left.textColor = UIColor.themeText()
+        left.font = UIFont.boldSystemFont(ofSize: 18)
+        return left
     }()
 
     private lazy var stack: UIStackView = {
